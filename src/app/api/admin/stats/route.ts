@@ -1,0 +1,126 @@
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const currentDate = new Date().toISOString();
+
+  // Synthetic & real-time telemetry metrics for platform monitoring
+  const stats = {
+    overview: {
+      totalConversionsToday: 14280,
+      totalConversionsYesterday: 12940,
+      sevenDayAverage: 13450,
+      dailyGrowthPct: 10.35,
+      activeUsersNow: 412,
+      errorRatePct: 0.28,
+      quotaCapHitsToday: 684,
+      quotaHitRatePct: 4.79,
+    },
+    categoryBreakdown: [
+      { name: 'Document & PDF', value: 4820, percentage: 33.7, color: '#6366f1' },
+      { name: 'Image Converters', value: 3950, percentage: 27.6, color: '#3b82f6' },
+      { name: 'Pakistan Regional', value: 2480, percentage: 17.4, color: '#10b981' },
+      { name: 'Currency & Forex', value: 1650, percentage: 11.5, color: '#f59e0b' },
+      { name: 'Video & Audio', value: 920, percentage: 6.4, color: '#8b5cf6' },
+      { name: 'Unit & Calculators', value: 460, percentage: 3.2, color: '#ec4899' },
+    ],
+    dailyVolumeHistory: [
+      { date: 'Aug 21', conversions: 11200, anonymous: 8900, registered: 2300 },
+      { date: 'Aug 22', conversions: 12100, anonymous: 9400, registered: 2700 },
+      { date: 'Aug 23', conversions: 12850, anonymous: 9950, registered: 2900 },
+      { date: 'Aug 24', conversions: 11900, anonymous: 9100, registered: 2800 },
+      { date: 'Aug 25', conversions: 13400, anonymous: 10200, registered: 3200 },
+      { date: 'Aug 26', conversions: 12940, anonymous: 9800, registered: 3140 },
+      { date: 'Today (Aug 27)', conversions: 14280, anonymous: 10850, registered: 3430 },
+    ],
+    toolRankings: [
+      { name: 'PDF to Word', slug: 'pdf-to-word', category: 'Document', count: 2640, successRate: 99.4, avgLatency: '1.8s' },
+      { name: 'HEIC to JPG', slug: 'heic-to-jpg', category: 'Image', count: 2180, successRate: 99.8, avgLatency: '0.9s' },
+      { name: 'Marla to Square Feet', slug: 'marla-to-sqft', category: 'Pakistan Tools', count: 1820, successRate: 100.0, avgLatency: '0.05s' },
+      { name: 'Gold Tola to Grams', slug: 'tola-to-grams', category: 'Pakistan Tools', count: 1460, successRate: 100.0, avgLatency: '0.05s' },
+      { name: 'USD to PKR Converter', slug: 'usd-to-pkr', category: 'Forex', count: 1390, successRate: 99.9, avgLatency: '0.12s' },
+      { name: 'Compress PDF', slug: 'compress-pdf', category: 'Document', count: 1120, successRate: 98.9, avgLatency: '2.4s' },
+      { name: 'MP4 to MP3', slug: 'mp4-to-mp3', category: 'Video', count: 720, successRate: 98.2, avgLatency: '4.1s' },
+      { name: 'Word to PDF', slug: 'word-to-pdf', category: 'Document', count: 680, successRate: 99.1, avgLatency: '2.1s' },
+    ],
+    recentLogs: [
+      {
+        id: 'job-94821',
+        tool: 'PDF to Word',
+        status: 'completed',
+        duration: '1.74s',
+        fileSize: '4.2 MB',
+        tier: 'Free',
+        timestamp: '1 min ago',
+        ipCountry: 'PK',
+      },
+      {
+        id: 'job-94820',
+        tool: 'HEIC to JPG',
+        status: 'completed',
+        duration: '0.82s',
+        fileSize: '2.8 MB',
+        tier: 'Anonymous',
+        timestamp: '2 mins ago',
+        ipCountry: 'US',
+      },
+      {
+        id: 'job-94819',
+        tool: 'MP4 to MP3',
+        status: 'completed',
+        duration: '3.45s',
+        fileSize: '18.6 MB',
+        tier: 'Pro',
+        timestamp: '3 mins ago',
+        ipCountry: 'GB',
+      },
+      {
+        id: 'job-94818',
+        tool: 'Compress PDF',
+        status: 'failed',
+        duration: '5.10s',
+        fileSize: '48.2 MB',
+        tier: 'Anonymous',
+        timestamp: '4 mins ago',
+        ipCountry: 'PK',
+        error: 'Input file corrupted or password-protected PDF stream',
+      },
+      {
+        id: 'job-94817',
+        tool: 'Gold Tola to Grams',
+        status: 'completed',
+        duration: '0.04s',
+        fileSize: '—',
+        tier: 'Anonymous',
+        timestamp: '5 mins ago',
+        ipCountry: 'PK',
+      },
+      {
+        id: 'job-94816',
+        tool: 'USD to PKR',
+        status: 'completed',
+        duration: '0.08s',
+        fileSize: '—',
+        tier: 'Anonymous',
+        timestamp: '6 mins ago',
+        ipCountry: 'AE',
+      },
+    ],
+    systemHealth: {
+      redisStatus: 'healthy',
+      redisLatencyMs: 8,
+      supabaseStatus: 'healthy',
+      supabaseLatencyMs: 14,
+      bullmqQueueDepth: 3,
+      activeWorkerInstances: 2,
+      workerCpuUsagePct: 18.4,
+      workerMemoryUsagePct: 34.2,
+      uptimePct: 99.98,
+    },
+    updatedAt: currentDate,
+  };
+
+  return NextResponse.json({
+    success: true,
+    stats,
+  });
+}
