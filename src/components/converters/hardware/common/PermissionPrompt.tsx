@@ -209,15 +209,23 @@ export const PermissionPrompt: React.FC<PermissionPromptProps> = ({
             <Info className="h-4 w-4 text-cyan-400" />
             <span>How to unblock in 3 steps:</span>
           </div>
-          <ol className="mt-3 space-y-2 text-xs text-slate-300 list-decimal list-inside leading-relaxed">
-            <li>
-              Click the <strong className="text-white">Lock icon 🔒 / Site Settings</strong> on the left of your browser address bar.
-            </li>
-            <li>
-              Find <strong className="text-cyan-300">{config.name}</strong> and change the dropdown from <span className="text-rose-400 font-semibold">Block</span> to <span className="text-emerald-400 font-semibold">Allow</span>.
-            </li>
-            <li>Click the button below to re-check permissions.</li>
-          </ol>
+          {errorMessage?.includes('Operating System') ? (
+            <ol className="mt-3 space-y-2 text-xs text-slate-300 list-decimal list-inside leading-relaxed">
+              <li>Open your <strong className="text-white">Windows Settings</strong> or macOS System Preferences.</li>
+              <li>Go to <strong className="text-white">Privacy & Security {'>'} Camera</strong>.</li>
+              <li>Enable <strong className="text-emerald-400">Let desktop apps access your camera</strong> (ensure your browser is allowed) and click below.</li>
+            </ol>
+          ) : (
+            <ol className="mt-3 space-y-2 text-xs text-slate-300 list-decimal list-inside leading-relaxed">
+              <li>
+                Click the <strong className="text-white">Lock icon 🔒 / Site Settings</strong> on the left of your browser address bar.
+              </li>
+              <li>
+                Find <strong className="text-cyan-300">{config.name}</strong> and change the dropdown from <span className="text-rose-400 font-semibold">Block</span> to <span className="text-emerald-400 font-semibold">Allow</span>.
+              </li>
+              <li>Click the button below to re-check permissions.</li>
+            </ol>
+          )}
         </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">

@@ -274,6 +274,18 @@ export const WebcamTesterComponent: React.FC<WebcamTesterComponentProps> = ({
         audio: false,
       };
 
+      let permStateBefore = 'unknown';
+      try {
+        if (navigator.permissions && navigator.permissions.query) {
+          const perm = await navigator.permissions.query({ name: 'camera' as PermissionName });
+          permStateBefore = perm.state;
+        }
+      } catch (e) {
+        // Ignored
+      }
+
+      const startTime = Date.now();
+
       try {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         streamRef.current = stream;
@@ -295,10 +307,16 @@ export const WebcamTesterComponent: React.FC<WebcamTesterComponentProps> = ({
         setIsCameraActive(true);
         await refreshDevices();
       } catch (err: unknown) {
+        const elapsed = Date.now() - startTime;
         const error = err as { name?: string; message?: string };
+        
         if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
           setPermissionState('denied');
-          setErrorMessage('Camera access was blocked by your browser or system permissions.');
+          if (permStateBefore === 'prompt' && elapsed < 1000) {
+            setErrorMessage('Camera access is blocked by your Operating System (e.g., Windows Privacy Settings). No browser prompt could be shown.');
+          } else {
+            setErrorMessage('Camera access was blocked by your browser or system permissions.');
+          }
         } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
           setPermissionState('not-found');
           setErrorMessage('No camera device detected on this system.');
