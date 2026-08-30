@@ -107,7 +107,7 @@ export const Navbar: React.FC = () => {
                   className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
                   <Layers className="h-4 w-4 text-indigo-500" />
-                  <span>Categories</span>
+                  <span>All Tools</span>
                   <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", isCategoryDropdownOpen && "rotate-180")} />
                 </button>
 
@@ -115,21 +115,21 @@ export const Navbar: React.FC = () => {
                 {isCategoryDropdownOpen && (
                   <div
                     onMouseLeave={() => setIsCategoryDropdownOpen(false)}
-                    className="absolute left-0 top-full mt-1 w-80 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900"
+                    className="absolute left-0 top-full mt-1 w-[550px] rounded-2xl border border-slate-200 bg-white p-3 shadow-xl backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900"
                   >
-                    <div className="grid grid-cols-1 gap-1">
-                      {CATEGORIES.slice(0, 6).map((cat) => (
+                    <div className="grid grid-cols-2 gap-1.5">
+                      {CATEGORIES.map((cat) => (
                         <Link
                           key={cat.id}
                           href={`/convert/${cat.slug}`}
-                          className="flex items-center justify-between rounded-xl p-2 text-xs font-medium text-slate-700 transition hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/60"
+                          className="flex items-center justify-between rounded-xl p-2.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/60"
                         >
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2.5">
                             <span
-                              className="h-2 w-2 rounded-full"
+                              className="h-2.5 w-2.5 rounded-full"
                               style={{ backgroundColor: cat.color }}
                             />
-                            <span>{cat.name}</span>
+                            <span className="text-sm font-semibold">{cat.name}</span>
                           </div>
                           {cat.badge && (
                             <span className="rounded-md bg-emerald-50 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
@@ -142,54 +142,6 @@ export const Navbar: React.FC = () => {
                   </div>
                 )}
               </div>
-
-              <Link
-                href="/convert/document"
-                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
-              >
-                <FileText className="h-4 w-4 text-emerald-500" />
-                <span>PDF Tools</span>
-              </Link>
-
-              <Link
-                href="/convert/image"
-                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
-              >
-                <Image className="h-4 w-4 text-fuchsia-500" />
-                <span>Images</span>
-              </Link>
-
-              <Link
-                href="/convert/media"
-                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
-              >
-                <Film className="h-4 w-4 text-amber-500" />
-                <span>Media</span>
-              </Link>
-
-              <Link
-                href="/convert/unit"
-                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
-              >
-                <Ruler className="h-4 w-4 text-sky-500" />
-                <span>Units</span>
-              </Link>
-
-              <Link
-                href="/convert/currency"
-                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
-              >
-                <DollarSign className="h-4 w-4 text-teal-500" />
-                <span>Forex</span>
-              </Link>
-
-              <Link
-                href="/convert/developer"
-                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
-              >
-                <Code className="h-4 w-4 text-indigo-500" />
-                <span>Dev Tools</span>
-              </Link>
 
               <Link
                 href="/guides"

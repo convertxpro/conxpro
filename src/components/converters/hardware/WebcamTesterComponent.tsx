@@ -332,6 +332,16 @@ export const WebcamTesterComponent: React.FC<WebcamTesterComponentProps> = ({
     [facingMode, refreshDevices, requestedResolution, selectedDeviceId, stopStream]
   );
 
+  // Attach stream when video element mounts
+  useEffect(() => {
+    if (isCameraActive && videoRef.current && streamRef.current) {
+      if (videoRef.current.srcObject !== streamRef.current) {
+        videoRef.current.srcObject = streamRef.current;
+        videoRef.current.play().catch(() => {});
+      }
+    }
+  }, [isCameraActive]);
+
   // Live FPS Telemetry Loop
   useEffect(() => {
     if (!isCameraActive || !videoRef.current) return;

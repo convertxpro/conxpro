@@ -203,11 +203,20 @@ export const PermissionPrompt: React.FC<PermissionPromptProps> = ({
           </div>
         )}
 
+        <div className="mx-auto mt-5 max-w-lg rounded-xl border border-rose-500/40 bg-rose-500/10 p-4 text-left">
+          <div className="flex items-start gap-3">
+             <AlertTriangle className="h-5 w-5 text-rose-400 shrink-0 mt-0.5" />
+             <div className="text-sm text-rose-200 leading-relaxed">
+               <strong>Important:</strong> We cannot show the popup asking for permission because your browser automatically blocks it once denied. You <strong>must manually unblock</strong> it using your browser settings.
+             </div>
+          </div>
+        </div>
+
         {/* Step-by-Step Fix instructions */}
-        <div className="mx-auto mt-6 max-w-lg rounded-2xl border border-slate-800 bg-slate-950/60 p-4 text-left">
+        <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-slate-800 bg-slate-950/60 p-4 text-left">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400">
             <Info className="h-4 w-4 text-cyan-400" />
-            <span>How to unblock in 3 steps:</span>
+            <span>How to manually unblock in 3 steps:</span>
           </div>
           {errorMessage?.includes('Operating System') ? (
             <ol className="mt-3 space-y-2 text-xs text-slate-300 list-decimal list-inside leading-relaxed">
@@ -236,7 +245,7 @@ export const PermissionPrompt: React.FC<PermissionPromptProps> = ({
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-rose-500/25 transition hover:scale-[1.02] hover:brightness-110 active:scale-95 disabled:opacity-50"
           >
             <RefreshCw className={cn('h-4 w-4', isProcessing && 'animate-spin')} />
-            <span>{retryText}</span>
+            <span>I have unblocked it - Try Again</span>
           </button>
         </div>
       </div>
