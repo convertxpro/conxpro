@@ -302,6 +302,8 @@ export const ImageConverter: React.FC<ImageConverterProps> = ({
             width={singleDone.width}
             height={singleDone.height}
             previewUrl={filesQueue[0].previewUrl}
+            currentSlug={initialToolSlug || 'image-converter'}
+            categorySlug="image"
             onReset={handleReset}
           />
 

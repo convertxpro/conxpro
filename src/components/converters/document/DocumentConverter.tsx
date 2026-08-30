@@ -135,6 +135,8 @@ export const DocumentConverter: React.FC<DocumentConverterProps> = ({
         originalSizeBytes={conversionResult.originalSizeBytes}
         convertedSizeBytes={conversionResult.convertedSizeBytes}
         targetFormat={conversionResult.targetFormat}
+        currentSlug={initialToolSlug || 'document-converter'}
+        categorySlug="document"
         onReset={handleReset}
       />
     );

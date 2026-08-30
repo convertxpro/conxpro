@@ -23,6 +23,16 @@ export const siteConfig = {
     'land area converter',
     'weight converter',
     'data format converter',
+    'webcam test online',
+    'microphone test online',
+    'mic visualizer',
+    'speaker stereo sound test',
+    'dead pixel tester',
+    'screen refresh rate tester hz',
+    'keyboard ghosting test',
+    'mouse double click tester',
+    'gamepad controller stick drift test',
+    'video call readiness check',
   ],
   navItems: [
     { label: 'Documents', href: '/convert/document' },
@@ -31,6 +41,7 @@ export const siteConfig = {
     { label: 'Units', href: '/convert/unit' },
     { label: 'Currency', href: '/convert/currency' },
     { label: 'Developer & Data', href: '/convert/developer' },
+    { label: 'Hardware Tests', href: '/convert/hardware' },
   ],
 };
 

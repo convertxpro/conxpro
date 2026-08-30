@@ -16,6 +16,18 @@ export interface ArticleSchemaData {
   image?: string;
 }
 
+export interface DefinedTermData {
+  name: string;
+  description: string;
+  termSet?: string;
+}
+
+export interface ItemListData {
+  name: string;
+  description: string;
+  items: { name: string; url: string }[];
+}
+
 export interface JsonLdProps {
   toolName?: string;
   url: string;
@@ -32,6 +44,12 @@ export interface JsonLdProps {
     currentRate?: number;
   };
   article?: ArticleSchemaData;
+  /** Speakable CSS selectors for AEO voice assistant targeting */
+  speakableSelectors?: string[];
+  /** DefinedTerm schema for unit/format definitions (AEO) */
+  definedTerms?: DefinedTermData[];
+  /** ItemList schema for category hub pages */
+  itemList?: ItemListData;
 }
 
 export const JsonLd: React.FC<JsonLdProps> = ({
@@ -44,25 +62,39 @@ export const JsonLd: React.FC<JsonLdProps> = ({
   breadcrumbs = [],
   financialProduct,
   article,
+  speakableSelectors,
+  definedTerms = [],
+  itemList,
 }) => {
   const schemaList: Record<string, any>[] = [];
 
-  // 1. WebApplication / SoftwareApplication Schema
+  // 1. WebApplication / SoftwareApplication Schema (Enhanced)
   if (toolName) {
     schemaList.push({
       '@context': 'https://schema.org',
-      '@type': 'WebApplication',
+      '@type': 'SoftwareApplication',
       name: toolName,
       url,
       description,
       applicationCategory: category,
-      operatingSystem: 'All',
+      applicationSubCategory: category,
+      operatingSystem: 'Web Browser (Chrome, Firefox, Safari, Edge)',
       browserRequirements: 'Requires JavaScript. Requires HTML5.',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
       },
+      featureList: [
+        'Free unlimited conversions',
+        'No registration required',
+        'Bank-grade privacy with auto-purge',
+        'Works on mobile and desktop',
+        'Client-side processing for instant results',
+      ],
+      screenshot: `https://converthub.com/og?title=${encodeURIComponent(toolName)}&category=${encodeURIComponent(category)}`,
+      softwareVersion: '2.0',
       creator: {
         '@type': 'Organization',
         name: 'ConvertHub',
@@ -102,7 +134,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         name: 'ConvertHub',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://converthub.com/favicon.ico',
+          url: 'https://converthub.com/icons/icon-512x512.png',
         },
       },
       image: article.image || `https://converthub.com/og?title=${encodeURIComponent(article.headline)}&category=Guide`,
@@ -178,6 +210,57 @@ export const JsonLd: React.FC<JsonLdProps> = ({
     });
   }
 
+  // 5. Speakable Schema (AEO — Voice Assistant Targeting)
+  if (speakableSelectors && speakableSelectors.length > 0) {
+    schemaList.push({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: toolName || 'ConvertHub',
+      url,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: speakableSelectors,
+      },
+    });
+  }
+
+  // 6. DefinedTerm Schema (AEO — Unit/Format Definitions for Knowledge Graph)
+  if (definedTerms.length > 0) {
+    definedTerms.forEach((term) => {
+      schemaList.push({
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTerm',
+        name: term.name,
+        description: term.description,
+        ...(term.termSet
+          ? {
+              inDefinedTermSet: {
+                '@type': 'DefinedTermSet',
+                name: term.termSet,
+              },
+            }
+          : {}),
+      });
+    });
+  }
+
+  // 7. ItemList Schema (Category Hub Pages — Rich List Results)
+  if (itemList) {
+    schemaList.push({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: itemList.name,
+      description: itemList.description,
+      numberOfItems: itemList.items.length,
+      itemListElement: itemList.items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        url: item.url,
+      })),
+    });
+  }
+
   return (
     <>
       {schemaList.map((schema, idx) => (
@@ -190,3 +273,4 @@ export const JsonLd: React.FC<JsonLdProps> = ({
     </>
   );
 };
+

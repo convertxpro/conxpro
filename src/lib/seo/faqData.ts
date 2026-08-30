@@ -185,4 +185,197 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
       answer: 'Yes! Our visual Crontab Builder lets you configure schedules using simple dropdowns (Minute intervals, Daily times, Weekly day checkboxes, or Monthly schedules) and instantly generates the verified cron syntax.',
     },
   ],
+  'image-to-text-ocr': [
+    {
+      question: 'How does client-side WebAssembly OCR work without uploading images to a server?',
+      answer: 'ConvertHub runs the complete Tesseract OCR optical character recognition engine directly inside your browser using WebAssembly (WASM). Model weights are downloaded directly to your local device memory, guaranteeing complete document privacy.',
+    },
+    {
+      question: 'Which languages are supported for scanned document and image OCR?',
+      answer: 'Our OCR engine supports English, Urdu (اردو), Arabic (العربية), Spanish, French, German, Chinese Simplified, Hindi, Russian, and Japanese with specialized trained models.',
+    },
+    {
+      question: 'Can I extract text from multi-page scanned PDF documents?',
+      answer: 'Yes! ConvertHub renders multi-page PDF pages directly onto an in-browser canvas and processes OCR across pages, providing Plain Text, Markdown, and JSON word-level bounding box coordinates.',
+    },
+  ],
+  'remove-background': [
+    {
+      question: 'How does in-browser AI background removal isolate subjects?',
+      answer: 'ConvertHub executes an advanced deep learning segmentation neural network in WebAssembly and ONNX Web memory. It segments people, products, clothing, and cars locally without uploading photos to external cloud servers.',
+    },
+    {
+      question: 'What background replacement options are available before exporting?',
+      answer: 'You can export transparent PNGs with full alpha channel fidelity, apply solid colors (such as pure white #FFFFFF for Amazon/eBay e-commerce listings), apply adjustable background blur, or upload custom scenic backgrounds.',
+    },
+  ],
+  'diff-checker': [
+    {
+      question: 'How does the diff checker compare text and source code?',
+      answer: 'Our Monaco-grade diff engine performs character, word, and line-level diff calculations. You can view changes in Side-by-Side (Split) mode or Unified (Inline) mode with instant addition and deletion metrics.',
+    },
+    {
+      question: 'Can I export standard unified patch files (.patch)?',
+      answer: 'Yes. ConvertHub generates standard unified .patch and .diff files compatible with Git, Mercurial, and patch command-line utilities.',
+    },
+  ],
+  'curl-to-code': [
+    {
+      question: 'Which programming languages are supported by the cURL code generator?',
+      answer: 'ConvertHub converts cURL commands into idiomatic snippets for JavaScript (Fetch & Axios), TypeScript, Python (Requests & Async HTTPX), Go (net/http), Rust (Reqwest), PHP (Guzzle & cURL), Java (HttpClient 11+), Dart / Flutter, and C# (.NET).',
+    },
+    {
+      question: 'Does the parser support Bearer tokens, JSON payloads, and multipart forms?',
+      answer: 'Yes! The parser tokenizes headers (-H), request methods (-X), JSON data (-d / --data-raw), basic auth (-u), and cookies (-b) into structured native request objects.',
+    },
+  ],
+  'screen-recorder': [
+    {
+      question: 'How does the in-browser screen recorder capture video without extensions?',
+      answer: 'ConvertHub uses the native HTML5 MediaDevices and MediaRecorder APIs built into modern browsers. You can capture your entire desktop, specific application windows, browser tabs, or webcam.',
+    },
+    {
+      question: 'Can I record both microphone audio and system audio simultaneously?',
+      answer: 'Yes! ConvertHub mixes multiple audio tracks using the browser Web Audio API AudioContext and GainNode pipeline so your voice commentary and system audio are synchronized.',
+    },
+    {
+      question: 'Can I trim my recording and export to MP4, WebM, or Animated GIF?',
+      answer: 'Yes. After finishing your recording, you can set precise start and end trim points on the timeline and export in WebM, MP4, or high-framerate Animated GIF format.',
+    },
+  ],
+};
+
+export const HARDWARE_TOOL_FAQS: Record<string, FaqItem[]> = {
+  'webcam-test': [
+    {
+      question: 'Is my webcam video recorded or sent to a server?',
+      answer: 'No. ConvertHub operates 100% client-side in your browser. Video feeds never leave your device or touch any remote server.',
+    },
+    {
+      question: 'Why is my webcam resolution lower than advertised?',
+      answer: 'Web browsers negotiate resolution based on lighting, USB bandwidth, and browser permissions. Ensure you select the maximum resolution in the test dropdown.',
+    },
+    {
+      question: 'How do I test multiple webcams at the same time?',
+      answer: 'Use the device selector dropdown to switch between built-in and external USB cameras. Each camera reports its own supported resolutions, frame rates, and sensor capabilities independently.',
+    },
+    {
+      question: 'Why does my webcam appear dark or grainy?',
+      answer: 'Low-light environments force the webcam sensor to increase ISO gain, introducing noise. Try improving ambient lighting, enabling auto-exposure in your system settings, or using an external HD webcam with larger sensor pixels.',
+    },
+  ],
+  'mic-test': [
+    {
+      question: 'How does the mic echo/loopback test work?',
+      answer: 'The tool temporarily records a 5-second audio clip into local browser memory and plays it back to let you hear your real audio output, clarity, and background noise.',
+    },
+    {
+      question: 'Why does my microphone show low volume levels?',
+      answer: 'Check your OS system microphone input level (usually under Sound settings), ensure the correct mic is selected as default, and confirm that browser permissions allow microphone access. External USB mics may also have hardware gain dials.',
+    },
+    {
+      question: 'Can I test Bluetooth headset microphones in the browser?',
+      answer: 'Yes! Bluetooth headset microphones are exposed through the browser MediaDevices API just like USB and built-in mics. Select your Bluetooth device from the input dropdown to begin testing.',
+    },
+  ],
+  'speaker-test': [
+    {
+      question: 'What should I listen for during the frequency sweep?',
+      answer: 'Listen for smooth, continuous sound without rattling, distortion, buzzing, or sudden volume drop-offs across bass (20-250Hz) and treble (4kHz-20kHz).',
+    },
+    {
+      question: 'How does the left/right stereo channel test work?',
+      answer: 'The stereo test plays audio exclusively through the left channel, then the right channel, allowing you to verify both speakers are functioning and that stereo panning is correct. If sound only comes from one side, your speaker or audio jack may be damaged.',
+    },
+    {
+      question: 'Can I use the speaker test to check Bluetooth speaker quality?',
+      answer: 'Yes! Connect your Bluetooth speaker, select it as the audio output device in your OS settings, and run the frequency sweep. Note that Bluetooth codecs (SBC, AAC, aptX, LDAC) may introduce slight latency or frequency roll-off above 16kHz.',
+    },
+  ],
+  'screen-test': [
+    {
+      question: 'What is the difference between a dead pixel and a stuck pixel?',
+      answer: 'A dead pixel is permanently off (black dot on white background), while a stuck pixel has subpixels stuck on (bright red, green, or blue dot on black background).',
+    },
+    {
+      question: 'How does the screen refresh rate (Hz) detection work?',
+      answer: 'The tool uses requestAnimationFrame() timing to measure the actual render frequency of your display. It counts consecutive frames over a 1-second window and reports the real refresh rate (60Hz, 120Hz, 144Hz, 240Hz) your browser is delivering.',
+    },
+    {
+      question: 'Can I detect dead pixels on a laptop screen using this tool?',
+      answer: 'Yes! Enter fullscreen mode and cycle through solid color backgrounds (red, green, blue, white, black). Carefully scan the entire display surface for any dots that remain a different color from the background — those are dead or stuck pixels.',
+    },
+    {
+      question: 'What is contrast gradient banding and how do I test for it?',
+      answer: 'Gradient banding appears as visible steps or stripes in smooth color transitions, indicating your display has limited color depth (6-bit vs 8-bit panels). Our gradient test renders smooth transitions from black to white and across color channels to expose banding artifacts.',
+    },
+  ],
+  'keyboard-test': [
+    {
+      question: 'What is keyboard ghosting and N-Key Rollover (NKRO)?',
+      answer: 'Ghosting occurs when multiple simultaneous key presses fail to register. NKRO keyboards can register unlimited simultaneous key presses without locking up.',
+    },
+    {
+      question: 'How does the mechanical switch chatter detection work?',
+      answer: 'When you press a key, the tool records the exact timestamps of keydown and keyup events. If multiple rapid keydown events fire within 30ms from a single physical press, it indicates switch bounce or chatter — a common sign of worn mechanical switches.',
+    },
+    {
+      question: 'Can I test function keys, media keys, and special keys?',
+      answer: 'Yes! The virtual keyboard layout displays all standard keys including F1-F12 function row, media playback keys, Print Screen, Scroll Lock, Pause, Insert, Delete, Home, End, and arrow keys. Each key lights up when pressed.',
+    },
+    {
+      question: 'Why do some key combinations not register in the browser?',
+      answer: 'Certain key combinations are intercepted by the operating system before reaching the browser (e.g., Ctrl+Alt+Delete on Windows, Cmd+Q on macOS). These system-level shortcuts cannot be captured by web-based keyboard testers.',
+    },
+  ],
+  'mouse-test': [
+    {
+      question: 'How do I know if my mouse switch is failing?',
+      answer: 'If the Double-Click Fault Tester detects click intervals under 80ms during a single physical click, the microswitch spring is bouncing and likely needs replacement.',
+    },
+    {
+      question: 'How does the mouse polling rate test work?',
+      answer: 'The tool measures the frequency of mousemove events per second while you move the mouse across the test area. Standard mice report at 125Hz (8ms intervals), while gaming mice operate at 500Hz or 1000Hz (1ms intervals) for smoother cursor tracking.',
+    },
+    {
+      question: 'Can I test trackpad gestures and scroll precision?',
+      answer: 'Yes! The scroll wheel test measures scroll delta values, direction, and smoothness. Trackpad users can verify two-finger scroll precision, acceleration curves, and scroll distance per gesture.',
+    },
+  ],
+  'gamepad-test': [
+    {
+      question: 'What causes analog stick drift on controllers?',
+      answer: 'Potentiometer wear or dust buildup causes analog sticks to report non-zero coordinates when resting. Our Stick Drift Radar calculates the exact drift percentage.',
+    },
+    {
+      question: 'Which controllers are supported by the browser Gamepad API?',
+      answer: 'All standard HID-compliant controllers work including Xbox One/Series X|S, PlayStation DualShock 4 and DualSense 5, Nintendo Switch Pro Controller, and most third-party USB and Bluetooth gamepads. Connect via USB or Bluetooth and press any button to activate.',
+    },
+    {
+      question: 'How does the trigger pressure gauge work?',
+      answer: 'Analog triggers (L2/R2 on PlayStation, LT/RT on Xbox) report continuous pressure values from 0.0 (released) to 1.0 (fully pressed). The pressure gauge visualizes this range in real-time so you can verify smooth, linear trigger response without dead zones.',
+    },
+    {
+      question: 'Can I test controller vibration and rumble motors?',
+      answer: 'Yes! The rumble test uses the Gamepad Haptic Actuator API to pulse the left (heavy) and right (light) vibration motors at configurable intensities, letting you verify both motors are functional.',
+    },
+  ],
+  'call-readiness': [
+    {
+      question: 'How does the readiness test verify Zoom and Teams compatibility?',
+      answer: 'It tests camera resolution (720p+), microphone volume and noise floor, speaker audio path, and WebRTC network ping to ensure seamless conferencing performance.',
+    },
+    {
+      question: 'What does the readiness scorecard measure?',
+      answer: 'The all-in-one diagnostic produces a 0-100 readiness score combining: camera clarity (resolution, frame rate, brightness), microphone quality (volume, noise floor, echo), speaker output (audio path verification), and network latency (WebRTC ICE candidate round-trip time).',
+    },
+    {
+      question: 'Why does my camera pass but microphone fails the readiness test?',
+      answer: 'Camera and microphone permissions are granted separately in most browsers. Ensure both permissions are explicitly allowed. Also check that your headset microphone is selected as the default input device in your operating system sound settings.',
+    },
+    {
+      question: 'Can I share my readiness test results with IT support?',
+      answer: 'Yes! The scorecard generates a shareable summary with device names, test results, browser version, and network stats that you can copy to clipboard and send to your IT helpdesk or meeting organizer.',
+    },
+  ],
 };

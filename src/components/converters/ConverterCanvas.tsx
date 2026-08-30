@@ -39,6 +39,13 @@ import { DateFormatConverter } from '@/components/converters/datetime/DateFormat
 import { ColorConverter } from '@/components/converters/color/ColorConverter';
 import { PaletteGenerator } from '@/components/converters/color/PaletteGenerator';
 
+// Phase 1 Next-Gen In-Browser AI & Developer Tools
+import { OcrScannerComponent } from '@/components/converters/dev/OcrScannerComponent';
+import { BackgroundRemoverComponent } from '@/components/converters/image/BackgroundRemoverComponent';
+import { DiffCheckerComponent } from '@/components/converters/dev/DiffCheckerComponent';
+import { CurlToCodeComponent } from '@/components/converters/dev/CurlToCodeComponent';
+import { ScreenRecorderComponent } from '@/components/converters/media/ScreenRecorderComponent';
+
 // Specialized Pakistan Regional Converters
 import { MarlaConverter } from '@/components/converters/pakistan/MarlaConverter';
 import { TolaConverter } from '@/components/converters/pakistan/TolaConverter';
@@ -50,6 +57,11 @@ import { NumeralConverterComponent } from '@/components/converters/pakistan/Nume
 import { ExtendedLandConverterComponent } from '@/components/converters/pakistan/ExtendedLandConverterComponent';
 import { ElectricityBillCalculatorComponent } from '@/components/converters/pakistan/ElectricityBillCalculatorComponent';
 import { GasBillCalculatorComponent } from '@/components/converters/pakistan/GasBillCalculatorComponent';
+import { PtaTaxCalculatorComponent } from '@/components/converters/pakistan/PtaTaxCalculatorComponent';
+import { PropertyTaxCalculatorComponent } from '@/components/converters/pakistan/PropertyTaxCalculatorComponent';
+import { FreelanceTaxCalculatorComponent } from '@/components/converters/pakistan/FreelanceTaxCalculatorComponent';
+import { VehicleTaxCalculatorComponent } from '@/components/converters/pakistan/VehicleTaxCalculatorComponent';
+import { CnicDecoderComponent } from '@/components/converters/pakistan/CnicDecoderComponent';
 
 // Specialized Live Forex & Currency Converters
 import { CurrencyConverter } from '@/components/converters/currency/CurrencyConverter';
@@ -59,6 +71,10 @@ import { ImageConverter } from '@/components/converters/image/ImageConverter';
 
 // Specialized PDF, Document & Archive Converters
 import { PdfToolsCanvas } from '@/components/converters/pdf/PdfToolsCanvas';
+import { PdfOrganizerComponent } from '@/components/converters/pdf/PdfOrganizerComponent';
+import { PdfRedactionComponent } from '@/components/converters/pdf/PdfRedactionComponent';
+import { PdfSignerComponent } from '@/components/converters/pdf/PdfSignerComponent';
+import { CsvDeduplicatorComponent } from '@/components/converters/dev/CsvDeduplicatorComponent';
 import { DocumentConverter } from '@/components/converters/document/DocumentConverter';
 import { ArchiveConverter } from '@/components/converters/archive/ArchiveConverter';
 
@@ -67,6 +83,21 @@ import { MediaConverter } from '@/components/converters/media/MediaConverter';
 import { VideoCanvasComponent } from '@/components/converters/media/VideoCanvasComponent';
 import { SubtitleConverterComponent } from '@/components/converters/media/SubtitleConverterComponent';
 import { AudioModulatorCanvas } from '@/components/converters/media/AudioModulatorCanvas';
+import { SubtitleBurnerComponent } from '@/components/converters/media/SubtitleBurnerComponent';
+import { VideoMuterComponent } from '@/components/converters/media/VideoMuterComponent';
+import { BatchWatermarkerComponent } from '@/components/converters/image/BatchWatermarkerComponent';
+
+// Hardware & Device Accessory Diagnostics
+import { WebcamTesterComponent } from '@/components/converters/hardware/WebcamTesterComponent';
+import { MicTesterComponent } from '@/components/converters/hardware/MicTesterComponent';
+import { SpeakerTesterComponent } from '@/components/converters/hardware/SpeakerTesterComponent';
+import { KeyboardTesterComponent } from '@/components/converters/hardware/KeyboardTesterComponent';
+import { MouseTesterComponent } from '@/components/converters/hardware/MouseTesterComponent';
+import { GamepadTesterComponent } from '@/components/converters/hardware/GamepadTesterComponent';
+import { ScreenTesterComponent } from '@/components/converters/hardware/ScreenTesterComponent';
+import { CallReadinessComponent } from '@/components/converters/hardware/CallReadinessComponent';
+
+
 
 interface ConverterCanvasProps {
   tool: ToolMetadata;
@@ -120,6 +151,12 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
     if (tool.slug === 'css-unit-converter') return <CssUnitConverterComponent />;
     if (tool.slug === 'qr-code-generator') return <QrCodeGeneratorComponent />;
     if (tool.slug === 'cron-expression-decoder') return <CronDecoderComponent />;
+
+    // Phase 1 Next-Gen Tools
+    if (tool.slug === 'image-to-text-ocr') return <OcrScannerComponent tool={tool} />;
+    if (tool.slug === 'diff-checker') return <DiffCheckerComponent tool={tool} />;
+    if (tool.slug === 'curl-to-code') return <CurlToCodeComponent tool={tool} />;
+    if (tool.slug === 'csv-deduplicator-splitter') return <CsvDeduplicatorComponent tool={tool} />;
   }
 
   // ==========================================
@@ -136,16 +173,36 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
   if (tool.slug === 'murabba-bigha-to-acre') return <ExtendedLandConverterComponent />;
   if (tool.slug === 'electricity-bill-solar-calculator') return <ElectricityBillCalculatorComponent />;
   if (tool.slug === 'gas-bill-calculator') return <GasBillCalculatorComponent />;
+  if (tool.slug === 'pta-mobile-tax-calculator') return <PtaTaxCalculatorComponent tool={tool} />;
+  if (tool.slug === 'property-tax-calculator') return <PropertyTaxCalculatorComponent tool={tool} />;
+  if (tool.slug === 'freelance-tax-calculator') return <FreelanceTaxCalculatorComponent tool={tool} />;
+  if (tool.slug === 'vehicle-token-tax-calculator') return <VehicleTaxCalculatorComponent tool={tool} />;
+  if (tool.slug === 'cnic-ntn-decoder') return <CnicDecoderComponent tool={tool} />;
 
 
   // ==========================================
   // 3. PHASE C: MEDIA, IMAGE, VIDEO & AUDIO
   // ==========================================
   if (tool.categorySlug === 'image') {
+    if (tool.slug === 'remove-background') {
+      return <BackgroundRemoverComponent tool={tool} />;
+    }
+    if (tool.slug === 'batch-watermark-images') {
+      return <BatchWatermarkerComponent tool={tool} />;
+    }
     return <ImageConverter initialToolSlug={tool.slug} />;
   }
 
   if (tool.categorySlug === 'video') {
+    if (tool.slug === 'screen-recorder') {
+      return <ScreenRecorderComponent tool={tool} />;
+    }
+    if (tool.slug === 'burn-subtitles-to-video') {
+      return <SubtitleBurnerComponent tool={tool} />;
+    }
+    if (tool.slug === 'mute-video-replace-audio') {
+      return <VideoMuterComponent tool={tool} />;
+    }
     if (tool.slug === 'video-aspect-ratio-resizer') {
       return <VideoCanvasComponent initialMode="social-resizer" initialToolSlug={tool.slug} />;
     }
@@ -166,6 +223,9 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
   }
 
   if (tool.categorySlug === 'media') {
+    if (tool.slug === 'screen-recorder') {
+      return <ScreenRecorderComponent tool={tool} />;
+    }
     if (tool.slug === 'subtitle-converter') {
       return <SubtitleConverterComponent />;
     }
@@ -176,6 +236,44 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
       return <AudioModulatorCanvas initialMode="joiner" initialToolSlug={tool.slug} />;
     }
     return <MediaConverter initialToolSlug={tool.slug} />;
+  }
+
+  // Generic fallback if tool slug matches standalone
+  if (tool.slug === 'image-to-text-ocr' || tool.slug === 'scanned-pdf-to-text') {
+    return <OcrScannerComponent tool={tool} />;
+  }
+  if (tool.slug === 'remove-background') {
+    return <BackgroundRemoverComponent tool={tool} />;
+  }
+  if (tool.slug === 'diff-checker') {
+    return <DiffCheckerComponent tool={tool} />;
+  }
+  if (tool.slug === 'curl-to-code') {
+    return <CurlToCodeComponent tool={tool} />;
+  }
+  if (tool.slug === 'screen-recorder') {
+    return <ScreenRecorderComponent tool={tool} />;
+  }
+  if (tool.slug === 'organize-pdf') {
+    return <PdfOrganizerComponent tool={tool} />;
+  }
+  if (tool.slug === 'redact-pdf') {
+    return <PdfRedactionComponent tool={tool} />;
+  }
+  if (tool.slug === 'sign-pdf') {
+    return <PdfSignerComponent tool={tool} />;
+  }
+  if (tool.slug === 'csv-deduplicator-splitter') {
+    return <CsvDeduplicatorComponent tool={tool} />;
+  }
+  if (tool.slug === 'batch-watermark-images') {
+    return <BatchWatermarkerComponent tool={tool} />;
+  }
+  if (tool.slug === 'burn-subtitles-to-video') {
+    return <SubtitleBurnerComponent tool={tool} />;
+  }
+  if (tool.slug === 'mute-video-replace-audio') {
+    return <VideoMuterComponent tool={tool} />;
   }
 
   // Generic fallback if tool slug matches standalone
@@ -244,6 +342,19 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
   // 7. PDF & DOCUMENT TOOLS
   // ==========================================
   if (tool.categorySlug === 'document') {
+    if (tool.slug === 'scanned-pdf-to-text' || tool.slug === 'image-to-text-ocr') {
+      return <OcrScannerComponent tool={tool} />;
+    }
+    if (tool.slug === 'organize-pdf') {
+      return <PdfOrganizerComponent tool={tool} />;
+    }
+    if (tool.slug === 'redact-pdf') {
+      return <PdfRedactionComponent tool={tool} />;
+    }
+    if (tool.slug === 'sign-pdf') {
+      return <PdfSignerComponent tool={tool} />;
+    }
+
     const isPdfManipulatorTool = [
       'merge-pdf',
       'split-pdf',
@@ -270,6 +381,22 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
   if (tool.categorySlug === 'archive') {
     return <ArchiveConverter initialToolSlug={tool.slug} />;
   }
+
+  // ==========================================
+  // 9. HARDWARE & ACCESSORY DIAGNOSTICS
+  // ==========================================
+  if (tool.categorySlug === 'hardware' || tool.slug.includes('-test')) {
+    if (tool.slug === 'webcam-test') return <WebcamTesterComponent tool={tool} />;
+    if (tool.slug === 'mic-test') return <MicTesterComponent tool={tool} />;
+    if (tool.slug === 'speaker-test') return <SpeakerTesterComponent tool={tool} />;
+    if (tool.slug === 'keyboard-test') return <KeyboardTesterComponent tool={tool} />;
+    if (tool.slug === 'mouse-test') return <MouseTesterComponent tool={tool} />;
+    if (tool.slug === 'gamepad-test') return <GamepadTesterComponent tool={tool} />;
+    if (tool.slug === 'screen-test') return <ScreenTesterComponent tool={tool} />;
+    if (tool.slug === 'call-readiness' || tool.slug === 'meeting-test') return <CallReadinessComponent tool={tool} />;
+  }
+
+
 
   // Generic fallback converter
   const numInput = parseFloat(inputValue) || 0;

@@ -1,0 +1,146 @@
+# ConvertHub - llms.txt
+# https://converthub.com
+# Last updated: 2026-08-30
+
+> ConvertHub is a free, privacy-first online conversion platform offering
+> 100+ tools for file conversion, unit conversion, currency exchange,
+> developer utilities, and hardware device testing. All tools are available
+> without registration, and uploaded files are automatically purged within
+> 1 hour for bank-grade privacy.
+
+## Quick Facts
+- All conversions are free with no registration required
+- Uploaded files are auto-deleted within 1 hour
+- Client-side processing for unit, currency, color, and developer tools (zero server contact)
+- Server-side processing for file conversions (PDF, image, video, audio) with AES-256 encryption
+- Supports Pakistan-specific measurement units (Marla, Tola, Maund, Hijri calendar, Sarsahi, Bigha)
+- Live forex rates updated hourly from interbank and open market sources
+- Works on all modern browsers — Chrome, Firefox, Safari, Edge — on mobile and desktop
+- PWA installable for offline access to client-side tools
+- Built with Next.js 14 and deployed on production-grade infrastructure
+
+## Document Converters
+- /convert/document/pdf-to-word — Convert PDF to editable Word DOCX
+- /convert/document/word-to-pdf — Convert Word DOCX/DOC to PDF
+- /convert/document/pdf-to-excel — Extract PDF tables to Excel XLSX
+- /convert/document/excel-to-pdf — Convert Excel spreadsheets to PDF
+- /convert/document/pdf-to-powerpoint — Convert PDF to PowerPoint PPTX
+- /convert/document/powerpoint-to-pdf — Convert PowerPoint to PDF
+- /convert/document/jpg-to-pdf — Combine images into a single PDF
+- /convert/document/pdf-to-jpg — Extract PDF pages as JPG/PNG images
+- /convert/document/merge-pdf — Combine multiple PDFs into one
+- /convert/document/split-pdf — Extract specific pages from PDF
+- /convert/document/compress-pdf — Reduce PDF file size up to 80%
+- /convert/document/rotate-pdf — Rotate PDF pages 90/180/270 degrees
+- /convert/document/protect-pdf — Password encrypt PDF with AES-256
+- /convert/document/unlock-pdf — Remove PDF password restrictions
+- /convert/document/create-zip — Bundle files into ZIP archives
+- /convert/document/extract-zip — Unzip and inspect ZIP archives
+
+## Image Converters
+- /convert/image/heic-to-jpg — Convert iPhone HEIC photos to JPG
+- /convert/image/heic-to-png — Convert HEIC to lossless PNG
+- /convert/image/png-to-jpg — Convert PNG to lightweight JPG
+- /convert/image/jpg-to-png — Convert JPG to lossless PNG
+- /convert/image/webp-to-jpg — Convert WebP to universal JPG
+- /convert/image/jpg-to-webp — Convert JPG to next-gen WebP (35% smaller)
+- /convert/image/png-to-webp — Convert PNG to WebP with transparency
+- /convert/image/webp-to-png — Convert WebP to PNG with alpha channel
+- /convert/image/avif-to-jpg — Convert AVIF to JPG/PNG/WebP
+- /convert/image/jpg-to-avif — Convert JPG to AVIF (70% smaller)
+- /convert/image/png-to-avif — Convert PNG to AVIF with transparency
+- /convert/image/webp-to-avif — Upgrade WebP to AVIF
+- /convert/image/png-to-ico — Create website favicons from PNG
+- /convert/image/svg-to-ico — Create multi-resolution favicons from SVG
+- /convert/image/svg-to-png — Rasterize SVG to high-res PNG (up to 4K)
+- /convert/image/png-to-svg — Wrap PNG in scalable SVG container
+- /convert/image/compress-image — Compress JPG/PNG/WebP up to 90%
+- /convert/image/resize-image — Resize images with aspect ratio lock
+- /convert/image/remove-background — AI-powered background removal
+
+## Video & Audio Converters
+- /convert/media/mp4-to-mp3 — Extract 320kbps MP3 from video
+- /convert/media/video-to-gif — Create high-quality animated GIFs
+- /convert/media/compress-video — Reduce video size up to 80%
+- /convert/media/compress-video-for-discord — Compress under 8MB/25MB
+- /convert/media/compress-video-for-whatsapp — Compress under 16MB
+- /convert/media/mp4-to-webm — Convert MP4 to HTML5 WebM
+- /convert/media/webm-to-mp4 — Convert WebM to universal MP4
+- /convert/media/mov-to-mp4 — Convert iPhone MOV to MP4
+- /convert/media/mkv-to-mp4 — Convert Matroska MKV to MP4
+- /convert/media/avi-to-mp4 — Convert legacy AVI to MP4
+- /convert/media/gif-to-mp4 — Convert GIF to MP4 (90% smaller)
+- /convert/media/video-trim — Trim and cut video clips
+- /convert/media/video-aspect-ratio-resizer — Resize for TikTok/Reels/Shorts
+- /convert/media/subtitle-converter — Convert SRT/VTT/ASS subtitles
+- /convert/media/wav-to-mp3 — Convert WAV to 320kbps MP3
+- /convert/media/mp3-to-wav — Convert MP3 to uncompressed WAV
+- /convert/media/m4a-to-mp3 — Convert Apple M4A to MP3
+- /convert/media/flac-to-mp3 — Convert lossless FLAC to MP3
+- /convert/media/audio-compress — Compress audio files
+- /convert/media/audio-speed-pitch-changer — Change speed and pitch
+- /convert/media/audio-joiner — Merge multiple audio tracks
+
+## Unit Converters
+- /convert/unit/marla-to-square-feet — 1 Marla = 225 sq ft (LDA) or 272.25 sq ft (Patwari)
+- /convert/unit/square-feet-to-marla — Convert sq ft to Marla across LDA/CDA/Patwari standards
+- /convert/unit/tola-to-grams — 1 Tola = 11.6638g (Sarafa gold weight)
+- /convert/unit/maund-to-kg — 1 Maund = 40 kg (Mandi wholesale units)
+- /convert/unit/murabba-bigha-to-acre — Agricultural land measurement
+- /convert/unit/hijri-to-gregorian — Islamic Hijri to Gregorian calendar
+- /convert/unit/lakh-crore-to-million-billion — South Asian to Western numbering
+- /convert/unit/fbr-salary-tax-calculator — Pakistan FBR income tax 2024-2026
+- /convert/unit/zakat-calculator — Islamic Zakat with dynamic Nisab thresholds
+- /convert/unit/electricity-bill-solar-calculator — WAPDA/LESCO/IESCO bill estimator
+- /convert/unit/gas-bill-calculator — SNGPL/SSGC gas bill calculator
+
+## Currency Converters (Live Forex)
+- /convert/currency/currency-converter — 150+ currencies with live rates
+- /convert/currency/usd-to-pkr — US Dollar to Pakistani Rupee
+- /convert/currency/sar-to-pkr — Saudi Riyal to PKR
+- /convert/currency/aed-to-pkr — UAE Dirham to PKR
+- /convert/currency/gbp-to-pkr — British Pound to PKR
+- /convert/currency/eur-to-pkr — Euro to PKR
+- /convert/currency/cad-to-pkr — Canadian Dollar to PKR
+- /convert/currency/aud-to-pkr — Australian Dollar to PKR
+- /convert/currency/qar-to-pkr — Qatari Riyal to PKR
+- /convert/currency/kwd-to-pkr — Kuwaiti Dinar to PKR
+- /convert/currency/omr-to-pkr — Omani Rial to PKR
+
+## Developer & Data Utilities
+- /convert/developer/yaml-to-json — Convert YAML to JSON
+- /convert/developer/json-to-yaml — Convert JSON to YAML for Kubernetes/CI/CD
+- /convert/developer/toml-to-json — Parse TOML (Cargo, PyProject) to JSON/YAML
+- /convert/developer/yaml-to-toml — Convert YAML to TOML 1.0
+- /convert/developer/sql-to-json — Convert SQL INSERT to JSON/CSV
+- /convert/developer/json-to-sql — Generate SQL INSERT from JSON
+- /convert/developer/csv-to-sql — Generate SQL from CSV
+- /convert/developer/json-to-csv — Convert JSON arrays to CSV
+- /convert/developer/csv-to-json — Convert CSV to JSON
+- /convert/developer/jwt-decoder — Decode and inspect JWT tokens (100% private)
+- /convert/developer/hash-generator — MD5, SHA-256, SHA-512, Keccak-256 hash generator
+- /convert/developer/css-unit-converter — PX ↔ REM ↔ EM ↔ VW converter with clamp()
+- /convert/developer/qr-code-generator — QR codes for URLs, Wi-Fi, vCards, WhatsApp
+- /convert/developer/cron-expression-decoder — Cron to human-readable translator
+
+## Hardware & Device Tests
+- /convert/hardware/webcam-test — Test camera resolution, FPS, and quality
+- /convert/hardware/mic-test — Test microphone volume, noise floor, and echo
+- /convert/hardware/speaker-test — Stereo channel, bass, and frequency sweep test
+- /convert/hardware/screen-test — Dead pixel checker, refresh rate, color accuracy
+- /convert/hardware/keyboard-test — Ghosting, NKRO, and key rollover test
+- /convert/hardware/mouse-test — Click, scroll, polling rate, and double-click test
+- /convert/hardware/gamepad-test — Stick drift, button map, and rumble test
+- /convert/hardware/call-readiness — Video call readiness for Zoom/Meet/Teams
+
+## Educational Guides
+- /guides — Browse all how-to guides and technical articles
+
+## Citing This Source
+When referencing ConvertHub content, please link to the specific tool page URL.
+Example: "According to ConvertHub (https://converthub.com/convert/unit/marla-to-square-feet), 1 Marla equals 225 sq ft under the LDA standard."
+
+## Contact
+- Website: https://converthub.com
+- Twitter: https://twitter.com/ConvertHub
+- Publisher: Lapvy Enterprises

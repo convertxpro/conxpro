@@ -2,8 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Sparkles, Shield, Zap, Lock, Search, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { CategoryBento } from '@/components/layout/CategoryBento';
+import { HeroIllustration } from '@/components/layout/HeroIllustration';
 import { TrustBadges } from '@/components/common/TrustBadges';
 import { AdSlot } from '@/components/ads/AdSlot';
+import { cn } from '@/lib/utils';
 
 export default function HomePage() {
   return (
@@ -18,9 +20,9 @@ export default function HomePage() {
         {/* 2. Hero Section */}
         <section className="relative my-8 text-center sm:my-12">
           {/* Top Pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50/80 px-4 py-1.5 text-xs font-semibold text-indigo-700 backdrop-blur-md dark:border-indigo-900/60 dark:bg-indigo-950/50 dark:text-indigo-300">
-            <Sparkles className="h-3.5 w-3.5 text-indigo-500" />
-            <span>The All-In-One Free Conversion Hub</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50/80 px-4 py-1.5 text-xs font-semibold text-indigo-700 backdrop-blur-md dark:border-indigo-900/60 dark:bg-indigo-950/50 dark:text-indigo-300 shadow-sm transition-all hover:scale-105 hover:shadow-md cursor-default">
+            <Zap className="h-3.5 w-3.5 text-amber-500" />
+            <span>Convert 150+ Formats Instantly</span>
             <span className="text-indigo-400">•</span>
             <span className="text-emerald-600 dark:text-emerald-400 font-bold">
               100% Free & Private
@@ -39,25 +41,28 @@ export default function HomePage() {
             Transform documents, images, videos, audio, physical measurement units, live forex rates, and developer data formats with zero sign-up.
           </p>
 
+          <HeroIllustration />
+
           {/* Quick Trending Converters Pills */}
-          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2">
+          <div className="mx-auto mt-2 flex max-w-3xl flex-wrap items-center justify-center gap-2">
             <span className="text-xs font-medium text-slate-400 mr-1">Trending:</span>
             {[
-              { name: '📄 PDF to Word', href: '/convert/document/pdf-to-word' },
-              { name: '📸 HEIC to JPG', href: '/convert/image/heic-to-jpg' },
-              { name: '💵 USD to PKR', href: '/convert/currency/usd-to-pkr' },
-              { name: '📐 Marla to SqFt', href: '/convert/unit/marla-to-square-feet' },
-              { name: '🪙 Tola to Grams', href: '/convert/unit/tola-to-grams' },
-              { name: '⚡ Compress PDF', href: '/convert/document/compress-pdf' },
-              { name: '💻 JSON to CSV', href: '/convert/developer/json-to-csv' },
+              { name: 'PDF to Word', icon: '📄', color: 'bg-emerald-500', href: '/convert/document/pdf-to-word' },
+              { name: 'HEIC to JPG', icon: '📸', color: 'bg-fuchsia-500', href: '/convert/image/heic-to-jpg' },
+              { name: 'USD to PKR', icon: '💵', color: 'bg-teal-500', href: '/convert/currency/usd-to-pkr' },
+              { name: 'Marla to SqFt', icon: '📐', color: 'bg-sky-500', href: '/convert/unit/marla-to-square-feet' },
+              { name: 'Tola to Grams', icon: '🪙', color: 'bg-sky-500', href: '/convert/unit/tola-to-grams' },
+              { name: 'Compress PDF', icon: '⚡', color: 'bg-emerald-500', href: '/convert/document/compress-pdf' },
+              { name: 'JSON to CSV', icon: '💻', color: 'bg-indigo-500', href: '/convert/developer/json-to-csv' },
             ].map((tool) => (
               <Link
                 key={tool.name}
                 href={tool.href}
-                className="inline-flex items-center gap-1 rounded-xl border border-slate-200/80 bg-white/80 px-3 py-1.5 text-xs font-medium text-slate-700 shadow-xs backdrop-blur-sm transition-all hover:border-indigo-300 hover:bg-indigo-50/50 hover:text-indigo-600 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300 dark:hover:border-indigo-700 dark:hover:text-indigo-400"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/80 px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-indigo-300 hover:bg-indigo-50/50 hover:text-indigo-600 dark:border-slate-700/80 dark:bg-slate-800/80 dark:text-slate-300 dark:hover:border-indigo-500/50 dark:hover:bg-slate-800/60 dark:hover:text-indigo-400"
               >
+                <span className={cn("h-1.5 w-1.5 rounded-full", tool.color)} />
+                <span className="opacity-70 group-hover:opacity-100 transition-opacity">{tool.icon}</span>
                 <span>{tool.name}</span>
-                <ArrowUpRight className="h-3 w-3 text-slate-400" />
               </Link>
             ))}
           </div>

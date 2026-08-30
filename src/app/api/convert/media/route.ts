@@ -80,6 +80,15 @@ export async function POST(request: NextRequest) {
       if (formData.has('fps')) options.fps = parseInt(formData.get('fps') as string, 10);
       if (formData.has('startTime')) options.startTime = formData.get('startTime') as string;
       if (formData.has('duration')) options.duration = formData.get('duration') as string;
+      if (formData.has('muteOnly')) options.muteOnly = formData.get('muteOnly') === 'true';
+      if (formData.has('subtitleContent')) options.subtitleContent = formData.get('subtitleContent') as string;
+      if (formData.has('fontName')) options.fontName = formData.get('fontName') as string;
+      if (formData.has('fontSize')) options.fontSize = parseInt(formData.get('fontSize') as string, 10);
+      if (formData.has('primaryColorHex')) options.primaryColorHex = formData.get('primaryColorHex') as string;
+      if (formData.has('outlineColorHex')) options.outlineColorHex = formData.get('outlineColorHex') as string;
+      if (formData.has('outlineThickness')) options.outlineThickness = parseInt(formData.get('outlineThickness') as string, 10);
+      if (formData.has('alignment')) options.alignment = parseInt(formData.get('alignment') as string, 10);
+      if (formData.has('marginV')) options.marginV = parseInt(formData.get('marginV') as string, 10);
     }
 
     // 5. Generate unique IDs and target filenames
@@ -87,6 +96,30 @@ export async function POST(request: NextRequest) {
     const downloadToken = uuidv4();
     const parsedOriginal = path.parse(validatedFile.cleanFilename);
     const targetFilename = `${parsedOriginal.name}.${targetFormat}`;
+
+    // Handle secondary subtitle file upload if present
+    const subFile = formData.get('subtitleFile') as File | null;
+    if (subFile && typeof subFile === 'object' && 'arrayBuffer' in subFile && subFile.size > 0) {
+      const subBuffer = Buffer.from(await subFile.arrayBuffer());
+      const { filePath: subSavedPath } = await TempStorageManager.saveUpload(
+        subBuffer,
+        subFile.name || 'subtitles.srt',
+        `${jobId}-sub`
+      );
+      options.subtitlePath = subSavedPath;
+    }
+
+    // Handle secondary audio replacement file upload if present
+    const audioFile = formData.get('audioFile') as File | null;
+    if (audioFile && typeof audioFile === 'object' && 'arrayBuffer' in audioFile && audioFile.size > 0) {
+      const audioBuffer = Buffer.from(await audioFile.arrayBuffer());
+      const { filePath: audioSavedPath } = await TempStorageManager.saveUpload(
+        audioBuffer,
+        audioFile.name || 'audio.mp3',
+        `${jobId}-audio`
+      );
+      options.newAudioPath = audioSavedPath;
+    }
 
     // 6. Save upload to disk
     const { filePath: inputPath } = await TempStorageManager.saveUpload(

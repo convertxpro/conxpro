@@ -31,7 +31,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, className }) 
         return (
           <div
             key={`faq-${index}`}
-            className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white/70 shadow-sm backdrop-blur-sm transition-all dark:border-slate-800/80 dark:bg-slate-900/40"
+            className="overflow-hidden rounded-3xl border border-slate-200/50 bg-white/60 shadow-lg backdrop-blur-xl transition-all duration-300 dark:border-slate-700/50 dark:bg-slate-900/50 hover:shadow-xl hover:-translate-y-0.5"
           >
             <button
               type="button"

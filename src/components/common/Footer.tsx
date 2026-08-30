@@ -6,17 +6,19 @@ import { Shield, Zap, Lock, Globe, Heart } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-[#060911]">
+    <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-[#090d16]">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand Column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 to-emerald-500 text-white font-black text-xs">
-                CX
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 via-purple-600 to-emerald-500 p-[1px] shadow-sm">
+                <div className="flex h-full w-full items-center justify-center rounded-[7px] bg-slate-950 text-white font-black text-xs">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
+                </div>
               </div>
               <span className="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">
-                Convert<span className="text-indigo-600 dark:text-indigo-400">Hub</span>
+                Convert<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-400">Hub</span>
               </span>
             </Link>
 

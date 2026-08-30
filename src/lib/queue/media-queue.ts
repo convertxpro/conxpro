@@ -31,6 +31,18 @@ export interface MediaJobOptions {
   pitchSemitones?: number;
   crossfadeDurationSec?: number;
   inputPaths?: string[];
+  // Phase 4: Subtitle burn-in & audio replacement
+  subtitlePath?: string;
+  subtitleContent?: string;
+  fontName?: string;
+  fontSize?: number;
+  primaryColorHex?: string;
+  outlineColorHex?: string;
+  outlineThickness?: number;
+  marginV?: number;
+  alignment?: number;
+  newAudioPath?: string;
+  muteOnly?: boolean;
 }
 
 export type MediaToolType =
@@ -45,6 +57,10 @@ export type MediaToolType =
   | 'social-resize'
   | 'video-trim'
   | 'video-resize'
+  | 'burn-subtitles-to-video'
+  | 'mute-video-replace-audio'
+  | 'video-mute'
+  | 'video-replace-audio'
   | 'audio-convert'
   | 'audio-compress'
   | 'audio-trim'

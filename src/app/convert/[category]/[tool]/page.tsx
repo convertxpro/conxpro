@@ -5,7 +5,7 @@ import { ALL_TOOLS, getToolBySlug } from '@/config/categories';
 import { generateToolMetadata } from '@/lib/seo/metadata';
 import { ToolLayout } from '@/components/layout/ToolLayout';
 import { ConverterCanvas } from '@/components/converters/ConverterCanvas';
-import { DEVELOPER_TOOL_FAQS } from '@/lib/seo/faqData';
+import { DEVELOPER_TOOL_FAQS, HARDWARE_TOOL_FAQS } from '@/lib/seo/faqData';
 
 interface ToolPageProps {
   params: {
@@ -399,6 +399,38 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     seoTitle = 'Multi-Track Audio Joiner & Merger with Crossfade Transitions | ConvertHub';
     seoDescription = 'Combine and crossfade multiple MP3, WAV, M4A, FLAC audio files into a single seamless audio track online.';
     keywords.push('audio joiner', 'merge audio files', 'combine mp3 online', 'audio merger with crossfade');
+  } else if (tool.slug === 'webcam-test') {
+    seoTitle = 'Free Online Webcam Test — Check Camera Resolution, FPS & Quality | ConvertHub';
+    seoDescription = 'Test your webcam resolution (720p, 1080p, 4K), frame rate, brightness, and device info 100% in your browser. No software install, no video recording, complete privacy.';
+    keywords.push('webcam test', 'test camera online', 'webcam resolution test', 'check webcam quality', 'online camera test free', 'webcam fps test');
+  } else if (tool.slug === 'mic-test') {
+    seoTitle = 'Free Online Microphone Test — Check Mic Volume, Echo & Quality | ConvertHub';
+    seoDescription = 'Test your microphone volume level, noise floor, echo loopback, and input device info in your browser. 100% private — no audio is recorded or uploaded.';
+    keywords.push('mic test', 'test microphone online', 'microphone volume test', 'mic echo test', 'check mic quality', 'online mic test free');
+  } else if (tool.slug === 'speaker-test') {
+    seoTitle = 'Free Online Speaker Test — Stereo, Bass & Frequency Sweep | ConvertHub';
+    seoDescription = 'Test speakers and headphones with left/right stereo channel verification, bass response, and full 20Hz–20kHz frequency sweep. 100% browser-based.';
+    keywords.push('speaker test', 'test speakers online', 'stereo test', 'bass test', 'frequency sweep speaker', 'left right speaker test');
+  } else if (tool.slug === 'screen-test') {
+    seoTitle = 'Free Screen Test — Dead Pixel Checker, Refresh Rate & Color Test | ConvertHub';
+    seoDescription = 'Detect dead and stuck pixels, measure actual screen refresh rate (Hz), and test color accuracy with fullscreen gradient and solid color patterns.';
+    keywords.push('screen test', 'dead pixel test', 'stuck pixel checker', 'screen refresh rate test', 'monitor test online', 'display color test');
+  } else if (tool.slug === 'keyboard-test') {
+    seoTitle = 'Free Online Keyboard Tester — Ghosting, NKRO & Key Rollover Test | ConvertHub';
+    seoDescription = 'Interactive visual keyboard tester with anti-ghosting N-Key Rollover benchmark, mechanical switch chatter detection, and full key map verification.';
+    keywords.push('keyboard test', 'test keyboard online', 'keyboard ghosting test', 'nkro test', 'key rollover test', 'mechanical keyboard tester');
+  } else if (tool.slug === 'mouse-test') {
+    seoTitle = 'Free Online Mouse Tester — Click, Scroll, Polling Rate & Double-Click Test | ConvertHub';
+    seoDescription = 'Test mouse buttons, scroll wheel speed, polling rate, and detect double-click microswitch faults. Works with USB, wireless, and Bluetooth mice.';
+    keywords.push('mouse test', 'test mouse online', 'mouse click test', 'polling rate test', 'double click test', 'mouse scroll test');
+  } else if (tool.slug === 'gamepad-test') {
+    seoTitle = 'Free Online Gamepad & Controller Tester — Stick Drift, Buttons & Rumble | ConvertHub';
+    seoDescription = 'Calibrate Xbox, PlayStation, and Switch controllers with live analog stick drift radar, trigger pressure gauges, button map, and vibration motor test.';
+    keywords.push('gamepad test', 'controller test online', 'stick drift test', 'xbox controller test', 'ps5 controller test', 'gamepad drift checker');
+  } else if (tool.slug === 'call-readiness' || tool.slug === 'meeting-test') {
+    seoTitle = 'Video Call Readiness Test — Zoom, Google Meet & Teams Compatibility Check | ConvertHub';
+    seoDescription = 'All-in-one 10-second diagnostic testing camera, microphone, speaker, and WebRTC network ping for Zoom, Google Meet, Microsoft Teams, and Webex readiness.';
+    keywords.push('video call test', 'zoom readiness test', 'google meet test', 'teams camera test', 'meeting readiness checker', 'webrtc test');
   }
 
   return generateToolMetadata({
@@ -438,6 +470,7 @@ export default function ToolPage({ params }: ToolPageProps) {
   }
 
   const isDeveloperTool = tool.categorySlug === 'developer';
+  const isHardwareTool = tool.categorySlug === 'hardware';
 
   // 1. How To Steps
   let howToSteps = [
@@ -446,11 +479,15 @@ export default function ToolPage({ params }: ToolPageProps) {
         ? 'Upload Your File'
         : isDeveloperTool
         ? 'Paste or Upload Source Data'
+        : isHardwareTool
+        ? 'Grant Browser Permissions'
         : 'Enter Input Value',
       description: isDocumentOrImage
         ? 'Drag and drop your file into the secure dropzone above or click Browse to select from your device.'
         : isDeveloperTool
         ? `Paste your ${tool.name.replace(' Converter', '').replace(' Generator', '')} code directly into the left editor pane or click Upload to select a file.`
+        : isHardwareTool
+        ? 'Click "Start Test" and allow browser access to your camera, microphone, or peripherals when prompted. All data stays 100% local in your browser.'
         : isCurrency
         ? `Type the ${fromCurr} amount you want to convert to ${toCurr}.`
         : 'Type the numerical amount you want to convert into the input field.',
@@ -458,12 +495,16 @@ export default function ToolPage({ params }: ToolPageProps) {
         ? 'Files up to 25MB are completely free.'
         : isDeveloperTool
         ? '100% client-side execution in your browser memory. Zero server uploads.'
+        : isHardwareTool
+        ? 'No data is recorded, uploaded, or stored. Zero server contact.'
         : 'Supports standard decimal notation.',
     },
     {
-      title: isDeveloperTool ? 'Configure Syntax & Dialect Options' : 'Choose Conversion Parameters',
+      title: isDeveloperTool ? 'Configure Syntax & Dialect Options' : isHardwareTool ? 'Run Interactive Diagnostics' : 'Choose Conversion Parameters',
       description: isDeveloperTool
         ? 'Adjust indentation (2 or 4 spaces), toggle alphabetical key sorting, set SQL table name and dialect quotes, or pick a built-in template.'
+        : isHardwareTool
+        ? 'The tool runs real-time diagnostics on your hardware, measuring resolution, frame rate, volume levels, latency, drift, and other device-specific metrics.'
         : isPakistanRealEstate
         ? 'Select your regional standard: Urban DHA/LDA (225 sq ft), Official Patwari (272.25 sq ft), or CDA Islamabad (250 sq ft).'
         : isPakistanGold
@@ -477,11 +518,13 @@ export default function ToolPage({ params }: ToolPageProps) {
         : 'Adjust target quality, output format, or unit settings as needed.',
     },
     {
-      title: isDeveloperTool ? 'Instant Result & Copy / Download' : 'Get Instant Output & Share',
+      title: isDeveloperTool ? 'Instant Result & Copy / Download' : isHardwareTool ? 'Review Results & Share Report' : 'Get Instant Output & Share',
       description: isDocumentOrImage
         ? 'Click download to save your converted file. All files are automatically deleted after 1 hour.'
         : isDeveloperTool
         ? 'View formatted output in real time with line numbers and syntax highlighting. Click Copy or Download to save.'
+        : isHardwareTool
+        ? 'View your live diagnostic scorecard with pass/fail indicators. Copy results to share with IT support or embed this test on your own website.'
         : isCurrency
         ? `View the real-time ${toCurr} calculated total, compare multi-currency rates, inspect 30-day historical trends, or copy/share via WhatsApp.`
         : 'View your real-time calculated result, copy to clipboard, or share directly via WhatsApp.',
@@ -627,6 +670,12 @@ export default function ToolPage({ params }: ToolPageProps) {
         example: 'Multi-threaded native transcode pipeline with dynamic buffer sizing and timestamp alignment.',
       };
     }
+  } else if (isHardwareTool) {
+    formulaData = {
+      title: `${tool.name} Browser Diagnostic API & Technical Specification`,
+      expression: 'MediaDevices API: navigator.mediaDevices.getUserMedia({ video: { width, height, frameRate }, audio: true })\nRefresh Rate: requestAnimationFrame() frame count per 1-second window\nGamepad API: navigator.getGamepads() polling axis/button state at 16.67ms intervals',
+      example: 'Webcam: 1920×1080 @ 30fps via getUserMedia constraint negotiation. Screen: 144Hz detected via 144 RAF callbacks per 1000ms window.',
+    };
   }
 
   // 3. Conversion Table
@@ -643,7 +692,23 @@ export default function ToolPage({ params }: ToolPageProps) {
     ],
   };
 
-  if (tool.slug === 'yaml-to-json' || tool.slug === 'json-to-yaml' || tool.slug === 'toml-to-json' || tool.slug === 'yaml-to-toml') {
+  if (isHardwareTool) {
+    conversionTableData = {
+      title: 'Hardware Diagnostic Test Capabilities & Browser API Reference',
+      headers: ['Diagnostic Tool', 'Browser API Used', 'Key Metrics Measured'] as [string, string, string],
+      rows: [
+        { fromValue: 'Webcam Tester', toValue: 'MediaDevices.getUserMedia (video)', extraInfo: 'Resolution (720p/1080p/4K), FPS, device label, codec support' },
+        { fromValue: 'Microphone Tester', toValue: 'MediaDevices.getUserMedia (audio)', extraInfo: 'Volume level (dB), noise floor, echo loopback, sample rate' },
+        { fromValue: 'Speaker Tester', toValue: 'Web Audio API (AudioContext, OscillatorNode)', extraInfo: 'L/R stereo channels, frequency sweep (20Hz–20kHz), bass response' },
+        { fromValue: 'Screen Display Tester', toValue: 'requestAnimationFrame, Fullscreen API', extraInfo: 'Refresh rate (Hz), dead/stuck pixels, contrast gradient banding' },
+        { fromValue: 'Keyboard Tester', toValue: 'KeyboardEvent (keydown/keyup)', extraInfo: 'Key map verification, N-Key Rollover, ghosting, switch chatter' },
+        { fromValue: 'Mouse Tester', toValue: 'MouseEvent, WheelEvent', extraInfo: 'Click buttons, scroll delta, polling rate, double-click fault' },
+        { fromValue: 'Gamepad Tester', toValue: 'Gamepad API (navigator.getGamepads)', extraInfo: 'Stick drift %, trigger pressure, button map, rumble motors' },
+        { fromValue: 'Call Readiness', toValue: 'MediaDevices + RTCPeerConnection', extraInfo: 'Camera/mic/speaker pass/fail, WebRTC latency, readiness score' },
+      ],
+      caption: 'All diagnostics execute 100% client-side in your browser using standard Web Platform APIs. Zero data is uploaded or recorded.',
+    };
+  } else if (tool.slug === 'yaml-to-json' || tool.slug === 'json-to-yaml' || tool.slug === 'toml-to-json' || tool.slug === 'yaml-to-toml') {
     conversionTableData = {
       title: 'Structured Data Types Mapping Matrix',
       headers: ['Data Type / Construct', 'JSON Representation', 'YAML / TOML Representation'] as [string, string, string],
@@ -1171,6 +1236,25 @@ export default function ToolPage({ params }: ToolPageProps) {
       {
         question: 'Can I use this tool offline without an internet connection?',
         answer: 'Yes! Once the webpage is loaded, all client-side conversion logic, parsers, and cryptographic hash functions work completely offline in airplane mode.',
+      },
+    ];
+  } else if (isHardwareTool) {
+    faqs = HARDWARE_TOOL_FAQS[tool.slug] || [
+      {
+        question: `How does the ${tool.name} work in a web browser?`,
+        answer: `ConvertHub uses standard Web Platform APIs (MediaDevices, Web Audio, Gamepad, KeyboardEvent, requestAnimationFrame) to run all diagnostics 100% client-side in your browser. No data is recorded, uploaded, or sent to any server.`,
+      },
+      {
+        question: 'Do I need to install any software or browser extensions?',
+        answer: 'No! All hardware diagnostic tests run natively in modern browsers (Chrome, Edge, Firefox, Safari) using built-in Web APIs. No downloads, plugins, or extensions are required.',
+      },
+      {
+        question: 'Is my camera/microphone data private and secure?',
+        answer: 'Absolutely. All video, audio, and sensor data stays entirely within your local browser memory. ConvertHub never records, transmits, or stores any hardware diagnostic data on remote servers.',
+      },
+      {
+        question: 'Can I embed this hardware test on my own website?',
+        answer: 'Yes! Click the "Embed This Tool" button to get a ready-to-use iframe snippet. Perfect for IT helpdesks, HR interview platforms, and educational portals.',
       },
     ];
   } else if (tool.slug === 'fbr-salary-tax-calculator') {

@@ -11,6 +11,7 @@ import {
   Clock,
   Sparkles,
 } from 'lucide-react';
+import { NextActionRecommendations } from '@/components/conversion/NextActionRecommendations';
 
 export interface DownloadScreenProps {
   downloadUrl: string;
@@ -22,6 +23,8 @@ export interface DownloadScreenProps {
   width?: number;
   height?: number;
   previewUrl?: string | null;
+  currentSlug?: string;
+  categorySlug?: string;
   onReset: () => void;
 }
 
@@ -35,6 +38,8 @@ export const DownloadScreen: React.FC<DownloadScreenProps> = ({
   width,
   height,
   previewUrl,
+  currentSlug,
+  categorySlug,
   onReset,
 }) => {
   const savedBytes = Math.max(0, originalSizeBytes - convertedSizeBytes);
@@ -135,7 +140,10 @@ export const DownloadScreen: React.FC<DownloadScreenProps> = ({
         </div>
       </div>
 
-      {/* 2. Download Page Header Ad Unit */}
+      {/* 2. Contextual Next Action Recommendations */}
+      <NextActionRecommendations currentSlug={currentSlug} categorySlug={categorySlug} />
+
+      {/* 3. Download Page Header Ad Unit */}
       <div className="rounded-2xl border border-slate-200/60 bg-slate-50/50 p-4 dark:border-slate-800/60 dark:bg-slate-900/30">
         <p className="mb-2 text-center text-[10px] font-bold uppercase tracking-wider text-slate-400">
           Advertisement

@@ -1,0 +1,82 @@
+{
+  "name": "ConvertHub — All-in-One Fast Converter",
+  "short_name": "ConvertHub",
+  "description": "Fast, free, privacy-first file, unit, data, currency, and Pakistani tax converters.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "orientation": "any",
+  "scope": "/",
+  "categories": ["utilities", "productivity", "finance", "business"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "PDF Tools",
+      "short_name": "PDF Tools",
+      "description": "Merge, compress, sign, and organize PDF documents",
+      "url": "/convert/document/merge-pdf",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "FBR Tax Calculator",
+      "short_name": "Tax Calculator",
+      "description": "Calculate latest 2024-2025 Pakistan income tax",
+      "url": "/convert/pakistan/fbr-salary-tax-calculator",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Unit Converter",
+      "short_name": "Units",
+      "description": "Convert length, weight, area, temperature, and storage",
+      "url": "/convert/unit/length-converter",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Developer Suite",
+      "short_name": "Dev Tools",
+      "description": "JSON formatter, diff checker, base64, hash generator",
+      "url": "/convert/developer/json-formatter",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Live Currency Rates",
+      "short_name": "Forex",
+      "description": "Live USD, SAR, AED, GBP to PKR conversion rates",
+      "url": "/convert/currency/usd-to-pkr",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

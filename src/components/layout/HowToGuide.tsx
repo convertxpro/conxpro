@@ -19,7 +19,7 @@ export const HowToGuide: React.FC<HowToGuideProps> = ({ steps, className }) => {
       {steps.map((step, index) => (
         <div
           key={`step-${index}`}
-          className="relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-900/40"
+          className="relative flex flex-col justify-between rounded-3xl border border-slate-200/50 bg-white/60 p-8 shadow-lg backdrop-blur-xl dark:border-slate-700/50 dark:bg-slate-900/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
         >
           <div>
             {/* Step Number Badge */}

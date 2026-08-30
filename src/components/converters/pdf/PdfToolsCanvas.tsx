@@ -202,6 +202,14 @@ export const PdfToolsCanvas: React.FC<PdfToolsCanvasProps> = ({
   }
 
   if (stage === 'download' && conversionResult) {
+    const slug = initialToolSlug || (
+      action === 'merge' ? 'merge-pdf' :
+      action === 'compress' ? 'compress-pdf' :
+      action === 'split' ? 'split-pdf' :
+      action === 'protect' ? 'protect-pdf' :
+      action === 'images-to-pdf' ? 'jpg-to-pdf' : 'organize-pdf'
+    );
+
     return (
       <DownloadScreen
         downloadUrl={conversionResult.downloadUrl}
@@ -210,6 +218,8 @@ export const PdfToolsCanvas: React.FC<PdfToolsCanvasProps> = ({
         originalSizeBytes={conversionResult.originalSizeBytes}
         convertedSizeBytes={conversionResult.convertedSizeBytes}
         targetFormat={conversionResult.targetFormat}
+        currentSlug={slug}
+        categorySlug="document"
         onReset={handleReset}
       />
     );

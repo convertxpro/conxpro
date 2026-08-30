@@ -1,9 +1,11 @@
 import { ffmpeg } from './ffmpeg-config';
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
 import { MediaJobData, MediaJobOptions, updateJobProgress } from '@/lib/queue/media-queue';
 import { TempStorageManager, getMimeForFormat } from '@/lib/storage/temp-storage';
 import { getCanvasDimensions, AspectRatioPreset, BackgroundStyle } from './social-resizer';
+import { hexToAssColor } from './subtitles-engine';
 
 export interface MediaMetadata {
   durationSeconds: number;
@@ -299,6 +301,69 @@ export async function executeMediaConversion(
           .videoCodec('libx264')
           .audioCodec('aac')
           .outputOptions(['-preset fast', '-movflags +faststart']);
+        break;
+      }
+
+      case 'burn-subtitles-to-video': {
+        let subPath = options.subtitlePath;
+
+        // If raw subtitle content is provided in options, write to temp .srt file
+        if ((!subPath || !fs.existsSync(subPath)) && options.subtitleContent) {
+          const tempSubDir = path.join(os.tmpdir(), 'converthub', 'temp_sub');
+          if (!fs.existsSync(tempSubDir)) {
+            fs.mkdirSync(tempSubDir, { recursive: true });
+          }
+          subPath = path.join(tempSubDir, `${jobId}.srt`);
+          fs.writeFileSync(subPath, options.subtitleContent, 'utf8');
+        }
+
+        if (!subPath || !fs.existsSync(subPath)) {
+          throw new Error('Subtitle file or subtitle text content is required for burning subtitles.');
+        }
+
+        // Properly escape Windows path for FFmpeg subtitles filter
+        // Colons must be escaped (\:), backslashes replaced with forward slashes
+        const escapedSubPath = subPath.replace(/\\/g, '/').replace(/:/g, '\\:');
+
+        const fontName = options.fontName || 'Arial';
+        const fontSize = options.fontSize || 24;
+        const primaryColor = hexToAssColor(options.primaryColorHex || '#FFFFFF');
+        const outlineColor = hexToAssColor(options.outlineColorHex || '#000000');
+        const outlineThickness = options.outlineThickness !== undefined ? options.outlineThickness : 2;
+        const alignment = options.alignment !== undefined ? options.alignment : 2;
+        const marginV = options.marginV !== undefined ? options.marginV : 30;
+
+        const forceStyle = `Fontname=${fontName},FontSize=${fontSize},PrimaryColour=${primaryColor},OutlineColour=${outlineColor},BorderStyle=1,Outline=${outlineThickness},Alignment=${alignment},MarginV=${marginV}`;
+        const subFilter = `subtitles='${escapedSubPath}':force_style='${forceStyle}'`;
+
+        command = command
+          .videoFilters(subFilter)
+          .videoCodec('libx264')
+          .audioCodec('aac')
+          .outputOptions(['-preset fast', '-movflags +faststart', '-pix_fmt yuv420p']);
+        break;
+      }
+
+      case 'mute-video-replace-audio':
+      case 'video-mute':
+      case 'video-replace-audio': {
+        if (options.muteOnly || !options.newAudioPath || !fs.existsSync(options.newAudioPath)) {
+          // Instant Lossless Mute without re-encoding video streams
+          command = command.outputOptions(['-c:v copy', '-an']);
+        } else {
+          // Lossless Video Stream Copy + New AAC Audio Stream
+          command = command
+            .input(options.newAudioPath)
+            .outputOptions([
+              '-c:v copy',
+              '-c:a aac',
+              '-b:a 192k',
+              '-map 0:v:0',
+              '-map 1:a:0',
+              '-shortest',
+              '-movflags +faststart',
+            ]);
+        }
         break;
       }
 

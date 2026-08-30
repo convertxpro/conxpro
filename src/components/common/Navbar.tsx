@@ -20,7 +20,10 @@ import {
   User as UserIcon,
   Zap,
   LogOut,
-  LayoutDashboard
+  LayoutDashboard,
+  ArrowLeftRight,
+  Film,
+  Compass
 } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { SearchModal } from './SearchModal';
@@ -79,17 +82,17 @@ export const Navbar: React.FC = () => {
           {/* Logo & Brand */}
           <div className="flex items-center gap-6">
             <Link href="/" className="group flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-emerald-500 p-0.5 shadow-md shadow-indigo-500/20 transition-transform duration-200 group-hover:scale-105">
-                <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-slate-950 text-white font-black text-sm tracking-wider">
-                  CX
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-emerald-500 p-0.5 shadow-[0_0_20px_-5px_rgba(99,102,241,0.5)] transition-transform duration-300 group-hover:scale-105">
+                <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-slate-950/90 backdrop-blur-md text-white font-black">
+                  <ArrowLeftRight className="h-5 w-5 text-indigo-400 group-hover:animate-pulse" />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
-                  Convert<span className="text-indigo-600 dark:text-indigo-400">Hub</span>
+                <span className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
+                  Convert<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-400">Hub</span>
                 </span>
-                <span className="text-[9px] font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 -mt-1">
-                  100% Free
+                <span className="shimmer-effect overflow-hidden rounded bg-emerald-500/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 w-fit -mt-0.5">
+                  PRO / FREE
                 </span>
               </div>
             </Link>
@@ -142,51 +145,58 @@ export const Navbar: React.FC = () => {
 
               <Link
                 href="/convert/document"
-                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
               >
-                PDF Tools
+                <FileText className="h-4 w-4 text-emerald-500" />
+                <span>PDF Tools</span>
               </Link>
 
               <Link
                 href="/convert/image"
-                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
               >
-                Images
+                <Image className="h-4 w-4 text-fuchsia-500" />
+                <span>Images</span>
               </Link>
 
               <Link
                 href="/convert/media"
-                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
               >
-                Media
+                <Film className="h-4 w-4 text-amber-500" />
+                <span>Media</span>
               </Link>
 
               <Link
                 href="/convert/unit"
-                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
               >
-                Units
+                <Ruler className="h-4 w-4 text-sky-500" />
+                <span>Units</span>
               </Link>
 
               <Link
                 href="/convert/currency"
-                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
               >
-                Forex
+                <DollarSign className="h-4 w-4 text-teal-500" />
+                <span>Forex</span>
               </Link>
 
               <Link
                 href="/convert/developer"
-                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
               >
-                Dev Tools
+                <Code className="h-4 w-4 text-indigo-500" />
+                <span>Dev Tools</span>
               </Link>
 
               <Link
                 href="/guides"
-                className="rounded-lg px-3 py-1.5 text-sm font-medium text-indigo-600 hover:bg-indigo-50 dark:text-indigo-400 dark:hover:bg-slate-800 transition"
+                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-indigo-600 hover:bg-indigo-50 dark:text-indigo-400 dark:hover:bg-slate-800 transition"
               >
-                Guides
+                <Compass className="h-4 w-4 text-purple-500" />
+                <span>Guides</span>
               </Link>
             </nav>
           </div>

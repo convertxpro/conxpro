@@ -9,3 +9,8 @@ export * from './NumeralConverterComponent';
 export * from './ExtendedLandConverterComponent';
 export * from './ElectricityBillCalculatorComponent';
 export * from './GasBillCalculatorComponent';
+export * from './PtaTaxCalculatorComponent';
+export * from './PropertyTaxCalculatorComponent';
+export * from './FreelanceTaxCalculatorComponent';
+export * from './VehicleTaxCalculatorComponent';
+export * from './CnicDecoderComponent';

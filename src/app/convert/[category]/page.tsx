@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { CATEGORIES, ALL_TOOLS, getCategoryBySlug } from '@/config/categories';
 import { siteConfig } from '@/config/site';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { AdSlot } from '@/components/ads/AdSlot';
 import {
   ArrowUpRight,
@@ -19,6 +20,10 @@ import {
   Clock,
   Palette,
   Archive,
+  Smartphone,
+  Laptop,
+  Car,
+  Building2,
 } from 'lucide-react';
 import ToolPage, { generateMetadata as generateToolMetadata } from './[tool]/page';
 
@@ -30,7 +35,7 @@ interface CategoryPageProps {
 
 const ICON_MAP: Record<string, any> = {
   Building,
-  Building2: Building,
+  Building2,
   Coins: DollarSign,
   Scale: Ruler,
   Moon: Sparkles,
@@ -41,7 +46,9 @@ const ICON_MAP: Record<string, any> = {
   Image: ImageIcon,
   Layers: FileText,
   Minimize2: FileText,
-  Smartphone: ImageIcon,
+  Smartphone,
+  Laptop,
+  Car,
   FileImage: ImageIcon,
   Sliders: ImageIcon,
   Maximize: ImageIcon,
@@ -67,6 +74,9 @@ const ICON_MAP: Record<string, any> = {
   Palette,
   Printer: Palette,
   Archive,
+  ShieldAlert: FileText,
+  PenTool: FileText,
+  LayoutGrid: Code,
 };
 
 export async function generateStaticParams() {
@@ -95,17 +105,36 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   const title = `${category.name} — Free Online Converters`;
   const description = `Explore free online ${category.name} tools on ConvertHub. ${category.description}`;
+  const url = `${siteConfig.url}/convert/${category.slug}`;
+  const ogImageUrl = `${siteConfig.url}/og?title=${encodeURIComponent(category.name + ' Hub')}&category=${encodeURIComponent('Pillar Collection')}`;
 
   return {
     title,
     description,
     alternates: {
-      canonical: `${siteConfig.url}/convert/${category.slug}`,
+      canonical: url,
     },
     openGraph: {
+      type: 'website',
       title: `${title} | ${siteConfig.name}`,
       description,
-      url: `${siteConfig.url}/convert/${category.slug}`,
+      url,
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${category.name} Tools`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | ${siteConfig.name}`,
+      description,
+      images: [ogImageUrl],
+      site: '@ConvertHub',
     },
   };
 }
@@ -128,6 +157,21 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      {/* Schema.org ItemList + BreadcrumbList for Category Hub (SEO Rich Results) */}
+      <JsonLd
+        url={`${siteConfig.url}/convert/${category.slug}`}
+        description={category.description}
+        breadcrumbs={breadcrumbs}
+        itemList={{
+          name: `${category.name} Tools`,
+          description: category.description,
+          items: category.tools.map((tool) => ({
+            name: tool.name,
+            url: `${siteConfig.url}/convert/${tool.categorySlug}/${tool.slug}`,
+          })),
+        }}
+      />
+
       {/* 1. Header Leaderboard Ad */}
       <AdSlot placement="header_leaderboard" />
 

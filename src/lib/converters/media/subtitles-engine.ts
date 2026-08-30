@@ -415,3 +415,23 @@ function splitAssDialogue(content: string, fieldCount: number): string[] {
 
   return result;
 }
+
+/**
+ * Convert standard hex color (#RRGGBB) to ASS color format (&HAABBGGRR) for FFmpeg force_style
+ */
+export function hexToAssColor(hex: string, alphaHex: string = '00'): string {
+  const clean = hex.replace(/^#/, '').replace(/^0x/, '').trim();
+  if (clean.length === 6) {
+    const r = clean.substring(0, 2);
+    const g = clean.substring(2, 4);
+    const b = clean.substring(4, 6);
+    return `&H${alphaHex}${b}${g}${r}`.toUpperCase();
+  } else if (clean.length === 3) {
+    const r = clean[0] + clean[0];
+    const g = clean[1] + clean[1];
+    const b = clean[2] + clean[2];
+    return `&H${alphaHex}${b}${g}${r}`.toUpperCase();
+  }
+  return `&H${alphaHex}FFFFFF`;
+}
+

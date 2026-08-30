@@ -35,6 +35,7 @@ import {
   Copy,
   Info,
 } from 'lucide-react';
+import { NextActionRecommendations } from '@/components/conversion/NextActionRecommendations';
 
 export interface AudioModulatorCanvasProps {
   initialMode?: 'speed-pitch' | 'joiner';
@@ -862,6 +863,13 @@ export const AudioModulatorCanvas: React.FC<AudioModulatorCanvasProps> = ({
               </a>
             </div>
           </div>
+
+          {/* Contextual Next Best Actions */}
+          <NextActionRecommendations
+            currentSlug={initialToolSlug || (activeTab === 'speed-pitch' ? 'audio-speed-pitch-changer' : 'audio-joiner')}
+            categorySlug="audio"
+            className="mt-6"
+          />
         </div>
       )}
 

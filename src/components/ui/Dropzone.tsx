@@ -83,13 +83,19 @@ export const Dropzone: React.FC<DropzoneProps> = ({
         onDrop={handleDrop}
         onClick={() => !disabled && inputRef.current?.click()}
         className={cn(
-          'group relative flex flex-col items-center justify-center rounded-2xl border-2 border-dashed p-8 text-center transition-all duration-200 cursor-pointer',
+          'group relative flex flex-col items-center justify-center rounded-3xl border-2 border-dashed p-10 text-center transition-all duration-300 cursor-pointer overflow-hidden',
           isDragOver
-            ? 'border-indigo-500 bg-indigo-50/50 dark:border-indigo-400 dark:bg-indigo-950/30 scale-[1.01]'
-            : 'border-slate-300/80 bg-slate-50/50 hover:border-indigo-400 hover:bg-slate-50 dark:border-slate-700/80 dark:bg-slate-900/30 dark:hover:border-indigo-500/80 dark:hover:bg-slate-900/50',
+            ? 'border-indigo-500 bg-indigo-50/80 dark:border-indigo-400 dark:bg-indigo-950/50 scale-[1.02] shadow-2xl'
+            : 'border-slate-300/80 bg-slate-50/50 hover:border-indigo-400 hover:bg-white dark:border-slate-700/80 dark:bg-slate-900/30 dark:hover:border-indigo-500/80 dark:hover:bg-slate-900/60',
           disabled && 'pointer-events-none opacity-50'
         )}
       >
+        {/* Animated Dashed Border Effect (visible on hover/drag) */}
+        <div className="absolute inset-0 pointer-events-none rounded-3xl border-2 border-transparent group-hover:animate-[spin_10s_linear_infinite] group-hover:border-t-indigo-500/30 dark:group-hover:border-t-indigo-400/30 transition-all duration-500" />
+        
+        {/* Background glow on drag over */}
+        <div className={cn("absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-emerald-500/10 opacity-0 transition-opacity duration-500 pointer-events-none", isDragOver && "opacity-100")} />
+
         <input
           ref={inputRef}
           type="file"
@@ -100,20 +106,30 @@ export const Dropzone: React.FC<DropzoneProps> = ({
           disabled={disabled}
         />
 
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 shadow-sm transition-transform group-hover:scale-110 dark:bg-indigo-950/60 dark:text-indigo-400">
-          <UploadCloud className="h-8 w-8" />
+        <div className={cn("relative mb-6 flex h-24 w-24 items-center justify-center rounded-3xl bg-indigo-50 text-indigo-600 shadow-sm transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-lg group-hover:shadow-indigo-500/20 dark:bg-indigo-950/60 dark:text-indigo-400", isDragOver && "animate-bounce")}>
+          <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 rounded-3xl animate-pulse" />
+          <UploadCloud className="h-10 w-10 relative z-10" />
         </div>
 
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+        <h3 className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white relative z-10">
           Drag & drop your file{multiple ? 's' : ''} here, or{' '}
-          <span className="text-indigo-600 dark:text-indigo-400 underline underline-offset-4">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 border-b-2 border-indigo-200 dark:border-indigo-900/50 hover:border-indigo-600 dark:hover:border-indigo-400 transition-colors">
             browse
           </span>
         </h3>
 
-        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-          {acceptedFormatsText} • Max file size: {maxSizeMb}MB (Free Tier)
+        <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400 relative z-10">
+          Max file size: <span className="font-bold text-slate-700 dark:text-slate-300">{maxSizeMb}MB</span> (Free Tier)
         </p>
+
+        {/* Supported Format Pill Cloud */}
+        <div className="mt-6 flex flex-wrap justify-center gap-1.5 relative z-10 opacity-80 group-hover:opacity-100 transition-opacity">
+          {acceptedFormatsText.split(',').map((format, i) => (
+            <span key={i} className="inline-flex items-center rounded-md bg-slate-200/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:bg-slate-800/60 dark:text-slate-400">
+              {format.trim() || 'ALL FORMATS'}
+            </span>
+          ))}
+        </div>
       </div>
 
       {errorMessage && (

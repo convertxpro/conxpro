@@ -157,6 +157,8 @@ export const ArchiveConverter: React.FC<ArchiveConverterProps> = ({
         originalSizeBytes={conversionResult.originalSizeBytes}
         convertedSizeBytes={conversionResult.convertedSizeBytes}
         targetFormat={conversionResult.targetFormat}
+        currentSlug={initialToolSlug || (mode === 'create' ? 'zip-compressor' : 'zip-extractor')}
+        categorySlug="archive"
         onReset={handleReset}
       />
     );

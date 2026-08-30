@@ -55,10 +55,17 @@ import {
   ShieldCheck,
   LayoutGrid,
   QrCode,
-  Subtitles,
   Layers,
+  Subtitles,
   Smartphone,
+  Laptop,
+  Car,
   FileImage,
+  ShieldAlert,
+  PenTool,
+  ScanText,
+  GitCompare,
+  Terminal,
 } from 'lucide-react';
 import { ToolMetadata } from '@/config/categories';
 import { cn } from '@/lib/utils';
@@ -97,6 +104,8 @@ const ICON_MAP: Record<string, any> = {
   Unlock,
   FolderArchive,
   Smartphone,
+  Laptop,
+  Car,
   FileImage,
   Sliders,
   Maximize,
@@ -138,6 +147,11 @@ const ICON_MAP: Record<string, any> = {
   QrCode,
   Subtitles,
   Sparkles,
+  ShieldAlert,
+  PenTool,
+  ScanText,
+  GitCompare,
+  Terminal,
 };
 
 export const RelatedTools: React.FC<RelatedToolsProps> = ({ tools, className }) => {

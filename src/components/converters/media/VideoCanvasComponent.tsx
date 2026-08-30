@@ -29,7 +29,9 @@ import {
   Palette,
   ShieldCheck,
   AlertCircle,
+  Video,
 } from 'lucide-react';
+import { NextActionRecommendations } from '@/components/conversion/NextActionRecommendations';
 
 export type AspectRatioPreset = '9:16' | '16:9' | '1:1' | '4:5';
 export type BackgroundStyle = 'blur' | 'black' | 'white' | 'color' | 'crop';
@@ -889,6 +891,12 @@ export const VideoCanvasComponent: React.FC<VideoCanvasComponentProps> = ({
               </div>
             </div>
           </div>
+
+          {/* Contextual Next Best Actions */}
+          <NextActionRecommendations
+            currentSlug={initialToolSlug || (mode === 'gif-to-video' ? 'gif-to-mp4' : 'video-aspect-ratio-resizer')}
+            categorySlug="video"
+          />
         </div>
       )}
 

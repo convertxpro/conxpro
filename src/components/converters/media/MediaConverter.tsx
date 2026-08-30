@@ -22,6 +22,7 @@ import {
   FileVideo,
   FileAudio,
 } from 'lucide-react';
+import { NextActionRecommendations } from '@/components/conversion/NextActionRecommendations';
 
 export interface MediaConverterProps {
   initialToolSlug?: string;
@@ -573,6 +574,12 @@ export const MediaConverter: React.FC<MediaConverterProps> = ({
               </span>
             </div>
           </div>
+
+          {/* Contextual Next Best Actions */}
+          <NextActionRecommendations
+            currentSlug={initialToolSlug || (toolType === 'video-to-mp3' ? 'video-to-mp3' : 'video-converter')}
+            categorySlug="media"
+          />
 
           {/* Download Page Ad Slot */}
           <div className="rounded-2xl border border-slate-200/60 bg-slate-50/50 p-4 dark:border-slate-800/60 dark:bg-slate-900/30">

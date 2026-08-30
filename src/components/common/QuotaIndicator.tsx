@@ -53,10 +53,10 @@ export const QuotaIndicator: React.FC<{ className?: string; compact?: boolean }>
   const isExhausted = quota.remaining === 0;
 
   const badgeColor = isExhausted
-    ? 'border-rose-300 bg-rose-50 text-rose-700 dark:border-rose-900/60 dark:bg-rose-950/50 dark:text-rose-300'
+    ? 'border-rose-300/50 bg-rose-50/50 text-rose-700 dark:border-rose-900/50 dark:bg-rose-950/40 dark:text-rose-300'
     : isLow
-    ? 'border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-900/60 dark:bg-amber-950/50 dark:text-amber-300'
-    : 'border-slate-200/80 bg-slate-50/90 text-slate-700 hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:bg-slate-800';
+    ? 'border-amber-300/50 bg-amber-50/50 text-amber-700 dark:border-amber-900/50 dark:bg-amber-950/40 dark:text-amber-300'
+    : 'border-slate-200/50 bg-white/40 text-slate-700 hover:bg-white/60 hover:shadow-md dark:border-slate-700/50 dark:bg-slate-800/40 dark:text-slate-200 dark:hover:bg-slate-800/60 dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]';
 
   return (
     <div
@@ -74,11 +74,12 @@ export const QuotaIndicator: React.FC<{ className?: string; compact?: boolean }>
           }
         }}
         className={cn(
-          'flex h-9 items-center gap-2 rounded-xl border px-2.5 text-xs font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/20',
+          'flex h-10 items-center gap-2 rounded-full border px-3 text-xs font-semibold backdrop-blur-md transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/20 shadow-sm relative overflow-hidden group',
           badgeColor
         )}
         aria-label="Conversion Quota Status"
       >
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-white/20 to-indigo-500/0 -translate-x-full group-hover:animate-[shimmer-slide_2s_infinite]" />
         <Zap
           className={cn(
             'h-3.5 w-3.5',

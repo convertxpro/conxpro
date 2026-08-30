@@ -9,6 +9,7 @@ import { Navbar } from '@/components/common/Navbar';
 import { Footer } from '@/components/common/Footer';
 import { AdSenseScript } from '@/components/ads/AdSenseScript';
 import { ConsentBanner } from '@/components/common/ConsentBanner';
+import { PwaInstallPrompt } from '@/components/common/PwaInstallPrompt';
 import { siteConfig } from '@/config/site';
 
 const inter = Inter({
@@ -83,10 +84,24 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
+    site: '@ConvertHub',
     creator: '@ConvertHub',
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: siteConfig.name,
   },
 };
 
@@ -99,7 +114,35 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable} ${notoUrdu.variable}`}>
       <head>
         <AdSenseScript />
-        {/* Organization / WebSite Global JSON-LD Schema */}
+        {/* Organization Global JSON-LD Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: siteConfig.name,
+              alternateName: siteConfig.shortName,
+              url: siteConfig.url,
+              logo: `${siteConfig.url}/icons/icon-512x512.png`,
+              description: siteConfig.description,
+              founder: {
+                '@type': 'Organization',
+                name: siteConfig.author,
+              },
+              sameAs: [
+                siteConfig.links.twitter,
+                siteConfig.links.github,
+              ],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                contactType: 'customer support',
+                url: `${siteConfig.url}/contact`,
+              },
+            }),
+          }}
+        />
+        {/* WebSite Global JSON-LD Schema with SearchAction */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -109,6 +152,14 @@ export default function RootLayout({
               name: siteConfig.name,
               url: siteConfig.url,
               description: siteConfig.description,
+              publisher: {
+                '@type': 'Organization',
+                name: siteConfig.name,
+                logo: {
+                  '@type': 'ImageObject',
+                  url: `${siteConfig.url}/icons/icon-512x512.png`,
+                },
+              },
               potentialAction: {
                 '@type': 'SearchAction',
                 target: `${siteConfig.url}/search?q={search_term_string}`,
@@ -134,6 +185,7 @@ export default function RootLayout({
               </div>
               <QuotaLimitModal />
               <ConsentBanner />
+              <PwaInstallPrompt />
             </QuotaProvider>
           </AuthProvider>
         </ThemeProvider>
