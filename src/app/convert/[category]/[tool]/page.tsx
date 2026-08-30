@@ -5,6 +5,7 @@ import { ALL_TOOLS, getToolBySlug } from '@/config/categories';
 import { generateToolMetadata } from '@/lib/seo/metadata';
 import { ToolLayout } from '@/components/layout/ToolLayout';
 import { ConverterCanvas } from '@/components/converters/ConverterCanvas';
+import { DEVELOPER_TOOL_FAQS } from '@/lib/seo/faqData';
 
 interface ToolPageProps {
   params: {
@@ -278,6 +279,126 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     seoTitle = 'Audio Compressor — Compress MP3, WAV & M4A Audio Online Free | ConvertHub';
     seoDescription = 'Compress podcasts, audiobooks, and music tracks by optimizing bitrate without muffling voices. 100% free online audio compressor.';
     keywords.push('audio compressor', 'compress mp3', 'reduce audio file size', 'compress voice recording');
+  } else if (tool.slug === 'yaml-to-json') {
+    seoTitle = 'YAML to JSON Converter — Convert YAML to Clean JSON Online | ConvertHub';
+    seoDescription = 'Convert YAML configuration files to formatted or minified JSON with instant validation, indentation controls, and key sorting. 100% client-side.';
+    keywords.push('yaml to json', 'convert yaml to json', 'yaml parser online', 'yaml to json validator');
+  } else if (tool.slug === 'json-to-yaml') {
+    seoTitle = 'JSON to YAML Converter — Generate Clean YAML for Kubernetes & CI/CD | ConvertHub';
+    seoDescription = 'Convert JSON data into clean, indented YAML for Kubernetes manifests, Docker Compose, and CI/CD pipelines. Zero latency, 100% private.';
+    keywords.push('json to yaml', 'convert json to yaml', 'kubernetes yaml generator', 'json to yaml online');
+  } else if (tool.slug === 'toml-to-json') {
+    seoTitle = 'TOML to JSON / YAML Converter — Parse Cargo & PyProject Configs | ConvertHub';
+    seoDescription = 'Parse Cargo.toml, pyproject.toml, and TOML configuration files into structured JSON and clean YAML with live syntax validation.';
+    keywords.push('toml to json', 'toml to yaml', 'cargo toml converter', 'parse toml online');
+  } else if (tool.slug === 'sql-to-json') {
+    seoTitle = 'SQL to JSON & CSV Converter — Extract SQL INSERT Table Dumps | ConvertHub';
+    seoDescription = 'Convert SQL INSERT statements and table dumps into structured JSON arrays and tabular CSV files instantly in your browser.';
+    keywords.push('sql to json', 'convert sql to json', 'sql to csv', 'sql insert parser');
+  } else if (tool.slug === 'json-to-sql') {
+    seoTitle = 'JSON to SQL INSERT Generator — Bulk ANSI SQL Generator | ConvertHub';
+    seoDescription = 'Generate bulk ANSI SQL INSERT INTO statements from JSON arrays with customizable table names, batch chunking, and dialect quotes.';
+    keywords.push('json to sql', 'convert json to sql insert', 'sql generator from json', 'json to mysql');
+  } else if (tool.slug === 'jwt-decoder') {
+    seoTitle = 'JWT Inspector & Decoder — 100% Private Token Claims Viewer | ConvertHub';
+    seoDescription = 'Inspect JWT headers, decode payload claims, verify expiration countdown, and validate HMAC signatures. 100% browser-only privacy.';
+    keywords.push('jwt decoder', 'jwt inspector', 'decode jwt online', 'jwt token viewer', 'jwt claims expiry');
+  } else if (tool.slug === 'hash-generator') {
+    seoTitle = 'Cryptographic Hash & File Checksum Generator — MD5, SHA-256, Keccak | ConvertHub';
+    seoDescription = 'Compute MD5, SHA-1, SHA-256, SHA-512, Keccak-256 hashes in real-time and verify large 2GB+ file checksums securely via Web Crypto.';
+    keywords.push('hash generator', 'sha256 generator', 'md5 hash online', 'file checksum verifier', 'keccak 256 hash');
+  } else if (tool.slug === 'css-unit-converter') {
+    seoTitle = 'CSS Units Converter (PX ↔ REM ↔ EM ↔ VW ↔ PT) & Clamp() Generator | ConvertHub';
+    seoDescription = 'Bi-directional CSS unit conversion matrix with responsive clamp() calculator and Tailwind CSS class mapper. Live preview & zero latency.';
+    keywords.push('css unit converter', 'px to rem', 'rem to px', 'css clamp generator', 'tailwind unit converter');
+  } else if (tool.slug === 'qr-code-generator') {
+    seoTitle = 'Smart QR Code & Barcode Generator — Wi-Fi, WhatsApp & vCard | ConvertHub';
+    seoDescription = 'Generate high-resolution QR codes for URLs, Wi-Fi auto-connect, vCards, and WhatsApp chats in vector SVG, PNG, and WebP formats.';
+    keywords.push('qr code generator', 'free qr code maker', 'wifi qr code generator', 'whatsapp qr code', 'svg qr code');
+  } else if (tool.slug === 'cron-expression-decoder') {
+    seoTitle = 'Cron Expression Translator & Crontab Schedule Builder | ConvertHub';
+    seoDescription = 'Translate 5-field and 6-field cron expressions into plain English with interactive visual schedule builders and upcoming run time calculations.';
+    keywords.push('cron expression decoder', 'cron translator', 'crontab generator', 'cron schedule humanizer');
+  } else if (tool.slug === 'fbr-salary-tax-calculator') {
+    seoTitle = 'FBR Salary Tax Calculator (2024–2026) Pakistan | انکم ٹیکس کیلکولیٹر | ConvertHub';
+    seoDescription = 'Calculate monthly and annual Pakistan income tax, net take-home salary, Filer vs Non-Filer deductions, and FBR slabs for Tax Year 2024-2026.';
+    keywords.push('fbr tax calculator', 'salary tax calculator pakistan', 'income tax 2024-2025 pakistan', 'fbr tax slabs', 'take home salary calculator');
+  } else if (tool.slug === 'zakat-calculator') {
+    seoTitle = 'Zakat Calculator Pakistan (PKR / Gold & Silver Nisab) | زکوٰۃ کیلکولیٹر | ConvertHub';
+    seoDescription = 'Accurate Islamic Zakat calculator with dynamic 7.5 Tola Gold and 52.5 Tola Silver Nisab thresholds in PKR. 100% private and instant.';
+    keywords.push('zakat calculator pakistan', 'zakat on gold calculator', 'nisab of zakat 2024', 'calculate zakat in pkr', 'islamic zakat calculator');
+  } else if (tool.slug === 'lakh-crore-to-million-billion') {
+    seoTitle = 'Lakhs & Crores to Millions & Billions Converter | لاکھ کروڑ سے ملین | ConvertHub';
+    seoDescription = 'Convert South Asian numbering (Lakh, Crore, Arab, Kharab) to Western (Million, Billion, Trillion) with English and Urdu words cheque writer.';
+    keywords.push('lakh to million', 'crore to billion', 'lakh crore converter', 'pakistan number to words', 'urdu cheque writer');
+  } else if (tool.slug === 'murabba-bigha-to-acre') {
+    seoTitle = 'Murabba & Bigha to Acre / Kanal Land Converter Pakistan | زرعی رقبہ | ConvertHub';
+    seoDescription = 'Convert agricultural land units across Murabba, Bigha, Acre, Kanal, Marla, Biswa, and Sq Feet for Punjab, Sindh & KPK provinces.';
+    keywords.push('murabba to acre', 'bigha to kanal', 'agricultural land measurement pakistan', 'murabba in acre', 'bigha to acre sindh punjab');
+  } else if (tool.slug === 'electricity-bill-solar-calculator') {
+    seoTitle = 'WAPDA Electricity Bill & Solar Net-Metering Calculator | بجلی کا بل | ConvertHub';
+    seoDescription = 'Estimate electricity bills for LESCO, IESCO, MEPCO, K-Electric with Protected/Unprotected slabs, FPA taxes, and Solar ROI net-metering offsets.';
+    keywords.push('electricity bill calculator pakistan', 'lesco bill calculator', 'iesco bill estimator', 'solar net metering calculator pakistan', 'wapda unit rate');
+  } else if (tool.slug === 'gas-bill-calculator') {
+    seoTitle = 'Gas Bill Units Calculator (MMBTU ↔ HM³ ↔ PKR) SNGPL / SSGC | گیس کا بل | ConvertHub';
+    seoDescription = 'Convert gas meter HM3 readings to MMBTU and calculate SNGPL / SSGC domestic monthly gas bills with slab rates and fixed charges.';
+    keywords.push('gas bill calculator pakistan', 'sngpl bill calculator', 'ssgc bill calculator', 'hm3 to mmbtu', 'gas meter reading to bill');
+  } else if (tool.slug === 'avif-to-jpg') {
+    seoTitle = 'AVIF to JPG / PNG / WebP Converter — Next-Gen Image Engine | ConvertHub';
+    seoDescription = 'Convert next-generation AVIF images to universally compatible JPG, PNG, and WebP formats with quality sliders and batch processing.';
+    keywords.push('avif to jpg', 'convert avif to jpg', 'avif to png', 'avif to webp', 'next gen image converter');
+  } else if (tool.slug === 'avif-to-png') {
+    seoTitle = 'AVIF to PNG Converter (Transparent Alpha Preserved) | ConvertHub';
+    seoDescription = 'Convert next-gen AVIF images into lossless transparent PNG files with pixel-perfect alpha channels and fast browser download.';
+    keywords.push('avif to png', 'convert avif to png', 'avif transparent png', 'avif to lossless png');
+  } else if (tool.slug === 'jpg-to-avif') {
+    seoTitle = 'JPG to AVIF Converter — Save Up to 70% File Size | ConvertHub';
+    seoDescription = 'Compress heavy JPG and JPEG photos into next-generation AVIF images with 70% smaller file size and stunning HDR visual fidelity.';
+    keywords.push('jpg to avif', 'convert jpg to avif', 'jpeg to avif online', 'next gen image compression', 'compress jpg to avif');
+  } else if (tool.slug === 'png-to-avif') {
+    seoTitle = 'PNG to AVIF Converter (Transparent & High Compression) | ConvertHub';
+    seoDescription = 'Convert PNG graphics and logos to ultra-lightweight AVIF format with full alpha transparency support and 50% better compression than WebP.';
+    keywords.push('png to avif', 'convert png to avif', 'transparent avif converter', 'png compression avif');
+  } else if (tool.slug === 'webp-to-avif') {
+    seoTitle = 'WebP to AVIF Converter — Next-Gen Web Optimization | ConvertHub';
+    seoDescription = 'Upgrade WebP images to cutting-edge AVIF format for superior compression, wider color gamuts, and faster Core Web Vitals.';
+    keywords.push('webp to avif', 'convert webp to avif', 'avif vs webp', 'next gen webp to avif');
+  } else if (tool.slug === 'svg-to-ico') {
+    seoTitle = 'SVG to Multi-Resolution Favicon (.ICO) & High-Res PNG | ConvertHub';
+    seoDescription = 'Rasterize SVG vector graphics into multi-pack Windows .ico favicons (16, 32, 48, 64px) and high-resolution PNG assets.';
+    keywords.push('svg to ico', 'svg to favicon', 'convert svg to ico', 'multi resolution favicon generator');
+  } else if (tool.slug === 'svg-to-png') {
+    seoTitle = 'SVG to High-Res PNG Converter (Custom DPI & 4K Resolution) | ConvertHub';
+    seoDescription = 'Rasterize SVG vector graphics to crisp high-definition PNG images with custom DPI (72–600 DPI), transparent backgrounds, and dimensions up to 4K.';
+    keywords.push('svg to png', 'convert svg to png', 'svg to high res png', 'vector to png converter', 'svg rasterizer 4k');
+  } else if (tool.slug === 'png-to-svg') {
+    seoTitle = 'PNG to SVG Scalable Vector Wrapper Converter | ConvertHub';
+    seoDescription = 'Wrap raster PNG images into scalable vector SVG markup containers for modern responsive web development.';
+    keywords.push('png to svg', 'convert png to svg', 'raster to svg container');
+  } else if (tool.slug === 'png-to-ico') {
+    seoTitle = 'PNG to ICO Favicon Generator (16x16, 32x32, 48x48, 64x64) | ConvertHub';
+    seoDescription = 'Convert PNG icons into multi-layered Windows ICO favicons for websites and desktop applications.';
+    keywords.push('png to ico', 'png to favicon', 'convert png to ico', 'multi layer ico maker');
+  } else if (tool.slug === 'gif-to-mp4') {
+    seoTitle = 'GIF to MP4 / WebM Converter — 90% File Size Reduction | ConvertHub';
+    seoDescription = 'Convert heavy animated GIFs into smooth, lightweight looping MP4 and WebM videos with 90%+ file size reduction and faststart encoding.';
+    keywords.push('gif to mp4', 'convert gif to mp4', 'gif to webm', 'reduce gif file size', 'gif to video');
+  } else if (tool.slug === 'video-aspect-ratio-resizer') {
+    seoTitle = 'Video Aspect Ratio & Social Canvas Resizer (9:16, 16:9, 1:1) | ConvertHub';
+    seoDescription = 'Resize videos to 9:16 (TikTok, Reels, Shorts), 16:9 (YouTube), and 1:1 with intelligent blurred backgrounds and crop padding.';
+    keywords.push('video aspect ratio resizer', 'resize video for tiktok', 'video to 9:16', 'reels video resizer', 'blur background video resizer');
+  } else if (tool.slug === 'subtitle-converter') {
+    seoTitle = 'Universal Subtitles Converter & Time-Shifter (SRT, VTT, ASS) | ConvertHub';
+    seoDescription = 'Convert SRT, WebVTT, ASS, and SubViewer subtitles, offset timestamps in milliseconds, and clean formatting tags online.';
+    keywords.push('subtitle converter', 'srt to vtt', 'vtt to srt', 'subtitle time shifter', 'sync subtitles online');
+  } else if (tool.slug === 'audio-speed-pitch-changer') {
+    seoTitle = 'Audio Speed & Pitch Modulator (0.5x to 2.5x with Pitch Lock) | ConvertHub';
+    seoDescription = 'Change audio playback speed (0.5x to 2.5x) with pitch-lock or shift musical semitones with live browser preview.';
+    keywords.push('audio speed changer', 'change audio pitch', 'slow down audio', 'speed up mp3', 'audio pitch shifter online');
+  } else if (tool.slug === 'audio-joiner') {
+    seoTitle = 'Multi-Track Audio Joiner & Merger with Crossfade Transitions | ConvertHub';
+    seoDescription = 'Combine and crossfade multiple MP3, WAV, M4A, FLAC audio files into a single seamless audio track online.';
+    keywords.push('audio joiner', 'merge audio files', 'combine mp3 online', 'audio merger with crossfade');
   }
 
   return generateToolMetadata({
@@ -316,20 +437,34 @@ export default function ToolPage({ params }: ToolPageProps) {
     if (parts[1]) toCurr = parts[1].toUpperCase();
   }
 
+  const isDeveloperTool = tool.categorySlug === 'developer';
+
   // 1. How To Steps
   let howToSteps = [
     {
-      title: isDocumentOrImage ? 'Upload Your File' : 'Enter Input Value',
+      title: isDocumentOrImage
+        ? 'Upload Your File'
+        : isDeveloperTool
+        ? 'Paste or Upload Source Data'
+        : 'Enter Input Value',
       description: isDocumentOrImage
         ? 'Drag and drop your file into the secure dropzone above or click Browse to select from your device.'
+        : isDeveloperTool
+        ? `Paste your ${tool.name.replace(' Converter', '').replace(' Generator', '')} code directly into the left editor pane or click Upload to select a file.`
         : isCurrency
         ? `Type the ${fromCurr} amount you want to convert to ${toCurr}.`
         : 'Type the numerical amount you want to convert into the input field.',
-      tip: isDocumentOrImage ? 'Files up to 25MB are completely free.' : 'Supports standard decimal notation.',
+      tip: isDocumentOrImage
+        ? 'Files up to 25MB are completely free.'
+        : isDeveloperTool
+        ? '100% client-side execution in your browser memory. Zero server uploads.'
+        : 'Supports standard decimal notation.',
     },
     {
-      title: 'Choose Conversion Parameters',
-      description: isPakistanRealEstate
+      title: isDeveloperTool ? 'Configure Syntax & Dialect Options' : 'Choose Conversion Parameters',
+      description: isDeveloperTool
+        ? 'Adjust indentation (2 or 4 spaces), toggle alphabetical key sorting, set SQL table name and dialect quotes, or pick a built-in template.'
+        : isPakistanRealEstate
         ? 'Select your regional standard: Urban DHA/LDA (225 sq ft), Official Patwari (272.25 sq ft), or CDA Islamabad (250 sq ft).'
         : isPakistanGold
         ? 'Enter your local Sarafa 24K gold benchmark rate and optional making charges.'
@@ -342,9 +477,11 @@ export default function ToolPage({ params }: ToolPageProps) {
         : 'Adjust target quality, output format, or unit settings as needed.',
     },
     {
-      title: 'Get Instant Output & Share',
+      title: isDeveloperTool ? 'Instant Result & Copy / Download' : 'Get Instant Output & Share',
       description: isDocumentOrImage
         ? 'Click download to save your converted file. All files are automatically deleted after 1 hour.'
+        : isDeveloperTool
+        ? 'View formatted output in real time with line numbers and syntax highlighting. Click Copy or Download to save.'
         : isCurrency
         ? `View the real-time ${toCurr} calculated total, compare multi-currency rates, inspect 30-day historical trends, or copy/share via WhatsApp.`
         : 'View your real-time calculated result, copy to clipboard, or share directly via WhatsApp.',
@@ -358,7 +495,49 @@ export default function ToolPage({ params }: ToolPageProps) {
     example: '1 Unit = Standard multiplier applied with floating-point precision arithmetic.',
   };
 
-  if (isPakistanRealEstate) {
+  if (tool.slug === 'yaml-to-json' || tool.slug === 'json-to-yaml' || tool.slug === 'toml-to-json' || tool.slug === 'yaml-to-toml') {
+    formulaData = {
+      title: `${tool.name} Serialization & AST Mapping Specification`,
+      expression: 'Native JavaScript AST = Parser.load(Input Source Stream)\nTarget Output = Serializer.dump(AST, { indent, sortKeys, dialect })',
+      example: 'Strict Type Preservations: YAML & TOML Maps ↔ JSON Objects | Sequences ↔ JSON Arrays | Timestamps ↔ ISO-8601 Strings | Nulls ↔ null',
+    };
+  } else if (tool.slug === 'sql-to-json' || tool.slug === 'json-to-sql' || tool.slug === 'csv-to-sql') {
+    formulaData = {
+      title: `${tool.name} Relational Schema Transformation Specification`,
+      expression: 'SQL INSERT = PartitionBatch(Rows, BatchSize) → INSERT INTO Table (Cols) VALUES (Val_1, Val_2, ...)\nEscaping Rule: Single quotes (\') → (\'\') | Identifier Quotes: MySQL (`), PostgreSQL ("), SQL Server ([])',
+      example: 'Bulk chunking of 500 records into partitioned multi-row tuples with auto-inferred CREATE TABLE DDL data types.',
+    };
+  } else if (tool.slug === 'css-unit-converter') {
+    formulaData = {
+      title: 'CSS Units & Fluid clamp() Calculation Formula',
+      expression: 'REM = PX / RootFontSize (16px) | EM = PX / ParentFontSize\nPreferred VW = (Slope × 100)vw where Slope = (MaxPX - MinPX) / (MaxViewport - MinViewport)\nclamp(minRem, preferredRem + preferredVw, maxRem)',
+      example: '16px min at 375px viewport to 32px max at 1440px viewport yields font-size: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);',
+    };
+  } else if (tool.slug === 'qr-code-generator') {
+    formulaData = {
+      title: 'QR Code Reed-Solomon Error Correction & Encoding Standard',
+      expression: 'Reed-Solomon Error Correction Capacity: Low (7%), Medium (15%), Quartile (25%), High (30%)\nPayload String Formatting: Standard ISO/IEC 18004 2D Matrix Symbol',
+      example: 'Wi-Fi Network: WIFI:S:Office_WiFi;T:WPA;P:SecretKey;; | WhatsApp: https://wa.me/923001234567?text=Hello',
+    };
+  } else if (tool.slug === 'cron-expression-decoder') {
+    formulaData = {
+      title: 'Unix Crontab Syntax & Execution Model Specification',
+      expression: '* * * * * = [Minute: 0-59] [Hour: 0-23] [Day of Month: 1-31] [Month: 1-12] [Day of Week: 0-7 (0/7=Sun)]\nSpecial Operators: * (Any), / (Step interval), , (Value list), - (Range)',
+      example: '0 9 * * 1-5 = At 09:00 AM, Monday through Friday | */15 * * * * = Every 15 minutes continuously',
+    };
+  } else if (tool.slug === 'lakh-crore-to-million-billion') {
+    formulaData = {
+      title: 'South Asian to Western Numeral Conversion Formula',
+      expression: '1 Lakh = 100,000 (0.1 Million) | 10 Lakhs = 1,000,000 (1 Million)\n1 Crore = 10,000,000 (10 Million) | 10 Crores = 100,000,000 (100 Million)\n1 Arab = 1,000,000,000 (1 Billion) | 1 Kharab = 100,000,000,000 (100 Billion)',
+      example: '5.5 Crore = 55,000,000 = 55 Million. In Words: "Five Crore Fifty Lakh Rupees Only" / "پانچ کروڑ پچاس لاکھ روپے فقط".',
+    };
+  } else if (tool.slug === 'murabba-bigha-to-acre') {
+    formulaData = {
+      title: 'Agricultural Land Units Conversion Formula (Punjab & Sindh)',
+      expression: '1 Murabba = 25 Acres (Qillas) = 200 Kanals = 4,000 Marlas\n1 Acre (Qilla) = 8 Kanals = 160 Marlas = 43,560 Sq Ft (Revenue)\nPunjab: 1 Bigha = 4 Kanals (80 Marlas) | Sindh: 1 Bigha = 2 Kanals (40 Marlas = 0.5 Acre)',
+      example: '1 Murabba (Revenue standard) = 25 × 8 × 20 × 272.25 = 1,089,000 Sq Ft (121,000 Sq Yards / Gazz).',
+    };
+  } else if (isPakistanRealEstate) {
     formulaData = {
       title: 'Pakistan Land Area Conversion Formula',
       expression: 'Square Feet = Marla × Standard Factor (225 sq ft, 272.25 sq ft, or 250 sq ft)\n1 Kanal = 20 Marla | 1 Acre (Qilla) = 8 Kanal = 160 Marla | 1 Sq Yard (Gazz) = 9 Sq Ft',
@@ -408,6 +587,46 @@ export default function ToolPage({ params }: ToolPageProps) {
       expression: 'Archive Ratio = (1 - Compressed ZIP Size / Sum of Uncompressed Files) × 100%\nDeflate Level: 0 (Store) to 9 (Maximum LZ77 + Huffman Encoding)',
       example: '15 documents and images totaling 32.4 MB compress into an 11.2 MB ZIP package (-65% size reduction) with verified CRC32 checksums.',
     };
+  } else if (tool.categorySlug === 'image') {
+    if (tool.slug.includes('avif')) {
+      formulaData = {
+        title: 'AVIF (AV1 Image File Format) Compression Specification',
+        expression: 'Target Bitrate / File Size = (AV1 Intra-Frame Prediction Block Size + Directional Transforms + 10/12-bit HDR Color Matrices) ÷ 8\nCompression Efficiency: Up to 50% smaller than WebP and 70% smaller than JPEG at identical SSIM/PSNR visual index.',
+        example: 'A 4.8 MB JPEG photograph encodes into ~1.1 MB in AVIF format (-77% bandwidth saving) with full 4:2:0/4:4:4 chroma fidelity and stripped EXIF headers.',
+      };
+    } else if (tool.slug.includes('svg') || tool.slug.includes('ico')) {
+      formulaData = {
+        title: 'Vector SVG Rasterization & Favicon Multi-Packing Specification',
+        expression: 'Multi-Pack ICO Container = Header (6 bytes) + Directory Entries (16 bytes × N resolutions) + Embedded PNG Streams (16px, 32px, 48px, 64px)\nRaster Density: Rendered at 300+ DPI with Lanczos resampling and anti-aliased alpha transparency.',
+        example: 'A scalable vector SVG renders into a crisp 1024×1024 PNG asset and packs into a standard 4-layer Windows .ico favicon container (16/32/48/64px).',
+      };
+    } else {
+      formulaData = {
+        title: 'Image Compression & Format Transformation Specification',
+        expression: 'Output Buffer = Decoded Pixel Array (RGB/RGBA) ↔ Target Quantization Matrix & Huffman/Entropy Encoder\nOptimization Level: MozJPEG / Deflate 9 / WebP Lossless / Lanczos 3 Resampling',
+        example: `Uploaded image converted to .${tool.slug.includes('-to-') ? tool.slug.split('-to-')[1] : 'jpg'} with optimized byte stream and stripped EXIF privacy headers.`,
+      };
+    }
+  } else if (tool.categorySlug === 'video' || tool.categorySlug === 'media') {
+    if (tool.slug === 'gif-to-mp4' || tool.slug === 'gif-to-webm') {
+      formulaData = {
+        title: 'Animated GIF to H.264 / VP9 Video Compression Algorithm',
+        expression: 'Bandwidth Reduction = (1 - Video Bitrate × Duration ÷ (GIF Frame Count × Frame Uncompressed Size)) × 100%\nH.264 Encoder Filter: pad=ceil(iw/2)*2:ceil(ih/2)*2 (Even macroblock alignment) • -pix_fmt yuv420p • -movflags +faststart',
+        example: 'A 45 MB animated GIF compresses to 2.2 MB MP4 (-95.1% file size reduction) with 60fps smoothness and infinite HTML5 video looping.',
+      };
+    } else if (tool.slug === 'video-aspect-ratio-resizer') {
+      formulaData = {
+        title: 'Social Canvas Dynamic Filtergraph & Aspect Ratio Transformation',
+        expression: 'Blurred Mirror Pipeline = [0:v]scale=W:H:increase,crop=W:H,boxblur=25:25[bg];[0:v]scale=W:H:decrease[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[outv]\nCanvas Target Matrices: 9:16 (1080×1920) | 16:9 (1920×1080) | 1:1 (1080×1080) | 4:5 (1080×1350)',
+        example: 'A horizontal 16:9 4K landscape video converts into a 9:16 TikTok/Reels canvas with a stylish blurred mirror background without cropping the main subject.',
+      };
+    } else {
+      formulaData = {
+        title: `${tool.name} FFmpeg Transcoding Specification`,
+        expression: 'Target Bitrate = File Size Budget ÷ Duration | Audio Stream: AAC Stereo (192kbps) | Video Stream: libx264 (CRF 23)\nFlags: -movflags +faststart • -pix_fmt yuv420p',
+        example: 'Multi-threaded native transcode pipeline with dynamic buffer sizing and timestamp alignment.',
+      };
+    }
   }
 
   // 3. Conversion Table
@@ -424,7 +643,110 @@ export default function ToolPage({ params }: ToolPageProps) {
     ],
   };
 
-  if (isPakistanRealEstate) {
+  if (tool.slug === 'yaml-to-json' || tool.slug === 'json-to-yaml' || tool.slug === 'toml-to-json' || tool.slug === 'yaml-to-toml') {
+    conversionTableData = {
+      title: 'Structured Data Types Mapping Matrix',
+      headers: ['Data Type / Construct', 'JSON Representation', 'YAML / TOML Representation'] as [string, string, string],
+      rows: [
+        { fromValue: 'Key-Value Map', toValue: '{ "key": "value" }', extraInfo: 'key: value / key = "value"' },
+        { fromValue: 'Array / List', toValue: '[1, 2, 3]', extraInfo: '- 1\\n- 2 / [1, 2, 3]' },
+        { fromValue: 'Boolean', toValue: 'true / false', extraInfo: 'true / false' },
+        { fromValue: 'Null / Nil', toValue: 'null', extraInfo: 'null / ~ (omitted in TOML)' },
+        { fromValue: 'Multiline String', toValue: '"Line 1\\nLine 2"', extraInfo: '| (Literal) / """ (Multiline)' },
+        { fromValue: 'Numbers / Floats', toValue: '42 / 3.14159', extraInfo: '42 / 3.14159' },
+      ],
+      caption: 'Standard type equivalencies across JSON, YAML, and TOML serialization formats.',
+    };
+  } else if (tool.slug === 'sql-to-json' || tool.slug === 'json-to-sql' || tool.slug === 'csv-to-sql') {
+    conversionTableData = {
+      title: 'SQL Dialect Quotes & Type Mapping Matrix',
+      headers: ['Feature / Construct', 'PostgreSQL / SQLite', 'MySQL / MariaDB'] as [string, string, string],
+      rows: [
+        { fromValue: 'Identifier Quoting', toValue: '"table_name", "column"', extraInfo: '`table_name`, `column`' },
+        { fromValue: 'String Escaping', toValue: '\'O\'\'Reilly\'', extraInfo: '\'O\'\'Reilly\' or \'O\\\'Reilly\'' },
+        { fromValue: 'Boolean Values', toValue: 'TRUE / FALSE', extraInfo: 'TRUE / FALSE (TINYINT 1/0)' },
+        { fromValue: 'JSON Objects', toValue: '\'{"a": 1}\'::jsonb', extraInfo: '\'{"a": 1}\'' },
+        { fromValue: 'Null Handling', toValue: 'NULL', extraInfo: 'NULL' },
+      ],
+      caption: 'Dialect comparison matrix for ANSI SQL INSERT statements generated by ConvertHub.',
+    };
+  } else if (tool.slug === 'css-unit-converter') {
+    conversionTableData = {
+      title: 'Standard CSS Typography & Spacing Conversion Matrix (16px Root Baseline)',
+      headers: ['Pixel Size (PX)', 'Root REM (REM)', 'Tailwind CSS Equivalent'] as [string, string, string],
+      rows: [
+        { fromValue: '12 px', toValue: '0.7500 rem', extraInfo: 'text-xs / p-3' },
+        { fromValue: '14 px', toValue: '0.8750 rem', extraInfo: 'text-sm / p-3.5' },
+        { fromValue: '16 px', toValue: '1.0000 rem', extraInfo: 'text-base / p-4' },
+        { fromValue: '18 px', toValue: '1.1250 rem', extraInfo: 'text-lg / p-4.5' },
+        { fromValue: '20 px', toValue: '1.2500 rem', extraInfo: 'text-xl / p-5' },
+        { fromValue: '24 px', toValue: '1.5000 rem', extraInfo: 'text-2xl / p-6' },
+        { fromValue: '30 px', toValue: '1.8750 rem', extraInfo: 'text-3xl / p-7.5' },
+        { fromValue: '36 px', toValue: '2.2500 rem', extraInfo: 'text-4xl / p-9' },
+        { fromValue: '48 px', toValue: '3.0000 rem', extraInfo: 'text-5xl / p-12' },
+        { fromValue: '64 px', toValue: '4.0000 rem', extraInfo: 'text-6xl / p-16' },
+      ],
+      caption: 'Computed typographic scale matrix across Pixels, REMs, and Tailwind CSS design tokens.',
+    };
+  } else if (tool.slug === 'qr-code-generator') {
+    conversionTableData = {
+      title: 'QR Code Error Correction Levels & Data Density Reference Table',
+      headers: ['ECC Level', 'Restoration Capacity', 'Recommended Use Case'] as [string, string, string],
+      rows: [
+        { fromValue: 'Level L (Low)', toValue: '~7% of data codewords', extraInfo: 'Clean digital screens & short URLs' },
+        { fromValue: 'Level M (Medium)', toValue: '~15% of data codewords', extraInfo: 'General purpose marketing, business cards' },
+        { fromValue: 'Level Q (Quartile)', toValue: '~25% of data codewords', extraInfo: 'Outdoor signage, industrial environments' },
+        { fromValue: 'Level H (High)', toValue: '~30% of data codewords', extraInfo: 'Branded QR codes with centered company logos' },
+      ],
+      caption: 'Standard Reed-Solomon Error Correction Code (ECC) recovery thresholds for QR matrix symbols.',
+    };
+  } else if (tool.slug === 'cron-expression-decoder') {
+    conversionTableData = {
+      title: 'Common Crontab Schedules & Syntax Reference Matrix',
+      headers: ['Schedule / Intent', 'Standard Cron Expression', 'Execution Frequency'] as [string, string, string],
+      rows: [
+        { fromValue: 'Every Minute', toValue: '* * * * *', extraInfo: '60 times per hour continuously' },
+        { fromValue: 'Every 5 Minutes', toValue: '*/5 * * * *', extraInfo: '12 times per hour (queue polling)' },
+        { fromValue: 'Every Hour', toValue: '0 * * * *', extraInfo: 'At minute 0 of every hour' },
+        { fromValue: 'Daily at Midnight', toValue: '0 0 * * *', extraInfo: '00:00 UTC / PKT once every day' },
+        { fromValue: 'Weekdays at 9 AM', toValue: '0 9 * * 1-5', extraInfo: 'Monday through Friday at 09:00' },
+        { fromValue: 'Weekly on Sunday', toValue: '0 0 * * 0', extraInfo: 'Sunday at 00:00 midnight' },
+        { fromValue: '1st of Every Month', toValue: '0 0 1 * *', extraInfo: 'Monthly billing cycle at midnight' },
+      ],
+      caption: 'Comparative schedule matrix for standard Unix 5-field cron expressions.',
+    };
+  } else if (tool.slug === 'lakh-crore-to-million-billion') {
+    conversionTableData = {
+      title: 'South Asian vs Western Numeral Scaling Reference Table',
+      headers: ['South Asian Scale', 'Numerical Digits', 'Western Equivalent'] as [string, string, string],
+      rows: [
+        { fromValue: '1 Lakh (ایک لاکھ)', toValue: '1,00,000', extraInfo: '100 Thousand (0.1M)' },
+        { fromValue: '10 Lakhs (دس لاکھ)', toValue: '10,00,000', extraInfo: '1 Million (1M)' },
+        { fromValue: '50 Lakhs (پچاس لاکھ)', toValue: '50,00,000', extraInfo: '5 Million (5M)' },
+        { fromValue: '1 Crore (ایک کروڑ)', toValue: '1,00,00,000', extraInfo: '10 Million (10M)' },
+        { fromValue: '10 Crores (دس کروڑ)', toValue: '10,00,00,000', extraInfo: '100 Million (100M)' },
+        { fromValue: '1 Arab (ایک ارب)', toValue: '1,00,00,00,000', extraInfo: '1 Billion (1B)' },
+        { fromValue: '10 Arabs (دس ارب)', toValue: '10,00,00,00,000', extraInfo: '10 Billion (10B)' },
+        { fromValue: '1 Kharab (ایک کھرب)', toValue: '1,00,00,00,00,000', extraInfo: '100 Billion (100B)' },
+      ],
+      caption: 'Standard denomination mapping between Pakistani South Asian and International Western numbering systems.',
+    };
+  } else if (tool.slug === 'murabba-bigha-to-acre') {
+    conversionTableData = {
+      title: 'Agricultural & Farmland Units Reference Matrix',
+      headers: ['Unit Name (اردو)', 'Area in Kanals / Acres', 'Square Feet (Patwari 272.25)'] as [string, string, string],
+      rows: [
+        { fromValue: '1 Murabba (مربع)', toValue: '25 Acres (200 Kanals)', extraInfo: '1,089,000 sq ft' },
+        { fromValue: '1 Acre / Qilla (ایکڑ / قلعہ)', toValue: '8 Kanals (160 Marlas)', extraInfo: '43,560 sq ft' },
+        { fromValue: '1 Bigha Punjab (بیگھہ)', toValue: '4 Kanals (80 Marlas)', extraInfo: '21,780 sq ft' },
+        { fromValue: '1 Bigha Sindh (بیگھہ)', toValue: '2 Kanals (40 Marlas)', extraInfo: '10,890 sq ft' },
+        { fromValue: '1 Kanal (کنال)', toValue: '20 Marlas', extraInfo: '5,445 sq ft' },
+        { fromValue: '1 Marla (مرلہ)', toValue: '9 Sarsahi (1/20 Kanal)', extraInfo: '272.25 sq ft' },
+        { fromValue: '1 Sarsahi (سرسائی)', toValue: '1 Sq Karam (1/9 Marla)', extraInfo: '30.25 sq ft' },
+      ],
+      caption: 'Official Board of Revenue conversion factors for rural agricultural holdings across Punjab and Sindh.',
+    };
+  } else if (isPakistanRealEstate) {
     conversionTableData = {
       title: 'Marla to Square Feet Quick Reference Matrix',
       headers: ['Marla (Units)', 'Urban / DHA (225 sq ft)', 'Patwari Legal (272.25 sq ft)'] as [string, string, string],
@@ -572,6 +894,31 @@ export default function ToolPage({ params }: ToolPageProps) {
       ],
       caption: 'Benchmarked upload size limits across major communication platforms.',
     };
+  } else if (tool.slug === 'gif-to-mp4' || tool.slug === 'gif-to-webm') {
+    conversionTableData = {
+      title: 'GIF to MP4 File Size & Bandwidth Savings Benchmark Table',
+      headers: ['Original GIF Size', 'Converted MP4 Size (CRF 23)', 'Bandwidth Saved'] as [string, string, string],
+      rows: [
+        { fromValue: '5.0 MB GIF', toValue: '340 KB MP4', extraInfo: '-93.2% Bandwidth Reduction' },
+        { fromValue: '12.0 MB GIF', toValue: '780 KB MP4', extraInfo: '-93.5% Bandwidth Reduction' },
+        { fromValue: '25.0 MB GIF', toValue: '1.60 MB MP4', extraInfo: '-93.6% Bandwidth Reduction' },
+        { fromValue: '50.0 MB GIF', toValue: '2.90 MB MP4', extraInfo: '-94.2% Bandwidth Reduction' },
+        { fromValue: '80.0 MB GIF', toValue: '4.40 MB MP4', extraInfo: '-94.5% Bandwidth Reduction' },
+      ],
+      caption: 'Benchmarked file size reduction comparing uncompressed 256-color GIF bitmaps to H.264 inter-frame compression.',
+    };
+  } else if (tool.slug === 'video-aspect-ratio-resizer') {
+    conversionTableData = {
+      title: 'Social Media Aspect Ratios & Canvas Dimensions Reference Matrix',
+      headers: ['Target Social Platform', 'Aspect Ratio Preset', 'Pixel Dimensions & Best Backdrop'] as [string, string, string],
+      rows: [
+        { fromValue: 'TikTok / Instagram Reels / YouTube Shorts', toValue: '9:16 Vertical', extraInfo: '1080 × 1920 px • Blurred Mirror Backdrop' },
+        { fromValue: 'YouTube Main / Desktop / TV', toValue: '16:9 Landscape', extraInfo: '1920 × 1080 px • Native Fullscreen' },
+        { fromValue: 'Instagram Feed / Facebook Square', toValue: '1:1 Square', extraInfo: '1080 × 1080 px • Blurred / White Border' },
+        { fromValue: 'Instagram Portrait Feed Post', toValue: '4:5 Portrait', extraInfo: '1080 × 1350 px • Blurred Mirror Backdrop' },
+      ],
+      caption: 'Standard social network canvas resolutions and recommended background styling.',
+    };
   } else if (tool.categorySlug === 'video' || tool.categorySlug === 'media') {
     conversionTableData = {
       title: 'Video Codec & Container Compatibility Reference Matrix',
@@ -585,6 +932,35 @@ export default function ToolPage({ params }: ToolPageProps) {
       ],
       caption: 'Cross-platform video decoding capabilities and container standards.',
     };
+  } else if (tool.categorySlug === 'image') {
+    if (tool.slug.includes('avif') || tool.slug.includes('webp')) {
+      conversionTableData = {
+        title: 'Next-Gen Image Formats Compression & Feature Benchmark Table',
+        headers: ['Format', 'Average File Size vs JPG', 'Key Advantage / Feature'] as [string, string, string],
+        rows: [
+          { fromValue: 'AVIF (.avif)', toValue: '50% to 70% Smaller', extraInfo: 'AV1 Intra-frame, 10/12-bit HDR, wide color gamut' },
+          { fromValue: 'WebP (.webp)', toValue: '25% to 35% Smaller', extraInfo: 'Universal web browser support, alpha channel' },
+          { fromValue: 'PNG (.png)', toValue: 'Baseline Lossless', extraInfo: 'Lossless graphics, sharp UI edges, full alpha' },
+          { fromValue: 'JPEG (.jpg)', toValue: 'Baseline Lossy', extraInfo: 'Universal photo compatibility across all legacy platforms' },
+          { fromValue: 'ICO (.ico)', toValue: 'Multi-Pack Container', extraInfo: '16x16, 32x32, 48x48, 64x64 favicon layers' },
+        ],
+        caption: 'Compression efficiency benchmarks based on W3C and modern browser rendering engines.',
+      };
+    } else if (tool.slug.includes('ico') || tool.slug.includes('svg')) {
+      conversionTableData = {
+        title: 'Favicon & Vector Icon Standard Resolutions Table',
+        headers: ['Resolution (Pixels)', 'Intended Platform / Target', 'File Type'] as [string, string, string],
+        rows: [
+          { fromValue: '16 × 16 px', toValue: 'Browser Tab Icon & Desktop Shortcuts', extraInfo: 'Embedded .ico layer / small favicon' },
+          { fromValue: '32 × 32 px', toValue: 'Retina / High-DPI Browser Tab Icon', extraInfo: 'Embedded .ico layer / standard favicon' },
+          { fromValue: '48 × 48 px', toValue: 'Windows Taskbar & Start Menu Icon', extraInfo: 'Embedded .ico layer / desktop app' },
+          { fromValue: '64 × 64 px', toValue: 'High-Resolution OS Icon & Bookmark', extraInfo: 'Embedded .ico layer / bookmark manager' },
+          { fromValue: '512 × 512 px', toValue: 'PWA Web App Manifest & Android Splash', extraInfo: 'Rasterized PNG from SVG' },
+          { fromValue: '1024 × 1024 px', toValue: 'iOS App Store & Retina Vector Asset', extraInfo: 'Ultra-HD PNG from SVG' },
+        ],
+        caption: 'Standard web and application favicon resolution dimensions matrix.',
+      };
+    }
   }
 
   // 4. Long-Tail SEO FAQs
@@ -778,6 +1154,157 @@ export default function ToolPage({ params }: ToolPageProps) {
         answer: 'Yes, 100%. All media processing runs in isolated temporary sandboxes with end-to-end encryption. Converted files are permanently auto-purged from our servers after 2 hours.',
       },
     ];
+  } else if (tool.categorySlug === 'developer') {
+    faqs = DEVELOPER_TOOL_FAQS[tool.slug] || [
+      {
+        question: `How does ${tool.name} work on ConvertHub?`,
+        answer: 'All developer data and security conversions execute 100% client-side directly within your browser’s V8 JavaScript engine. Your strings, code, JWT tokens, and configurations are never transmitted over the network or logged on any server.',
+      },
+      {
+        question: 'Can I format, validate, and minify outputs with custom indentation?',
+        answer: 'Yes. Our dual-pane code editor provides live syntax validation, customizable indentation (2 spaces, 4 spaces, tabs), alphabetical key sorting, and instant minification controls.',
+      },
+      {
+        question: 'What is the maximum file or payload size I can convert?',
+        answer: 'Because processing happens entirely in your local browser memory, you can convert multi-megabyte JSON, YAML, SQL, and CSV payloads with zero network latency or upload timeouts.',
+      },
+      {
+        question: 'Can I use this tool offline without an internet connection?',
+        answer: 'Yes! Once the webpage is loaded, all client-side conversion logic, parsers, and cryptographic hash functions work completely offline in airplane mode.',
+      },
+    ];
+  } else if (tool.slug === 'fbr-salary-tax-calculator') {
+    faqs = [
+      {
+        question: 'What are the FBR Income Tax Slabs for Tax Year 2024–2026 in Pakistan?',
+        answer: 'Under the Finance Act, salaried individuals earning up to Rs. 600,000 annually (Rs. 50,000/month) are 100% tax exempt. Progressive slabs apply thereafter up to 35% plus a 10% super surcharge for high earners above Rs. 10 Million.',
+      },
+      {
+        question: 'What is the difference in tax deductions for Filer vs Non-Filer?',
+        answer: 'Active Taxpayers (Filers) on the FBR ATL list enjoy standard statutory tax rates and lower withholding tax on banking transactions, cash withdrawals, and vehicle/property registrations. Non-Filers face 100% to 200% higher punitive withholding rates.',
+      },
+      {
+        question: 'Are employee allowances (Medical, Conveyance, House Rent) taxable?',
+        answer: 'Medical allowance up to 10% of basic salary is generally exempt under Section 139. Conveyance and house rent allowances are fully integrated into taxable gross salary per current FBR rules.',
+      },
+    ];
+  } else if (tool.slug === 'zakat-calculator') {
+    faqs = [
+      {
+        question: 'What is the current Nisab threshold for Zakat in Pakistan (2024–2026)?',
+        answer: 'The Nisab threshold is 7.5 Tolas (87.48 grams) for Gold or 52.5 Tolas (612.36 grams) for Silver. If you own cash, silver, gold, or business inventory exceeding the silver Nisab threshold for one lunar year (Hawl), 2.5% Zakat is obligatory on net zakatable assets.',
+      },
+      {
+        question: 'How is Zakat calculated on personal jewelry and gold?',
+        answer: 'Calculate the total weight of your 24K, 22K, 21K, and 18K gold in tolas or grams, multiply by today’s Sarafa market rate, subtract outstanding debts, and apply the 2.5% (1/40th) rate.',
+      },
+      {
+        question: 'Are provident funds, prize bonds, and shares subject to Zakat?',
+        answer: 'Yes. Prize bonds and tradable shares are zakatable at full face/market value. Voluntary provident funds and available withdrawable balances are zakatable upon maturity or withdrawal.',
+      },
+    ];
+  } else if (tool.slug === 'lakh-crore-to-million-billion') {
+    faqs = [
+      {
+        question: 'How many Lakhs or Crores are in 1 Million and 1 Billion?',
+        answer: '1 Million is equal to exactly 10 Lakhs (1,000,000). 1 Billion is equal to 100 Crores or 1 Arab (1,000,000,000). 1 Trillion is equal to 10 Kharabs (1,000,000,000,000).',
+      },
+      {
+        question: 'How does South Asian comma grouping (12,34,56,789) differ from Western grouping (123,456,789)?',
+        answer: 'In the South Asian numbering system, after the first three digits from the right (thousands), grouping commas are placed every two digits (Lakhs, Crores, Arabs, Kharabs). In the Western system, commas are strictly placed every three digits (Thousands, Millions, Billions, Trillions).',
+      },
+      {
+        question: 'How should amounts in words be written on banking cheques in Pakistan?',
+        answer: 'In Pakistan banking and corporate accounting, cheque amounts should be written in full South Asian or Western words with the mandatory suffix "Rupees Only" in English or "روپے فقط" in Urdu script to prevent unauthorized additions.',
+      },
+    ];
+  } else if (tool.slug === 'murabba-bigha-to-acre') {
+    faqs = [
+      {
+        question: 'How many Kanals and Acres are in 1 Murabba in Punjab Pakistan?',
+        answer: 'In Punjab and across Pakistan agricultural revenue records, 1 Murabba is equal to exactly 25 Acres (Qillas), which equals 200 Kanals or 4,000 Marlas (1,089,000 square feet in Patwari standard).',
+      },
+      {
+        question: 'What is the difference between Bigha in Punjab vs Sindh?',
+        answer: 'In Punjab revenue records, 1 Bigha is standardized as 4 Kanals (80 Marlas or 0.5 Acre). In Sindh agricultural practice, 1 Bigha equals 2 Kanals (40 Marlas or 0.25 Acre), while 1 Jareeb equals 0.5 Acre (4 Kanals).',
+      },
+      {
+        question: 'How many Square Feet are in 1 Marla in Patwari revenue vs DHA urban housing?',
+        answer: 'Official government revenue records (Patwari/Board of Revenue) measure 1 Marla as 272.25 square feet (30.25 sq yards, based on a 5.5-foot Karam). Modern private housing societies (DHA, Bahria Town, LDA) standardize 1 Marla at 225 square feet (25 sq yards).',
+      },
+    ];
+  } else if (tool.slug === 'electricity-bill-solar-calculator') {
+    faqs = [
+      {
+        question: 'How are units calculated from meter readings on LESCO, IESCO, and K-Electric bills?',
+        answer: 'Electricity units (kWh) are calculated by subtracting your Previous Meter Reading from your Current Meter Reading on your DISCO bill. For three-phase Time-of-Use (ToU) meters, Peak and Off-Peak units are recorded separately on different registers (01 and 02) and billed at their respective NEPRA slab rates.',
+      },
+      {
+        question: 'What is a Protected Consumer in Pakistan electricity tariffs?',
+        answer: 'A residential consumer is designated as "Protected" if their electricity consumption has remained 200 units or less per month for the past 6 consecutive billing cycles. Protected consumers enjoy subsidized lifeline tariffs (Rs. 3.95 to Rs. 14.16/unit). Exceeding 200 units even once immediately moves you to the unprotected higher slabs (Rs. 16.48 to Rs. 42.72/unit).',
+      },
+      {
+        question: 'How does solar net-metering credit calculation work on WAPDA bills?',
+        answer: 'Bi-directional green meters export excess daytime solar electricity to the DISCO grid (LESCO, IESCO, MEPCO, KE). Billed units are calculated as Net Units = Imported kWh - Exported kWh. Any surplus units exported over consumption are credited at NEPRA buyback rates (~Rs. 24.50/unit) to offset future bills or generate financial credits.',
+      },
+      {
+        question: 'What additional taxes and surcharges are included in WAPDA electricity bills?',
+        answer: 'Pakistani electricity bills include Fuel Price Adjustment (FPA), Financing Cost (FC) Surcharge (Rs. 3.23/kWh), Electricity Duty (1.5%), General Sales Tax (18% GST), TV/Radio Fee (Rs. 35), and Advance Income Tax under Section 235 (7.5% for non-filers on bills over Rs. 25,000).',
+      },
+    ];
+  } else if (tool.slug === 'gas-bill-calculator') {
+    faqs = [
+      {
+        question: 'How is gas consumption converted from Meter Reading (HM³) to MMBTU on SNGPL and SSGC bills?',
+        answer: 'Gas meters measure volume in Hundreds of Cubic Meters (HM³). Billing units in MMBTU (Million British Thermal Units) are calculated using the formula: MMBTU = (HM³ × 100 × 35.3147 × GCV) ÷ 1,000,000, where GCV (Gross Calorific Value) is typically 1,050 BTU/Scf for SNGPL and 1,020 BTU/Scf for SSGC.',
+      },
+      {
+        question: 'What are the domestic Protected vs Non-Protected gas slabs for SNGPL & SSGC?',
+        answer: 'Domestic consumers consuming up to 0.9 HM³ per month in winter (Nov–Feb) are classified as Protected with subsidized progressive rates (Rs. 200 to Rs. 400 per MMBTU and Rs. 40 meter rent). Non-Protected consumers pay standard rates (Rs. 500 to Rs. 3,500 per MMBTU) plus Rs. 500 fixed monthly meter rent.',
+      },
+      {
+        question: 'Why did my gas bill jump significantly from summer to winter?',
+        answer: 'In winter, running geysers and space heaters pushes monthly consumption above the 0.9 HM³ (or 1.5 MMBTU) protected threshold. This shifts the consumer into the non-protected category, causing the commodity rate per MMBTU to surge up to 5x and increasing the monthly meter rent from Rs. 40 to Rs. 500.',
+      },
+    ];
+  } else if (tool.slug === 'gif-to-mp4' || tool.slug === 'gif-to-webm') {
+    faqs = [
+      {
+        question: 'Why is MP4 smaller and faster to load than GIF on websites?',
+        answer: 'GIF is a 35-year-old bitmap format that stores every single frame as an uncompressed 256-color table. MP4 (H.264) and WebM (VP9) utilize temporal inter-frame compression and motion vectors to encode only the changes between frames. This reduces file size by 90% to 95% while supporting 60fps smoothness and hardware-accelerated streaming on mobile devices.',
+      },
+      {
+        question: 'Will converted MP4 videos loop automatically like animated GIFs?',
+        answer: 'Yes! When embedding your converted MP4 or WebM video on any website, adding HTML5 video attributes (<video autoplay loop muted playsinline>) provides identical silent, infinite looping playback without freezing or crashing mobile browsers.',
+      },
+      {
+        question: 'Why does ConvertHub use the pad=ceil(iw/2)*2:ceil(ih/2)*2 filter for MP4 conversion?',
+        answer: 'H.264 video compression encoders require pixel dimensions (both width and height) to be even numbers divisible by 2. When converting GIFs with odd dimensions (e.g. 401x325), standard converters fail or glitch. ConvertHub automatically pads 1 pixel to ensure universal playback on iOS Safari, Chrome, and desktop players.',
+      },
+      {
+        question: 'Is WebM or MP4 better for web animations and icons?',
+        answer: 'MP4 (H.264) provides universal 100% compatibility across all devices, including Apple iPhones, Safari, and Windows. WebM (VP9) provides ~15% higher compression efficiency and is ideal for modern Google Chrome, Edge, and Android web apps.',
+      },
+    ];
+  } else if (tool.slug === 'video-aspect-ratio-resizer') {
+    faqs = [
+      {
+        question: 'How to convert a landscape 16:9 video to 9:16 for TikTok without cutting off edges?',
+        answer: 'Select the 9:16 Vertical preset and choose the "Blurred Mirror" or "Custom Color Letterbox" background mode. Instead of zooming in and cropping out the sides of your landscape video, our engine keeps your entire original video in full resolution at the center and pads the top and bottom with a stylish blurred mirror backdrop.',
+      },
+      {
+        question: 'How does blurred background padding work for vertical videos?',
+        answer: 'Our FFmpeg filtergraph creates two simultaneous video layers: a background layer scaled to fill the entire 1080×1920 canvas and softened with a heavy boxblur (25:25) filter, and a sharp foreground layer scaled to fit inside. The two layers are composited into a modern, professional social media post.',
+      },
+      {
+        question: 'What is the difference between Blurred Mirror, Black Letterbox, and Center Crop?',
+        answer: 'Blurred Mirror provides a modern TikTok/Instagram Reels aesthetic. Black Letterbox creates a clean, classic cinematic letterbox bar appearance. Center Crop scales and crops the video to completely fill the canvas, which is ideal when your subject remains centered in the frame.',
+      },
+      {
+        question: 'Does resizing videos degrade audio quality or frame rate?',
+        answer: 'No. Audio streams are encoded with high-fidelity 192 kbps AAC stereo channels, and original frame rates are preserved with H.264 FastStart streaming headers for instant playback upon upload.',
+      },
+    ];
   } else if (tool.categorySlug === 'video' || tool.categorySlug === 'media') {
     faqs = [
       {
@@ -797,13 +1324,36 @@ export default function ToolPage({ params }: ToolPageProps) {
         answer: 'ConvertHub allows free media conversions for files up to 100 MB without registration, watermarks, or credit card requirements.',
       },
     ];
+  } else if (tool.categorySlug === 'image') {
+    faqs = [
+      {
+        question: 'What is AVIF and why is it smaller than WebP and JPEG?',
+        answer: 'AVIF (AV1 Image File Format) is an open, royalty-free image format derived from the AV1 video codec. It uses advanced intra-frame prediction algorithms and modern entropy coding, achieving up to 50% smaller file sizes than WebP and 70% smaller than JPEG at identical or superior visual quality. It also supports 10-bit and 12-bit color depth, HDR, and transparent alpha channels.',
+      },
+      {
+        question: 'How to create a multi-resolution favicon.ico containing 16x16 and 32x32 icons from an SVG?',
+        answer: 'Simply upload your vector SVG (or high-resolution PNG) file to ConvertHub and select "ICO (Favicon)" as the target format. Our backend pipeline automatically generates 16×16, 32×32, 48×48, and 64×64 pixel raster layers and encapsulates them into a single multi-pack Windows .ico container file ready for immediate use in your website root directory.',
+      },
+      {
+        question: 'Does converting SVG to PNG maintain transparent background?',
+        answer: 'Yes! When converting SVG to PNG on ConvertHub, all transparent background areas and alpha channels are preserved with 100% precision. You can also select custom DPI rendering (72, 150, 300, 600 DPI) and dimension presets (up to 4096×4096 4K) for ultra-sharp rasterization.',
+      },
+      {
+        question: 'How does the side-by-side comparison slider work?',
+        answer: 'After converting an image, ConvertHub displays an interactive split comparison handle. Drag the slider horizontally to inspect visual fidelity, edge sharpness, and compression artifacts between the original source image and the converted output before downloading.',
+      },
+      {
+        question: 'Are image EXIF metadata and GPS location tags stripped for privacy?',
+        answer: 'Yes. By default, ConvertHub strips sensitive EXIF metadata (including camera model, date taken, and embedded GPS coordinates) during conversion to ensure maximum user privacy and minimize file size.',
+      },
+    ];
   }
 
   // Internal linking: reverse tool if available
   const reverseTool = tool.slug === 'marla-to-square-feet'
-    ? { name: 'Square Feet to Marla (مربع فٹ سے مرلہ)', url: '/convert/pakistan/square-feet-to-marla' }
+    ? { name: 'Square Feet to Marla (مربع فٹ سے مرلہ)', url: '/convert/unit/square-feet-to-marla' }
     : tool.slug === 'square-feet-to-marla'
-    ? { name: 'Marla to Square Feet (مرلہ سے مربع فٹ)', url: '/convert/pakistan/marla-to-square-feet' }
+    ? { name: 'Marla to Square Feet (مرلہ سے مربع فٹ)', url: '/convert/unit/marla-to-square-feet' }
     : undefined;
 
   const relatedTools = ALL_TOOLS.filter(
@@ -827,7 +1377,7 @@ export default function ToolPage({ params }: ToolPageProps) {
       categorySlug={tool.categorySlug}
       slug={tool.slug}
       description={tool.description}
-      badgeText={tool.pakistanSpecific ? '🇵🇰 Pakistan Standard' : isCurrency ? '⚡ Live Forex Hourly' : 'Free & Instant'}
+      badgeText={tool.badge || (isCurrency ? '⚡ Live Forex Hourly' : 'Free & Instant')}
       howToSteps={howToSteps}
       formula={formulaData}
       conversionTable={conversionTableData}

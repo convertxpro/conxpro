@@ -23,7 +23,7 @@ export default function HomePage() {
             <span>The All-In-One Free Conversion Hub</span>
             <span className="text-indigo-400">•</span>
             <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-              🇵🇰 Pakistan Regional Included
+              100% Free & Private
             </span>
           </div>
 
@@ -36,18 +36,18 @@ export default function HomePage() {
 
           {/* Subtitle */}
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
-            Transform documents, images, videos, audio, 13 physical unit categories, live forex rates, and localized Pakistan land & gold measurements with zero sign-up.
+            Transform documents, images, videos, audio, physical measurement units, live forex rates, and developer data formats with zero sign-up.
           </p>
 
           {/* Quick Trending Converters Pills */}
           <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2">
             <span className="text-xs font-medium text-slate-400 mr-1">Trending:</span>
             {[
-              { name: '🇵🇰 Marla to SqFt', href: '/convert/pakistan/marla-to-square-feet' },
               { name: '📄 PDF to Word', href: '/convert/document/pdf-to-word' },
               { name: '📸 HEIC to JPG', href: '/convert/image/heic-to-jpg' },
               { name: '💵 USD to PKR', href: '/convert/currency/usd-to-pkr' },
-              { name: '🪙 Tola to Grams', href: '/convert/pakistan/tola-to-grams' },
+              { name: '📐 Marla to SqFt', href: '/convert/unit/marla-to-square-feet' },
+              { name: '🪙 Tola to Grams', href: '/convert/unit/tola-to-grams' },
               { name: '⚡ Compress PDF', href: '/convert/document/compress-pdf' },
               { name: '💻 JSON to CSV', href: '/convert/developer/json-to-csv' },
             ].map((tool) => (
@@ -66,31 +66,6 @@ export default function HomePage() {
         {/* 3. Value Proposition & Trust Badges */}
         <section className="my-10">
           <TrustBadges />
-        </section>
-
-        {/* 4. Pakistan Regional Spotlight Banner */}
-        <section className="my-12 overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/30 via-slate-900/80 to-teal-950/30 p-6 sm:p-8 backdrop-blur-md shadow-lg">
-          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300">
-                <span>🇵🇰 Localized Advantage</span>
-              </div>
-              <h2 className="text-2xl font-bold text-white sm:text-3xl">
-                Pakistan Real Estate, Sarafa Gold & Mandi Converters
-              </h2>
-              <p className="max-w-2xl text-xs sm:text-sm text-slate-300">
-                Convert Marla (225 vs 272.25 sq ft), Tola/Masha/Ratti to Grams, Maund to Kilograms, and Islamic Hijri dates with precision formulas.
-              </p>
-            </div>
-
-            <Link
-              href="/convert/pakistan"
-              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-bold text-slate-950 shadow-md transition hover:bg-emerald-400"
-            >
-              <span>Explore Pakistan Tools</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
         </section>
 
         {/* 5. Category Bento Grid */}

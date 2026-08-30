@@ -53,6 +53,13 @@ export async function POST(request: NextRequest) {
     // 4. Parse Conversion Options
     const rawTargetFormat = (formData.get('targetFormat') as string) || 'jpg';
     const quality = parseInt((formData.get('quality') as string) || '85', 10);
+    const effort = formData.get('effort') ? parseInt(formData.get('effort') as string, 10) : undefined;
+    const chromaSubsampling = (formData.get('chromaSubsampling') as '4:2:0' | '4:4:4') || undefined;
+    const stripExif = formData.get('stripExif') !== 'false';
+    const dpi = formData.get('dpi') ? parseInt(formData.get('dpi') as string, 10) : undefined;
+    const tintColor = (formData.get('tintColor') as string) || undefined;
+    const multiResolutionIco = formData.get('multiResolutionIco') === 'true';
+
     const width = formData.get('width') ? parseInt(formData.get('width') as string, 10) : undefined;
     const height = formData.get('height') ? parseInt(formData.get('height') as string, 10) : undefined;
     const fit = (formData.get('fit') as any) || 'inside';
@@ -62,6 +69,12 @@ export async function POST(request: NextRequest) {
     const convertOptions: ImageConvertOptions = {
       targetFormat: rawTargetFormat.toLowerCase() as ImageTargetFormat,
       quality: isNaN(quality) ? 85 : quality,
+      effort: effort && !isNaN(effort) ? effort : 4,
+      chromaSubsampling,
+      stripExif,
+      dpi: dpi && !isNaN(dpi) ? dpi : 300,
+      tintColor,
+      multiResolutionIco,
       width: width && !isNaN(width) ? width : undefined,
       height: height && !isNaN(height) ? height : undefined,
       fit,

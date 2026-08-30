@@ -34,7 +34,7 @@ export default function NotFound() {
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Link
-            href="/convert/pakistan/marla-to-square-feet"
+            href="/convert/unit/marla-to-square-feet"
             className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-xs transition hover:border-indigo-300 dark:border-slate-800 dark:bg-slate-900"
           >
             <Building className="h-5 w-5 text-emerald-500" />
@@ -42,7 +42,7 @@ export default function NotFound() {
               <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">
                 Marla to SqFt
               </p>
-              <p className="text-[11px] text-slate-400">Real Estate</p>
+              <p className="text-[11px] text-slate-400">Land & Area</p>
             </div>
           </Link>
 

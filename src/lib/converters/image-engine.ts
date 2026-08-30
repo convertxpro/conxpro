@@ -1,5 +1,10 @@
 import sharp from 'sharp';
 import heicConvert from 'heic-convert';
+import { processAvifConversion, AvifConvertOptions } from './image/avif-engine';
+import { rasterizeSvgToPng, generateMultiResolutionIco, SvgRasterOptions } from './image/svg-favicon-engine';
+
+export { processAvifConversion, rasterizeSvgToPng, generateMultiResolutionIco };
+export type { AvifConvertOptions, SvgRasterOptions };
 
 export type ImageTargetFormat =
   | 'jpg'
@@ -16,8 +21,14 @@ export type ImageTargetFormat =
 export interface ImageConvertOptions {
   targetFormat: ImageTargetFormat;
   quality?: number; // 1-100 (default: 85)
+  effort?: number; // 1-9 (default: 4)
+  chromaSubsampling?: '4:2:0' | '4:4:4'; // 4:4:4 for maximum edge crispness
+  stripExif?: boolean; // default: true
   width?: number;
   height?: number;
+  dpi?: number; // 72, 150, 300, 600 (default: 300 for vector/SVG)
+  tintColor?: string; // Optional hex fill override for SVGs
+  multiResolutionIco?: boolean; // For packing 16x16, 32x32, 48x48, 64x64 into a single .ico
   fit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
   maintainAspectRatio?: boolean;
   rotate?: number; // 0, 90, 180, 270 or undefined (auto EXIF)
@@ -36,16 +47,63 @@ export interface ProcessedImageResult {
 }
 
 /**
- * High-performance image conversion and transformation engine
+ * High-performance image conversion, rasterization, and transformation engine
  */
 export async function processImage(
   inputBuffer: Buffer,
   options: ImageConvertOptions
 ): Promise<ProcessedImageResult> {
   let workingBuffer = inputBuffer;
-  let isDecodedHeic = false;
+  const format = options.targetFormat.toLowerCase() as ImageTargetFormat;
 
-  // 1. HEIC / HEIF Decoding
+  // 1. Check if input is SVG
+  const isInputSvg =
+    inputBuffer.toString('utf8', 0, 200).includes('<svg') ||
+    inputBuffer.toString('utf8', 0, 200).includes('<?xml');
+
+  // 2. Special Case: Multi-Resolution Favicon Pack (.ico)
+  if (format === 'ico' || options.multiResolutionIco) {
+    try {
+      const icoBuffer = await generateMultiResolutionIco(workingBuffer);
+      return {
+        buffer: icoBuffer,
+        width: 64,
+        height: 64,
+        targetFormat: 'ico',
+        mime: 'image/x-icon',
+        sizeBytes: icoBuffer.length,
+      };
+    } catch (icoErr) {
+      console.warn('Multi-resolution ICO pack fallback to standard sharp resize:', icoErr);
+    }
+  }
+
+  // 3. Special Case: SVG Vector to Raster (with custom DPI, tint, dimensions)
+  if (isInputSvg && (format === 'png' || format === 'jpg' || format === 'jpeg' || format === 'webp' || format === 'avif')) {
+    const rasterPng = await rasterizeSvgToPng(workingBuffer, {
+      width: options.width,
+      height: options.height,
+      dpi: options.dpi || 300,
+      backgroundColor: options.flattenBackground,
+      tintColor: options.tintColor,
+    });
+
+    if (format === 'png') {
+      const meta = await sharp(rasterPng).metadata();
+      return {
+        buffer: rasterPng,
+        width: meta.width,
+        height: meta.height,
+        targetFormat: 'png',
+        mime: 'image/png',
+        sizeBytes: rasterPng.length,
+      };
+    }
+    // For other formats from SVG, pass the high-res raster PNG to Sharp pipeline below
+    workingBuffer = rasterPng;
+  }
+
+  // 4. HEIC / HEIF Decoding
   const isHeic =
     inputBuffer.toString('utf8', 4, 12).includes('ftypheic') ||
     inputBuffer.toString('utf8', 4, 12).includes('ftypmif1') ||
@@ -60,39 +118,70 @@ export async function processImage(
         quality: 1,
       });
       workingBuffer = Buffer.from(converted);
-      isDecodedHeic = true;
     } catch (heicErr) {
       console.warn('HEIC decode attempt with heic-convert encountered issue, passing to Sharp:', heicErr);
     }
   }
 
-  // 2. Initialize Sharp Pipeline
+  // 5. Special Case: AVIF Next-Gen Engine Direct Pipeline
+  if (format === 'avif' || (!isInputSvg && options.targetFormat === 'avif')) {
+    const avifResult = await processAvifConversion(workingBuffer, {
+      targetFormat: 'avif',
+      quality: options.quality,
+      effort: options.effort,
+      chromaSubsampling: options.chromaSubsampling,
+      stripExif: options.stripExif !== false,
+      width: options.width,
+      height: options.height,
+      fit: options.fit,
+    });
+
+    let w: number | undefined;
+    let h: number | undefined;
+    try {
+      const meta = await sharp(avifResult.buffer).metadata();
+      w = meta.width;
+      h = meta.height;
+    } catch {
+      // ignore
+    }
+
+    return {
+      buffer: avifResult.buffer,
+      width: w,
+      height: h,
+      targetFormat: 'avif',
+      mime: avifResult.mime,
+      sizeBytes: avifResult.buffer.length,
+    };
+  }
+
+  // 6. Initialize General Sharp Pipeline
   let pipeline = sharp(workingBuffer, {
     failOn: 'none',
-    density: 300, // For crisp SVG/vector rendering
+    density: options.dpi || 300, // For crisp SVG/vector rendering
   });
 
-  // Auto-rotate based on EXIF metadata (unless specific rotation specified)
+  // Auto-rotate based on EXIF metadata
   if (options.rotate !== undefined) {
     pipeline = pipeline.rotate(options.rotate);
-  } else {
+  } else if (options.stripExif !== false) {
     pipeline = pipeline.rotate(); // Auto-rotates using EXIF orientation
   }
 
-  // 3. Grayscale
+  // Grayscale filter
   if (options.grayscale) {
     pipeline = pipeline.grayscale();
   }
 
-  // 4. Flatten background for transparent sources converting to opaque formats (JPG)
+  // Flatten background for transparent sources converting to opaque formats (JPG)
   if (options.flattenBackground) {
     pipeline = pipeline.flatten({ background: options.flattenBackground });
-  } else if (options.targetFormat === 'jpg' || options.targetFormat === 'jpeg') {
-    // Default white background for transparent PNG/WebP to JPG
+  } else if (format === 'jpg' || format === 'jpeg') {
     pipeline = pipeline.flatten({ background: '#ffffff' });
   }
 
-  // 5. Resizing
+  // Resizing
   if (options.width || options.height) {
     pipeline = pipeline.resize({
       width: options.width ? Math.round(options.width) : undefined,
@@ -103,11 +192,11 @@ export async function processImage(
   }
 
   const q = Math.max(1, Math.min(100, options.quality || 85));
+  const effort = Math.max(1, Math.min(9, options.effort || 4));
   let outputBuffer: Buffer;
   let targetMime = 'image/jpeg';
-  const format = options.targetFormat.toLowerCase() as ImageTargetFormat;
 
-  // 6. Format Transformation & Optimization
+  // 7. Format Transformation & Optimization
   switch (format) {
     case 'jpg':
     case 'jpeg':
@@ -116,7 +205,7 @@ export async function processImage(
         .jpeg({
           quality: q,
           mozjpeg: true,
-          chromaSubsampling: q >= 90 ? '4:4:4' : '4:2:0',
+          chromaSubsampling: options.chromaSubsampling || (q >= 90 ? '4:4:4' : '4:2:0'),
         })
         .toBuffer();
       break;
@@ -137,18 +226,8 @@ export async function processImage(
       outputBuffer = await pipeline
         .webp({
           quality: q,
-          effort: 4,
+          effort: Math.min(6, effort),
           lossless: q === 100,
-        })
-        .toBuffer();
-      break;
-
-    case 'avif':
-      targetMime = 'image/avif';
-      outputBuffer = await pipeline
-        .avif({
-          quality: q,
-          effort: 4,
         })
         .toBuffer();
       break;
@@ -170,14 +249,11 @@ export async function processImage(
 
     case 'bmp':
       targetMime = 'image/bmp';
-      // Sharp outputs raw or png; for bmp compatibility convert via PNG buffer wrapped or direct
-      // We can generate PNG or standard bitmap
       outputBuffer = await pipeline.toFormat('png').toBuffer();
       break;
 
     case 'ico':
       targetMime = 'image/x-icon';
-      // Resize to standard multi-resolution / 256x256 icon
       outputBuffer = await pipeline
         .resize(256, 256, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
         .png()

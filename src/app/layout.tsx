@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Outfit } from 'next/font/google';
+import { Inter, Outfit, Noto_Nastaliq_Urdu } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/common/ThemeProvider';
 import { AuthProvider } from '@/components/auth/AuthProvider';
@@ -23,6 +23,13 @@ const outfit = Outfit({
   variable: '--font-outfit',
 });
 
+const notoUrdu = Noto_Nastaliq_Urdu({
+  subsets: ['arabic'],
+  weight: ['400', '700'],
+  variable: '--font-noto-urdu',
+  display: 'swap',
+});
+
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
@@ -36,7 +43,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Free Online File, Unit & Pakistan Regional Converter`,
+    default: `${siteConfig.name} — Free Online File, Unit, Currency & Data Converter`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -89,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable} ${notoUrdu.variable}`}>
       <head>
         <AdSenseScript />
         {/* Organization / WebSite Global JSON-LD Schema */}

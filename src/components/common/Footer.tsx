@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
 
             <p className="mt-3 max-w-sm text-xs leading-relaxed text-slate-500 dark:text-slate-400">
               The high-performance, privacy-first all-in-one conversion utility.
-              Transform documents, images, media, physical units, live currency, and Pakistan regional land & gold measurements with zero friction.
+              Transform documents, images, media, physical units, live forex, and specialized measurement tools with zero friction.
             </p>
 
             <div className="mt-4 flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
@@ -36,15 +36,15 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Pakistan Regional Tools Column */}
+          {/* Specialized Measurement Converters Column */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-1">
-              <span>🇵🇰 Pakistan Tools</span>
+              <span>Measurement & Units</span>
             </h3>
             <ul className="mt-3 space-y-2 text-xs">
               <li>
                 <Link
-                  href="/convert/pakistan/marla-to-square-feet"
+                  href="/convert/unit/marla-to-square-feet"
                   className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
                 >
                   Marla to Square Feet
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/convert/pakistan/square-feet-to-marla"
+                  href="/convert/unit/square-feet-to-marla"
                   className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
                 >
                   Square Feet to Marla
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/convert/pakistan/tola-to-grams"
+                  href="/convert/unit/tola-to-grams"
                   className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
                 >
                   Tola to Grams (Gold)
@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/convert/pakistan/maund-to-kg"
+                  href="/convert/unit/maund-to-kg"
                   className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
                 >
                   Maund to Kilograms
@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/convert/pakistan/hijri-to-gregorian"
+                  href="/convert/datetime/hijri-to-gregorian"
                   className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
                 >
                   Hijri to Gregorian Date

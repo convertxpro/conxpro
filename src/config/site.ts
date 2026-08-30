@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'ConvertHub',
   shortName: 'ConvertX',
-  description: 'Fast, free, and secure online file, unit, data, currency, and Pakistan regional conversion tools with zero friction and privacy-first auto-purge.',
+  description: 'Fast, free, and secure online file, unit, data, currency, audio, and video conversion tools with zero friction and privacy-first auto-purge.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://converthub.com',
   ogImage: 'https://converthub.com/og',
   links: {
@@ -19,11 +19,10 @@ export const siteConfig = {
     'audio converter',
     'unit converter',
     'currency converter',
-    'PKR currency exchange',
-    'marla to square feet',
-    'tola to gram',
-    'maund to kg',
-    'hijri to gregorian',
+    'live forex rates',
+    'land area converter',
+    'weight converter',
+    'data format converter',
   ],
   navItems: [
     { label: 'Documents', href: '/convert/document' },
@@ -31,7 +30,7 @@ export const siteConfig = {
     { label: 'Video & Audio', href: '/convert/media' },
     { label: 'Units', href: '/convert/unit' },
     { label: 'Currency', href: '/convert/currency' },
-    { label: 'Pakistan Regional', href: '/convert/pakistan', badge: '🇵🇰 Regional' },
     { label: 'Developer & Data', href: '/convert/developer' },
   ],
 };
+

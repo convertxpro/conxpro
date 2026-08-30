@@ -4,7 +4,7 @@ export interface GuideArticle {
   slug: string;
   title: string;
   shortDescription: string;
-  category: 'Pakistan Tools' | 'Real Estate' | 'Gold & Currency' | 'Image & Media' | 'Document & PDF';
+  category: 'Real Estate' | 'Gold & Currency' | 'Image & Media' | 'Document & PDF' | 'Unit Converters';
   categorySlug: string;
   publishedDate: string;
   updatedDate: string;
@@ -29,8 +29,8 @@ export const GUIDES: GuideArticle[] = [
     slug: 'pakistan-property-measurement-units-guide',
     title: 'Pakistan Property & Land Measurement Units: Complete Marla, Kanal & Square Feet Guide',
     shortDescription: 'Master traditional Pakistani land measurement units. Learn the critical difference between the 225 sq ft housing society Marla (DHA/Bahria) vs the 272.25 sq ft Patwari Revenue standard.',
-    category: 'Pakistan Tools',
-    categorySlug: 'pakistan-tools',
+    category: 'Real Estate',
+    categorySlug: 'unit',
     publishedDate: '2026-08-20',
     updatedDate: '2026-08-27',
     author: 'Engr. Tariq Mehmood, Land Surveying Specialist',
@@ -38,8 +38,8 @@ export const GUIDES: GuideArticle[] = [
     featured: true,
     relatedTool: {
       name: 'Marla to Square Feet Converter',
-      slug: 'marla-to-sqft',
-      categorySlug: 'pakistan-tools',
+      slug: 'marla-to-square-feet',
+      categorySlug: 'unit',
       ctaText: 'Calculate Land & Marla Online',
     },
     tableOfContents: [
@@ -65,8 +65,9 @@ export const GUIDES: GuideArticle[] = [
       <h2 id="the-marla-dilemma">2. The 225 vs 272.25 Sq Ft Marla Conflict</h2>
       <p>The most common and costly mistake in Pakistani property transactions occurs due to dual standards for Marla:</p>
       <ul>
-        <li><strong>Urban Private Standard (225 sq ft / Marla):</strong> Standardized by the Defence Housing Authority (DHA), Bahria Town, CDA Islamabad, and LDA Lahore. Under this system, a 5 Marla plot is exactly <code>1,125 sq ft</code> (typically 25 ft × 45 ft), and 1 Kanal is <code>4,500 sq ft</code>.</li>
-        <li><strong>Official Revenue Board Standard (272.25 sq ft / Marla):</strong> Used by district revenue offices (Patwari / Tehsildar) for rural and municipal registries. 1 Karam = 5.5 feet (66 inches). 1 Sarsahi = 1 Karam × 1 Karam = 30.25 sq ft. 1 Marla = 9 Sarsahis = <code>272.25 sq ft</code>. 1 Kanal = <code>5,445 sq ft</code>.</li>
+        <li><strong>LDA / DHA Urban Standard:</strong> <code>1 Marla = 225 Sq Ft</code> (Used in DHA Lahore, Bahria Town, LDA City, Gulberg, Rawalpindi).</li>
+        <li><strong>Patwari / Revenue Standard:</strong> <code>1 Marla = 272.25 Sq Ft</code> (Mandated by Punjab & KPK Board of Revenue based on 1 Karam = 5.5 ft).</li>
+        <li><strong>CDA Islamabad Standard:</strong> <code>1 Marla = 250 Sq Ft</code> (Applied in specific older Islamabad and Rawalpindi municipal sectors).</li>
       </ul>
 
       <h2 id="standard-conversion-table">3. Standard Hierarchy Table (Sarsahi to Murabba)</h2>
@@ -74,68 +75,74 @@ export const GUIDES: GuideArticle[] = [
         <thead class="bg-slate-800 text-slate-200">
           <tr>
             <th class="border border-slate-700 p-2">Unit</th>
-            <th class="border border-slate-700 p-2">Revenue Standard (Sq Ft)</th>
-            <th class="border border-slate-700 p-2">Housing Standard (Sq Ft)</th>
-            <th class="border border-slate-700 p-2">Equivalent In Marla</th>
+            <th class="border border-slate-700 p-2">Urban DHA/LDA Standard</th>
+            <th class="border border-slate-700 p-2">Patwari Revenue Standard</th>
+            <th class="border border-slate-700 p-2">Square Meters (m²)</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-slate-800 font-mono text-slate-300">
           <tr>
             <td class="border border-slate-700 p-2 font-sans font-semibold">1 Sarsahi</td>
-            <td class="border border-slate-700 p-2">30.25 sq ft</td>
-            <td class="border border-slate-700 p-2">25 sq ft</td>
-            <td class="border border-slate-700 p-2">1/9 Marla (0.111 Marla)</td>
+            <td class="border border-slate-700 p-2">25 Sq Ft</td>
+            <td class="border border-slate-700 p-2 text-emerald-400">30.25 Sq Ft</td>
+            <td class="border border-slate-700 p-2">2.81 m²</td>
           </tr>
           <tr>
-            <td class="border border-slate-700 p-2 font-sans font-semibold">1 Marla</td>
-            <td class="border border-slate-700 p-2">272.25 sq ft</td>
-            <td class="border border-slate-700 p-2">225 sq ft</td>
-            <td class="border border-slate-700 p-2">1.0 Marla</td>
+            <td class="border border-slate-700 p-2 font-sans font-semibold text-indigo-400">1 Marla</td>
+            <td class="border border-slate-700 p-2">225 Sq Ft</td>
+            <td class="border border-slate-700 p-2 text-emerald-400">272.25 Sq Ft</td>
+            <td class="border border-slate-700 p-2">20.90 / 25.29 m²</td>
           </tr>
           <tr>
-            <td class="border border-slate-700 p-2 font-sans font-semibold">1 Kanal</td>
-            <td class="border border-slate-700 p-2">5,445 sq ft</td>
-            <td class="border border-slate-700 p-2">4,500 sq ft</td>
-            <td class="border border-slate-700 p-2">20 Marlas</td>
+            <td class="border border-slate-700 p-2 font-sans font-semibold text-indigo-400">1 Kanal (20 Marla)</td>
+            <td class="border border-slate-700 p-2">4,500 Sq Ft (500 Sq Yd)</td>
+            <td class="border border-slate-700 p-2 text-emerald-400">5,445 Sq Ft (605 Sq Yd)</td>
+            <td class="border border-slate-700 p-2">418.06 / 505.85 m²</td>
           </tr>
           <tr>
-            <td class="border border-slate-700 p-2 font-sans font-semibold">1 Killa / Acre</td>
-            <td class="border border-slate-700 p-2">43,560 sq ft</td>
-            <td class="border border-slate-700 p-2">36,000 sq ft</td>
-            <td class="border border-slate-700 p-2">160 Marlas (8 Kanals)</td>
+            <td class="border border-slate-700 p-2 font-sans font-semibold text-indigo-400">1 Acre / Killa (8 Kanal)</td>
+            <td class="border border-slate-700 p-2">36,000 Sq Ft</td>
+            <td class="border border-slate-700 p-2 text-emerald-400">43,560 Sq Ft</td>
+            <td class="border border-slate-700 p-2">4,046.86 m²</td>
           </tr>
           <tr>
-            <td class="border border-slate-700 p-2 font-sans font-semibold">1 Murabba</td>
-            <td class="border border-slate-700 p-2">1,089,000 sq ft</td>
-            <td class="border border-slate-700 p-2">900,000 sq ft</td>
-            <td class="border border-slate-700 p-2">4,000 Marlas (25 Acres)</td>
+            <td class="border border-slate-700 p-2 font-sans font-semibold">1 Murabba (25 Acres)</td>
+            <td class="border border-slate-700 p-2">900,000 Sq Ft</td>
+            <td class="border border-slate-700 p-2 text-emerald-400">1,089,000 Sq Ft</td>
+            <td class="border border-slate-700 p-2">101,171 m²</td>
           </tr>
         </tbody>
       </table>
 
       <h2 id="regional-district-variations">4. District-Specific Land Variations</h2>
-      <p>In Sindh (Karachi, Hyderabad), land is predominantly quoted in <strong>Square Yards (Gazz)</strong> rather than Marlas. 1 Gazz = 9 sq ft. An 80 sq yard plot equals 720 sq ft (~3.2 Marlas in DHA), and a 120 sq yard plot equals 1,080 sq ft (~4.8 Marlas in DHA).</p>
+      <p>While urban housing schemes have unified around 225 sq ft, provincial Patwar records vary across provinces:</p>
+      <ul>
+        <li><strong>Punjab (Lahore, Faisalabad, Multan):</strong> 1 Marla = 9 Sarsahi = 272.25 sq ft in revenue records; 225 sq ft in approved private housing societies.</li>
+        <li><strong>Sindh (Karachi, Hyderabad):</strong> Land is measured in <strong>Square Yards (Gazz)</strong> and <strong>Acres</strong>. 120 Sq Yd (~5.33 Marla) and 240 Sq Yd (~10.66 Marla) are standard plot sizes.</li>
+        <li><strong>KPK (Peshawar, Abbottabad, Mardan):</strong> Patwari standard 272.25 sq ft applies in rural tehsils; Galiyat region often uses local Jareeb denominations.</li>
+      </ul>
 
       <h2 id="patwari-terms-glossary">5. Crucial Patwari & Fard Terminology</h2>
       <ul>
-        <li><strong>Fard (فرد):</strong> The official ownership title document issued by the Land Record Center (Arazi Record Center / PLRA).</li>
-        <li><strong>Khasra Number (خسرہ نمبر):</strong> Unique parcel identification number on the cadastral village map (Shajra).</li>
-        <li><strong>Khatoni (کھتونی):</strong> Holding number showing cultivator and tenant information.</li>
-        <li><strong>Intiqal / Mutation (انتقال):</strong> Legal recording of ownership change in government revenue registries.</li>
+        <li><strong>Fard (فرد):</strong> Official property ownership record certificate issued by the Land Record Authority (Arazi Record Center).</li>
+        <li><strong>Khasra (خسرہ):</strong> Specific parcel/plot number allocated to a piece of land in village settlement maps (Shajra).</li>
+        <li><strong>Khatoni (کھتونی):</strong> Holding number indicating tenant or cultivator details under a Khewat.</li>
+        <li><strong>Khewat (کھیوٹ):</strong> Account number representing one or multiple joint landowners in the revenue mauza.</li>
+        <li><strong>Intiqal (انتقال):</strong> Mutation registration officially transferring legal land title from seller to buyer.</li>
       </ul>
     `,
     faqs: [
       {
-        question: 'Why does DHA use 225 sq ft for 1 Marla instead of 272.25 sq ft?',
-        answer: 'Modern planned urban societies adopted 225 sq ft (25 yards × 9 sq ft/yard) to simplify grid layout designs (e.g. 5 Marla = 25×45 ft = 1,125 sq ft) and align with international architectural planning standards.',
+        question: 'What is the exact size of 1 Marla in DHA Lahore and Bahria Town?',
+        answer: 'In DHA Lahore, Bahria Town, and all LDA-approved private housing societies, 1 Marla is officially calculated as exactly 225 Square Feet (25 Square Yards / Gazz).',
       },
       {
-        question: 'How many square feet are in 1 Kanal in Lahore?',
-        answer: 'Inside private housing schemes like DHA and Bahria Town, 1 Kanal equals 4,500 sq ft (20 Marlas of 225 sq ft). In rural revenue records of District Lahore, 1 Kanal equals 5,445 sq ft (20 Marlas of 272.25 sq ft).',
+        question: 'Why does the Patwari calculate Marla as 272.25 sq ft instead of 225?',
+        answer: 'The Board of Revenue standard is based on the traditional British settlement rod (Karam = 5.5 feet). 1 Sarsahi = 1 Karam × 1 Karam = 30.25 sq ft. 1 Marla = 9 Sarsahi = 272.25 sq ft. This standard remains legally binding on all agricultural land registrations.',
       },
       {
         question: 'How many Marlas are in 1 Acre in Pakistan?',
-        answer: '1 Acre (Killa) consists of exactly 8 Kanals, which equals 160 Marlas.',
+        answer: 'In the official Patwari revenue standard, 1 Acre (Killa) equals exactly 8 Kanals or 160 Marlas (43,560 Square Feet).',
       },
     ],
   },
@@ -144,7 +151,7 @@ export const GUIDES: GuideArticle[] = [
     title: 'Gold Weight & Purity Guide in Pakistan: Tola, Masha, Ratti to Grams Conversion & 24K vs 22K',
     shortDescription: 'Comprehensive guide to Pakistani bullion and Sarafa market standards. Calculate gold price per tola, grams to tola ratios, and karat purity formulas (24K, 22K, 21K, 18K).',
     category: 'Gold & Currency',
-    categorySlug: 'pakistan-tools',
+    categorySlug: 'unit',
     publishedDate: '2026-08-22',
     updatedDate: '2026-08-27',
     author: 'Haji Muhammad Rizwan, Sarafa Bullion Analyst',
@@ -153,7 +160,7 @@ export const GUIDES: GuideArticle[] = [
     relatedTool: {
       name: 'Gold Tola to Grams Converter',
       slug: 'tola-to-grams',
-      categorySlug: 'pakistan-tools',
+      categorySlug: 'unit',
       ctaText: 'Calculate Gold Price & Purity',
     },
     tableOfContents: [
@@ -377,7 +384,7 @@ export const GUIDES: GuideArticle[] = [
     title: 'USD to PKR Forex & Remittance Guide: Interbank vs Open Market & SBP PRI Incentives',
     shortDescription: 'Understand the difference between SBP Interbank exchange rates and Sarafa Open Market rates. Learn how to maximize remittance values via official banking channels with zero fees.',
     category: 'Gold & Currency',
-    categorySlug: 'currency-converter',
+    categorySlug: 'currency',
     publishedDate: '2026-08-26',
     updatedDate: '2026-08-27',
     author: 'Kamran Siddiqui, Macroeconomic & Forex Research Lead',
@@ -386,7 +393,7 @@ export const GUIDES: GuideArticle[] = [
     relatedTool: {
       name: 'USD to PKR Currency Converter',
       slug: 'usd-to-pkr',
-      categorySlug: 'currency-converter',
+      categorySlug: 'currency',
       ctaText: 'Check Live Interbank USD Rate',
     },
     tableOfContents: [

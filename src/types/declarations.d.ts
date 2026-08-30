@@ -16,3 +16,9 @@ declare module 'libreoffice-convert' {
     callback: (err: Error | null, done: Buffer) => void
   ): void;
 }
+
+declare module 'png-to-ico' {
+  function pngToIco(inputs: (Buffer | string)[] | Buffer | string): Promise<Buffer>;
+  export default pngToIco;
+}
+

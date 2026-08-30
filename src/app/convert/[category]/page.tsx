@@ -175,11 +175,6 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                       {tool.badge}
                     </span>
                   )}
-                  {tool.pakistanSpecific && (
-                    <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">
-                      🇵🇰 Pakistan
-                    </span>
-                  )}
                 </div>
 
                 <h2 className="mt-4 text-base font-bold text-slate-900 group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">

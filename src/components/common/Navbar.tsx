@@ -141,13 +141,6 @@ export const Navbar: React.FC = () => {
               </div>
 
               <Link
-                href="/convert/pakistan"
-                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-700 bg-emerald-50/80 border border-emerald-200/50 hover:bg-emerald-100/80 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800/40 dark:hover:bg-emerald-950/70 transition"
-              >
-                <span>🇵🇰 Pakistan Tools</span>
-              </Link>
-
-              <Link
                 href="/convert/document"
                 className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
               >
@@ -162,10 +155,31 @@ export const Navbar: React.FC = () => {
               </Link>
 
               <Link
+                href="/convert/media"
+                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+              >
+                Media
+              </Link>
+
+              <Link
+                href="/convert/unit"
+                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+              >
+                Units
+              </Link>
+
+              <Link
                 href="/convert/currency"
                 className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
               >
                 Forex
+              </Link>
+
+              <Link
+                href="/convert/developer"
+                className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition"
+              >
+                Dev Tools
               </Link>
 
               <Link
@@ -343,14 +357,6 @@ export const Navbar: React.FC = () => {
                   </Link>
                 </div>
               )}
-
-              <Link
-                href="/convert/pakistan"
-                className="flex items-center justify-between rounded-xl bg-emerald-50 p-3 text-sm font-semibold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300"
-              >
-                <span>🇵🇰 Pakistan Regional Converters</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
 
               <div className="grid grid-cols-2 gap-2 pt-2">
                 {CATEGORIES.map((cat) => (

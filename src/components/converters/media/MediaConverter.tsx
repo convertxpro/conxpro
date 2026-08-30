@@ -62,6 +62,15 @@ export const MediaConverter: React.FC<MediaConverterProps> = ({
     if (slug === 'webm-to-mp4' || slug === 'mov-to-mp4' || slug === 'mkv-to-mp4' || slug === 'avi-to-mp4') {
       return { toolType: 'video-convert', targetFormat: 'mp4', resolution: 'original' };
     }
+    if (slug === 'gif-to-mp4') {
+      return { toolType: 'gif-to-mp4', targetFormat: 'mp4' };
+    }
+    if (slug === 'gif-to-webm') {
+      return { toolType: 'gif-to-webm', targetFormat: 'webm' };
+    }
+    if (slug === 'video-aspect-ratio-resizer') {
+      return { toolType: 'video-aspect-ratio-resizer', targetFormat: 'mp4' };
+    }
     if (slug === 'wav-to-mp3' || slug === 'm4a-to-mp3' || slug === 'flac-to-mp3') {
       return { toolType: 'audio-convert', targetFormat: 'mp3', bitrate: '192k' };
     }

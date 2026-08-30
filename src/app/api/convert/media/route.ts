@@ -56,10 +56,10 @@ export async function POST(request: NextRequest) {
     const rawToolType = (formData.get('toolType') as string) || 'video-convert';
     const toolType = rawToolType as MediaToolType;
 
-    const rawTargetFormat = (formData.get('targetFormat') as string) || (toolType === 'video-to-mp3' ? 'mp3' : toolType === 'video-to-gif' ? 'gif' : 'mp4');
+    const rawTargetFormat = (formData.get('targetFormat') as string) || (toolType === 'video-to-mp3' ? 'mp3' : toolType === 'video-to-gif' ? 'gif' : toolType === 'gif-to-webm' ? 'webm' : 'mp4');
     const targetFormat = rawTargetFormat.toLowerCase().replace(/^\./, '');
 
-    // Parse options (bitrate, resolution, targetSizeMb, crf, startTime, duration, etc.)
+    // Parse options (bitrate, resolution, targetSizeMb, crf, qualityCrf, preset, backgroundStyle, customColorHex, startTime, duration, etc.)
     let options: MediaJobOptions = {};
     const optionsRaw = formData.get('options');
     if (typeof optionsRaw === 'string') {
@@ -73,6 +73,10 @@ export async function POST(request: NextRequest) {
       if (formData.has('resolution')) options.resolution = formData.get('resolution') as string;
       if (formData.has('targetSizeMb')) options.targetSizeMb = parseFloat(formData.get('targetSizeMb') as string);
       if (formData.has('crf')) options.crf = parseInt(formData.get('crf') as string, 10);
+      if (formData.has('qualityCrf')) options.qualityCrf = parseInt(formData.get('qualityCrf') as string, 10);
+      if (formData.has('preset')) options.preset = formData.get('preset') as string;
+      if (formData.has('backgroundStyle')) options.backgroundStyle = formData.get('backgroundStyle') as string;
+      if (formData.has('customColorHex')) options.customColorHex = formData.get('customColorHex') as string;
       if (formData.has('fps')) options.fps = parseInt(formData.get('fps') as string, 10);
       if (formData.has('startTime')) options.startTime = formData.get('startTime') as string;
       if (formData.has('duration')) options.duration = formData.get('duration') as string;

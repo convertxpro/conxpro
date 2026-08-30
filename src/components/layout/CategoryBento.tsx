@@ -20,17 +20,13 @@ const ICON_MAP: Record<string, any> = {
 export const CategoryBento: React.FC = () => {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {CATEGORIES.map((category, index) => {
+      {CATEGORIES.map((category) => {
         const IconComponent = ICON_MAP[category.iconName] || FileText;
-        const isFeatured = index === 0; // Pakistan Regional highlighted
 
         return (
           <div
             key={category.id}
-            className={cn(
-              'group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl dark:border-slate-800/80 dark:bg-slate-900/40 dark:hover:border-slate-700',
-              isFeatured && 'sm:col-span-2 bg-gradient-to-br from-emerald-500/5 via-white/80 to-teal-500/5 dark:from-emerald-950/20 dark:via-slate-900/60 dark:to-teal-950/20 border-emerald-500/30'
-            )}
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl dark:border-slate-800/80 dark:bg-slate-900/40 dark:hover:border-slate-700"
           >
             <div>
               {/* Top header row */}
@@ -45,14 +41,7 @@ export const CategoryBento: React.FC = () => {
                 </div>
 
                 {category.badge && (
-                  <span
-                    className={cn(
-                      'rounded-full px-2.5 py-0.5 text-xs font-semibold',
-                      isFeatured
-                        ? 'bg-emerald-500/10 text-emerald-600 border border-emerald-500/30 dark:bg-emerald-500/20 dark:text-emerald-300'
-                        : 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300'
-                    )}
-                  >
+                  <span className="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300">
                     {category.badge}
                   </span>
                 )}
@@ -68,7 +57,7 @@ export const CategoryBento: React.FC = () => {
 
               {/* Popular Tools Pills */}
               <div className="mt-4 flex flex-wrap gap-1.5">
-                {category.tools.slice(0, isFeatured ? 5 : 3).map((tool) => (
+                {category.tools.slice(0, 4).map((tool) => (
                   <Link
                     key={tool.id}
                     href={`/convert/${tool.categorySlug}/${tool.slug}`}

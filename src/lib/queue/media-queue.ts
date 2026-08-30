@@ -3,6 +3,9 @@ import { Redis } from 'ioredis';
 
 export const MEDIA_QUEUE_NAME = 'media-conversion-queue';
 
+export type AspectRatioPreset = '9:16' | '16:9' | '1:1' | '4:5';
+export type BackgroundStyle = 'blur' | 'black' | 'white' | 'color' | 'crop';
+
 export interface MediaJobOptions {
   startTime?: number | string;
   duration?: number | string;
@@ -12,7 +15,8 @@ export interface MediaJobOptions {
   audioCodec?: string;
   videoCodec?: string;
   crf?: number; // e.g. 28
-  preset?: string; // 'medium', 'fast', 'ultrafast'
+  qualityCrf?: number; // 18 - 30
+  preset?: string; // 'medium', 'fast', 'ultrafast' or AspectRatioPreset
   fps?: number; // for gif or video (e.g. 15, 24, 30)
   targetSizeMb?: number; // e.g. 8 for discord, 16 for whatsapp
   width?: number;
@@ -20,6 +24,13 @@ export interface MediaJobOptions {
   audioChannels?: number;
   sampleRate?: number;
   volume?: number;
+  backgroundStyle?: BackgroundStyle | string;
+  customColorHex?: string;
+  speedMultiplier?: number;
+  preservePitch?: boolean;
+  pitchSemitones?: number;
+  crossfadeDurationSec?: number;
+  inputPaths?: string[];
 }
 
 export type MediaToolType =
@@ -27,11 +38,21 @@ export type MediaToolType =
   | 'video-compress'
   | 'video-to-mp3'
   | 'video-to-gif'
+  | 'gif-to-mp4'
+  | 'gif-to-webm'
+  | 'gif-to-video'
+  | 'video-aspect-ratio-resizer'
+  | 'social-resize'
   | 'video-trim'
   | 'video-resize'
   | 'audio-convert'
   | 'audio-compress'
-  | 'audio-trim';
+  | 'audio-trim'
+  | 'audio-speed-pitch-changer'
+  | 'audio-speed'
+  | 'audio-joiner'
+  | 'audio-merge'
+  | 'subtitle-converter';
 
 export interface MediaJobData {
   jobId: string;

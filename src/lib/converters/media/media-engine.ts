@@ -1,27 +1,9 @@
-import ffmpeg from 'fluent-ffmpeg';
+import { ffmpeg } from './ffmpeg-config';
 import fs from 'fs';
 import path from 'path';
 import { MediaJobData, MediaJobOptions, updateJobProgress } from '@/lib/queue/media-queue';
 import { TempStorageManager, getMimeForFormat } from '@/lib/storage/temp-storage';
-
-// Configure FFmpeg and FFprobe binary locations safely
-try {
-  const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
-  if (ffmpegInstaller?.path) {
-    ffmpeg.setFfmpegPath(ffmpegInstaller.path);
-  }
-} catch (err) {
-  console.warn('Could not set FFmpeg binary path:', err);
-}
-
-try {
-  const ffprobeInstaller = require('@ffprobe-installer/ffprobe');
-  if (ffprobeInstaller?.path) {
-    ffmpeg.setFfprobePath(ffprobeInstaller.path);
-  }
-} catch (err) {
-  console.warn('Could not set FFprobe binary path:', err);
-}
+import { getCanvasDimensions, AspectRatioPreset, BackgroundStyle } from './social-resizer';
 
 export interface MediaMetadata {
   durationSeconds: number;
@@ -142,6 +124,81 @@ export async function executeMediaConversion(
         break;
       }
 
+      case 'gif-to-mp4':
+      case 'gif-to-webm':
+      case 'gif-to-video': {
+        const fmt = targetFormat.toLowerCase();
+        if (fmt === 'mp4') {
+          command = command.outputOptions([
+            '-c:v libx264',
+            '-pix_fmt yuv420p',
+            `-crf ${options.qualityCrf || options.crf || 23}`,
+            '-preset medium',
+            '-movflags +faststart',
+            '-vf pad=ceil(iw/2)*2:ceil(ih/2)*2',
+            '-an',
+          ]);
+        } else if (fmt === 'webm') {
+          command = command.outputOptions([
+            '-c:v libvpx-vp9',
+            `-crf ${options.qualityCrf || options.crf || 30}`,
+            '-b:v 0',
+            '-pix_fmt yuv420p',
+            '-an',
+          ]);
+        }
+        if (options.fps && options.fps > 0) {
+          command = command.fps(options.fps);
+        }
+        break;
+      }
+
+      case 'video-aspect-ratio-resizer':
+      case 'social-resize': {
+        const preset = (options.preset || '9:16') as AspectRatioPreset;
+        const backgroundStyle = (options.backgroundStyle || 'blur') as BackgroundStyle;
+        const { targetWidth, targetHeight } = getCanvasDimensions(preset);
+
+        if (backgroundStyle === 'crop') {
+          const filter = `scale=w=${targetWidth}:h=${targetHeight}:force_original_aspect_ratio=increase,crop=${targetWidth}:${targetHeight}`;
+          command = command.videoFilters(filter);
+        } else if (backgroundStyle === 'blur') {
+          const filterComplex = [
+            `[0:v]scale=${targetWidth}:${targetHeight}:force_original_aspect_ratio=increase,crop=${targetWidth}:${targetHeight},boxblur=25:25[bg]`,
+            `[0:v]scale=${targetWidth}:${targetHeight}:force_original_aspect_ratio=decrease[fg]`,
+            `[bg][fg]overlay=(W-w)/2:(H-h)/2[outv]`,
+          ].join(';');
+
+          command = command
+            .complexFilter(filterComplex, ['outv'])
+            .outputOptions(['-map [outv]', '-map 0:a?']);
+        } else {
+          let hex = '0x000000';
+          if (backgroundStyle === 'white') {
+            hex = '0xFFFFFF';
+          } else if (backgroundStyle === 'color' && options.customColorHex) {
+            hex = options.customColorHex.startsWith('#')
+              ? options.customColorHex.replace('#', '0x')
+              : options.customColorHex.startsWith('0x')
+              ? options.customColorHex
+              : `0x${options.customColorHex}`;
+          }
+
+          const filter = `scale=w=${targetWidth}:h=${targetHeight}:force_original_aspect_ratio=decrease,pad=${targetWidth}:${targetHeight}:(ow-iw)/2:(oh-ih)/2:color=${hex}`;
+          command = command.videoFilters(filter);
+        }
+
+        command = command.outputOptions([
+          '-c:v libx264',
+          '-pix_fmt yuv420p',
+          '-c:a aac',
+          '-b:a 192k',
+          '-preset fast',
+          '-movflags +faststart',
+        ]);
+        break;
+      }
+
       case 'video-compress': {
         // Calculate target bitrate if targetSizeMb is provided (e.g. Discord 8MB/25MB, WhatsApp 16MB)
         if (options.targetSizeMb && totalDuration > 0) {
@@ -242,6 +299,63 @@ export async function executeMediaConversion(
           .videoCodec('libx264')
           .audioCodec('aac')
           .outputOptions(['-preset fast', '-movflags +faststart']);
+        break;
+      }
+
+      case 'audio-speed-pitch-changer':
+      case 'audio-speed': {
+        const speed = Math.max(0.25, Math.min(4.0, options.speedMultiplier || 1.0));
+        const semitones = options.pitchSemitones !== undefined ? Math.max(-12, Math.min(12, options.pitchSemitones)) : 0;
+        const preservePitch = options.preservePitch !== false;
+        const audioFilters: string[] = [];
+
+        if (semitones !== 0) {
+          const pitchRatio = Math.pow(2, semitones / 12);
+          const baseSampleRate = 44100;
+          const targetRate = Math.round(baseSampleRate * pitchRatio);
+          audioFilters.push(`asetrate=${targetRate}`);
+          audioFilters.push(`aresample=${baseSampleRate}`);
+          let effectiveAtempo = (1 / pitchRatio) * (preservePitch || speed !== 1.0 ? speed : 1.0);
+          while (effectiveAtempo > 2.0) {
+            audioFilters.push('atempo=2.0');
+            effectiveAtempo /= 2.0;
+          }
+          while (effectiveAtempo < 0.5) {
+            audioFilters.push('atempo=0.5');
+            effectiveAtempo /= 0.5;
+          }
+          if (Math.abs(effectiveAtempo - 1.0) > 0.001) {
+            audioFilters.push(`atempo=${effectiveAtempo.toFixed(4)}`);
+          }
+        } else if (preservePitch) {
+          let remainingSpeed = speed;
+          while (remainingSpeed > 2.0) {
+            audioFilters.push('atempo=2.0');
+            remainingSpeed /= 2.0;
+          }
+          while (remainingSpeed < 0.5) {
+            audioFilters.push('atempo=0.5');
+            remainingSpeed /= 0.5;
+          }
+          if (Math.abs(remainingSpeed - 1.0) > 0.001) {
+            audioFilters.push(`atempo=${remainingSpeed.toFixed(4)}`);
+          }
+        } else if (Math.abs(speed - 1.0) > 0.001) {
+          const baseSampleRate = 44100;
+          const targetRate = Math.round(baseSampleRate * speed);
+          audioFilters.push(`asetrate=${targetRate}`);
+          audioFilters.push(`aresample=${baseSampleRate}`);
+        }
+
+        if (audioFilters.length > 0) {
+          command = command.audioFilters(audioFilters);
+        }
+
+        if (targetFormat.toLowerCase() === 'wav') {
+          command = command.audioCodec('pcm_s16le');
+        } else {
+          command = command.audioCodec('libmp3lame').audioBitrate(options.bitrate || '320k');
+        }
         break;
       }
 
