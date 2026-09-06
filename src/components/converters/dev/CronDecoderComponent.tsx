@@ -27,8 +27,13 @@ import {
   Timer,
   ChevronRight,
 } from 'lucide-react';
+import { ToolMetadata } from '@/config/categories';
 
-export const CronDecoderComponent: React.FC = () => {
+export interface CronDecoderComponentProps {
+  tool?: ToolMetadata;
+}
+
+export const CronDecoderComponent: React.FC<CronDecoderComponentProps> = () => {
   const [expression, setExpression] = useState<string>('*/15 * * * *');
   const [copiedStatus, setCopiedStatus] = useState<string | null>(null);
 

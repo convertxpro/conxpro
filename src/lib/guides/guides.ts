@@ -274,7 +274,7 @@ export const GUIDES: GuideArticle[] = [
       'HEIC (High Efficiency Image Container) delivers 50% smaller file size than JPG at identical visual fidelity.',
       'HEIC supports 16-bit color depth compared to JPG\'s 8-bit limit, preserving dynamic range in HDR photography.',
       'Windows 10/11, government job portals, and older browsers do not natively open HEIC without third-party codecs.',
-      'ConvertHub converts HEIC to standard JPEG directly in the browser via WebAssembly with zero data transmission.',
+      'ApexTools converts HEIC to standard JPEG directly in the browser via WebAssembly with zero data transmission.',
     ],
     contentHtml: `
       <h2 id="what-is-heic">1. What is HEIC / HEIF Format?</h2>
@@ -323,7 +323,7 @@ export const GUIDES: GuideArticle[] = [
       },
       {
         question: 'Does converting HEIC to JPG lose image quality?',
-        answer: 'When using ConvertHub with maximum 100% quality settings, the visual fidelity is imperceptibly identical to the original iPhone capture.',
+        answer: 'When using ApexTools with maximum 100% quality settings, the visual fidelity is imperceptibly identical to the original iPhone capture.',
       },
     ],
   },
@@ -371,7 +371,7 @@ export const GUIDES: GuideArticle[] = [
     faqs: [
       {
         question: 'Will compressing my PDF make my degree or CNIC unreadable?',
-        answer: 'ConvertHub preserves text vector streams and applies intelligent bicubic downsampling to images, ensuring all text, stamps, and signatures remain sharp and legibly clear.',
+        answer: 'ApexTools preserves text vector streams and applies intelligent bicubic downsampling to images, ensuring all text, stamps, and signatures remain sharp and legibly clear.',
       },
       {
         question: 'What is the maximum file size for FPSC and PPSC online applications?',

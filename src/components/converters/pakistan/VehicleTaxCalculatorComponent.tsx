@@ -80,7 +80,7 @@ export const VehicleTaxCalculatorComponent: React.FC<VehicleTaxCalculatorCompone
     `━━━━━━━━━━━━━━━━━━━━\n` +
     `💰 *TOTAL PAYABLE AMOUNT:* Rs. ${formatPakistaniNumber(result.totalPayable)} (${totalFormatted.inWords})\n` +
     (result.filerSavings > 0 ? `💡 *Filer Savings:* Save Rs. ${formatPakistaniNumber(result.filerSavings)} vs Non-Filer!\n` : '') +
-    `\n🔗 *Calculated free via ConvertHub Pakistan*`;
+    `\n🔗 *Calculated free via ApexTools Pakistan*`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shareText);

@@ -640,7 +640,7 @@ export const ImageConverter: React.FC<ImageConverterProps> = ({
                     className="h-4 w-4 rounded-sm object-contain"
                   />
                   <span className="truncate text-xs font-medium text-slate-700 dark:text-slate-200">
-                    ConvertHub • Fast Favicon Preview
+                    ApexTools • Fast Favicon Preview
                   </span>
                 </div>
               </div>

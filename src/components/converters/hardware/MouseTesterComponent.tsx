@@ -448,7 +448,7 @@ export const MouseTesterComponent: React.FC<MouseTesterComponentProps> = ({
   // Export Diagnostic Report
   const handleExportReport = () => {
     const report = {
-      test: 'ConvertHub Mouse, Scroll & Polling Rate Diagnostic Report',
+      test: 'ApexTools Mouse, Scroll & Polling Rate Diagnostic Report',
       timestamp: new Date().toLocaleString(),
       buttonStats: {
         leftClicks: buttons.left.clicks,

@@ -1,6 +1,6 @@
 import { startMediaWorker } from './media-worker';
 
-console.log('--- ConvertHub Background Media Worker ---');
+console.log('--- ApexTools Background Media Worker ---');
 console.log('Starting FFmpeg media queue consumer...');
 
 const worker = startMediaWorker();

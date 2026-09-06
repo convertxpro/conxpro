@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: EmbedPageProps): Promise<Meta
   if (!tool) return {};
 
   return {
-    title: `${tool.name} (Embed Widget) — ConvertHub`,
+    title: `${tool.name} (Embed Widget) — ApexTools`,
     description: `Embeddable responsive widget for ${tool.name}.`,
     robots: {
       index: false,
@@ -99,7 +99,7 @@ export default function EmbedToolPage({ params, searchParams }: EmbedPageProps) 
               rel="noopener"
               className="font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
             >
-              ConvertHub
+              ApexTools
             </Link>
           </div>
         </div>

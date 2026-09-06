@@ -49,7 +49,7 @@ export const EmbedWidgetModal: React.FC<EmbedWidgetModalProps> = ({
 
   if (!isOpen) return null;
 
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://converthub.com';
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://apextools.app';
   const embedUrl = `${origin}/embed/${tool.slug}${theme !== 'auto' ? `?theme=${theme}` : ''}`;
   const toolCanonicalUrl = `${origin}/convert/${tool.categorySlug}/${tool.slug}`;
 
@@ -63,7 +63,7 @@ export const EmbedWidgetModal: React.FC<EmbedWidgetModalProps> = ({
   loading="lazy"
 ></iframe>
 <div style="font-size: 12px; color: #64748b; margin-top: 6px; font-family: system-ui, -apple-system, sans-serif; text-align: right;">
-  Powered by <a href="${toolCanonicalUrl}" target="_blank" rel="noopener" style="color: #4f46e5; text-decoration: none; font-weight: 600;">ConvertHub ${tool.name}</a>
+  Powered by <a href="${toolCanonicalUrl}" target="_blank" rel="noopener" style="color: #4f46e5; text-decoration: none; font-weight: 600;">ApexTools ${tool.name}</a>
 </div>`;
 
   const handleCopyCode = async () => {

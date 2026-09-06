@@ -34,7 +34,7 @@ const DEV_TOOLS: Record<string, DevToolConfig> = {
     ],
     faqs: [
       { question: 'Why is my JSON invalid?', answer: 'Common JSON errors include trailing commas, unquoted keys, single quotes instead of double quotes, and missing closing brackets.' },
-      { question: 'Does ConvertHub store my JSON data?', answer: 'No. All validation and formatting occur 100% in your browser memory without sending data over the network.' },
+      { question: 'Does ApexTools store my JSON data?', answer: 'No. All validation and formatting occur 100% in your browser memory without sending data over the network.' },
     ],
     relatedSlugs: ['csv-to-json', 'base64-encode-decode', 'url-encode-decode'],
   },
@@ -49,7 +49,7 @@ const DEV_TOOLS: Record<string, DevToolConfig> = {
       { title: 'Download Converted File', description: 'Copy output with one click or download the formatted file.' },
     ],
     faqs: [
-      { question: 'Which CSV delimiters are supported?', answer: 'ConvertHub auto-detects commas, semicolons, tab characters, and pipes.' },
+      { question: 'Which CSV delimiters are supported?', answer: 'ApexTools auto-detects commas, semicolons, tab characters, and pipes.' },
       { question: 'Can it handle nested JSON arrays?', answer: 'Yes! When converting to CSV, nested structures are serialized cleanly with escaped quotes.' },
     ],
     relatedSlugs: ['json-formatter', 'base64-encode-decode', 'text-case-converter'],
@@ -61,7 +61,7 @@ const DEV_TOOLS: Record<string, DevToolConfig> = {
     badge: 'Flatten JSON Arrays',
     howToSteps: [
       { title: 'Paste JSON Array', description: 'Input your JSON array of objects.' },
-      { title: 'Auto-Extract Headers', description: 'ConvertHub automatically generates column headers from object keys.' },
+      { title: 'Auto-Extract Headers', description: 'ApexTools automatically generates column headers from object keys.' },
       { title: 'Download CSV', description: 'Download your spreadsheet-compatible CSV file.' },
     ],
     faqs: [
@@ -141,7 +141,7 @@ const DEV_TOOLS: Record<string, DevToolConfig> = {
       { title: 'Export HTML or MD', description: 'Download .html or .md files with one click.' },
     ],
     faqs: [
-      { question: 'Does this support Markdown tables and code blocks?', answer: 'Yes! ConvertHub supports standard GitHub Flavored Markdown (GFM) tables, blockquotes, and code blocks.' },
+      { question: 'Does this support Markdown tables and code blocks?', answer: 'Yes! ApexTools supports standard GitHub Flavored Markdown (GFM) tables, blockquotes, and code blocks.' },
     ],
     relatedSlugs: ['text-case-converter', 'json-formatter', 'base64-encode-decode'],
   },

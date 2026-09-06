@@ -134,7 +134,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
   // WhatsApp share
   const handleShareWhatsApp = () => {
     const text = encodeURIComponent(
-      `💵 *Currency Exchange Rate on ConvertHub*\n` +
+      `💵 *Currency Exchange Rate on ApexTools*\n` +
       `${numAmount.toLocaleString()} ${fromCurrency} = *${toInfo.symbol} ${convertedTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${toCurrency}*\n` +
       `1 ${fromCurrency} = ${unitRate.toFixed(4)} ${toCurrency}\n` +
       `Check live forex rates: ${typeof window !== 'undefined' ? window.location.href : ''}`

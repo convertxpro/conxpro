@@ -386,7 +386,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
               to select
             </span>
           </div>
-          <span>ConvertHub Fast Search</span>
+          <span>ApexTools Fast Search</span>
         </div>
       </div>
     </div>

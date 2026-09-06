@@ -37,8 +37,8 @@ export async function compressPdf(
     compressedDoc.setAuthor('');
     compressedDoc.setSubject('');
     compressedDoc.setKeywords([]);
-    compressedDoc.setProducer('ConvertHub PDF Engine');
-    compressedDoc.setCreator('ConvertHub');
+    compressedDoc.setProducer('ApexTools PDF Engine');
+    compressedDoc.setCreator('ApexTools');
   }
 
   // Save with optimized object stream compression

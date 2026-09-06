@@ -1,7 +1,7 @@
 import { User } from '@supabase/supabase-js';
 
 // Default admin email whitelist (can be configured via ADMIN_EMAILS environment variable)
-const DEFAULT_ADMIN_EMAILS = ['admin@converthub.com', 'muddasir@converthub.com'];
+const DEFAULT_ADMIN_EMAILS = ['admin@apextools.app', 'muddasir@apextools.app'];
 
 export function getAdminEmails(): string[] {
   const envEmails = process.env.ADMIN_EMAILS || process.env.NEXT_PUBLIC_ADMIN_EMAILS;

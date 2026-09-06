@@ -1,6 +1,6 @@
 /**
  * Smart QR Code & Barcode Generator Engine
- * ConvertHub Developer Productivity Suite
+ * ApexTools Developer Productivity Suite
  */
 
 import QRCode from 'qrcode';
@@ -90,7 +90,7 @@ export function formatQrPayload(options: QrCodeOptions): string {
   switch (options.type) {
     case 'url': {
       const raw = (options.content || '').trim();
-      if (!raw) return 'https://converthub.app';
+      if (!raw) return 'https://apextools.app';
       if (/^https?:\/\//i.test(raw)) return raw;
       return `https://${raw}`;
     }
@@ -158,7 +158,7 @@ export function formatQrPayload(options: QrCodeOptions): string {
 
     case 'text':
     default:
-      return options.content || 'ConvertHub QR Code';
+      return options.content || 'ApexTools QR Code';
   }
 }
 

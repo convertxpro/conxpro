@@ -93,7 +93,7 @@ export const NumeralConverterComponent: React.FC<NumeralConverterProps> = ({
     `• *Billions:* ${result.inBillions.toLocaleString()} Billion\n\n` +
     `📝 *Cheque Text (English):*\n"${result.chequeTextRupees}"\n\n` +
     `🇵🇰 *اردو الفاظ (Urdu Words):*\n${result.chequeTextUrdu}\n\n` +
-    `⚡ Converted via ConvertHub.pk`;
+    `⚡ Converted via ApexTools.app`;
 
   return (
     <div className="w-full space-y-6">

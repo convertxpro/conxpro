@@ -95,7 +95,7 @@ export default function UnitPairPage({ params }: UnitPairPageProps) {
     },
     {
       question: `Is this ${fromUnit.symbol} to ${toUnit.symbol} converter free?`,
-      answer: `Yes, ConvertHub unit converters are 100% free with no registration, no file limits, and instant browser-based computation.`,
+      answer: `Yes, ApexTools unit converters are 100% free with no registration, no file limits, and instant browser-based computation.`,
     },
     {
       question: `Can I reverse this calculation from ${toUnit.name} to ${fromUnit.name}?`,

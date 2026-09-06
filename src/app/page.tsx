@@ -92,11 +92,11 @@ export default function HomePage() {
         {/* 6. Native In-Content Ad */}
         <AdSlot placement="in_content_native" />
 
-        {/* 7. Why Choose ConvertHub Feature Strip */}
+        {/* 7. Why Choose ApexTools Feature Strip */}
         <section className="my-16 rounded-3xl border border-slate-200/80 bg-white/70 p-8 shadow-sm backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-900/40 sm:p-12">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-              Why ConvertHub is Built Different
+              Why ApexTools is Built Different
             </h2>
             <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500 dark:text-slate-400">
               Designed from the ground up for maximum privacy, zero lag, and search engine performance.

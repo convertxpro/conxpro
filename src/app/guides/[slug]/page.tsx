@@ -172,7 +172,7 @@ export default function GuideArticlePage({ params }: GuidePageProps) {
             <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-6 text-center">
               <h3 className="text-lg font-bold text-white">Need to run this calculation now?</h3>
               <p className="mt-1 text-xs text-slate-400">
-                ConvertHub provides instant, 100% free client-side converters with zero upload requirements.
+                ApexTools provides instant, 100% free client-side converters with zero upload requirements.
               </p>
               <Link
                 href={`/convert/${guide.relatedTool.categorySlug}/${guide.relatedTool.slug}`}

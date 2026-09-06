@@ -533,7 +533,7 @@ export const KeyboardTesterComponent: React.FC<KeyboardTesterComponentProps> = (
   // Export report
   const handleExportReport = () => {
     const report = {
-      test: 'ConvertHub Interactive Keyboard & Anti-Ghosting Diagnostic',
+      test: 'ApexTools Interactive Keyboard & Anti-Ghosting Diagnostic',
       date: new Date().toLocaleString(),
       layoutTested: `${layout}% ANSI`,
       totalKeysTested: testedKeys.size,

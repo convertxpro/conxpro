@@ -1,6 +1,6 @@
-# ConvertX (ConvertHub) - Universal File Conversion Platform
+# ApexTools (apextools.app) - Universal Utility & Conversion Platform
 
-ConvertX is a modern, high-speed, and secure file conversion and regional utility platform built with Next.js App Router, TypeScript, and Tailwind CSS.
+ApexTools is a modern, high-speed, and secure all-in-one file conversion, developer utility, audio studio, media engine, and device diagnostic platform built with Next.js App Router, TypeScript, and Tailwind CSS. Hosted on [apextools.app](https://apextools.app).
 
 ## 🚀 Features
 

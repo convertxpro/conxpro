@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaqItem } from '@/components/layout/FAQAccordion';
 import { HowToStep } from '@/components/layout/HowToGuide';
+import { siteConfig } from '@/config/site';
 
 export interface BreadcrumbItem {
   name: string;
@@ -93,12 +94,12 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         'Works on mobile and desktop',
         'Client-side processing for instant results',
       ],
-      screenshot: `https://converthub.com/og?title=${encodeURIComponent(toolName)}&category=${encodeURIComponent(category)}`,
+      screenshot: `${siteConfig.url}/og?title=${encodeURIComponent(toolName)}&category=${encodeURIComponent(category)}`,
       softwareVersion: '2.0',
       creator: {
         '@type': 'Organization',
-        name: 'ConvertHub',
-        url: 'https://converthub.com',
+        name: siteConfig.name,
+        url: siteConfig.url,
       },
       aggregateRating: {
         '@type': 'AggregateRating',
@@ -126,18 +127,18 @@ export const JsonLd: React.FC<JsonLdProps> = ({
       },
       author: {
         '@type': 'Person',
-        name: article.authorName || 'ConvertHub Technical Editorial Team',
-        url: 'https://converthub.com',
+        name: article.authorName || `${siteConfig.name} Technical Editorial Team`,
+        url: siteConfig.url,
       },
       publisher: {
         '@type': 'Organization',
-        name: 'ConvertHub',
+        name: siteConfig.name,
         logo: {
           '@type': 'ImageObject',
-          url: 'https://converthub.com/icons/icon-512x512.png',
+          url: `${siteConfig.url}/icons/icon-512x512.png`,
         },
       },
-      image: article.image || `https://converthub.com/og?title=${encodeURIComponent(article.headline)}&category=Guide`,
+      image: article.image || `${siteConfig.url}/og?title=${encodeURIComponent(article.headline)}&category=Guide`,
     });
   }
 
@@ -151,8 +152,8 @@ export const JsonLd: React.FC<JsonLdProps> = ({
       feesAndCommissionsSpecification: 'Zero fee on bank remittances over $100 via State Bank of Pakistan PRI',
       provider: {
         '@type': 'Organization',
-        name: 'ConvertHub Forex Engine',
-        url: 'https://converthub.com',
+        name: `${siteConfig.name} Forex Engine`,
+        url: siteConfig.url,
       },
       ...(financialProduct.baseCurrency && financialProduct.targetCurrency
         ? {
@@ -199,7 +200,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
       '@context': 'https://schema.org',
       '@type': 'HowTo',
       name: `How to Convert with ${toolName}`,
-      description: `Step-by-step instructions on converting with ${toolName} on ConvertHub.`,
+      description: `Step-by-step instructions on converting with ${toolName} on ${siteConfig.name}.`,
       step: howToSteps.map((step, index) => ({
         '@type': 'HowToStep',
         position: index + 1,
@@ -215,7 +216,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
     schemaList.push({
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: toolName || 'ConvertHub',
+      name: toolName || siteConfig.name,
       url,
       speakable: {
         '@type': 'SpeakableSpecification',

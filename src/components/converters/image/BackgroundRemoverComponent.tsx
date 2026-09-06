@@ -258,14 +258,14 @@ export const BackgroundRemoverComponent: React.FC<BackgroundRemoverComponentProp
       const dataUrl = canvas.toDataURL(mimeType, exportQuality / 100);
       const a = document.createElement('a');
       a.href = dataUrl;
-      a.download = `converthub-bg-removed.${exportFormat}`;
+      a.download = `apextools-bg-removed.${exportFormat}`;
       a.click();
     } catch (e) {
       console.error('Export composite error:', e);
       // Fallback direct download
       const a = document.createElement('a');
       a.href = cutoutBlobUrl;
-      a.download = `converthub-cutout.png`;
+      a.download = `apextools-cutout.png`;
       a.click();
     }
   };

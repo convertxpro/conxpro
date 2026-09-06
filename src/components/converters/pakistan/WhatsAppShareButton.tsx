@@ -21,7 +21,7 @@ export const WhatsAppShareButton: React.FC<WhatsAppShareButtonProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  const fullMessage = url ? `${shareText}\n\n🔗 Calculated via ConvertHub: ${url}` : shareText;
+  const fullMessage = url ? `${shareText}\n\n🔗 Calculated via ApexTools: ${url}` : shareText;
 
   const handleWhatsAppShare = () => {
     const encoded = encodeURIComponent(fullMessage);

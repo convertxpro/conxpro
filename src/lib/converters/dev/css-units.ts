@@ -1,6 +1,6 @@
 /**
  * CSS Units & Fluid Responsive Typography Engine
- * ConvertHub Developer Productivity Suite
+ * ApexTools Developer Productivity Suite
  */
 
 export interface CssBaselineConfig {

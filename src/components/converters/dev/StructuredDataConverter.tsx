@@ -19,8 +19,10 @@ import {
   Check,
   RotateCcw,
 } from 'lucide-react';
+import { ToolMetadata } from '@/config/categories';
 
 export interface StructuredDataConverterProps {
+  tool?: ToolMetadata;
   initialMode?:
     | 'yaml-to-json'
     | 'json-to-yaml'
@@ -37,23 +39,23 @@ const PRESETS: Record<string, { label: string; format: SupportedFormat; content:
     content: `apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: converthub-api
+  name: apextools-api
   labels:
-    app: converthub
+    app: apextools
     tier: backend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: converthub
+      app: apextools
   template:
     metadata:
       labels:
-        app: converthub
+        app: apextools
     spec:
       containers:
       - name: api-server
-        image: ghcr.io/converthub/engine:v2.4.0
+        image: ghcr.io/apextools/engine:v2.4.0
         ports:
         - containerPort: 8080
         resources:
@@ -90,10 +92,10 @@ services:
     label: 'Cargo.toml (Rust)',
     format: 'toml',
     content: `[package]
-name = "converthub-core"
+name = "apextools-core"
 version = "0.2.1"
 edition = "2021"
-authors = ["ConvertHub Team <dev@converthub.com>"]
+authors = ["ApexTools Team <dev@apextools.app>"]
 description = "High performance client-side media and data conversion engine"
 
 [dependencies]
@@ -110,7 +112,7 @@ codegen-units = 1`,
     label: 'pyproject.toml (Python)',
     format: 'toml',
     content: `[project]
-name = "converthub-tools"
+name = "apextools-tools"
 version = "1.0.0"
 description = "Enterprise document and developer conversions"
 readme = "README.md"
@@ -129,7 +131,7 @@ build-backend = "setuptools.build_meta"`,
     label: 'package.json (Node.js)',
     format: 'json',
     content: `{
-  "name": "converthub-app",
+  "name": "apextools-app",
   "version": "2.0.0",
   "private": true,
   "scripts": {

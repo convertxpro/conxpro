@@ -66,14 +66,14 @@ export const HijriConverter: React.FC = () => {
       `🗓️ *Gregorian Date:* ${moment(gregorianDate).format('dddd, MMMM D, YYYY')}\n` +
       `🌟 *Day:* ${gToHResult.dayOfWeek} (${gToHResult.dayOfWeekUrdu})\n` +
       (moonOffset !== 0 ? `⚖️ *Ruet-e-Hilal Sighting Offset:* ${moonOffset > 0 ? `+${moonOffset}` : moonOffset} Day(s)\n` : '') +
-      `\n🔗 Convert accurately on ConvertHub`
+      `\n🔗 Convert accurately on ApexTools`
     : `🌙 *Islamic to Gregorian Date Conversion*\n` +
       `━━━━━━━━━━━━━━━━━━━━\n` +
       `📅 *Islamic Date:* ${hToGResult.hijriDateFormatted}\n` +
       `🗓️ *Gregorian Date:* ${hToGResult.gregorianFormatted} (${hToGResult.dayOfWeek})\n` +
       `🇵🇰 *اردو دن:* ${hToGResult.dayOfWeekUrdu}\n` +
       (moonOffset !== 0 ? `⚖️ *Ruet-e-Hilal Sighting Offset:* ${moonOffset > 0 ? `+${moonOffset}` : moonOffset} Day(s)\n` : '') +
-      `\n🔗 Convert accurately on ConvertHub`;
+      `\n🔗 Convert accurately on ApexTools`;
 
   return (
     <div className="w-full space-y-6">

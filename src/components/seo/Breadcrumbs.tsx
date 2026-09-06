@@ -33,7 +33,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className }) =>
                 </span>
               ) : (
                 <Link
-                  href={item.url.replace('https://converthub.com', '') || '/'}
+                  href={item.url.replace(/^https?:\/\/[^/]+/, '') || '/'}
                   className="inline-flex items-center gap-1 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   {index === 0 && <Home className="h-3.5 w-3.5" />}

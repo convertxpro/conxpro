@@ -12,7 +12,7 @@ import {
   Layers,
 } from 'lucide-react';
 
-const SAMPLE_TEXT = 'ConvertHub makes fast, free, client-side developer converters.';
+const SAMPLE_TEXT = 'ApexTools makes fast, free, client-side developer converters.';
 
 export const TextCaseConverter: React.FC = () => {
   const [inputText, setInputText] = useState<string>(SAMPLE_TEXT);

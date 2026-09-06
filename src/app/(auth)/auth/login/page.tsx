@@ -57,7 +57,7 @@ function LoginForm() {
         </Link>
 
         <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-          Welcome to ConvertHub
+          Welcome to ApexTools
         </h1>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
           Sign in or create your free account in seconds with a passwordless magic link.

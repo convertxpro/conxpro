@@ -11,6 +11,7 @@ import { ArrowLeftRight, Sparkles, Shield, Zap, FileText, Image, Video, Code, Ru
 import Link from 'next/link';
 import { EmbedWidgetButton } from '@/components/widgets/EmbedWidgetButton';
 import { CATEGORIES, ToolMetadata } from '@/config/categories';
+import { siteConfig } from '@/config/site';
 
 const ICON_MAP: Record<string, any> = {
   FileText, Image, Video, Code, Ruler, DollarSign, Clock, Palette, Archive, Smartphone, Laptop, Car, CreditCard, Cpu, Building2
@@ -73,10 +74,10 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   dap,
   definedTerms = [],
 }) => {
-  const currentUrl = `https://converthub.com/convert/${categorySlug}/${slug}`;
+  const currentUrl = `${siteConfig.url}/convert/${categorySlug}/${slug}`;
   const breadcrumbItems = [
-    { name: 'Home', url: 'https://converthub.com' },
-    { name: category, url: `https://converthub.com/convert/${categorySlug}` },
+    { name: 'Home', url: siteConfig.url },
+    { name: category, url: `${siteConfig.url}/convert/${categorySlug}` },
     { name: toolName, url: currentUrl },
   ];
 

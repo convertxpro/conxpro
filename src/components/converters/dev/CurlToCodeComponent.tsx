@@ -483,7 +483,7 @@ const SAMPLE_CURL_PRESETS = [
     id: 'post-bearer',
     name: 'POST JSON with Bearer Token',
     desc: 'Authenticated JSON payload with custom headers',
-    curl: `curl -X POST "https://api.converthub.in/v2/transform" \\
+    curl: `curl -X POST "https://api.apextools.in/v2/transform" \\
   -H "Authorization: Bearer sec_tok_94827591038" \\
   -H "Content-Type: application/json" \\
   -H "Accept: application/json" \\
@@ -493,8 +493,8 @@ const SAMPLE_CURL_PRESETS = [
     id: 'get-headers',
     name: 'GET with Custom Headers & Query Params',
     desc: 'Paginated API query with User-Agent & API Key',
-    curl: `curl -X GET "https://api.github.com/repos/converthub/platform/issues?state=open&per_page=20" \\
-  -H "User-Agent: ConvertHub-Client/2.0" \\
+    curl: `curl -X GET "https://api.github.com/repos/apextools/platform/issues?state=open&per_page=20" \\
+  -H "User-Agent: ApexTools-Client/2.0" \\
   -H "Accept: application/vnd.github.v3+json"`,
   },
   {

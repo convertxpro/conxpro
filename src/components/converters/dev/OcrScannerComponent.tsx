@@ -102,7 +102,7 @@ Thank you for shopping at Lapvy Tech!`,
     title: 'Executive Meeting Memo',
     desc: 'Corporate quarterly strategy overview',
     lang: 'eng',
-    sampleText: `CONVERTHUB PRODUCT EXPANSION MEMORANDUM
+    sampleText: `APEXTOOLS PRODUCT EXPANSION MEMORANDUM
 To: Executive Steering Committee
 From: Engineering & Product Architecture
 Date: Q3 2026 Roadmap

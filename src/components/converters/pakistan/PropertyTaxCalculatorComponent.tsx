@@ -88,7 +88,7 @@ export const PropertyTaxCalculatorComponent: React.FC<PropertyTaxCalculatorCompo
     `━━━━━━━━━━━━━━━━━━━━\n` +
     `🏛️ *Total Govt Transfer Cost:* Rs. ${formatPakistaniNumber(result.totalGovernmentRevenue)} (${result.totalTransactionFrictionPct}%)\n` +
     (result.filerSavingsBuyer > 0 ? `💡 *Buyer Filer Savings:* Save Rs. ${formatPakistaniNumber(result.filerSavingsBuyer)} vs Non-Filer!\n` : '') +
-    `\n🔗 *Calculated free via ConvertHub Pakistan*`;
+    `\n🔗 *Calculated free via ApexTools Pakistan*`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shareText);

@@ -22,7 +22,7 @@ export async function createZipArchive(
   }
 
   const zip = new AdmZip();
-  const comment = options.comment || 'Created with ConvertHub (Free Online Converter)';
+  const comment = options.comment || 'Created with ApexTools (Free Online Converter)';
 
   if (comment) {
     zip.addZipComment(comment);

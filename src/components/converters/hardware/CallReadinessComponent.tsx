@@ -246,7 +246,7 @@ export const CallReadinessComponent: React.FC<CallReadinessComponentProps> = ({
         pc2Ref.current = pc2;
 
         const pingSamples: number[] = [];
-        const dc1 = pc1.createDataChannel('convertx-ping-benchmark');
+        const dc1 = pc1.createDataChannel('apextools-ping-benchmark');
 
         dc1.onopen = () => {
           iceGatheredTime = Math.round(performance.now() - startTime);
@@ -608,7 +608,7 @@ export const CallReadinessComponent: React.FC<CallReadinessComponentProps> = ({
 
   // Copy Markdown Telemetry Summary
   const handleCopySummary = () => {
-    const text = `### 📋 ConvertX Video Call & Meeting Readiness Audit
+    const text = `### 📋 ApexTools Video Call & Meeting Readiness Audit
 - **Overall Score**: ${overallScore}/100 (${scoreGrade.label})
 - **Camera**: ${results.cameraResolution} @ ${results.cameraFps} FPS (${results.cameraLabel})
 - **Microphone**: ${results.micLabel} (Peak: ${results.micPeakDb} dBFS, SNR: ${results.micSnrDb} dB)
@@ -635,7 +635,7 @@ export const CallReadinessComponent: React.FC<CallReadinessComponentProps> = ({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `convertx-call-readiness-${Date.now()}.json`;
+    a.download = `apextools-call-readiness-${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -1103,7 +1103,7 @@ export const CallReadinessComponent: React.FC<CallReadinessComponentProps> = ({
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">ConvertX Hardware Readiness Certificate</h3>
+                  <h3 className="text-base font-bold text-white">ApexTools Hardware Readiness Certificate</h3>
                   <p className="text-xs text-slate-400">Verified Remote Interview & Call Assessment</p>
                 </div>
               </div>
@@ -1155,7 +1155,7 @@ export const CallReadinessComponent: React.FC<CallReadinessComponentProps> = ({
               </div>
 
               <div className="flex items-center justify-between text-[10px] text-slate-500 pt-2 border-t border-slate-800">
-                <span>Verified 100% In-Browser by ConvertX Core</span>
+                <span>Verified 100% In-Browser by ApexTools Core</span>
                 <span>Zoom • Google Meet • Microsoft Teams Compatible</span>
               </div>
             </div>

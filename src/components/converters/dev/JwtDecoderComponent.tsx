@@ -8,6 +8,7 @@ import {
   DecodedJwt,
   ClaimMeta,
 } from '@/lib/converters/dev/jwt-tools';
+import { ToolMetadata } from '@/config/categories';
 import { PrivacyAssuranceBadge } from '@/components/converters/common/PrivacyAssuranceBadge';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -46,9 +47,9 @@ function generateSampleTokens() {
 
   const sample1Header = b64Url({ alg: 'HS256', typ: 'JWT' });
   const sample1Payload = b64Url({
-    iss: 'https://auth.converthub.dev/',
+    iss: 'https://auth.apextools.dev/',
     sub: 'usr_98a76bc32d',
-    aud: 'converthub-api-v2',
+    aud: 'apextools-api-v2',
     name: 'Alex Mercer',
     email: 'alex.mercer@enterprise.io',
     email_verified: true,
@@ -77,7 +78,7 @@ function generateSampleTokens() {
     sub: '109823478912384910283',
     aud: '394829104829-client.apps.googleusercontent.com',
     azp: '394829104829-client.apps.googleusercontent.com',
-    email: 'dev@converthub.com',
+    email: 'dev@apextools.app',
     email_verified: true,
     iat: now - 300,
     exp: now + 3300,
@@ -107,7 +108,11 @@ function generateSampleTokens() {
   ];
 }
 
-export const JwtDecoderComponent: React.FC = () => {
+export interface JwtDecoderComponentProps {
+  tool?: ToolMetadata;
+}
+
+export const JwtDecoderComponent: React.FC<JwtDecoderComponentProps> = () => {
   const presets = useMemo(() => generateSampleTokens(), []);
   const [tokenInput, setTokenInput] = useState(presets[0].token);
   const [hmacSecret, setHmacSecret] = useState(presets[0].secret);

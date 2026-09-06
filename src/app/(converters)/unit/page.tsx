@@ -42,8 +42,8 @@ export default function MasterUnitHubPage() {
 
   const faqs = [
     {
-      question: 'How many unit categories does ConvertHub support?',
-      answer: 'ConvertHub supports 13 comprehensive physical measurement categories containing over 70 standardized SI, metric, imperial, and astronomical units.',
+      question: 'How many unit categories does ApexTools support?',
+      answer: 'ApexTools supports 13 comprehensive physical measurement categories containing over 70 standardized SI, metric, imperial, and astronomical units.',
     },
     {
       question: 'Are the unit conversions mathematically exact?',
@@ -51,7 +51,7 @@ export default function MasterUnitHubPage() {
     },
     {
       question: 'Can I use this unit converter offline on mobile?',
-      answer: 'Yes! ConvertHub runs 100% client-side in your web browser with zero server latency and works seamlessly on mobile devices.',
+      answer: 'Yes! ApexTools runs 100% client-side in your web browser with zero server latency and works seamlessly on mobile devices.',
     },
   ];
 

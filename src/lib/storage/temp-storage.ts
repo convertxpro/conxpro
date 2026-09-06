@@ -21,7 +21,7 @@ export interface StoredFileRecord {
 }
 
 // Base temporary directories
-const BASE_TEMP_DIR = path.join(os.tmpdir(), 'converthub');
+const BASE_TEMP_DIR = path.join(os.tmpdir(), 'apextools');
 const UPLOADS_DIR = path.join(BASE_TEMP_DIR, 'uploads');
 const CONVERTED_DIR = path.join(BASE_TEMP_DIR, 'converted');
 const INDEX_FILE = path.join(BASE_TEMP_DIR, 'tokens-index.json');
@@ -41,14 +41,14 @@ ensureDirs();
 
 // Persistent Global Token Store across Next.js route chunks
 const globalStorage = globalThis as unknown as {
-  __converthub_token_store?: Map<string, StoredFileRecord>;
+  __apextools_token_store?: Map<string, StoredFileRecord>;
 };
 
-if (!globalStorage.__converthub_token_store) {
-  globalStorage.__converthub_token_store = new Map<string, StoredFileRecord>();
+if (!globalStorage.__apextools_token_store) {
+  globalStorage.__apextools_token_store = new Map<string, StoredFileRecord>();
 }
 
-const tokenStore = globalStorage.__converthub_token_store;
+const tokenStore = globalStorage.__apextools_token_store;
 
 // Helper to write to disk index
 function persistTokenToDisk(token: string, record: StoredFileRecord) {

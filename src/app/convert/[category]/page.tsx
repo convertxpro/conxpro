@@ -77,6 +77,10 @@ const ICON_MAP: Record<string, any> = {
   ShieldAlert: FileText,
   PenTool: FileText,
   LayoutGrid: Code,
+  Headphones: Video,
+  Scissors: FileText,
+  Mic: Video,
+  Music2: Video,
 };
 
 export async function generateStaticParams() {
@@ -104,7 +108,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 
   const title = `${category.name} — Free Online Converters`;
-  const description = `Explore free online ${category.name} tools on ConvertHub. ${category.description}`;
+  const description = `Explore free online ${category.name} tools on ApexTools. ${category.description}`;
   const url = `${siteConfig.url}/convert/${category.slug}`;
   const ogImageUrl = `${siteConfig.url}/og?title=${encodeURIComponent(category.name + ' Hub')}&category=${encodeURIComponent('Pillar Collection')}`;
 
@@ -134,7 +138,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       title: `${title} | ${siteConfig.name}`,
       description,
       images: [ogImageUrl],
-      site: '@ConvertHub',
+      site: '@ApexTools',
     },
   };
 }

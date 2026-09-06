@@ -132,7 +132,7 @@ export const ExtendedLandConverterComponent: React.FC<ExtendedLandConverterProps
     `• *Square Feet (مربع فٹ):* ${matrix.sqFeet.toLocaleString()} sq ft\n` +
     `• *Square Yards / Gazz (مربع گز):* ${matrix.sqGazz.toLocaleString()} Sq Yd\n` +
     `• *Square Meters (مربع میٹر):* ${matrix.sqMeters.toLocaleString()} m²\n\n` +
-    `⚡ Computed via ConvertHub.pk Land Suite`;
+    `⚡ Computed via ApexTools.app Land Suite`;
 
   return (
     <div className="w-full space-y-6">

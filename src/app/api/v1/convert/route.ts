@@ -139,8 +139,8 @@ export async function GET(request: NextRequest) {
   const response = NextResponse.json({
     status: 'ok',
     version: 'v1.0.0',
-    service: 'ConvertHub Public REST API',
-    documentationUrl: 'https://converthub.com/guides/public-api-reference',
+    service: 'ApexTools Public REST API',
+    documentationUrl: 'https://apextools.app/guides/public-api-reference',
     authenticated: auth.authenticated,
     authContext: {
       tier: auth.tier,

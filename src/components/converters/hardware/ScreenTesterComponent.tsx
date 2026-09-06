@@ -590,13 +590,13 @@ export const ScreenTesterComponent: React.FC<ScreenTesterComponentProps> = ({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `convertx-screen-report-${Date.now()}.json`;
+    a.download = `apextools-screen-report-${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
 
   const handleCopyTelemetry = () => {
-    const text = `ConvertX Screen Diagnostic Report:
+    const text = `ApexTools Screen Diagnostic Report:
 - Resolution: ${displaySpecs.screenWidth}x${displaySpecs.screenHeight} (${displaySpecs.aspectRatio})
 - Refresh Rate: ${detectedHz} Hz (${hzClassification.label})
 - Frame Time: ${medianFrameTimeMs} ms (Jitter: ${jitterMs} ms)
@@ -1262,7 +1262,7 @@ export const ScreenTesterComponent: React.FC<ScreenTesterComponentProps> = ({
                   <div className="space-y-3">
                     {[
                       { size: '8px', text: 'The quick brown fox jumps over the lazy dog (8px Tiny)' },
-                      { size: '11px', text: 'ConvertX display diagnostic benchmark evaluates edge sharpness (11px Small)' },
+                      { size: '11px', text: 'ApexTools display diagnostic benchmark evaluates edge sharpness (11px Small)' },
                       { size: '14px', text: 'Subpixel text rendering should have crisp edges without color halo (14px Standard)' },
                       { size: '20px', text: 'High DPI & 4K Resolution Clarity Inspection (20px Large)' },
                       { size: '28px', text: 'PERFECT 240HZ CLARITY (28px Title)' },

@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'User Dashboard | ConvertHub',
-  description: 'Manage your ConvertHub account, monitor daily conversion quotas, and view conversion history.',
+  title: 'User Dashboard | ApexTools',
+  description: 'Manage your ApexTools account, monitor daily conversion quotas, and view conversion history.',
   robots: {
     index: false,
     follow: false,

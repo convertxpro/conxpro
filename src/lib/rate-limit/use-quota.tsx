@@ -118,9 +118,9 @@ export const QuotaProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       openModal(e.detail);
     };
 
-    window.addEventListener('converthub:quota-exceeded' as any, handleGlobalQuotaExceeded);
+    window.addEventListener('apextools:quota-exceeded' as any, handleGlobalQuotaExceeded);
     return () => {
-      window.removeEventListener('converthub:quota-exceeded' as any, handleGlobalQuotaExceeded);
+      window.removeEventListener('apextools:quota-exceeded' as any, handleGlobalQuotaExceeded);
     };
   }, [openModal]);
 

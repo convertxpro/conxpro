@@ -4,7 +4,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'yaml-to-json': [
     {
       question: 'How to convert YAML to JSON in browser without uploading sensitive keys?',
-      answer: 'ConvertHub executes 100% client-side in your local browser using an in-memory js-yaml parser. Your Kubernetes secrets, AWS credentials, and configuration files are never sent across the network or logged on any server.',
+      answer: 'ApexTools executes 100% client-side in your local browser using an in-memory js-yaml parser. Your Kubernetes secrets, AWS credentials, and configuration files are never sent across the network or logged on any server.',
     },
     {
       question: 'Can I sort keys and format or minify the output JSON?',
@@ -22,7 +22,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'json-to-yaml': [
     {
       question: 'How to convert JSON to clean YAML for Kubernetes manifests?',
-      answer: 'Paste your JSON object or array into the input editor. ConvertHub immediately serializes it into idiomatic, human-readable YAML with proper 2-space indentation and clean string quoting.',
+      answer: 'Paste your JSON object or array into the input editor. ApexTools immediately serializes it into idiomatic, human-readable YAML with proper 2-space indentation and clean string quoting.',
     },
     {
       question: 'Does the converter support arrays and deeply nested objects?',
@@ -36,7 +36,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'toml-to-json': [
     {
       question: 'Can I convert Cargo.toml or pyproject.toml to JSON?',
-      answer: 'Yes! ConvertHub includes a robust TOML v1.0.0 parser (smol-toml) capable of parsing Rust Cargo.toml, Python pyproject.toml, and Go configuration files directly into structured JSON and YAML.',
+      answer: 'Yes! ApexTools includes a robust TOML v1.0.0 parser (smol-toml) capable of parsing Rust Cargo.toml, Python pyproject.toml, and Go configuration files directly into structured JSON and YAML.',
     },
     {
       question: 'How are TOML tables, inline tables, and arrays of tables mapped to JSON?',
@@ -50,7 +50,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'yaml-to-toml': [
     {
       question: 'How to convert YAML configuration files to TOML format?',
-      answer: 'ConvertHub first parses your YAML data structure into an in-memory document tree and serializes it into standard TOML 1.0 syntax with table headers and typed key-value assignments.',
+      answer: 'ApexTools first parses your YAML data structure into an in-memory document tree and serializes it into standard TOML 1.0 syntax with table headers and typed key-value assignments.',
     },
     {
       question: 'Is TOML compatible with environment variables and strings with special characters?',
@@ -60,7 +60,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'sql-to-json': [
     {
       question: 'How to extract SQL INSERT statements into a structured JSON array or CSV?',
-      answer: 'Paste your SQL INSERT INTO statement or database table dump into ConvertHub. Our regex and lexer pipeline extracts column definitions and row tuples into structured JSON objects and CSV table rows in real time.',
+      answer: 'Paste your SQL INSERT INTO statement or database table dump into ApexTools. Our regex and lexer pipeline extracts column definitions and row tuples into structured JSON objects and CSV table rows in real time.',
     },
     {
       question: 'Does the parser handle escaped quotes, NULLs, and boolean literals in SQL values?',
@@ -88,7 +88,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'csv-to-sql': [
     {
       question: 'How to convert a CSV spreadsheet into SQL INSERT INTO queries?',
-      answer: 'Upload or paste your CSV table data. ConvertHub uses PapaParse to stream and parse header columns, dynamic types, and generate batch-chunked SQL INSERT statements for your database.',
+      answer: 'Upload or paste your CSV table data. ApexTools uses PapaParse to stream and parse header columns, dynamic types, and generate batch-chunked SQL INSERT statements for your database.',
     },
     {
       question: 'Can I customize batch sizes for large CSV uploads?',
@@ -98,7 +98,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'jwt-decoder': [
     {
       question: 'How to decode and verify JWT expiration in browser without risking security?',
-      answer: 'ConvertHub executes 100% client-side in your local browser using in-memory Base64URL parsing and the native Web Crypto API. Your private access tokens, session claims, and HMAC secret keys are never transmitted over the network or logged on any server.',
+      answer: 'ApexTools executes 100% client-side in your local browser using in-memory Base64URL parsing and the native Web Crypto API. Your private access tokens, session claims, and HMAC secret keys are never transmitted over the network or logged on any server.',
     },
     {
       question: 'How does the real-time JWT expiration countdown work?',
@@ -106,7 +106,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
     },
     {
       question: 'Can I verify HMAC-SHA256 (HS256) signatures client-side?',
-      answer: 'Yes! Enter your HMAC secret key into the verifier drawer. ConvertHub signs the Header.Payload segment locally using Web Crypto crypto.subtle.sign and compares the resulting signature with the token signature.',
+      answer: 'Yes! Enter your HMAC secret key into the verifier drawer. ApexTools signs the Header.Payload segment locally using Web Crypto crypto.subtle.sign and compares the resulting signature with the token signature.',
     },
     {
       question: 'What standard JWT claims are recognized and explained?',
@@ -124,7 +124,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
     },
     {
       question: 'Can I hash large files (2GB+) in the browser without crashing memory?',
-      answer: 'Yes! ConvertHub uses chunked 2MB streaming with FileReader and incremental Web Crypto / CryptoJS hashing pipelines. Files are read progressively without loading the entire multi-gigabyte payload into memory at once.',
+      answer: 'Yes! ApexTools uses chunked 2MB streaming with FileReader and incremental Web Crypto / CryptoJS hashing pipelines. Files are read progressively without loading the entire multi-gigabyte payload into memory at once.',
     },
     {
       question: 'Does the hash generator support HMAC secrets and uppercase formatting?',
@@ -134,7 +134,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'css-unit-converter': [
     {
       question: 'How to calculate responsive CSS font size with clamp()?',
-      answer: 'CSS clamp() takes three parameters: clamp(minFontSize, preferredCalculatedRate, maxFontSize). ConvertHub calculates the linear slope and y-axis intersection based on your minimum viewport (e.g. 375px mobile) and maximum viewport (e.g. 1440px desktop), generating smooth fluid typography with zero media query jumps.',
+      answer: 'CSS clamp() takes three parameters: clamp(minFontSize, preferredCalculatedRate, maxFontSize). ApexTools calculates the linear slope and y-axis intersection based on your minimum viewport (e.g. 375px mobile) and maximum viewport (e.g. 1440px desktop), generating smooth fluid typography with zero media query jumps.',
     },
     {
       question: 'What is the difference between REM and EM in CSS?',
@@ -142,17 +142,17 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
     },
     {
       question: 'How are VW and VH units converted to pixels?',
-      answer: '1vw represents 1% of the viewport width, and 1vh represents 1% of the viewport height. At a standard 1920×1080 display, 10vw equals 192px and 10vh equals 108px. ConvertHub lets you customize your baseline viewport dimensions to test any screen configuration.',
+      answer: '1vw represents 1% of the viewport width, and 1vh represents 1% of the viewport height. At a standard 1920×1080 display, 10vw equals 192px and 10vh equals 108px. ApexTools lets you customize your baseline viewport dimensions to test any screen configuration.',
     },
     {
       question: 'Can I map pixel values to Tailwind CSS typography and spacing classes?',
-      answer: 'Yes! ConvertHub automatically inspects your computed pixel value and displays the closest matching Tailwind class (e.g., text-xl for 20px / 1.25rem, or p-4 / m-4 for 16px / 1rem).',
+      answer: 'Yes! ApexTools automatically inspects your computed pixel value and displays the closest matching Tailwind class (e.g., text-xl for 20px / 1.25rem, or p-4 / m-4 for 16px / 1rem).',
     },
   ],
   'qr-code-generator': [
     {
       question: 'How to create a Wi-Fi auto-connect QR Code?',
-      answer: 'Select the "Wi-Fi Network" tab, enter your network SSID (name), choose your security type (WPA/WPA2/WPA3 or Open), and input the password. ConvertHub formats the standard WIFI:S:ssid;T:WPA;P:password;; payload so guests can scan with their phone camera and connect immediately without typing passwords.',
+      answer: 'Select the "Wi-Fi Network" tab, enter your network SSID (name), choose your security type (WPA/WPA2/WPA3 or Open), and input the password. ApexTools formats the standard WIFI:S:ssid;T:WPA;P:password;; payload so guests can scan with their phone camera and connect immediately without typing passwords.',
     },
     {
       question: 'How to make a WhatsApp direct message QR code for Pakistan (+92)?',
@@ -160,7 +160,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
     },
     {
       question: 'Can I upload a custom company logo in the center of the QR code?',
-      answer: 'Yes! ConvertHub allows uploading PNG, SVG, or JPG brand logos. When a logo is uploaded, our engine automatically applies High (30%) Error Correction (ECC Level H) and draws a rounded badge behind the logo, ensuring the QR code scans reliably across all devices.',
+      answer: 'Yes! ApexTools allows uploading PNG, SVG, or JPG brand logos. When a logo is uploaded, our engine automatically applies High (30%) Error Correction (ECC Level H) and draws a rounded badge behind the logo, ensuring the QR code scans reliably across all devices.',
     },
     {
       question: 'What is the best format to download QR codes for billboard or brochure printing?',
@@ -174,11 +174,11 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
     },
     {
       question: 'How to interpret complex step intervals like */15 * * * * or 0 9 * * 1-5?',
-      answer: '*/15 * * * * executes every 15 minutes of every hour of every day. 0 9 * * 1-5 executes at exactly 09:00 AM, Monday through Friday (business days). ConvertHub translates all syntax into clear, unambiguous natural English.',
+      answer: '*/15 * * * * executes every 15 minutes of every hour of every day. 0 9 * * 1-5 executes at exactly 09:00 AM, Monday through Friday (business days). ApexTools translates all syntax into clear, unambiguous natural English.',
     },
     {
       question: 'Does the cron decoder calculate exact upcoming run times in Pakistan Time (PKT)?',
-      answer: 'Yes! ConvertHub parses the cron interval and computes the exact upcoming 10 execution timestamps in both UTC and Pakistan Standard Time (PKT, UTC+5 / Asia/Karachi), along with human relative countdowns (e.g. "in 14 minutes").',
+      answer: 'Yes! ApexTools parses the cron interval and computes the exact upcoming 10 execution timestamps in both UTC and Pakistan Standard Time (PKT, UTC+5 / Asia/Karachi), along with human relative countdowns (e.g. "in 14 minutes").',
     },
     {
       question: 'Can I build cron schedules visually without memorizing syntax?',
@@ -188,7 +188,7 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'image-to-text-ocr': [
     {
       question: 'How does client-side WebAssembly OCR work without uploading images to a server?',
-      answer: 'ConvertHub runs the complete Tesseract OCR optical character recognition engine directly inside your browser using WebAssembly (WASM). Model weights are downloaded directly to your local device memory, guaranteeing complete document privacy.',
+      answer: 'ApexTools runs the complete Tesseract OCR optical character recognition engine directly inside your browser using WebAssembly (WASM). Model weights are downloaded directly to your local device memory, guaranteeing complete document privacy.',
     },
     {
       question: 'Which languages are supported for scanned document and image OCR?',
@@ -196,13 +196,13 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
     },
     {
       question: 'Can I extract text from multi-page scanned PDF documents?',
-      answer: 'Yes! ConvertHub renders multi-page PDF pages directly onto an in-browser canvas and processes OCR across pages, providing Plain Text, Markdown, and JSON word-level bounding box coordinates.',
+      answer: 'Yes! ApexTools renders multi-page PDF pages directly onto an in-browser canvas and processes OCR across pages, providing Plain Text, Markdown, and JSON word-level bounding box coordinates.',
     },
   ],
   'remove-background': [
     {
       question: 'How does in-browser AI background removal isolate subjects?',
-      answer: 'ConvertHub executes an advanced deep learning segmentation neural network in WebAssembly and ONNX Web memory. It segments people, products, clothing, and cars locally without uploading photos to external cloud servers.',
+      answer: 'ApexTools executes an advanced deep learning segmentation neural network in WebAssembly and ONNX Web memory. It segments people, products, clothing, and cars locally without uploading photos to external cloud servers.',
     },
     {
       question: 'What background replacement options are available before exporting?',
@@ -216,13 +216,13 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
     },
     {
       question: 'Can I export standard unified patch files (.patch)?',
-      answer: 'Yes. ConvertHub generates standard unified .patch and .diff files compatible with Git, Mercurial, and patch command-line utilities.',
+      answer: 'Yes. ApexTools generates standard unified .patch and .diff files compatible with Git, Mercurial, and patch command-line utilities.',
     },
   ],
   'curl-to-code': [
     {
       question: 'Which programming languages are supported by the cURL code generator?',
-      answer: 'ConvertHub converts cURL commands into idiomatic snippets for JavaScript (Fetch & Axios), TypeScript, Python (Requests & Async HTTPX), Go (net/http), Rust (Reqwest), PHP (Guzzle & cURL), Java (HttpClient 11+), Dart / Flutter, and C# (.NET).',
+      answer: 'ApexTools converts cURL commands into idiomatic snippets for JavaScript (Fetch & Axios), TypeScript, Python (Requests & Async HTTPX), Go (net/http), Rust (Reqwest), PHP (Guzzle & cURL), Java (HttpClient 11+), Dart / Flutter, and C# (.NET).',
     },
     {
       question: 'Does the parser support Bearer tokens, JSON payloads, and multipart forms?',
@@ -232,11 +232,11 @@ export const DEVELOPER_TOOL_FAQS: Record<string, FaqItem[]> = {
   'screen-recorder': [
     {
       question: 'How does the in-browser screen recorder capture video without extensions?',
-      answer: 'ConvertHub uses the native HTML5 MediaDevices and MediaRecorder APIs built into modern browsers. You can capture your entire desktop, specific application windows, browser tabs, or webcam.',
+      answer: 'ApexTools uses the native HTML5 MediaDevices and MediaRecorder APIs built into modern browsers. You can capture your entire desktop, specific application windows, browser tabs, or webcam.',
     },
     {
       question: 'Can I record both microphone audio and system audio simultaneously?',
-      answer: 'Yes! ConvertHub mixes multiple audio tracks using the browser Web Audio API AudioContext and GainNode pipeline so your voice commentary and system audio are synchronized.',
+      answer: 'Yes! ApexTools mixes multiple audio tracks using the browser Web Audio API AudioContext and GainNode pipeline so your voice commentary and system audio are synchronized.',
     },
     {
       question: 'Can I trim my recording and export to MP4, WebM, or Animated GIF?',
@@ -249,7 +249,7 @@ export const HARDWARE_TOOL_FAQS: Record<string, FaqItem[]> = {
   'webcam-test': [
     {
       question: 'Is my webcam video recorded or sent to a server?',
-      answer: 'No. ConvertHub operates 100% client-side in your browser. Video feeds never leave your device or touch any remote server.',
+      answer: 'No. ApexTools operates 100% client-side in your browser. Video feeds never leave your device or touch any remote server.',
     },
     {
       question: 'Why is my webcam resolution lower than advertised?',
@@ -379,3 +379,101 @@ export const HARDWARE_TOOL_FAQS: Record<string, FaqItem[]> = {
     },
   ],
 };
+
+export const AUDIO_TOOL_FAQS: Record<string, FaqItem[]> = {
+  'audio-trimmer': [
+    {
+      question: 'How do I cut an MP3 or WAV file and create custom ringtones without uploading to a server?',
+      answer: 'ApexTools trims audio 100% inside your local browser using the Web Audio API (AudioContext and AudioBuffer). You can drag the start and end handles on the interactive waveform, apply fade-in and fade-out transitions, and instantly export lossless WAV or MP3 files.',
+    },
+    {
+      question: 'Can I create ringtones for iPhone (M4R/WAV) and Android (MP3)?',
+      answer: 'Yes! ApexTools includes 1-click ringtone presets for iPhone (30 seconds), Android (45 seconds), and WhatsApp/Notification alerts (5 seconds).',
+    },
+    {
+      question: 'Why does trimming audio with fade-in and fade-out prevent speaker pops and clicks?',
+      answer: 'Hard audio cuts often sever waveform cycles at non-zero voltage amplitudes, causing sudden speaker membrane displacement heard as a loud pop. Our linear and cosine fade envelopes smoothly taper the signal to zero amplitude at the slice boundaries.',
+    },
+    {
+      question: 'What audio formats are supported for trimming?',
+      answer: 'ApexTools supports all browser-decodable audio formats including MP3, WAV, AAC, Apple Voice Memos (M4A), FLAC, OGG, and WebM audio files up to 200MB.',
+    },
+  ],
+  'audio-joiner': [
+    {
+      question: 'How to merge and join multiple audio files into a single track?',
+      answer: 'Drag and drop 2 to 20 audio tracks into ApexTools. Reorder the tracks, adjust individual track volumes, choose a crossfade duration (0 to 5 seconds), and click Download to render a single continuous file in browser memory.',
+    },
+    {
+      question: 'How does the crossfade feature work between different songs?',
+      answer: 'Crossfading overlaps the end of the previous track with the beginning of the next track, applying an equal-power or linear fade transition to eliminate abrupt silence or jarring track switches.',
+    },
+    {
+      question: 'Can I combine files with different sample rates or channels (Mono + Stereo)?',
+      answer: 'Yes! ApexTools automatically upmixes mono tracks to stereo and resamples mismatched sample rates (e.g. 44.1kHz and 48kHz) to a uniform master buffer before export.',
+    },
+  ],
+  'voice-recorder': [
+    {
+      question: 'Is my voice recording kept private and secure?',
+      answer: 'Yes, 100%. All microphone recording, processing, and encoding occurs exclusively in your local browser memory using MediaRecorder and Web Audio API. Zero bytes are uploaded to external cloud servers.',
+    },
+    {
+      question: 'What audio fidelity does the voice recorder capture?',
+      answer: 'ApexTools captures uncompressed studio-quality 48kHz 16-bit audio with automatic echo cancellation, noise suppression, and gain control for crystal clear voice notes and podcast vocals.',
+    },
+    {
+      question: 'How do the live decibel VU meter and spectrum visualizer help during recording?',
+      answer: 'The decibel VU meter measures real-time volume in dBFS and alerts you if your microphone is clipping (above 0 dBFS). The 32-bar visualizer displays frequency response across low, mid, and high vocal registers.',
+    },
+  ],
+  'audio-speed-pitch-changer': [
+    {
+      question: 'How to speed up or slow down audio without changing the voice pitch (Nightcore/Chipmunk)?',
+      answer: 'Adjust the speed slider between 0.5x (slow motion) and 2.5x (fast forward). When Preserve Pitch is enabled, Web Audio DSP time-stretches the audio so the speaker voice retains its natural timbre.',
+    },
+    {
+      question: 'Can I transpose music keys and shift musical semitones?',
+      answer: 'Yes! Shift musical semitones from -12 semitones (one full octave down) to +12 semitones (one full octave up) to match vocal ranges or practice musical instruments.',
+    },
+  ],
+  'volume-booster': [
+    {
+      question: 'How much louder can I make a quiet MP3 or voice recording?',
+      answer: 'ApexTools boosts audio gain up to 300% (+9.5 dB) of original loudness. Built-in dynamic range compression prevents digital clipping and speaker crackle.',
+    },
+    {
+      question: 'What is the benefit of the dynamic range peak limiter?',
+      answer: 'When boosting volume beyond normal headroom, audio peaks can exceed 0 dBFS and cause severe digital distortion. The peak limiter dynamically compresses transient spikes to maintain loud, punchy, distortion-free output.',
+    },
+  ],
+  'wav-to-mp3': [
+    {
+      question: 'How much storage space does converting WAV to MP3 save?',
+      answer: 'Converting uncompressed 16-bit 44.1kHz WAV audio (approx. 10MB per minute) to high-bitrate 320kbps MP3 saves approximately 85% to 90% of file size while retaining near-lossless auditory fidelity.',
+    },
+    {
+      question: 'Can I batch convert multiple WAV files at once?',
+      answer: 'Yes! You can drop up to 10 WAV files simultaneously for parallel in-browser transcoding with individual or bulk download.',
+    },
+  ],
+  'mp3-to-wav': [
+    {
+      question: 'Why convert MP3 to WAV for audio production and DAW software?',
+      answer: 'DAWs (like Ableton, FL Studio, Logic Pro, and Audacity) perform better with uncompressed PCM WAV files because they do not need to decompress MPEG frames during real-time timeline scrubbing and mixing.',
+    },
+  ],
+  'm4a-to-mp3': [
+    {
+      question: 'How to convert iPhone Voice Memos (M4A/AAC) to universal MP3 format?',
+      answer: 'Drop your Apple Voice Memo .m4a file into ApexTools. The browser engine instantly decodes the AAC audio stream and encodes it into universal MP3 format compatible with Windows, Android, and car stereos.',
+    },
+  ],
+  'flac-to-mp3': [
+    {
+      question: 'Does converting FLAC to 320kbps MP3 maintain good sound quality?',
+      answer: 'Yes! At 320kbps (the maximum MP3 bitrate), perceptual encoding psychoacoustics preserve the full 20Hz-20kHz frequency spectrum with virtually undetectable difference to human ears on standard headphones.',
+    },
+  ],
+};
+

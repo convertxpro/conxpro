@@ -25,8 +25,10 @@ import {
   Copy,
   Check,
 } from 'lucide-react';
+import { ToolMetadata } from '@/config/categories';
 
 export interface SqlDataConverterProps {
+  tool?: ToolMetadata;
   initialTab?: 'sql-to-json' | 'json-to-sql' | 'csv-to-sql';
 }
 

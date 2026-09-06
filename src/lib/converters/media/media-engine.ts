@@ -309,7 +309,7 @@ export async function executeMediaConversion(
 
         // If raw subtitle content is provided in options, write to temp .srt file
         if ((!subPath || !fs.existsSync(subPath)) && options.subtitleContent) {
-          const tempSubDir = path.join(os.tmpdir(), 'converthub', 'temp_sub');
+          const tempSubDir = path.join(os.tmpdir(), 'apextools', 'temp_sub');
           if (!fs.existsSync(tempSubDir)) {
             fs.mkdirSync(tempSubDir, { recursive: true });
           }

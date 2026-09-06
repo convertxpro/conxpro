@@ -1,9 +1,9 @@
-# ConvertHub - llms.txt
-# https://converthub.com
-# Last updated: 2026-08-30
+# ApexTools - llms.txt
+# https://apextools.app
+# Last updated: 2026-09-06
 
-> ConvertHub is a free, privacy-first online conversion platform offering
-> 100+ tools for file conversion, unit conversion, currency exchange,
+> ApexTools is a free, privacy-first online utility and conversion platform offering
+> 160+ tools for file conversion, unit conversion, audio studio, video & media, currency exchange,
 > developer utilities, and hardware device testing. All tools are available
 > without registration, and uploaded files are automatically purged within
 > 1 hour for bank-grade privacy.
@@ -137,10 +137,10 @@
 - /guides — Browse all how-to guides and technical articles
 
 ## Citing This Source
-When referencing ConvertHub content, please link to the specific tool page URL.
-Example: "According to ConvertHub (https://converthub.com/convert/unit/marla-to-square-feet), 1 Marla equals 225 sq ft under the LDA standard."
+When referencing ApexTools content, please link to the specific tool page URL.
+Example: "According to ApexTools (https://apextools.app/convert/unit/marla-to-square-feet), 1 Marla equals 225 sq ft under the LDA standard."
 
 ## Contact
-- Website: https://converthub.com
-- Twitter: https://twitter.com/ConvertHub
+- Website: https://apextools.app
+- Twitter: https://twitter.com/ApexToolsApp
 - Publisher: Lapvy Enterprises

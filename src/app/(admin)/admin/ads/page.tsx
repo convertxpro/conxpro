@@ -186,7 +186,7 @@ export default function AdminAdsPage() {
           <span>AdSense Policy Compliance Guards</span>
         </div>
         <p className="mt-1 text-xs text-slate-400 leading-relaxed">
-          ConvertHub enforces Google AdSense program policies automatically: all units enforce
+          ApexTools enforces Google AdSense program policies automatically: all units enforce
           CLS-locked container heights, explicit &apos;Advertisement&apos; labels, a mandatory 25px buffer
           away from download buttons, and automatic hiding on mobile when viewport width is below
           the minimum threshold.

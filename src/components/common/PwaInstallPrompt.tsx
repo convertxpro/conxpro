@@ -26,7 +26,7 @@ export const PwaInstallPrompt: React.FC = () => {
     }
 
     // Check if dismissed recently (within 7 days)
-    const dismissedUntil = localStorage.getItem('converthub_pwa_dismissed_until');
+    const dismissedUntil = localStorage.getItem('apextools_pwa_dismissed_until');
     if (dismissedUntil && Number(dismissedUntil) > Date.now()) {
       return;
     }
@@ -87,7 +87,7 @@ export const PwaInstallPrompt: React.FC = () => {
     setShowPrompt(false);
     // Dismiss for 7 days
     const nextWeek = Date.now() + 7 * 24 * 60 * 60 * 1000;
-    localStorage.setItem('converthub_pwa_dismissed_until', String(nextWeek));
+    localStorage.setItem('apextools_pwa_dismissed_until', String(nextWeek));
   };
 
   if (isInstalled || !showPrompt || !deferredPrompt) {
@@ -95,7 +95,7 @@ export const PwaInstallPrompt: React.FC = () => {
   }
 
   return (
-    <aside aria-label="Install ConvertHub app prompt" className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-40 animate-slideUp">
+    <aside aria-label="Install ApexTools app prompt" className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-40 animate-slideUp">
       <div className="relative overflow-hidden rounded-3xl border border-indigo-200/90 bg-gradient-to-br from-indigo-900/95 via-slate-900/95 to-slate-950/95 p-5 text-white shadow-2xl backdrop-blur-xl ring-1 ring-white/10 dark:border-indigo-800/80">
         {/* Glow decoration */}
         <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-indigo-500/20 blur-2xl" />
@@ -108,7 +108,7 @@ export const PwaInstallPrompt: React.FC = () => {
             <div>
               <div className="flex items-center gap-2">
                 <h4 className="text-sm font-bold text-white">
-                  Install ConvertHub App
+                  Install ApexTools App
                 </h4>
                 <span className="rounded-full bg-emerald-500/20 border border-emerald-500/40 px-2 py-0.5 text-[10px] font-bold text-emerald-300">
                   Offline Ready

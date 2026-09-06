@@ -20,7 +20,7 @@ interface QueryParam {
 }
 
 const SAMPLE_URL =
-  'https://converthub.com/convert/developer/json-formatter?utm_source=google&utm_medium=cpc&query=quick%20convert%202026#section';
+  'https://apextools.app/convert/developer/json-formatter?utm_source=google&utm_medium=cpc&query=quick%20convert%202026#section';
 
 export const UrlEncoder: React.FC = () => {
   const [inputText, setInputText] = useState<string>(SAMPLE_URL);

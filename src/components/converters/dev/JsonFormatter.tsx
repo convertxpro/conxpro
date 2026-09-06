@@ -38,7 +38,7 @@ const SAMPLES = {
   "total": 228.99
 }`,
   config: `{
-  "appName": "ConvertHub",
+  "appName": "ApexTools",
   "version": "1.0.0",
   "features": {
     "clientConversion": true,

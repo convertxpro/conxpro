@@ -71,7 +71,7 @@ export default function AdminLayout({
                 <Zap className="h-5 w-5 text-white" />
               </div>
               <div>
-                <span className="text-sm font-bold tracking-tight text-white">ConvertHub</span>
+                <span className="text-sm font-bold tracking-tight text-white">ApexTools</span>
                 <span className="ml-1.5 rounded bg-rose-500/20 px-1.5 py-0.5 text-[10px] font-bold text-rose-400">
                   ROOT
                 </span>

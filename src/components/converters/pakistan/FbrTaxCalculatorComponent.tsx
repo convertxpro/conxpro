@@ -88,7 +88,7 @@ export const FbrTaxCalculatorComponent: React.FC = () => {
     `📌 *Marginal Bracket:* ${result.marginalTaxBracket}\n` +
     `🏛️ *Total Annual Tax Liability:* Rs. ${formatPakistaniNumber(result.annualTax)}\n` +
     (result.hasSurcharge ? `⚠️ *Includes 10% Super Surcharge:* Rs. ${formatPakistaniNumber(result.surchargeAmount)}\n` : '') +
-    `\n🔗 *Calculated free via ConvertHub Pakistan*`;
+    `\n🔗 *Calculated free via ApexTools Pakistan*`;
 
   const handlePrint = () => {
     window.print();

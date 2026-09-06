@@ -1,7 +1,7 @@
 {
-  "name": "ConvertHub — All-in-One Fast Converter",
-  "short_name": "ConvertHub",
-  "description": "Fast, free, privacy-first file, unit, data, currency, and Pakistani tax converters.",
+  "name": "ApexTools — All-in-One Fast Converter & Developer Suite",
+  "short_name": "ApexTools",
+  "description": "Fast, free, privacy-first file, unit, audio, video, developer data, currency, and hardware utility tools.",
   "start_url": "/",
   "id": "/",
   "display": "standalone",

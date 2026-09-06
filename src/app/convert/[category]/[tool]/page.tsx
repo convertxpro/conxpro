@@ -5,7 +5,7 @@ import { ALL_TOOLS, getToolBySlug } from '@/config/categories';
 import { generateToolMetadata } from '@/lib/seo/metadata';
 import { ToolLayout } from '@/components/layout/ToolLayout';
 import { ConverterCanvas } from '@/components/converters/ConverterCanvas';
-import { DEVELOPER_TOOL_FAQS, HARDWARE_TOOL_FAQS } from '@/lib/seo/faqData';
+import { DEVELOPER_TOOL_FAQS, HARDWARE_TOOL_FAQS, AUDIO_TOOL_FAQS } from '@/lib/seo/faqData';
 
 interface ToolPageProps {
   params: {
@@ -36,399 +36,399 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
   ];
 
   if (tool.slug === 'marla-to-square-feet') {
-    seoTitle = 'Marla to Square Feet Converter Pakistan | مرلہ سے مربع فٹ | ConvertHub';
+    seoTitle = 'Marla to Square Feet Converter Pakistan | مرلہ سے مربع فٹ | ApexTools';
     seoDescription = 'Free online Marla to Square Feet (Sq Ft) converter for Pakistan real estate. Supports Lahore/LDA/DHA (225 sq ft), Patwari/Revenue (272.25 sq ft), and CDA (250 sq ft) with interactive plot visualizer.';
     keywords.push('1 marla in sq ft lahore', 'marla to square feet', 'marla to sq ft calculator', 'marla to kanal', 'dha lahore marla size', 'patwari marla size');
   } else if (tool.slug === 'square-feet-to-marla') {
-    seoTitle = 'Square Feet to Marla Calculator Pakistan | مربع فٹ سے مرلہ | ConvertHub';
+    seoTitle = 'Square Feet to Marla Calculator Pakistan | مربع فٹ سے مرلہ | ApexTools';
     seoDescription = 'Convert Square Feet to Marla, Kanal, Square Yards (Gazz), and Sarsahi accurately across LDA (225), CDA (250), and Patwari (272.25) standards in Pakistan.';
     keywords.push('square feet to marla', 'sq ft to marla pakistan', 'calculate marla from square feet', 'kanal calculator', 'square yard to marla');
   } else if (tool.slug === 'tola-to-grams') {
-    seoTitle = 'Tola to Grams Gold Converter Pakistan | تولہ سے گرام | ConvertHub';
+    seoTitle = 'Tola to Grams Gold Converter Pakistan | تولہ سے گرام | ApexTools';
     seoDescription = 'Convert Sarafa gold weight between Tola, Grams, Masha, and Ratti (1 Tola = 11.6638g). Calculate 24K, 22K, 21K, and 18K gold rates and jewelry valuations in PKR.';
     keywords.push('1 tola in grams', 'tola to grams gold', 'tola to masha', 'gold rate per tola pakistan', '24k gold rate per tola', '22k gold tola price');
   } else if (tool.slug === 'maund-to-kg') {
-    seoTitle = 'Maund to KG Converter Pakistan | من سے کلو گرام | ConvertHub';
+    seoTitle = 'Maund to KG Converter Pakistan | من سے کلو گرام | ApexTools';
     seoDescription = 'Convert Mandi wholesale crop weights from Maund (40 kg), Seer, and Chhatak to Kilograms and Metric Tons. Calculate wheat, rice, and cotton trade batch pricing in Lakhs/Crores.';
     keywords.push('1 maund in kg', 'maund to kg', 'mann to kg pakistan', '1 mann in kg wheat', 'maund to metric ton', 'ghalla mandi rates');
   } else if (tool.slug === 'hijri-to-gregorian') {
-    seoTitle = 'Hijri to Gregorian Calendar Converter Pakistan | اسلامی ہجری کیلنڈر | ConvertHub';
+    seoTitle = 'Hijri to Gregorian Calendar Converter Pakistan | اسلامی ہجری کیلنڈر | ApexTools';
     seoDescription = 'Accurate Islamic lunar Hijri date to Gregorian solar date converter with Pakistan Central Ruet-e-Hilal moon sighting offset adjustments and annual Islamic event dates.';
     keywords.push('hijri to gregorian', 'islamic date today pakistan', 'gregorian to hijri converter', 'islamic calendar 1448', 'ruet e hilal moon sighting today');
   } else if (tool.slug === 'usd-to-pkr') {
-    seoTitle = 'USD to PKR Today | US Dollar to Pakistani Rupee Live Exchange Rate | ConvertHub';
+    seoTitle = 'USD to PKR Today | US Dollar to Pakistani Rupee Live Exchange Rate | ApexTools';
     seoDescription = 'Live USD to PKR interbank and open market exchange rates with real-time conversion matrices ($1 to $10,000), 7D/30D historical trend charts, and remittance savings calculator.';
     keywords.push('usd to pkr', 'dollar rate in pakistan today', '1 dollar in pkr', 'usd to pkr interbank', 'open market dollar rate lahore karachi', 'remittance to pakistan usd to pkr');
   } else if (tool.slug === 'sar-to-pkr') {
-    seoTitle = 'SAR to PKR Today | Saudi Riyal to Pakistani Rupee Exchange Rate | ConvertHub';
+    seoTitle = 'SAR to PKR Today | Saudi Riyal to Pakistani Rupee Exchange Rate | ApexTools';
     seoDescription = 'Live Saudi Riyal (SAR) to Pakistani Rupee (PKR) exchange rate for overseas remittances. Pre-calculated conversion tables from 1 to 10,000 SAR with zero bank fee guide.';
     keywords.push('sar to pkr', 'saudi riyal to pkr', '1 riyal in pakistani rupees', 'riyal rate in pakistan today', 'saudi remittance to pakistan');
   } else if (tool.slug === 'aed-to-pkr') {
-    seoTitle = 'AED to PKR Today | UAE Dirham to Pakistani Rupee Live Rate | ConvertHub';
+    seoTitle = 'AED to PKR Today | UAE Dirham to Pakistani Rupee Live Rate | ApexTools';
     seoDescription = 'Convert UAE Dirham (AED) to Pakistani Rupee (PKR) with live hourly rates, Dubai exchange company comparisons, and 30-day historical chart.';
     keywords.push('aed to pkr', 'uae dirham to pkr', '1 dirham in pak rupees', 'dubai dirham rate in pakistan', 'uae remittance to pkr');
   } else if (tool.slug === 'gbp-to-pkr') {
-    seoTitle = 'GBP to PKR Today | British Pound to Pakistani Rupee Exchange Rate | ConvertHub';
+    seoTitle = 'GBP to PKR Today | British Pound to Pakistani Rupee Exchange Rate | ApexTools';
     seoDescription = 'Live British Pound Sterling (GBP) to Pakistani Rupee (PKR) rate for UK diaspora remittances, freelancer payouts, and Roshan Digital transfers.';
     keywords.push('gbp to pkr', 'pound rate in pakistan', '1 pound in pkr', 'uk remittance to pakistan');
   } else if (tool.slug === 'eur-to-pkr') {
-    seoTitle = 'EUR to PKR Today | Euro to Pakistani Rupee Live Exchange Rate | ConvertHub';
+    seoTitle = 'EUR to PKR Today | Euro to Pakistani Rupee Live Exchange Rate | ApexTools';
     seoDescription = 'Live Euro (EUR) to Pakistani Rupee (PKR) exchange rate with daily trend chart, European remittance matrix, and interbank comparison.';
     keywords.push('eur to pkr', 'euro to pakistani rupee', 'euro rate in pakistan today');
   } else if (tool.slug === 'cad-to-pkr') {
-    seoTitle = 'CAD to PKR Today | Canadian Dollar to Pakistani Rupee Rate | ConvertHub';
+    seoTitle = 'CAD to PKR Today | Canadian Dollar to Pakistani Rupee Rate | ApexTools';
     seoDescription = 'Live Canadian Dollar (CAD) to Pakistani Rupee (PKR) exchange rate and remittance payout calculator for overseas Pakistanis in Canada.';
     keywords.push('cad to pkr', 'canadian dollar to pkr', 'cad to pkr exchange rate today');
   } else if (tool.slug === 'aud-to-pkr') {
-    seoTitle = 'AUD to PKR Today | Australian Dollar to Pakistani Rupee Rate | ConvertHub';
+    seoTitle = 'AUD to PKR Today | Australian Dollar to Pakistani Rupee Rate | ApexTools';
     seoDescription = 'Live Australian Dollar (AUD) to Pakistani Rupee (PKR) exchange rate with pre-calculated conversion matrices and trend tracker.';
     keywords.push('aud to pkr', 'australian dollar to pkr', 'aud to pkr rate today');
   } else if (tool.slug === 'qar-to-pkr') {
-    seoTitle = 'QAR to PKR Today | Qatari Riyal to Pakistani Rupee Exchange Rate | ConvertHub';
+    seoTitle = 'QAR to PKR Today | Qatari Riyal to Pakistani Rupee Exchange Rate | ApexTools';
     seoDescription = 'Convert Qatari Riyal (QAR) to Pakistani Rupee (PKR) with live exchange rates for Gulf remittances and Doha exchange companies.';
     keywords.push('qar to pkr', 'qatar riyal to pkr', 'qar to pkr exchange rate');
   } else if (tool.slug === 'kwd-to-pkr') {
-    seoTitle = 'KWD to PKR Today | Kuwaiti Dinar to Pakistani Rupee Rate | ConvertHub';
+    seoTitle = 'KWD to PKR Today | Kuwaiti Dinar to Pakistani Rupee Rate | ApexTools';
     seoDescription = 'Live Kuwaiti Dinar (KWD) to Pakistani Rupee (PKR) rate — convert the world\'s highest-value currency with live hourly updates.';
     keywords.push('kwd to pkr', 'kuwaiti dinar to pkr', '1 kwd in pkr');
   } else if (tool.slug === 'omr-to-pkr') {
-    seoTitle = 'OMR to PKR Today | Omani Rial to Pakistani Rupee Rate | ConvertHub';
+    seoTitle = 'OMR to PKR Today | Omani Rial to Pakistani Rupee Rate | ApexTools';
     seoDescription = 'Convert Omani Rial (OMR) to Pakistani Rupee (PKR) with real-time exchange rates and Muscat remittance calculators.';
     keywords.push('omr to pkr', 'omani rial to pkr', 'omr to pkr today');
   } else if (tool.slug === 'currency-converter') {
-    seoTitle = 'Live Forex & Currency Converter | Real-Time Exchange Rates | ConvertHub';
+    seoTitle = 'Live Forex & Currency Converter | Real-Time Exchange Rates | ApexTools';
     seoDescription = 'Convert between 150+ world currencies with hourly live mid-market exchange rates, multi-currency comparisons, and interactive historical charts.';
     keywords.push('currency converter', 'live forex converter', 'usd to pkr', 'exchange rates live', 'convert currency online');
   } else if (tool.slug === 'heic-to-jpg') {
-    seoTitle = 'HEIC to JPG Converter — Convert iPhone Photos Online Free | ConvertHub';
+    seoTitle = 'HEIC to JPG Converter — Convert iPhone Photos Online Free | ApexTools';
     seoDescription = 'Convert Apple iPhone HEIC/HEIF photos to universal high-quality JPG images in seconds. 100% free, preserves EXIF metadata, and auto-deletes files in 2 hours.';
     keywords.push('heic to jpg', 'convert heic to jpg', 'iphone photo converter', 'heic to jpeg', 'heif to jpg online free', 'apple photo to jpg');
   } else if (tool.slug === 'heic-to-png') {
-    seoTitle = 'HEIC to PNG Converter — Convert iPhone Photos with Transparency | ConvertHub';
+    seoTitle = 'HEIC to PNG Converter — Convert iPhone Photos with Transparency | ApexTools';
     seoDescription = 'Convert Apple HEIC photos to lossless PNG format with transparent alpha channels and maximum color depth. Free online converter with instant download.';
     keywords.push('heic to png', 'convert heic to png', 'apple heic png converter', 'iphone photo to png', 'heif to png transparent');
   } else if (tool.slug === 'png-to-jpg') {
-    seoTitle = 'PNG to JPG Converter — Convert PNG to Lightweight JPG Online | ConvertHub';
+    seoTitle = 'PNG to JPG Converter — Convert PNG to Lightweight JPG Online | ApexTools';
     seoDescription = 'Convert transparent PNG images to optimized JPG files with custom background matte colors and MozJPEG compression. Free online batch converter.';
     keywords.push('png to jpg', 'convert png to jpg', 'png to jpeg converter', 'reduce png size to jpg', 'image converter png to jpg');
   } else if (tool.slug === 'jpg-to-png') {
-    seoTitle = 'JPG to PNG Converter — Convert JPG to Lossless PNG Format | ConvertHub';
+    seoTitle = 'JPG to PNG Converter — Convert JPG to Lossless PNG Format | ApexTools';
     seoDescription = 'Convert JPG and JPEG files to crisp, lossless PNG images without compression artifacts. Ideal for graphics, design assets, and screenshots.';
     keywords.push('jpg to png', 'convert jpg to png', 'jpeg to png high quality', 'convert jpeg to png online free');
   } else if (tool.slug === 'webp-to-jpg') {
-    seoTitle = 'WebP to JPG Converter — Convert Google WebP to Universal JPG | ConvertHub';
+    seoTitle = 'WebP to JPG Converter — Convert Google WebP to Universal JPG | ApexTools';
     seoDescription = 'Convert modern Google WebP images to universal JPG format compatible with all desktop viewers, smartphones, and editing tools.';
     keywords.push('webp to jpg', 'convert webp to jpg', 'google webp to jpeg', 'webp to jpg converter free');
   } else if (tool.slug === 'jpg-to-webp') {
-    seoTitle = 'JPG to WebP Converter — Reduce Image Size by 35% Online | ConvertHub';
+    seoTitle = 'JPG to WebP Converter — Reduce Image Size by 35% Online | ApexTools';
     seoDescription = 'Convert JPG photos to lightweight next-gen WebP format. Improve Google Core Web Vitals and website page speed with 30-40% smaller file sizes.';
     keywords.push('jpg to webp', 'convert jpg to webp', 'jpeg to webp converter', 'compress jpg to webp', 'web speed image optimization');
   } else if (tool.slug === 'png-to-webp') {
-    seoTitle = 'PNG to WebP Converter — Preserve Transparency with Small Size | ConvertHub';
+    seoTitle = 'PNG to WebP Converter — Preserve Transparency with Small Size | ApexTools';
     seoDescription = 'Convert PNG graphics to WebP while maintaining full alpha transparency at 50% smaller file sizes. Ideal for web developers and designers.';
     keywords.push('png to webp', 'convert png to webp', 'transparent webp converter', 'png to webp online');
   } else if (tool.slug === 'webp-to-png') {
-    seoTitle = 'WebP to PNG Converter — Convert WebP with Lossless Alpha Channel | ConvertHub';
+    seoTitle = 'WebP to PNG Converter — Convert WebP with Lossless Alpha Channel | ApexTools';
     seoDescription = 'Convert Google WebP image format to standard PNG with full transparent background support. Instant, secure, and auto-purged in 2 hours.';
     keywords.push('webp to png', 'convert webp to png', 'webp transparent to png', 'webp to png converter online');
   } else if (tool.slug === 'png-to-ico') {
-    seoTitle = 'PNG to ICO Converter — Create Website Favicons & Windows Icons | ConvertHub';
+    seoTitle = 'PNG to ICO Converter — Create Website Favicons & Windows Icons | ApexTools';
     seoDescription = 'Convert PNG images into 256x256 multi-resolution ICO icon files and website favicons. Free online icon generator with transparent background support.';
     keywords.push('png to ico', 'favicon generator', 'convert png to ico', 'website favicon maker', 'create ico from png');
   } else if (tool.slug === 'png-to-svg') {
-    seoTitle = 'PNG to SVG Vector Wrapper — Convert Raster PNG to Scalable SVG | ConvertHub';
+    seoTitle = 'PNG to SVG Vector Wrapper — Convert Raster PNG to Scalable SVG | ApexTools';
     seoDescription = 'Convert PNG graphics into clean, scalable SVG vector wrapper documents for web design, logos, and responsive web development.';
     keywords.push('png to svg', 'convert png to svg', 'raster to svg wrapper', 'png to vector converter');
   } else if (tool.slug === 'compress-image') {
-    seoTitle = 'Free Image Compressor — Reduce JPG, PNG & WebP by Up to 90% | ConvertHub';
+    seoTitle = 'Free Image Compressor — Reduce JPG, PNG & WebP by Up to 90% | ApexTools';
     seoDescription = 'Compress images online with MozJPEG and WebP intelligent lossy compression. Reduce photo file size without visible degradation. 100% free.';
     keywords.push('compress image', 'image compressor online', 'compress jpg', 'reduce png file size', 'compress photo size');
   } else if (tool.slug === 'resize-image') {
-    seoTitle = 'Free Image Resizer — Resize Dimensions in Pixels & Percentages | ConvertHub';
+    seoTitle = 'Free Image Resizer — Resize Dimensions in Pixels & Percentages | ApexTools';
     seoDescription = 'Resize image width and height online with aspect ratio lock, predefined scale percentages (25% to 200%), and high-quality Lanczos resampling.';
     keywords.push('resize image', 'image resizer online', 'resize photo dimensions', 'change image size in pixels', 'scale image online');
   } else if (tool.slug === 'remove-background') {
-    seoTitle = 'Remove Image Background — Free Online Cutout Generator | ConvertHub';
+    seoTitle = 'Remove Image Background — Free Online Cutout Generator | ApexTools';
     seoDescription = 'Remove backgrounds from photos and graphics to generate clean transparent PNG cutouts instantly. Free, private, and fast browser conversion.';
     keywords.push('remove background', 'transparent background generator', 'image cutout tool', 'remove photo background free');
   } else if (tool.slug === 'pdf-to-word') {
-    seoTitle = 'PDF to Word Converter — Convert PDF to Editable DOCX Online Free | ConvertHub';
+    seoTitle = 'PDF to Word Converter — Convert PDF to Editable DOCX Online Free | ApexTools';
     seoDescription = 'Convert PDF files into fully editable Microsoft Word DOCX documents with preserved formatting, tables, and fonts. 100% free with bank-grade 256-bit encryption.';
     keywords.push('pdf to word', 'convert pdf to docx', 'pdf to word converter free', 'pdf to doc', 'editable word from pdf');
   } else if (tool.slug === 'word-to-pdf') {
-    seoTitle = 'Word to PDF Converter — Convert DOCX & DOC to PDF Online Free | ConvertHub';
+    seoTitle = 'Word to PDF Converter — Convert DOCX & DOC to PDF Online Free | ApexTools';
     seoDescription = 'Convert Microsoft Word DOCX and DOC documents into universal, high-quality PDF files instantly. Preserves exact layout, fonts, and images.';
     keywords.push('word to pdf', 'convert word to pdf', 'docx to pdf', 'doc to pdf online free');
   } else if (tool.slug === 'pdf-to-excel') {
-    seoTitle = 'PDF to Excel Converter — Extract PDF Tables to XLSX Spreadsheets | ConvertHub';
+    seoTitle = 'PDF to Excel Converter — Extract PDF Tables to XLSX Spreadsheets | ApexTools';
     seoDescription = 'Extract financial tables, spreadsheets, and structured tabular data from PDF files into formatted Microsoft Excel XLSX spreadsheets.';
     keywords.push('pdf to excel', 'convert pdf to xlsx', 'pdf to excel spreadsheet', 'extract tables from pdf');
   } else if (tool.slug === 'excel-to-pdf') {
-    seoTitle = 'Excel to PDF Converter — Convert XLSX Spreadsheets to PDF Online | ConvertHub';
+    seoTitle = 'Excel to PDF Converter — Convert XLSX Spreadsheets to PDF Online | ApexTools';
     seoDescription = 'Convert Microsoft Excel spreadsheets (XLSX, XLS) into clean, printable PDF documents with custom page fitting and gridlines.';
     keywords.push('excel to pdf', 'convert xlsx to pdf', 'spreadsheet to pdf', 'convert excel sheet to pdf online');
   } else if (tool.slug === 'pdf-to-powerpoint') {
-    seoTitle = 'PDF to PowerPoint Converter — Convert PDF to Editable PPTX Slides | ConvertHub';
+    seoTitle = 'PDF to PowerPoint Converter — Convert PDF to Editable PPTX Slides | ApexTools';
     seoDescription = 'Convert PDF presentation slides into fully editable Microsoft PowerPoint PPTX decks. Retain layouts, vector graphics, and slide text.';
     keywords.push('pdf to powerpoint', 'pdf to pptx', 'convert pdf to ppt', 'pdf to presentation slides');
   } else if (tool.slug === 'powerpoint-to-pdf') {
-    seoTitle = 'PowerPoint to PDF Converter — Convert PPTX to PDF Online Free | ConvertHub';
+    seoTitle = 'PowerPoint to PDF Converter — Convert PPTX to PDF Online Free | ApexTools';
     seoDescription = 'Convert PowerPoint presentations (PPTX, PPT) to universal PDF format. Ideal for presentations, sharing, and high-quality printing.';
     keywords.push('powerpoint to pdf', 'pptx to pdf', 'convert powerpoint to pdf', 'ppt to pdf free');
   } else if (tool.slug === 'jpg-to-pdf') {
-    seoTitle = 'JPG to PDF Converter — Combine Multiple Images into Single PDF | ConvertHub';
+    seoTitle = 'JPG to PDF Converter — Combine Multiple Images into Single PDF | ApexTools';
     seoDescription = 'Combine JPG, PNG, and WebP photos into a single professional PDF document. Customize A4/Letter page sizes, margins, and orientation.';
     keywords.push('jpg to pdf', 'convert jpg to pdf', 'combine images to pdf', 'photos to pdf online free');
   } else if (tool.slug === 'pdf-to-jpg') {
-    seoTitle = 'PDF to JPG / PNG Converter — Extract PDF Pages to Images | ConvertHub';
+    seoTitle = 'PDF to JPG / PNG Converter — Extract PDF Pages to Images | ApexTools';
     seoDescription = 'Extract all PDF pages into high-resolution JPG or PNG image files with selectable 72/150/300 DPI rendering. Download as a single ZIP package.';
     keywords.push('pdf to jpg', 'pdf to png', 'convert pdf to images', 'extract pages from pdf');
   } else if (tool.slug === 'merge-pdf') {
-    seoTitle = 'Merge PDF — Combine Multiple PDF Files into One Online Free | ConvertHub';
+    seoTitle = 'Merge PDF — Combine Multiple PDF Files into One Online Free | ApexTools';
     seoDescription = 'Combine and merge multiple PDF documents in your desired sequential order with interactive drag-and-drop page management. 100% free and secure.';
     keywords.push('merge pdf', 'combine pdf files', 'join pdf documents', 'merge pdf online free', 'pdf joiner');
   } else if (tool.slug === 'split-pdf') {
-    seoTitle = 'Split PDF — Extract PDF Pages & Split into Separate Files | ConvertHub';
+    seoTitle = 'Split PDF — Extract PDF Pages & Split into Separate Files | ApexTools';
     seoDescription = 'Extract specific page ranges (e.g. 1, 3-5, 8) from PDF or split all pages into separate numbered PDF files bundled in a convenient ZIP.';
     keywords.push('split pdf', 'extract pdf pages', 'separate pdf pages', 'split pdf online free', 'pdf splitter');
   } else if (tool.slug === 'compress-pdf') {
-    seoTitle = 'Compress PDF — Reduce PDF File Size by Up to 80% Online Free | ConvertHub';
+    seoTitle = 'Compress PDF — Reduce PDF File Size by Up to 80% Online Free | ApexTools';
     seoDescription = 'Compress PDF file size without sacrificing readability. Choose Extreme, Recommended, or Less compression with technical DPI benchmark analysis.';
     keywords.push('compress pdf', 'reduce pdf size', 'shrink pdf file size', 'pdf compressor online free', 'compress pdf to 200kb');
   } else if (tool.slug === 'rotate-pdf') {
-    seoTitle = 'Rotate PDF — Rotate PDF Pages 90, 180, 270 Degrees Online | ConvertHub';
+    seoTitle = 'Rotate PDF — Rotate PDF Pages 90, 180, 270 Degrees Online | ApexTools';
     seoDescription = 'Rotate individual or all pages in a PDF document by 90°, 180°, or 270° clockwise with instant visual page orientation preview.';
     keywords.push('rotate pdf', 'rotate pdf pages', 'turn pdf clockwise', 'rotate upside down pdf');
   } else if (tool.slug === 'protect-pdf') {
-    seoTitle = 'Protect PDF — Password Encrypt PDF Documents with 256-bit AES | ConvertHub';
+    seoTitle = 'Protect PDF — Password Encrypt PDF Documents with 256-bit AES | ApexTools';
     seoDescription = 'Encrypt sensitive PDF documents with military-grade 256-bit AES password encryption to prevent unauthorized viewing, printing, and copying.';
     keywords.push('protect pdf', 'password protect pdf', 'encrypt pdf', 'lock pdf with password');
   } else if (tool.slug === 'unlock-pdf') {
-    seoTitle = 'Unlock PDF — Remove Password & Encryption from PDF Online | ConvertHub';
+    seoTitle = 'Unlock PDF — Remove Password & Encryption from PDF Online | ApexTools';
     seoDescription = 'Remove password restrictions and security encryption from PDF documents to enable editing, printing, and free sharing.';
     keywords.push('unlock pdf', 'remove pdf password', 'decrypt pdf', 'pdf password remover online');
   } else if (tool.slug === 'create-zip' || tool.slug === 'zip-compressor') {
-    seoTitle = 'Create ZIP Archive — Compress & Bundle Multiple Files Online | ConvertHub';
+    seoTitle = 'Create ZIP Archive — Compress & Bundle Multiple Files Online | ApexTools';
     seoDescription = 'Bundle and compress multiple files into a high-efficiency ZIP archive stream. Free, fast, with customizable deflate compression levels.';
     keywords.push('create zip', 'zip files online', 'bundle files to zip', 'zip compressor free');
   } else if (tool.slug === 'extract-zip') {
-    seoTitle = 'Extract ZIP Archive — Unzip, Inspect & Decompress Files Online | ConvertHub';
+    seoTitle = 'Extract ZIP Archive — Unzip, Inspect & Decompress Files Online | ApexTools';
     seoDescription = 'Unzip and inspect contents of ZIP, 7Z, and TAR archives online without installing software. View file tree and download extracted assets.';
     keywords.push('extract zip', 'unzip files online', 'open zip file', 'zip extractor free');
   } else if (tool.slug === 'video-to-mp3' || tool.slug === 'mp4-to-mp3') {
-    seoTitle = `${tool.name} — Extract 320kbps MP3 Audio from Video Online Free | ConvertHub`;
+    seoTitle = `${tool.name} — Extract 320kbps MP3 Audio from Video Online Free | ApexTools`;
     seoDescription = 'Extract crystal-clear 320kbps MP3 audio tracks directly from MP4, MOV, WebM, AVI, and MKV video files. 100% free with customizable bitrate presets.';
     keywords.push('video to mp3', 'mp4 to mp3', 'extract audio from video', 'convert video to mp3', 'mp4 to mp3 320kbps', 'video audio extractor free');
   } else if (tool.slug === 'video-to-gif') {
-    seoTitle = 'Video to GIF Converter — Create High-Quality Animated GIFs Online Free | ConvertHub';
+    seoTitle = 'Video to GIF Converter — Create High-Quality Animated GIFs Online Free | ApexTools';
     seoDescription = 'Convert MP4, MOV, and WebM video clips into high-framerate animated GIFs with lanczos 2-pass palette generation. Free online GIF maker.';
     keywords.push('video to gif', 'convert mp4 to gif', 'gif maker online', 'video to animated gif', 'high quality gif converter');
   } else if (tool.slug === 'compress-video-for-discord') {
-    seoTitle = 'Compress Video for Discord — Reduce Video Under 8MB & 25MB Online Free | ConvertHub';
+    seoTitle = 'Compress Video for Discord — Reduce Video Under 8MB & 25MB Online Free | ApexTools';
     seoDescription = 'Compress video clips to under 8MB (Discord Free) or 25MB (Discord Nitro) with smart two-pass bitrate optimization. Fast, free, and no watermark.';
     keywords.push('compress video for discord', 'discord 8mb video compressor', 'shrink video for discord', 'discord video size reducer', 'discord nitro 25mb video');
   } else if (tool.slug === 'compress-video-for-whatsapp') {
-    seoTitle = 'Compress Video for WhatsApp — Reduce Video Under 16MB Fast | ConvertHub';
+    seoTitle = 'Compress Video for WhatsApp — Reduce Video Under 16MB Fast | ApexTools';
     seoDescription = 'Compress large video files to under 16MB for WhatsApp with H.264 FastStart encoding for instant message sharing without buffering.';
     keywords.push('compress video for whatsapp', 'whatsapp 16mb video compressor', 'reduce video size for whatsapp status', 'whatsapp video size reducer');
   } else if (tool.slug === 'compress-video') {
-    seoTitle = 'Video Compressor — Reduce Video File Size Online Without Quality Loss | ConvertHub';
+    seoTitle = 'Video Compressor — Reduce Video File Size Online Without Quality Loss | ApexTools';
     seoDescription = 'Compress MP4, MOV, and WebM videos by up to 80% with visually lossless CRF compression. Fast FFmpeg multi-threaded rendering.';
     keywords.push('compress video', 'video compressor online', 'reduce video size', 'mp4 compressor free', 'shrink video size');
   } else if (tool.slug === 'mp4-to-webm') {
-    seoTitle = 'MP4 to WebM Converter — Convert MP4 to HTML5 WebM Online Free | ConvertHub';
+    seoTitle = 'MP4 to WebM Converter — Convert MP4 to HTML5 WebM Online Free | ApexTools';
     seoDescription = 'Convert MP4 videos into next-gen VP9/Opus WebM format for lightweight HTML5 web video embedding and faster page load speeds.';
     keywords.push('mp4 to webm', 'convert mp4 to webm', 'html5 video converter', 'mp4 to webm online free');
   } else if (tool.slug === 'webm-to-mp4') {
-    seoTitle = 'WebM to MP4 Converter — Convert WebM to Universal MP4 Online | ConvertHub';
+    seoTitle = 'WebM to MP4 Converter — Convert WebM to Universal MP4 Online | ApexTools';
     seoDescription = 'Convert Google WebM screen recordings and browser video captures into universal H.264 MP4 format with full audio sync.';
     keywords.push('webm to mp4', 'convert webm to mp4', 'webm to mp4 high quality', 'webm converter online');
   } else if (tool.slug === 'mov-to-mp4') {
-    seoTitle = 'MOV to MP4 Converter — Convert iPhone QuickTime MOV to MP4 | ConvertHub';
+    seoTitle = 'MOV to MP4 Converter — Convert iPhone QuickTime MOV to MP4 | ApexTools';
     seoDescription = 'Convert Apple QuickTime MOV videos from iPhone and Mac into universal MP4 format with zero quality degradation. Free online converter.';
     keywords.push('mov to mp4', 'convert mov to mp4', 'iphone mov to mp4', 'apple video to mp4');
   } else if (tool.slug === 'mkv-to-mp4') {
-    seoTitle = 'MKV to MP4 Converter — Convert Matroska MKV to MP4 Online | ConvertHub';
+    seoTitle = 'MKV to MP4 Converter — Convert Matroska MKV to MP4 Online | ApexTools';
     seoDescription = 'Convert MKV movie files into standard MP4 format compatible with smart TVs, iPhone, Android, and gaming consoles.';
     keywords.push('mkv to mp4', 'convert mkv to mp4', 'matroska to mp4', 'mkv to mp4 converter free');
   } else if (tool.slug === 'avi-to-mp4') {
-    seoTitle = 'AVI to MP4 Converter — Convert Legacy AVI to Modern MP4 Online | ConvertHub';
+    seoTitle = 'AVI to MP4 Converter — Convert Legacy AVI to Modern MP4 Online | ApexTools';
     seoDescription = 'Convert legacy AVI video files into lightweight, modern MP4 format with crisp stereo sound. 100% free online batch converter.';
     keywords.push('avi to mp4', 'convert avi to mp4', 'avi to mp4 converter online');
   } else if (tool.slug === 'video-trim') {
-    seoTitle = 'Video Trimmer & Cutter — Cut & Trim Video Clips Online Free | ConvertHub';
+    seoTitle = 'Video Trimmer & Cutter — Cut & Trim Video Clips Online Free | ApexTools';
     seoDescription = 'Trim, cut, and extract video clips online by setting precise start and duration timestamps. Fast processing with no watermarks.';
     keywords.push('video trimmer', 'cut video online', 'trim mp4 online', 'video cutter free');
   } else if (tool.slug === 'wav-to-mp3') {
-    seoTitle = 'WAV to MP3 Converter — Convert WAV to 320kbps MP3 Online Free | ConvertHub';
+    seoTitle = 'WAV to MP3 Converter — Convert WAV to 320kbps MP3 Online Free | ApexTools';
     seoDescription = 'Convert heavy uncompressed WAV audio into lightweight 320kbps MP3s saving up to 90% storage space while preserving studio sound.';
     keywords.push('wav to mp3', 'convert wav to mp3', 'wav to mp3 320kbps', 'wav to mp3 converter free');
   } else if (tool.slug === 'mp3-to-wav') {
-    seoTitle = 'MP3 to WAV Converter — Convert MP3 to Uncompressed PCM WAV | ConvertHub';
+    seoTitle = 'MP3 to WAV Converter — Convert MP3 to Uncompressed PCM WAV | ApexTools';
     seoDescription = 'Convert MP3 audio tracks into 16-bit 44.1kHz uncompressed PCM WAV files for DAW audio editing and music production.';
     keywords.push('mp3 to wav', 'convert mp3 to wav', 'mp3 to wav converter online');
   } else if (tool.slug === 'm4a-to-mp3') {
-    seoTitle = 'M4A to MP3 Converter — Convert Apple Voice Memos & AAC to MP3 | ConvertHub';
+    seoTitle = 'M4A to MP3 Converter — Convert Apple Voice Memos & AAC to MP3 | ApexTools';
     seoDescription = 'Convert iPhone Voice Memos, iTunes M4A, and AAC audio into universal MP3 format with customizable 320kbps bitrates.';
     keywords.push('m4a to mp3', 'convert m4a to mp3', 'apple voice memo to mp3', 'iphone audio to mp3');
   } else if (tool.slug === 'flac-to-mp3') {
-    seoTitle = 'FLAC to MP3 Converter — Convert Lossless FLAC to 320kbps MP3 | ConvertHub';
+    seoTitle = 'FLAC to MP3 Converter — Convert Lossless FLAC to 320kbps MP3 | ApexTools';
     seoDescription = 'Convert lossless FLAC audio files to high-definition 320kbps MP3 files for mobile devices and car audio players.';
     keywords.push('flac to mp3', 'convert flac to mp3', 'flac to mp3 320kbps', 'lossless audio to mp3');
   } else if (tool.slug === 'audio-compress') {
-    seoTitle = 'Audio Compressor — Compress MP3, WAV & M4A Audio Online Free | ConvertHub';
+    seoTitle = 'Audio Compressor — Compress MP3, WAV & M4A Audio Online Free | ApexTools';
     seoDescription = 'Compress podcasts, audiobooks, and music tracks by optimizing bitrate without muffling voices. 100% free online audio compressor.';
     keywords.push('audio compressor', 'compress mp3', 'reduce audio file size', 'compress voice recording');
   } else if (tool.slug === 'yaml-to-json') {
-    seoTitle = 'YAML to JSON Converter — Convert YAML to Clean JSON Online | ConvertHub';
+    seoTitle = 'YAML to JSON Converter — Convert YAML to Clean JSON Online | ApexTools';
     seoDescription = 'Convert YAML configuration files to formatted or minified JSON with instant validation, indentation controls, and key sorting. 100% client-side.';
     keywords.push('yaml to json', 'convert yaml to json', 'yaml parser online', 'yaml to json validator');
   } else if (tool.slug === 'json-to-yaml') {
-    seoTitle = 'JSON to YAML Converter — Generate Clean YAML for Kubernetes & CI/CD | ConvertHub';
+    seoTitle = 'JSON to YAML Converter — Generate Clean YAML for Kubernetes & CI/CD | ApexTools';
     seoDescription = 'Convert JSON data into clean, indented YAML for Kubernetes manifests, Docker Compose, and CI/CD pipelines. Zero latency, 100% private.';
     keywords.push('json to yaml', 'convert json to yaml', 'kubernetes yaml generator', 'json to yaml online');
   } else if (tool.slug === 'toml-to-json') {
-    seoTitle = 'TOML to JSON / YAML Converter — Parse Cargo & PyProject Configs | ConvertHub';
+    seoTitle = 'TOML to JSON / YAML Converter — Parse Cargo & PyProject Configs | ApexTools';
     seoDescription = 'Parse Cargo.toml, pyproject.toml, and TOML configuration files into structured JSON and clean YAML with live syntax validation.';
     keywords.push('toml to json', 'toml to yaml', 'cargo toml converter', 'parse toml online');
   } else if (tool.slug === 'sql-to-json') {
-    seoTitle = 'SQL to JSON & CSV Converter — Extract SQL INSERT Table Dumps | ConvertHub';
+    seoTitle = 'SQL to JSON & CSV Converter — Extract SQL INSERT Table Dumps | ApexTools';
     seoDescription = 'Convert SQL INSERT statements and table dumps into structured JSON arrays and tabular CSV files instantly in your browser.';
     keywords.push('sql to json', 'convert sql to json', 'sql to csv', 'sql insert parser');
   } else if (tool.slug === 'json-to-sql') {
-    seoTitle = 'JSON to SQL INSERT Generator — Bulk ANSI SQL Generator | ConvertHub';
+    seoTitle = 'JSON to SQL INSERT Generator — Bulk ANSI SQL Generator | ApexTools';
     seoDescription = 'Generate bulk ANSI SQL INSERT INTO statements from JSON arrays with customizable table names, batch chunking, and dialect quotes.';
     keywords.push('json to sql', 'convert json to sql insert', 'sql generator from json', 'json to mysql');
   } else if (tool.slug === 'jwt-decoder') {
-    seoTitle = 'JWT Inspector & Decoder — 100% Private Token Claims Viewer | ConvertHub';
+    seoTitle = 'JWT Inspector & Decoder — 100% Private Token Claims Viewer | ApexTools';
     seoDescription = 'Inspect JWT headers, decode payload claims, verify expiration countdown, and validate HMAC signatures. 100% browser-only privacy.';
     keywords.push('jwt decoder', 'jwt inspector', 'decode jwt online', 'jwt token viewer', 'jwt claims expiry');
   } else if (tool.slug === 'hash-generator') {
-    seoTitle = 'Cryptographic Hash & File Checksum Generator — MD5, SHA-256, Keccak | ConvertHub';
+    seoTitle = 'Cryptographic Hash & File Checksum Generator — MD5, SHA-256, Keccak | ApexTools';
     seoDescription = 'Compute MD5, SHA-1, SHA-256, SHA-512, Keccak-256 hashes in real-time and verify large 2GB+ file checksums securely via Web Crypto.';
     keywords.push('hash generator', 'sha256 generator', 'md5 hash online', 'file checksum verifier', 'keccak 256 hash');
   } else if (tool.slug === 'css-unit-converter') {
-    seoTitle = 'CSS Units Converter (PX ↔ REM ↔ EM ↔ VW ↔ PT) & Clamp() Generator | ConvertHub';
+    seoTitle = 'CSS Units Converter (PX ↔ REM ↔ EM ↔ VW ↔ PT) & Clamp() Generator | ApexTools';
     seoDescription = 'Bi-directional CSS unit conversion matrix with responsive clamp() calculator and Tailwind CSS class mapper. Live preview & zero latency.';
     keywords.push('css unit converter', 'px to rem', 'rem to px', 'css clamp generator', 'tailwind unit converter');
   } else if (tool.slug === 'qr-code-generator') {
-    seoTitle = 'Smart QR Code & Barcode Generator — Wi-Fi, WhatsApp & vCard | ConvertHub';
+    seoTitle = 'Smart QR Code & Barcode Generator — Wi-Fi, WhatsApp & vCard | ApexTools';
     seoDescription = 'Generate high-resolution QR codes for URLs, Wi-Fi auto-connect, vCards, and WhatsApp chats in vector SVG, PNG, and WebP formats.';
     keywords.push('qr code generator', 'free qr code maker', 'wifi qr code generator', 'whatsapp qr code', 'svg qr code');
   } else if (tool.slug === 'cron-expression-decoder') {
-    seoTitle = 'Cron Expression Translator & Crontab Schedule Builder | ConvertHub';
+    seoTitle = 'Cron Expression Translator & Crontab Schedule Builder | ApexTools';
     seoDescription = 'Translate 5-field and 6-field cron expressions into plain English with interactive visual schedule builders and upcoming run time calculations.';
     keywords.push('cron expression decoder', 'cron translator', 'crontab generator', 'cron schedule humanizer');
   } else if (tool.slug === 'fbr-salary-tax-calculator') {
-    seoTitle = 'FBR Salary Tax Calculator (2024–2026) Pakistan | انکم ٹیکس کیلکولیٹر | ConvertHub';
+    seoTitle = 'FBR Salary Tax Calculator (2024–2026) Pakistan | انکم ٹیکس کیلکولیٹر | ApexTools';
     seoDescription = 'Calculate monthly and annual Pakistan income tax, net take-home salary, Filer vs Non-Filer deductions, and FBR slabs for Tax Year 2024-2026.';
     keywords.push('fbr tax calculator', 'salary tax calculator pakistan', 'income tax 2024-2025 pakistan', 'fbr tax slabs', 'take home salary calculator');
   } else if (tool.slug === 'zakat-calculator') {
-    seoTitle = 'Zakat Calculator Pakistan (PKR / Gold & Silver Nisab) | زکوٰۃ کیلکولیٹر | ConvertHub';
+    seoTitle = 'Zakat Calculator Pakistan (PKR / Gold & Silver Nisab) | زکوٰۃ کیلکولیٹر | ApexTools';
     seoDescription = 'Accurate Islamic Zakat calculator with dynamic 7.5 Tola Gold and 52.5 Tola Silver Nisab thresholds in PKR. 100% private and instant.';
     keywords.push('zakat calculator pakistan', 'zakat on gold calculator', 'nisab of zakat 2024', 'calculate zakat in pkr', 'islamic zakat calculator');
   } else if (tool.slug === 'lakh-crore-to-million-billion') {
-    seoTitle = 'Lakhs & Crores to Millions & Billions Converter | لاکھ کروڑ سے ملین | ConvertHub';
+    seoTitle = 'Lakhs & Crores to Millions & Billions Converter | لاکھ کروڑ سے ملین | ApexTools';
     seoDescription = 'Convert South Asian numbering (Lakh, Crore, Arab, Kharab) to Western (Million, Billion, Trillion) with English and Urdu words cheque writer.';
     keywords.push('lakh to million', 'crore to billion', 'lakh crore converter', 'pakistan number to words', 'urdu cheque writer');
   } else if (tool.slug === 'murabba-bigha-to-acre') {
-    seoTitle = 'Murabba & Bigha to Acre / Kanal Land Converter Pakistan | زرعی رقبہ | ConvertHub';
+    seoTitle = 'Murabba & Bigha to Acre / Kanal Land Converter Pakistan | زرعی رقبہ | ApexTools';
     seoDescription = 'Convert agricultural land units across Murabba, Bigha, Acre, Kanal, Marla, Biswa, and Sq Feet for Punjab, Sindh & KPK provinces.';
     keywords.push('murabba to acre', 'bigha to kanal', 'agricultural land measurement pakistan', 'murabba in acre', 'bigha to acre sindh punjab');
   } else if (tool.slug === 'electricity-bill-solar-calculator') {
-    seoTitle = 'WAPDA Electricity Bill & Solar Net-Metering Calculator | بجلی کا بل | ConvertHub';
+    seoTitle = 'WAPDA Electricity Bill & Solar Net-Metering Calculator | بجلی کا بل | ApexTools';
     seoDescription = 'Estimate electricity bills for LESCO, IESCO, MEPCO, K-Electric with Protected/Unprotected slabs, FPA taxes, and Solar ROI net-metering offsets.';
     keywords.push('electricity bill calculator pakistan', 'lesco bill calculator', 'iesco bill estimator', 'solar net metering calculator pakistan', 'wapda unit rate');
   } else if (tool.slug === 'gas-bill-calculator') {
-    seoTitle = 'Gas Bill Units Calculator (MMBTU ↔ HM³ ↔ PKR) SNGPL / SSGC | گیس کا بل | ConvertHub';
+    seoTitle = 'Gas Bill Units Calculator (MMBTU ↔ HM³ ↔ PKR) SNGPL / SSGC | گیس کا بل | ApexTools';
     seoDescription = 'Convert gas meter HM3 readings to MMBTU and calculate SNGPL / SSGC domestic monthly gas bills with slab rates and fixed charges.';
     keywords.push('gas bill calculator pakistan', 'sngpl bill calculator', 'ssgc bill calculator', 'hm3 to mmbtu', 'gas meter reading to bill');
   } else if (tool.slug === 'avif-to-jpg') {
-    seoTitle = 'AVIF to JPG / PNG / WebP Converter — Next-Gen Image Engine | ConvertHub';
+    seoTitle = 'AVIF to JPG / PNG / WebP Converter — Next-Gen Image Engine | ApexTools';
     seoDescription = 'Convert next-generation AVIF images to universally compatible JPG, PNG, and WebP formats with quality sliders and batch processing.';
     keywords.push('avif to jpg', 'convert avif to jpg', 'avif to png', 'avif to webp', 'next gen image converter');
   } else if (tool.slug === 'avif-to-png') {
-    seoTitle = 'AVIF to PNG Converter (Transparent Alpha Preserved) | ConvertHub';
+    seoTitle = 'AVIF to PNG Converter (Transparent Alpha Preserved) | ApexTools';
     seoDescription = 'Convert next-gen AVIF images into lossless transparent PNG files with pixel-perfect alpha channels and fast browser download.';
     keywords.push('avif to png', 'convert avif to png', 'avif transparent png', 'avif to lossless png');
   } else if (tool.slug === 'jpg-to-avif') {
-    seoTitle = 'JPG to AVIF Converter — Save Up to 70% File Size | ConvertHub';
+    seoTitle = 'JPG to AVIF Converter — Save Up to 70% File Size | ApexTools';
     seoDescription = 'Compress heavy JPG and JPEG photos into next-generation AVIF images with 70% smaller file size and stunning HDR visual fidelity.';
     keywords.push('jpg to avif', 'convert jpg to avif', 'jpeg to avif online', 'next gen image compression', 'compress jpg to avif');
   } else if (tool.slug === 'png-to-avif') {
-    seoTitle = 'PNG to AVIF Converter (Transparent & High Compression) | ConvertHub';
+    seoTitle = 'PNG to AVIF Converter (Transparent & High Compression) | ApexTools';
     seoDescription = 'Convert PNG graphics and logos to ultra-lightweight AVIF format with full alpha transparency support and 50% better compression than WebP.';
     keywords.push('png to avif', 'convert png to avif', 'transparent avif converter', 'png compression avif');
   } else if (tool.slug === 'webp-to-avif') {
-    seoTitle = 'WebP to AVIF Converter — Next-Gen Web Optimization | ConvertHub';
+    seoTitle = 'WebP to AVIF Converter — Next-Gen Web Optimization | ApexTools';
     seoDescription = 'Upgrade WebP images to cutting-edge AVIF format for superior compression, wider color gamuts, and faster Core Web Vitals.';
     keywords.push('webp to avif', 'convert webp to avif', 'avif vs webp', 'next gen webp to avif');
   } else if (tool.slug === 'svg-to-ico') {
-    seoTitle = 'SVG to Multi-Resolution Favicon (.ICO) & High-Res PNG | ConvertHub';
+    seoTitle = 'SVG to Multi-Resolution Favicon (.ICO) & High-Res PNG | ApexTools';
     seoDescription = 'Rasterize SVG vector graphics into multi-pack Windows .ico favicons (16, 32, 48, 64px) and high-resolution PNG assets.';
     keywords.push('svg to ico', 'svg to favicon', 'convert svg to ico', 'multi resolution favicon generator');
   } else if (tool.slug === 'svg-to-png') {
-    seoTitle = 'SVG to High-Res PNG Converter (Custom DPI & 4K Resolution) | ConvertHub';
+    seoTitle = 'SVG to High-Res PNG Converter (Custom DPI & 4K Resolution) | ApexTools';
     seoDescription = 'Rasterize SVG vector graphics to crisp high-definition PNG images with custom DPI (72–600 DPI), transparent backgrounds, and dimensions up to 4K.';
     keywords.push('svg to png', 'convert svg to png', 'svg to high res png', 'vector to png converter', 'svg rasterizer 4k');
   } else if (tool.slug === 'png-to-svg') {
-    seoTitle = 'PNG to SVG Scalable Vector Wrapper Converter | ConvertHub';
+    seoTitle = 'PNG to SVG Scalable Vector Wrapper Converter | ApexTools';
     seoDescription = 'Wrap raster PNG images into scalable vector SVG markup containers for modern responsive web development.';
     keywords.push('png to svg', 'convert png to svg', 'raster to svg container');
   } else if (tool.slug === 'png-to-ico') {
-    seoTitle = 'PNG to ICO Favicon Generator (16x16, 32x32, 48x48, 64x64) | ConvertHub';
+    seoTitle = 'PNG to ICO Favicon Generator (16x16, 32x32, 48x48, 64x64) | ApexTools';
     seoDescription = 'Convert PNG icons into multi-layered Windows ICO favicons for websites and desktop applications.';
     keywords.push('png to ico', 'png to favicon', 'convert png to ico', 'multi layer ico maker');
   } else if (tool.slug === 'gif-to-mp4') {
-    seoTitle = 'GIF to MP4 / WebM Converter — 90% File Size Reduction | ConvertHub';
+    seoTitle = 'GIF to MP4 / WebM Converter — 90% File Size Reduction | ApexTools';
     seoDescription = 'Convert heavy animated GIFs into smooth, lightweight looping MP4 and WebM videos with 90%+ file size reduction and faststart encoding.';
     keywords.push('gif to mp4', 'convert gif to mp4', 'gif to webm', 'reduce gif file size', 'gif to video');
   } else if (tool.slug === 'video-aspect-ratio-resizer') {
-    seoTitle = 'Video Aspect Ratio & Social Canvas Resizer (9:16, 16:9, 1:1) | ConvertHub';
+    seoTitle = 'Video Aspect Ratio & Social Canvas Resizer (9:16, 16:9, 1:1) | ApexTools';
     seoDescription = 'Resize videos to 9:16 (TikTok, Reels, Shorts), 16:9 (YouTube), and 1:1 with intelligent blurred backgrounds and crop padding.';
     keywords.push('video aspect ratio resizer', 'resize video for tiktok', 'video to 9:16', 'reels video resizer', 'blur background video resizer');
   } else if (tool.slug === 'subtitle-converter') {
-    seoTitle = 'Universal Subtitles Converter & Time-Shifter (SRT, VTT, ASS) | ConvertHub';
+    seoTitle = 'Universal Subtitles Converter & Time-Shifter (SRT, VTT, ASS) | ApexTools';
     seoDescription = 'Convert SRT, WebVTT, ASS, and SubViewer subtitles, offset timestamps in milliseconds, and clean formatting tags online.';
     keywords.push('subtitle converter', 'srt to vtt', 'vtt to srt', 'subtitle time shifter', 'sync subtitles online');
   } else if (tool.slug === 'audio-speed-pitch-changer') {
-    seoTitle = 'Audio Speed & Pitch Modulator (0.5x to 2.5x with Pitch Lock) | ConvertHub';
+    seoTitle = 'Audio Speed & Pitch Modulator (0.5x to 2.5x with Pitch Lock) | ApexTools';
     seoDescription = 'Change audio playback speed (0.5x to 2.5x) with pitch-lock or shift musical semitones with live browser preview.';
     keywords.push('audio speed changer', 'change audio pitch', 'slow down audio', 'speed up mp3', 'audio pitch shifter online');
   } else if (tool.slug === 'audio-joiner') {
-    seoTitle = 'Multi-Track Audio Joiner & Merger with Crossfade Transitions | ConvertHub';
+    seoTitle = 'Multi-Track Audio Joiner & Merger with Crossfade Transitions | ApexTools';
     seoDescription = 'Combine and crossfade multiple MP3, WAV, M4A, FLAC audio files into a single seamless audio track online.';
     keywords.push('audio joiner', 'merge audio files', 'combine mp3 online', 'audio merger with crossfade');
   } else if (tool.slug === 'webcam-test') {
-    seoTitle = 'Free Online Webcam Test — Check Camera Resolution, FPS & Quality | ConvertHub';
+    seoTitle = 'Free Online Webcam Test — Check Camera Resolution, FPS & Quality | ApexTools';
     seoDescription = 'Test your webcam resolution (720p, 1080p, 4K), frame rate, brightness, and device info 100% in your browser. No software install, no video recording, complete privacy.';
     keywords.push('webcam test', 'test camera online', 'webcam resolution test', 'check webcam quality', 'online camera test free', 'webcam fps test');
   } else if (tool.slug === 'mic-test') {
-    seoTitle = 'Free Online Microphone Test — Check Mic Volume, Echo & Quality | ConvertHub';
+    seoTitle = 'Free Online Microphone Test — Check Mic Volume, Echo & Quality | ApexTools';
     seoDescription = 'Test your microphone volume level, noise floor, echo loopback, and input device info in your browser. 100% private — no audio is recorded or uploaded.';
     keywords.push('mic test', 'test microphone online', 'microphone volume test', 'mic echo test', 'check mic quality', 'online mic test free');
   } else if (tool.slug === 'speaker-test') {
-    seoTitle = 'Free Online Speaker Test — Stereo, Bass & Frequency Sweep | ConvertHub';
+    seoTitle = 'Free Online Speaker Test — Stereo, Bass & Frequency Sweep | ApexTools';
     seoDescription = 'Test speakers and headphones with left/right stereo channel verification, bass response, and full 20Hz–20kHz frequency sweep. 100% browser-based.';
     keywords.push('speaker test', 'test speakers online', 'stereo test', 'bass test', 'frequency sweep speaker', 'left right speaker test');
   } else if (tool.slug === 'screen-test') {
-    seoTitle = 'Free Screen Test — Dead Pixel Checker, Refresh Rate & Color Test | ConvertHub';
+    seoTitle = 'Free Screen Test — Dead Pixel Checker, Refresh Rate & Color Test | ApexTools';
     seoDescription = 'Detect dead and stuck pixels, measure actual screen refresh rate (Hz), and test color accuracy with fullscreen gradient and solid color patterns.';
     keywords.push('screen test', 'dead pixel test', 'stuck pixel checker', 'screen refresh rate test', 'monitor test online', 'display color test');
   } else if (tool.slug === 'keyboard-test') {
-    seoTitle = 'Free Online Keyboard Tester — Ghosting, NKRO & Key Rollover Test | ConvertHub';
+    seoTitle = 'Free Online Keyboard Tester — Ghosting, NKRO & Key Rollover Test | ApexTools';
     seoDescription = 'Interactive visual keyboard tester with anti-ghosting N-Key Rollover benchmark, mechanical switch chatter detection, and full key map verification.';
     keywords.push('keyboard test', 'test keyboard online', 'keyboard ghosting test', 'nkro test', 'key rollover test', 'mechanical keyboard tester');
   } else if (tool.slug === 'mouse-test') {
-    seoTitle = 'Free Online Mouse Tester — Click, Scroll, Polling Rate & Double-Click Test | ConvertHub';
+    seoTitle = 'Free Online Mouse Tester — Click, Scroll, Polling Rate & Double-Click Test | ApexTools';
     seoDescription = 'Test mouse buttons, scroll wheel speed, polling rate, and detect double-click microswitch faults. Works with USB, wireless, and Bluetooth mice.';
     keywords.push('mouse test', 'test mouse online', 'mouse click test', 'polling rate test', 'double click test', 'mouse scroll test');
   } else if (tool.slug === 'gamepad-test') {
-    seoTitle = 'Free Online Gamepad & Controller Tester — Stick Drift, Buttons & Rumble | ConvertHub';
+    seoTitle = 'Free Online Gamepad & Controller Tester — Stick Drift, Buttons & Rumble | ApexTools';
     seoDescription = 'Calibrate Xbox, PlayStation, and Switch controllers with live analog stick drift radar, trigger pressure gauges, button map, and vibration motor test.';
     keywords.push('gamepad test', 'controller test online', 'stick drift test', 'xbox controller test', 'ps5 controller test', 'gamepad drift checker');
   } else if (tool.slug === 'call-readiness' || tool.slug === 'meeting-test') {
-    seoTitle = 'Video Call Readiness Test — Zoom, Google Meet & Teams Compatibility Check | ConvertHub';
+    seoTitle = 'Video Call Readiness Test — Zoom, Google Meet & Teams Compatibility Check | ApexTools';
     seoDescription = 'All-in-one 10-second diagnostic testing camera, microphone, speaker, and WebRTC network ping for Zoom, Google Meet, Microsoft Teams, and Webex readiness.';
     keywords.push('video call test', 'zoom readiness test', 'google meet test', 'teams camera test', 'meeting readiness checker', 'webrtc test');
   }
@@ -733,7 +733,7 @@ export default function ToolPage({ params }: ToolPageProps) {
         { fromValue: 'JSON Objects', toValue: '\'{"a": 1}\'::jsonb', extraInfo: '\'{"a": 1}\'' },
         { fromValue: 'Null Handling', toValue: 'NULL', extraInfo: 'NULL' },
       ],
-      caption: 'Dialect comparison matrix for ANSI SQL INSERT statements generated by ConvertHub.',
+      caption: 'Dialect comparison matrix for ANSI SQL INSERT statements generated by ApexTools.',
     };
   } else if (tool.slug === 'css-unit-converter') {
     conversionTableData = {
@@ -950,7 +950,7 @@ export default function ToolPage({ params }: ToolPageProps) {
   } else if (tool.slug.includes('compress-video')) {
     conversionTableData = {
       title: 'Messaging & Platform Video Upload Limits Reference Table',
-      headers: ['Platform / Service', 'Maximum File Allowance', 'Optimized ConvertHub Preset'] as [string, string, string],
+      headers: ['Platform / Service', 'Maximum File Allowance', 'Optimized ApexTools Preset'] as [string, string, string],
       rows: [
         { fromValue: 'Discord (Free Account)', toValue: '8.00 MB File Limit', extraInfo: 'Discord 8MB Preset (Two-pass variable bitrate)' },
         { fromValue: 'WhatsApp Direct Attachment', toValue: '16.00 MB File Limit', extraInfo: 'WhatsApp 16MB FastStart (AAC stereo)' },
@@ -1032,7 +1032,7 @@ export default function ToolPage({ params }: ToolPageProps) {
   let faqs = [
     {
       question: `Is ${tool.name} completely free to use?`,
-      answer: `Yes, ${tool.name} on ConvertHub is 100% free with no registration or credit card required. You get unlimited calculations directly inside your browser.`,
+      answer: `Yes, ${tool.name} on ApexTools is 100% free with no registration or credit card required. You get unlimited calculations directly inside your browser.`,
     },
     {
       question: 'Are my calculations private and secure?',
@@ -1040,7 +1040,7 @@ export default function ToolPage({ params }: ToolPageProps) {
     },
     {
       question: 'Can I use this tool on my mobile phone?',
-      answer: 'Yes, ConvertHub is mobile-first and optimized for seamless use on smartphones, tablets, and desktop browsers without installing any external apps.',
+      answer: 'Yes, ApexTools is mobile-first and optimized for seamless use on smartphones, tablets, and desktop browsers without installing any external apps.',
     },
   ];
 
@@ -1052,7 +1052,7 @@ export default function ToolPage({ params }: ToolPageProps) {
       },
       {
         question: 'What is the difference between Revenue 272.25 sq ft Marla and Urban 225 sq ft Marla?',
-        answer: 'The Revenue/Patwari standard (272.25 sq ft per Marla) is the official legal standard maintained by the Board of Revenue in Punjab, Sindh, KPK, and Balochistan. It is based on 9 Sarsahi (where 1 Karam = 5.5 ft). Urban housing societies reduced the standard to 225 sq ft (15 ft × 15 ft) for easier grid planning. ConvertHub lets you toggle between both standards instantly.',
+        answer: 'The Revenue/Patwari standard (272.25 sq ft per Marla) is the official legal standard maintained by the Board of Revenue in Punjab, Sindh, KPK, and Balochistan. It is based on 9 Sarsahi (where 1 Karam = 5.5 ft). Urban housing societies reduced the standard to 225 sq ft (15 ft × 15 ft) for easier grid planning. ApexTools lets you toggle between both standards instantly.',
       },
       {
         question: 'How many Marlas and Kanals are in 1 Acre (Qilla / Killa) in Pakistan?',
@@ -1109,7 +1109,7 @@ export default function ToolPage({ params }: ToolPageProps) {
     faqs = [
       {
         question: 'How does the Ruet-e-Hilal moon sighting adjustment work?',
-        answer: 'While the astronomical Umm al-Qura calendar provides mathematical moon phases, local Islamic dates in Pakistan depend on physical crescent moon sightings declared by the Central Ruet-e-Hilal Committee. ConvertHub provides an interactive offset toggle (-2, -1, 0, +1, +2 days) to synchronize with official Pakistan declarations.',
+        answer: 'While the astronomical Umm al-Qura calendar provides mathematical moon phases, local Islamic dates in Pakistan depend on physical crescent moon sightings declared by the Central Ruet-e-Hilal Committee. ApexTools provides an interactive offset toggle (-2, -1, 0, +1, +2 days) to synchronize with official Pakistan declarations.',
       },
       {
         question: 'What are the 12 Islamic months in chronological order?',
@@ -1120,15 +1120,15 @@ export default function ToolPage({ params }: ToolPageProps) {
     faqs = [
       {
         question: `What is the difference between State Bank of Pakistan (SBP) Interbank and Open Market Forex rates?`,
-        answer: 'The Interbank rate is the official benchmark wholesale rate traded between licensed commercial banks. The Open Market rate is quoted by Exchange Companies (Forex Association of Pakistan - FAP) for physical cash purchase and selling. ConvertHub provides hourly synchronized live mid-market rates.',
+        answer: 'The Interbank rate is the official benchmark wholesale rate traded between licensed commercial banks. The Open Market rate is quoted by Exchange Companies (Forex Association of Pakistan - FAP) for physical cash purchase and selling. ApexTools provides hourly synchronized live mid-market rates.',
       },
       {
         question: `How can overseas Pakistanis send remittances to Pakistan with zero transfer fees?`,
         answer: 'Under the State Bank of Pakistan (SBP) Pakistan Remittance Initiative (PRI), remittances of $100 or more sent through legal banking channels (Direct Bank Wire, Roshan Digital Account, Western Union/Remitly direct to bank account) are completely free of transfer charges.',
       },
       {
-        question: 'When do foreign exchange rates update daily on ConvertHub?',
-        answer: 'ConvertHub synchronizes exchange rates continuously on an hourly schedule using a multi-tiered caching architecture (Upstash Redis <10ms -> Supabase Cloud DB -> Central Bank feed), providing sub-10ms response times with zero rate-limit interruptions.',
+        question: 'When do foreign exchange rates update daily on ApexTools?',
+        answer: 'ApexTools synchronizes exchange rates continuously on an hourly schedule using a multi-tiered caching architecture (Upstash Redis <10ms -> Supabase Cloud DB -> Central Bank feed), providing sub-10ms response times with zero rate-limit interruptions.',
       },
       {
         question: 'Are foreign currency remittances sent to Pakistan subject to income tax or withholding tax?',
@@ -1136,14 +1136,14 @@ export default function ToolPage({ params }: ToolPageProps) {
       },
       {
         question: `Can I convert other foreign currencies like SAR, AED, GBP, and EUR to PKR?`,
-        answer: `Yes! ConvertHub provides dedicated calculators and real-time comparison tables for all major remittance pairs including Saudi Riyal (SAR), UAE Dirham (AED), British Pound (GBP), Euro (EUR), Canadian Dollar (CAD), Australian Dollar (AUD), Qatari Riyal (QAR), and Kuwaiti Dinar (KWD).`,
+        answer: `Yes! ApexTools provides dedicated calculators and real-time comparison tables for all major remittance pairs including Saudi Riyal (SAR), UAE Dirham (AED), British Pound (GBP), Euro (EUR), Canadian Dollar (CAD), Australian Dollar (AUD), Qatari Riyal (QAR), and Kuwaiti Dinar (KWD).`,
       },
     ];
   } else if (tool.categorySlug === 'image') {
     faqs = [
       {
         question: `How do I convert ${tool.name} without losing image quality?`,
-        answer: 'ConvertHub leverages high-performance Sharp and MozJPEG rendering pipelines. Our default 85% balanced quality setting maintains high visual fidelity and sharpness while eliminating unnecessary byte overhead.',
+        answer: 'ApexTools leverages high-performance Sharp and MozJPEG rendering pipelines. Our default 85% balanced quality setting maintains high visual fidelity and sharpness while eliminating unnecessary byte overhead.',
       },
       {
         question: 'Are my uploaded images kept private and secure?',
@@ -1159,17 +1159,17 @@ export default function ToolPage({ params }: ToolPageProps) {
       },
       {
         question: 'Is there a limit on how many images I can convert?',
-        answer: 'ConvertHub is 100% free with unlimited single and batch conversions for files up to 25 MB with no registration or credit card required.',
+        answer: 'ApexTools is 100% free with unlimited single and batch conversions for files up to 25 MB with no registration or credit card required.',
       },
     ];
   } else if (tool.categorySlug === 'document') {
     faqs = [
       {
         question: 'How do I convert PDF to editable Word document without losing formatting?',
-        answer: 'ConvertHub extracts paragraphs, headings, font styles, and table structures directly from your PDF and generates a standard Microsoft Word DOCX file with exact formatting preserved.',
+        answer: 'ApexTools extracts paragraphs, headings, font styles, and table structures directly from your PDF and generates a standard Microsoft Word DOCX file with exact formatting preserved.',
       },
       {
-        question: 'Is it safe to upload confidential legal documents to ConvertHub?',
+        question: 'Is it safe to upload confidential legal documents to ApexTools?',
         answer: 'Yes, 100%. All uploads are encrypted with end-to-end 256-bit SSL encryption. We enforce zero data logging and permanently auto-purge all files from our servers after 2 hours.',
       },
       {
@@ -1182,22 +1182,22 @@ export default function ToolPage({ params }: ToolPageProps) {
       },
       {
         question: 'Can I unlock a password-protected PDF file?',
-        answer: 'Yes. If you know the password, ConvertHub decrypts the document and provides an unlocked copy with all printing and editing restrictions permanently removed.',
+        answer: 'Yes. If you know the password, ApexTools decrypts the document and provides an unlocked copy with all printing and editing restrictions permanently removed.',
       },
     ];
   } else if (tool.categorySlug === 'archive') {
     faqs = [
       {
         question: 'How do I create a ZIP file from multiple documents and photos?',
-        answer: 'Simply drag and drop all your files into the upload area, optionally specify an archive name, and click "Create ZIP". ConvertHub compresses the files in real time.',
+        answer: 'Simply drag and drop all your files into the upload area, optionally specify an archive name, and click "Create ZIP". ApexTools compresses the files in real time.',
       },
       {
-        question: 'What compression level does ConvertHub ZIP creator use?',
+        question: 'What compression level does ApexTools ZIP creator use?',
         answer: 'We utilize industry-standard Deflate LZ77 + Huffman compression (Level 0 to 9) to ensure maximum byte reduction and 100% compatibility across Windows, macOS, Linux, iOS, and Android.',
       },
       {
         question: 'Can I extract and preview ZIP files online without installing software?',
-        answer: 'Yes! ConvertHub allows you to inspect archive contents, verify file sizes, and decompress all contents directly in your browser.',
+        answer: 'Yes! ApexTools allows you to inspect archive contents, verify file sizes, and decompress all contents directly in your browser.',
       },
     ];
   } else if (tool.categorySlug === 'audio' || tool.slug.includes('-to-mp3') || tool.slug.includes('audio-')) {
@@ -1212,7 +1212,7 @@ export default function ToolPage({ params }: ToolPageProps) {
       },
       {
         question: 'Can I convert Apple Voice Memos (M4A) to MP3?',
-        answer: 'Yes! ConvertHub seamlessly decodes Apple AAC/M4A audio recordings from iPhone and iPad and generates universal MP3 files playable on any device or software.',
+        answer: 'Yes! ApexTools seamlessly decodes Apple AAC/M4A audio recordings from iPhone and iPad and generates universal MP3 files playable on any device or software.',
       },
       {
         question: 'Are my uploaded audio and video files kept private and secure?',
@@ -1222,7 +1222,7 @@ export default function ToolPage({ params }: ToolPageProps) {
   } else if (tool.categorySlug === 'developer') {
     faqs = DEVELOPER_TOOL_FAQS[tool.slug] || [
       {
-        question: `How does ${tool.name} work on ConvertHub?`,
+        question: `How does ${tool.name} work on ApexTools?`,
         answer: 'All developer data and security conversions execute 100% client-side directly within your browser’s V8 JavaScript engine. Your strings, code, JWT tokens, and configurations are never transmitted over the network or logged on any server.',
       },
       {
@@ -1242,7 +1242,7 @@ export default function ToolPage({ params }: ToolPageProps) {
     faqs = HARDWARE_TOOL_FAQS[tool.slug] || [
       {
         question: `How does the ${tool.name} work in a web browser?`,
-        answer: `ConvertHub uses standard Web Platform APIs (MediaDevices, Web Audio, Gamepad, KeyboardEvent, requestAnimationFrame) to run all diagnostics 100% client-side in your browser. No data is recorded, uploaded, or sent to any server.`,
+        answer: `ApexTools uses standard Web Platform APIs (MediaDevices, Web Audio, Gamepad, KeyboardEvent, requestAnimationFrame) to run all diagnostics 100% client-side in your browser. No data is recorded, uploaded, or sent to any server.`,
       },
       {
         question: 'Do I need to install any software or browser extensions?',
@@ -1250,7 +1250,7 @@ export default function ToolPage({ params }: ToolPageProps) {
       },
       {
         question: 'Is my camera/microphone data private and secure?',
-        answer: 'Absolutely. All video, audio, and sensor data stays entirely within your local browser memory. ConvertHub never records, transmits, or stores any hardware diagnostic data on remote servers.',
+        answer: 'Absolutely. All video, audio, and sensor data stays entirely within your local browser memory. ApexTools never records, transmits, or stores any hardware diagnostic data on remote servers.',
       },
       {
         question: 'Can I embed this hardware test on my own website?',
@@ -1362,8 +1362,8 @@ export default function ToolPage({ params }: ToolPageProps) {
         answer: 'Yes! When embedding your converted MP4 or WebM video on any website, adding HTML5 video attributes (<video autoplay loop muted playsinline>) provides identical silent, infinite looping playback without freezing or crashing mobile browsers.',
       },
       {
-        question: 'Why does ConvertHub use the pad=ceil(iw/2)*2:ceil(ih/2)*2 filter for MP4 conversion?',
-        answer: 'H.264 video compression encoders require pixel dimensions (both width and height) to be even numbers divisible by 2. When converting GIFs with odd dimensions (e.g. 401x325), standard converters fail or glitch. ConvertHub automatically pads 1 pixel to ensure universal playback on iOS Safari, Chrome, and desktop players.',
+        question: 'Why does ApexTools use the pad=ceil(iw/2)*2:ceil(ih/2)*2 filter for MP4 conversion?',
+        answer: 'H.264 video compression encoders require pixel dimensions (both width and height) to be even numbers divisible by 2. When converting GIFs with odd dimensions (e.g. 401x325), standard converters fail or glitch. ApexTools automatically pads 1 pixel to ensure universal playback on iOS Safari, Chrome, and desktop players.',
       },
       {
         question: 'Is WebM or MP4 better for web animations and icons?',
@@ -1393,10 +1393,10 @@ export default function ToolPage({ params }: ToolPageProps) {
     faqs = [
       {
         question: 'How does the Discord 8MB and WhatsApp 16MB video compressor work?',
-        answer: 'ConvertHub dynamically calculates the exact target video bitrate required to fit your video clip within Discord (8MB) or WhatsApp (16MB) limits based on its duration. We apply two-pass H.264 FastStart encoding to ensure maximum visual clarity and instant streaming without buffering.',
+        answer: 'ApexTools dynamically calculates the exact target video bitrate required to fit your video clip within Discord (8MB) or WhatsApp (16MB) limits based on its duration. We apply two-pass H.264 FastStart encoding to ensure maximum visual clarity and instant streaming without buffering.',
       },
       {
-        question: 'How does ConvertHub make high-quality animated GIFs from video clips?',
+        question: 'How does ApexTools make high-quality animated GIFs from video clips?',
         answer: 'We utilize a specialized two-pass FFmpeg palette generation filter (palettegen + paletteuse with Lanczos scaling and Bayer dithering). This samples the exact 256 optimal colors from your video frames, eliminating the pixelated noise and banding common in standard GIF converters.',
       },
       {
@@ -1405,7 +1405,7 @@ export default function ToolPage({ params }: ToolPageProps) {
       },
       {
         question: 'What is the maximum file size I can convert for free?',
-        answer: 'ConvertHub allows free media conversions for files up to 100 MB without registration, watermarks, or credit card requirements.',
+        answer: 'ApexTools allows free media conversions for files up to 100 MB without registration, watermarks, or credit card requirements.',
       },
     ];
   } else if (tool.categorySlug === 'image') {
@@ -1416,19 +1416,32 @@ export default function ToolPage({ params }: ToolPageProps) {
       },
       {
         question: 'How to create a multi-resolution favicon.ico containing 16x16 and 32x32 icons from an SVG?',
-        answer: 'Simply upload your vector SVG (or high-resolution PNG) file to ConvertHub and select "ICO (Favicon)" as the target format. Our backend pipeline automatically generates 16×16, 32×32, 48×48, and 64×64 pixel raster layers and encapsulates them into a single multi-pack Windows .ico container file ready for immediate use in your website root directory.',
+        answer: 'Simply upload your vector SVG (or high-resolution PNG) file to ApexTools and select "ICO (Favicon)" as the target format. Our backend pipeline automatically generates 16×16, 32×32, 48×48, and 64×64 pixel raster layers and encapsulates them into a single multi-pack Windows .ico container file ready for immediate use in your website root directory.',
       },
       {
         question: 'Does converting SVG to PNG maintain transparent background?',
-        answer: 'Yes! When converting SVG to PNG on ConvertHub, all transparent background areas and alpha channels are preserved with 100% precision. You can also select custom DPI rendering (72, 150, 300, 600 DPI) and dimension presets (up to 4096×4096 4K) for ultra-sharp rasterization.',
+        answer: 'Yes! When converting SVG to PNG on ApexTools, all transparent background areas and alpha channels are preserved with 100% precision. You can also select custom DPI rendering (72, 150, 300, 600 DPI) and dimension presets (up to 4096×4096 4K) for ultra-sharp rasterization.',
       },
       {
         question: 'How does the side-by-side comparison slider work?',
-        answer: 'After converting an image, ConvertHub displays an interactive split comparison handle. Drag the slider horizontally to inspect visual fidelity, edge sharpness, and compression artifacts between the original source image and the converted output before downloading.',
+        answer: 'After converting an image, ApexTools displays an interactive split comparison handle. Drag the slider horizontally to inspect visual fidelity, edge sharpness, and compression artifacts between the original source image and the converted output before downloading.',
       },
       {
         question: 'Are image EXIF metadata and GPS location tags stripped for privacy?',
-        answer: 'Yes. By default, ConvertHub strips sensitive EXIF metadata (including camera model, date taken, and embedded GPS coordinates) during conversion to ensure maximum user privacy and minimize file size.',
+        answer: 'Yes. By default, ApexTools strips sensitive EXIF metadata (including camera model, date taken, and embedded GPS coordinates) during conversion to ensure maximum user privacy and minimize file size.',
+      },
+    ];
+  } else if (AUDIO_TOOL_FAQS[tool.slug]) {
+    faqs = AUDIO_TOOL_FAQS[tool.slug];
+  } else if (tool.categorySlug === 'audio') {
+    faqs = [
+      {
+        question: 'Does audio editing and processing occur 100% in the browser?',
+        answer: 'Yes! ApexTools utilizes native Web Audio API (AudioContext and AudioBuffer) to execute all cutting, volume boosting, pitch modulation, and format transcoding inside your local browser memory. Zero audio files or voice recordings are uploaded to any server.',
+      },
+      {
+        question: 'What audio formats are supported for conversion and editing?',
+        answer: 'ApexTools supports all standard browser-decodable audio formats including MP3, WAV, M4A, AAC, FLAC, OGG, and WebM with custom bitrate presets up to 320kbps.',
       },
     ];
   }

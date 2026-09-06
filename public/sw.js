@@ -1,5 +1,5 @@
-// ConvertHub Offline-Ready Progressive Web App Service Worker
-const CACHE_NAME = 'converthub-pwa-v1';
+// ApexTools.app Offline-Ready Progressive Web App Service Worker
+const CACHE_NAME = 'apextools-pwa-v1';
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',

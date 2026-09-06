@@ -126,7 +126,7 @@ export const ElectricityBillCalculatorComponent: React.FC = () => {
     (result.incomeTaxAmount > 0 ? `• Advance Income Tax (7.5%): Rs. ${formatPakistaniNumber(result.incomeTaxAmount)}\n` : '') +
     (result.surplusExportCreditsPkr > 0 ? `• Solar Surplus Buyback Credit: -Rs. ${formatPakistaniNumber(result.surplusExportCreditsPkr)}\n` : '') +
     (result.solarSavingsPkr ? `💰 *Estimated Solar Monthly Savings:* Rs. ${formatPakistaniNumber(result.solarSavingsPkr)}\n` : '') +
-    `\n🔗 *Calculated free via ConvertHub Pakistan*`;
+    `\n🔗 *Calculated free via ApexTools Pakistan*`;
 
   const handlePrint = () => {
     window.print();

@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
       jobId
     );
 
-    const tempConvertedDir = path.join(os.tmpdir(), 'converthub', 'converted');
+    const tempConvertedDir = path.join(os.tmpdir(), 'apextools', 'converted');
     if (!fs.existsSync(tempConvertedDir)) {
       fs.mkdirSync(tempConvertedDir, { recursive: true });
     }

@@ -31,7 +31,7 @@ const TIME_TOOLS: Record<string, TimeToolConfig> = {
     ],
     faqs: [
       { question: 'What is the time difference between Pakistan and the UK?', answer: 'Pakistan Standard Time (PKT, UTC+5) is 5 hours ahead of GMT (or 4 hours ahead of British Summer Time BST).' },
-      { question: 'Does this tool account for Daylight Saving Time (DST)?', answer: 'Yes! ConvertHub uses the browser IANA timezone database which automatically applies regional Daylight Saving Time shifts.' },
+      { question: 'Does this tool account for Daylight Saving Time (DST)?', answer: 'Yes! ApexTools uses the browser IANA timezone database which automatically applies regional Daylight Saving Time shifts.' },
     ],
     relatedSlugs: ['unix-timestamp', 'age-calculator', 'date-format-converter'],
   },
@@ -47,7 +47,7 @@ const TIME_TOOLS: Record<string, TimeToolConfig> = {
     ],
     faqs: [
       { question: 'What is Unix Epoch time?', answer: 'Unix Epoch time is the total number of seconds elapsed since January 1, 1970 00:00:00 UTC (excluding leap seconds).' },
-      { question: 'What is the Year 2038 problem?', answer: '32-bit signed integers will overflow on January 19, 2038. ConvertHub uses 64-bit BigInt precision to support dates billions of years in the future.' },
+      { question: 'What is the Year 2038 problem?', answer: '32-bit signed integers will overflow on January 19, 2038. ApexTools uses 64-bit BigInt precision to support dates billions of years in the future.' },
     ],
     relatedSlugs: ['timezone-converter', 'date-format-converter', 'age-calculator'],
   },
@@ -62,7 +62,7 @@ const TIME_TOOLS: Record<string, TimeToolConfig> = {
       { title: 'View Lifetime Statistics', description: 'Explore total days, hours, minutes lived, next birthday countdown, and zodiac insights.' },
     ],
     faqs: [
-      { question: 'How is exact age calculated with leap years?', answer: 'ConvertHub accounts for leap years, varying month lengths (28 to 31 days), and calendar days accurately.' },
+      { question: 'How is exact age calculated with leap years?', answer: 'ApexTools accounts for leap years, varying month lengths (28 to 31 days), and calendar days accurately.' },
     ],
     relatedSlugs: ['timezone-converter', 'unix-timestamp', 'date-format-converter'],
   },

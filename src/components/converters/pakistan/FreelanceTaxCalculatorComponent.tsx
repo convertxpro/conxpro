@@ -62,7 +62,7 @@ export const FreelanceTaxCalculatorComponent: React.FC<FreelanceTaxCalculatorCom
     (result.psebTaxSavingsAnnual > 0 ? `💡 *PSEB Registration Savings:* Saves Rs. ${formatPakistaniNumber(result.psebTaxSavingsAnnual)}/year vs standard rate!\n` : '') +
     `━━━━━━━━━━━━━━━━━━━━\n` +
     `🏆 *Top Recommended Channel:* ${result.recommendedChannel.channel.name} (Net: Rs. ${formatPakistaniNumber(result.recommendedChannel.netRealizedPkr)})\n` +
-    `\n🔗 *Calculated free via ConvertHub Pakistan*`;
+    `\n🔗 *Calculated free via ApexTools Pakistan*`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shareText);

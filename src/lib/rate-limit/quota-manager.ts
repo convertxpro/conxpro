@@ -64,7 +64,7 @@ function cleanupExpiredInMemoryKeys(): void {
  */
 export function hashIp(ip: string): string {
   const cleanIp = ip.replace(/^::ffff:/, '').trim();
-  const salt = process.env.IP_HASH_SALT || 'converthub_secure_pkt_salt_2026';
+  const salt = process.env.IP_HASH_SALT || 'apextools_secure_pkt_salt_2026';
   return crypto.createHmac('sha256', salt).update(cleanIp).digest('hex').substring(0, 32);
 }
 

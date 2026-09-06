@@ -221,7 +221,7 @@ export default function ImageSlugPage({ params }: ImageSlugPageProps) {
     {
       question: `How does the ${tool.name} process images?`,
       answer:
-        'ConvertHub utilizes high-speed Sharp and MozJPEG image processing engines in Node.js. Images are rendered with high fidelity and optimized compression.',
+        'ApexTools utilizes high-speed Sharp and MozJPEG image processing engines in Node.js. Images are rendered with high fidelity and optimized compression.',
     },
     {
       question: 'Are my private photos and documents secure?',

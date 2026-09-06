@@ -84,8 +84,8 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    site: '@ConvertHub',
-    creator: '@ConvertHub',
+    site: '@ApexToolsApp',
+    creator: '@ApexToolsApp',
   },
   icons: {
     icon: [

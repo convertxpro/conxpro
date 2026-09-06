@@ -88,7 +88,7 @@ export const BatchWatermarkerComponent: React.FC<BatchWatermarkerComponentProps>
   const [watermarkMode, setWatermarkMode] = useState<WatermarkMode>('text');
 
   // Text watermark state
-  const [watermarkText, setWatermarkText] = useState<string>('ConvertHub © 2026');
+  const [watermarkText, setWatermarkText] = useState<string>('ApexTools © 2026');
   const [fontFamily, setFontFamily] = useState<string>('Inter, sans-serif');
   const [fontSizeRatio, setFontSizeRatio] = useState<number>(5); // percent of image width
   const [textColor, setTextColor] = useState<string>('#ffffff');

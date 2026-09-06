@@ -82,7 +82,7 @@ export const GasBillCalculatorComponent: React.FC = () => {
     `• Monthly Meter Rent: Rs. ${result.meterRentPkr} (${isProtectedConsumer ? 'Subsidized' : 'Standard'})\n` +
     `• General Sales Tax (18% GST): Rs. ${formatPakistaniNumber(result.gstAmount)}\n` +
     (result.protectedComparisonDiffPkr ? `💡 *Protected Subsidized Savings:* Rs. ${formatPakistaniNumber(result.protectedComparisonDiffPkr)} / month\n` : '') +
-    `\n🔗 *Calculated free via ConvertHub Pakistan*`;
+    `\n🔗 *Calculated free via ApexTools Pakistan*`;
 
   const handlePrint = () => {
     window.print();

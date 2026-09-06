@@ -88,7 +88,7 @@ export async function fetchUserProfile(userId: string): Promise<UserProfile | nu
     desc: 'Kubernetes environment parameters and service settings',
     original: `{
   "apiVersion": "apps/v1",
-  "name": "converthub-worker",
+  "name": "apextools-worker",
   "replicas": 3,
   "env": {
     "NODE_ENV": "development",
@@ -103,7 +103,7 @@ export async function fetchUserProfile(userId: string): Promise<UserProfile | nu
 }`,
     modified: `{
   "apiVersion": "apps/v2",
-  "name": "converthub-worker-production",
+  "name": "apextools-worker-production",
   "replicas": 8,
   "env": {
     "NODE_ENV": "production",
@@ -126,11 +126,11 @@ export async function fetchUserProfile(userId: string): Promise<UserProfile | nu
     id: 'editorial',
     name: 'Editorial Article Revisions',
     desc: 'Copywriting polishing and grammar enhancement',
-    original: `ConvertHub is a simple online tool for converting files.
+    original: `ApexTools is a simple online tool for converting files.
 It supports PDF files, image resizing, and some developer utilities.
 All tasks are processed online and you can download files directly.
 We hope you enjoy using this application.`,
-    modified: `ConvertHub is a lightning-fast, privacy-first conversion suite.
+    modified: `ApexTools is a lightning-fast, privacy-first conversion suite.
 It seamlessly executes WebAssembly OCR, AI background removal, media transcoding, and deep Pakistan financial calculations.
 All operations process 100% in-browser with zero server uploads and instant latency.
 Start converting your files with complete confidence and privacy.`,

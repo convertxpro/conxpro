@@ -1,6 +1,6 @@
-# ConvertHub (ConvertX) Production Deployment & Operations Runbook
+# ApexTools (apextools.app) Production Deployment & Operations Runbook
 
-This document serves as the complete operational runbook for deploying, monitoring, and scaling **ConvertHub** in a high-traffic production environment.
+This document serves as the complete operational runbook for deploying, monitoring, and scaling **ApexTools** in a high-traffic production environment.
 
 ---
 
@@ -36,7 +36,7 @@ Set the following variables in **Vercel** (Frontend) and **Railway / Render / VP
 ### 2.1 Frontend (Vercel)
 | Variable | Description | Example / Default |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Canonical platform domain | `https://converthub.com` |
+| `NEXT_PUBLIC_SITE_URL` | Canonical platform domain | `https://apextools.app` |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project API endpoint | `https://your-proj.supabase.co` |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase public client key | `eyJhbGci...` |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase privileged server key | `eyJhbGci...` |
@@ -44,7 +44,7 @@ Set the following variables in **Vercel** (Frontend) and **Railway / Render / VP
 | `UPSTASH_REDIS_REST_TOKEN` | Upstash HTTP Auth Token | `AX...` |
 | `REDIS_URL` | Direct ioredis connection string | `rediss://default:...@...upstash.io:6379` |
 | `NEXT_PUBLIC_ADSENSE_CLIENT_ID`| Google AdSense Publisher ID | `ca-pub-9482019482019482` |
-| `ADMIN_EMAILS` | Comma-separated admin whitelist | `admin@converthub.com,muddasir@converthub.com` |
+| `ADMIN_EMAILS` | Comma-separated admin whitelist | `admin@apextools.app,muddasir@apextools.app` |
 
 ### 2.2 Background Worker (Railway / Render / VPS)
 | Variable | Description |
@@ -62,7 +62,7 @@ Set the following variables in **Vercel** (Frontend) and **Railway / Render / VP
 2. Set Framework Preset to **Next.js**.
 3. Add all environment variables listed in Section 2.1.
 4. Deploy the main branch.
-5. In Domains settings, configure `converthub.com` and `www.converthub.com`.
+5. In Domains settings, configure `apextools.app` and `www.apextools.app`.
 
 ---
 
@@ -77,29 +77,29 @@ Set the following variables in **Vercel** (Frontend) and **Railway / Render / VP
 ### Option B: VPS (Ubuntu 22.04 LTS / Docker Compose)
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/converthub.git /opt/converthub
-cd /opt/converthub
+git clone https://github.com/your-org/apextools.git /opt/apextools
+cd /opt/apextools
 
 # Build the worker container
-docker build -f docker/worker.Dockerfile -t converthub-worker .
+docker build -f docker/worker.Dockerfile -t apextools-worker .
 
 # Run with auto-restart and resource limits
 docker run -d \
-  --name converthub-worker-01 \
+  --name apextools-worker-01 \
   --restart always \
   --memory=2g \
   --cpus=2 \
   -e REDIS_URL="rediss://default:token@your-redis.upstash.io:6379" \
   -e SUPABASE_URL="https://your-proj.supabase.co" \
   -e SUPABASE_SERVICE_ROLE_KEY="your-service-role-key" \
-  converthub-worker
+  apextools-worker
 ```
 
 ---
 
 ## 5. Storage Auto-Purge & Retention Verification
 
-ConvertHub enforces a strict **1-Hour Auto-Purge Privacy Policy**:
+ApexTools enforces a strict **1-Hour Auto-Purge Privacy Policy**:
 1. Run the Supabase cron / pg_cron job to purge files from the `conversions` bucket older than 60 minutes:
 ```sql
 -- Schedule hourly purge of expired conversion artifacts

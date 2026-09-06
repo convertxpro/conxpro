@@ -84,12 +84,16 @@ export const Navbar: React.FC = () => {
             <Link href="/" className="group flex items-center gap-2.5">
               <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-emerald-500 p-0.5 shadow-[0_0_20px_-5px_rgba(99,102,241,0.5)] transition-transform duration-300 group-hover:scale-105">
                 <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-slate-950/90 backdrop-blur-md text-white font-black">
-                  <ArrowLeftRight className="h-5 w-5 text-indigo-400 group-hover:animate-pulse" />
+                  <svg className="h-5 w-5 text-indigo-400 group-hover:text-emerald-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 19h20L12 2z" />
+                    <path d="M12 9l-4 7h8l-4-7z" fill="currentColor" fillOpacity="0.3" />
+                  </svg>
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
-                  Convert<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-400">Hub</span>
+                <span className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center">
+                  Apex<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400">Tools</span>
+                  <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 ml-0.5">.app</span>
                 </span>
                 <span className="shimmer-effect overflow-hidden rounded bg-emerald-500/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 w-fit -mt-0.5">
                   PRO / FREE

@@ -79,7 +79,7 @@ export const PtaTaxCalculatorComponent: React.FC<PtaTaxCalculatorComponentProps>
     `💰 *TOTAL PTA PSID AMOUNT:* Rs. ${formatPakistaniNumber(result.totalTax)} (${totalFormatted.inWords})\n` +
     `🏷️ *Total Phone Landed Cost:* Rs. ${formatPakistaniNumber(result.totalPhoneCostPkr)}\n` +
     (result.passportSavings > 0 ? `💡 *Passport Savings:* Save Rs. ${formatPakistaniNumber(result.passportSavings)} vs CNIC!\n` : '') +
-    `\n🔗 *Calculated free via ConvertHub Pakistan*`;
+    `\n🔗 *Calculated free via ApexTools Pakistan*`;
 
   const handleCopySummary = () => {
     navigator.clipboard.writeText(shareText);

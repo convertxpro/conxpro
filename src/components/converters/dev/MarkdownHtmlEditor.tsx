@@ -23,7 +23,7 @@ import {
 
 const SAMPLE_MD = `# Markdown to HTML Live Converter
 
-ConvertHub offers lightning-fast **Markdown parsing** and **HTML conversion** completely inside your browser.
+ApexTools offers lightning-fast **Markdown parsing** and **HTML conversion** completely inside your browser.
 
 ## Key Features
 - **100% Client-Side**: Safe & secure.
@@ -31,14 +31,14 @@ ConvertHub offers lightning-fast **Markdown parsing** and **HTML conversion** co
 - \`Code Syntax\`: Ready for developer documentation.
 
 ### Comparison Table
-| Feature | ConvertHub | Others |
+| Feature | ApexTools | Others |
 | :--- | :---: | :---: |
 | Free | Yes | Sometimes |
 | Instant | 100% | Slow |
 
 > "Clean code and fast converters make developers productive."
 
-Check out our [Converters Hub](https://converthub.com) for more tools!`;
+Check out our [Converters Hub](https://apextools.app) for more tools!`;
 
 export const MarkdownHtmlEditor: React.FC = () => {
   const [markdown, setMarkdown] = useState<string>(SAMPLE_MD);

@@ -74,14 +74,14 @@ export const CnicDecoderComponent: React.FC<CnicDecoderComponentProps> = () => {
       `🏙️ *Likely District(s):* ${cnicResult.likelyDistrict}\n` +
       `👤 *Gender Parity:* ${cnicResult.gender} (${cnicResult.genderUrdu})\n` +
       `🛡️ *Privacy:* 100% Client-Side In-Memory Verification\n` +
-      `\n🔗 *Decoded free via ConvertHub Pakistan*`
+      `\n🔗 *Decoded free via ApexTools Pakistan*`
     : `🏛️ *FBR NTN Checksum Verification*\n` +
       `━━━━━━━━━━━━━━━━━━━━\n` +
       `📌 *NTN Number:* ${ntnResult.formattedNtn}\n` +
       `📊 *Status:* ${ntnResult.isValid ? 'Valid Modulo-11 Checksum 🟢' : 'Invalid Checksum 🔴'}\n` +
       `💼 *Entity Type:* ${ntnResult.entityType}\n` +
       `🛡️ *Privacy:* 100% Client-Side In-Memory Verification\n` +
-      `\n🔗 *Validated free via ConvertHub Pakistan*`;
+      `\n🔗 *Validated free via ApexTools Pakistan*`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shareText);

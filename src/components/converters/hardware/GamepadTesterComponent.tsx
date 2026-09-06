@@ -238,7 +238,7 @@ export const GamepadTesterComponent: React.FC<GamepadTesterComponentProps> = ({
   const handleExportReport = () => {
     if (!gamepadTelemetry) return;
     const report = {
-      test: 'ConvertHub Gamepad & Controller Calibration Diagnostic',
+      test: 'ApexTools Gamepad & Controller Calibration Diagnostic',
       date: new Date().toLocaleString(),
       gamepadId: gamepadTelemetry.id,
       gamepadIndex: gamepadTelemetry.index,

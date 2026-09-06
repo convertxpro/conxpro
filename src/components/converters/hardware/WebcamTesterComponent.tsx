@@ -1088,7 +1088,7 @@ export const WebcamTesterComponent: React.FC<WebcamTesterComponentProps> = ({
                 <div className="flex items-center gap-2">
                   <a
                     href={recordedVideoUrl}
-                    download="convertx-webcam-test.webm"
+                    download="apextools-webcam-test.webm"
                     className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 px-3.5 py-1.5 text-xs font-bold text-white shadow-md hover:brightness-110 transition"
                   >
                     <Download className="h-3.5 w-3.5" />
@@ -1145,7 +1145,7 @@ export const WebcamTesterComponent: React.FC<WebcamTesterComponentProps> = ({
                     <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                       <a
                         href={snap.dataUrl}
-                        download={`convertx-snapshot-${snap.timestamp.replace(/:/g, '-')}.png`}
+                        download={`apextools-snapshot-${snap.timestamp.replace(/:/g, '-')}.png`}
                         title="Download Image"
                         className="p-2 rounded-xl bg-cyan-500 text-white hover:scale-110 transition shadow-md"
                       >

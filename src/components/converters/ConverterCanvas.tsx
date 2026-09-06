@@ -41,10 +41,9 @@ import { PaletteGenerator } from '@/components/converters/color/PaletteGenerator
 
 // Phase 1 Next-Gen In-Browser AI & Developer Tools
 import { OcrScannerComponent } from '@/components/converters/dev/OcrScannerComponent';
-import { BackgroundRemoverComponent } from '@/components/converters/image/BackgroundRemoverComponent';
 import { DiffCheckerComponent } from '@/components/converters/dev/DiffCheckerComponent';
 import { CurlToCodeComponent } from '@/components/converters/dev/CurlToCodeComponent';
-import { ScreenRecorderComponent } from '@/components/converters/media/ScreenRecorderComponent';
+import { CidrCalculatorComponent } from '@/components/converters/dev/CidrCalculatorComponent';
 
 // Specialized Pakistan Regional Converters
 import { MarlaConverter } from '@/components/converters/pakistan/MarlaConverter';
@@ -80,12 +79,7 @@ import { ArchiveConverter } from '@/components/converters/archive/ArchiveConvert
 
 // Specialized Video & Audio Media Converters
 import { MediaConverter } from '@/components/converters/media/MediaConverter';
-import { VideoCanvasComponent } from '@/components/converters/media/VideoCanvasComponent';
-import { SubtitleConverterComponent } from '@/components/converters/media/SubtitleConverterComponent';
 import { AudioModulatorCanvas } from '@/components/converters/media/AudioModulatorCanvas';
-import { SubtitleBurnerComponent } from '@/components/converters/media/SubtitleBurnerComponent';
-import { VideoMuterComponent } from '@/components/converters/media/VideoMuterComponent';
-import { BatchWatermarkerComponent } from '@/components/converters/image/BatchWatermarkerComponent';
 
 // Hardware & Device Accessory Diagnostics
 import { WebcamTesterComponent } from '@/components/converters/hardware/WebcamTesterComponent';
@@ -96,6 +90,41 @@ import { MouseTesterComponent } from '@/components/converters/hardware/MouseTest
 import { GamepadTesterComponent } from '@/components/converters/hardware/GamepadTesterComponent';
 import { ScreenTesterComponent } from '@/components/converters/hardware/ScreenTesterComponent';
 import { CallReadinessComponent } from '@/components/converters/hardware/CallReadinessComponent';
+
+// Sub-Prompt 01: In-Browser Audio Studio & Voice Processing Suite
+import {
+  AudioTrimmerComponent,
+  AudioJoinerComponent,
+  VoiceRecorderComponent,
+  AudioSpeedPitchComponent,
+  VolumeBoosterComponent,
+  AudioConverterComponent,
+} from '@/components/converters/audio';
+
+// Sub-Prompt 02: Video Creator, Social Media Resizer & Subtitle Suite
+import {
+  VideoToGifComponent,
+  GifToVideoComponent,
+  VideoResizerComponent,
+  VideoCompressorComponent,
+  SubtitleConverterComponent,
+  BurnSubtitlesComponent,
+  ScreenRecorderComponent,
+  VideoAudioMuterComponent,
+} from '@/components/converters/video';
+
+// Sub-Prompt 03: AI Vision, Multi-Language OCR & Image Privacy Suite
+import {
+  BackgroundRemoverComponent,
+  ImageOcrComponent,
+  ExifCleanerComponent,
+  FaviconGeneratorComponent,
+  SvgOptimizerComponent,
+  ImagePaletteComponent,
+  BatchWatermarkerComponent,
+  ImageRedactComponent,
+} from '@/components/converters/image';
+
 
 
 
@@ -113,8 +142,8 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
     tool.categorySlug === 'audio';
 
   const [inputValue, setInputValue] = useState('100000');
-  const [editorInput, setEditorInput] = useState('{\n  "service": "ConvertHub",\n  "version": 2.0,\n  "features": ["Zero Latency", "100% Client-Side", "Privacy First"]\n}');
-  const [editorOutput, setEditorOutput] = useState('service: ConvertHub\nversion: 2\nfeatures:\n  - Zero Latency\n  - 100% Client-Side\n  - Privacy First');
+  const [editorInput, setEditorInput] = useState('{\n  "service": "ApexTools",\n  "version": 2.0,\n  "features": ["Zero Latency", "100% Client-Side", "Privacy First"]\n}');
+  const [editorOutput, setEditorOutput] = useState('service: ApexTools\nversion: 2\nfeatures:\n  - Zero Latency\n  - 100% Client-Side\n  - Privacy First');
   const [copied, setCopied] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -157,6 +186,7 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
     if (tool.slug === 'diff-checker') return <DiffCheckerComponent tool={tool} />;
     if (tool.slug === 'curl-to-code') return <CurlToCodeComponent tool={tool} />;
     if (tool.slug === 'csv-deduplicator-splitter') return <CsvDeduplicatorComponent tool={tool} />;
+    if (tool.slug === 'cidr-subnet-calculator') return <CidrCalculatorComponent tool={tool} />;
   }
 
   // ==========================================
@@ -187,63 +217,137 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
     if (tool.slug === 'remove-background') {
       return <BackgroundRemoverComponent tool={tool} />;
     }
+    if (tool.slug === 'image-to-text-ocr' || tool.slug === 'scanned-pdf-to-text') {
+      return <ImageOcrComponent tool={tool} />;
+    }
+    if (tool.slug === 'exif-metadata-stripper') {
+      return <ExifCleanerComponent tool={tool} />;
+    }
+    if (tool.slug === 'svg-to-ico' || tool.slug === 'favicon-generator') {
+      return <FaviconGeneratorComponent tool={tool} />;
+    }
+    if (tool.slug === 'svg-optimizer') {
+      return <SvgOptimizerComponent tool={tool} />;
+    }
+    if (tool.slug === 'color-palette-generator') {
+      return <ImagePaletteComponent tool={tool} />;
+    }
     if (tool.slug === 'batch-watermark-images') {
       return <BatchWatermarkerComponent tool={tool} />;
+    }
+    if (tool.slug === 'image-blur-redact') {
+      return <ImageRedactComponent tool={tool} />;
     }
     return <ImageConverter initialToolSlug={tool.slug} />;
   }
 
   if (tool.categorySlug === 'video') {
+    if (tool.slug === 'video-to-gif') {
+      return <VideoToGifComponent tool={tool} />;
+    }
+    if (tool.slug === 'gif-to-mp4' || tool.slug === 'gif-to-webm') {
+      return <GifToVideoComponent tool={tool} />;
+    }
+    if (tool.slug === 'video-aspect-ratio-resizer') {
+      return <VideoResizerComponent tool={tool} />;
+    }
+    if (
+      tool.slug === 'compress-video' ||
+      tool.slug === 'compress-video-for-discord' ||
+      tool.slug === 'compress-video-for-whatsapp'
+    ) {
+      return <VideoCompressorComponent tool={tool} />;
+    }
+    if (tool.slug === 'subtitle-converter') {
+      return <SubtitleConverterComponent tool={tool} />;
+    }
+    if (tool.slug === 'burn-subtitles-to-video') {
+      return <BurnSubtitlesComponent tool={tool} />;
+    }
     if (tool.slug === 'screen-recorder') {
       return <ScreenRecorderComponent tool={tool} />;
     }
-    if (tool.slug === 'burn-subtitles-to-video') {
-      return <SubtitleBurnerComponent tool={tool} />;
-    }
     if (tool.slug === 'mute-video-replace-audio') {
-      return <VideoMuterComponent tool={tool} />;
-    }
-    if (tool.slug === 'video-aspect-ratio-resizer') {
-      return <VideoCanvasComponent initialMode="social-resizer" initialToolSlug={tool.slug} />;
-    }
-    if (tool.slug === 'gif-to-mp4' || tool.slug === 'gif-to-webm') {
-      return <VideoCanvasComponent initialMode="gif-to-video" initialToolSlug={tool.slug} />;
+      return <VideoAudioMuterComponent tool={tool} />;
     }
     return <MediaConverter initialToolSlug={tool.slug} />;
   }
 
   if (tool.categorySlug === 'audio') {
-    if (tool.slug === 'audio-speed-pitch-changer') {
-      return <AudioModulatorCanvas initialMode="speed-pitch" initialToolSlug={tool.slug} />;
+    if (tool.slug === 'audio-trimmer') return <AudioTrimmerComponent tool={tool} />;
+    if (tool.slug === 'audio-joiner') return <AudioJoinerComponent tool={tool} />;
+    if (tool.slug === 'voice-recorder') return <VoiceRecorderComponent tool={tool} />;
+    if (tool.slug === 'audio-speed-pitch-changer') return <AudioSpeedPitchComponent tool={tool} />;
+    if (tool.slug === 'volume-booster') return <VolumeBoosterComponent tool={tool} />;
+    if (
+      tool.slug === 'wav-to-mp3' ||
+      tool.slug === 'mp3-to-wav' ||
+      tool.slug === 'm4a-to-mp3' ||
+      tool.slug === 'flac-to-mp3'
+    ) {
+      return <AudioConverterComponent tool={tool} />;
     }
-    if (tool.slug === 'audio-joiner') {
-      return <AudioModulatorCanvas initialMode="joiner" initialToolSlug={tool.slug} />;
-    }
-    return <MediaConverter initialToolSlug={tool.slug} />;
+    return <AudioConverterComponent tool={tool} />;
   }
 
   if (tool.categorySlug === 'media') {
+    if (tool.slug === 'video-to-gif') {
+      return <VideoToGifComponent tool={tool} />;
+    }
+    if (tool.slug === 'gif-to-mp4' || tool.slug === 'gif-to-webm') {
+      return <GifToVideoComponent tool={tool} />;
+    }
+    if (tool.slug === 'video-aspect-ratio-resizer') {
+      return <VideoResizerComponent tool={tool} />;
+    }
+    if (
+      tool.slug === 'compress-video' ||
+      tool.slug === 'compress-video-for-discord' ||
+      tool.slug === 'compress-video-for-whatsapp'
+    ) {
+      return <VideoCompressorComponent tool={tool} />;
+    }
     if (tool.slug === 'screen-recorder') {
       return <ScreenRecorderComponent tool={tool} />;
     }
     if (tool.slug === 'subtitle-converter') {
-      return <SubtitleConverterComponent />;
+      return <SubtitleConverterComponent tool={tool} />;
     }
-    if (tool.slug === 'audio-speed-pitch-changer') {
-      return <AudioModulatorCanvas initialMode="speed-pitch" initialToolSlug={tool.slug} />;
+    if (tool.slug === 'burn-subtitles-to-video') {
+      return <BurnSubtitlesComponent tool={tool} />;
     }
-    if (tool.slug === 'audio-joiner') {
-      return <AudioModulatorCanvas initialMode="joiner" initialToolSlug={tool.slug} />;
+    if (tool.slug === 'mute-video-replace-audio') {
+      return <VideoAudioMuterComponent tool={tool} />;
     }
+    if (tool.slug === 'audio-trimmer') return <AudioTrimmerComponent tool={tool} />;
+    if (tool.slug === 'audio-joiner') return <AudioJoinerComponent tool={tool} />;
+    if (tool.slug === 'voice-recorder') return <VoiceRecorderComponent tool={tool} />;
+    if (tool.slug === 'audio-speed-pitch-changer') return <AudioSpeedPitchComponent tool={tool} />;
+    if (tool.slug === 'volume-booster') return <VolumeBoosterComponent tool={tool} />;
     return <MediaConverter initialToolSlug={tool.slug} />;
   }
 
   // Generic fallback if tool slug matches standalone
   if (tool.slug === 'image-to-text-ocr' || tool.slug === 'scanned-pdf-to-text') {
-    return <OcrScannerComponent tool={tool} />;
+    return <ImageOcrComponent tool={tool} />;
   }
   if (tool.slug === 'remove-background') {
     return <BackgroundRemoverComponent tool={tool} />;
+  }
+  if (tool.slug === 'exif-metadata-stripper') {
+    return <ExifCleanerComponent tool={tool} />;
+  }
+  if (tool.slug === 'svg-to-ico' || tool.slug === 'favicon-generator') {
+    return <FaviconGeneratorComponent tool={tool} />;
+  }
+  if (tool.slug === 'svg-optimizer') {
+    return <SvgOptimizerComponent tool={tool} />;
+  }
+  if (tool.slug === 'color-palette-generator') {
+    return <ImagePaletteComponent tool={tool} />;
+  }
+  if (tool.slug === 'image-blur-redact') {
+    return <ImageRedactComponent tool={tool} />;
   }
   if (tool.slug === 'diff-checker') {
     return <DiffCheckerComponent tool={tool} />;
@@ -269,22 +373,53 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
   if (tool.slug === 'batch-watermark-images') {
     return <BatchWatermarkerComponent tool={tool} />;
   }
+  if (tool.slug === 'video-to-gif') {
+    return <VideoToGifComponent tool={tool} />;
+  }
+  if (tool.slug === 'gif-to-mp4' || tool.slug === 'gif-to-webm') {
+    return <GifToVideoComponent tool={tool} />;
+  }
+  if (tool.slug === 'video-aspect-ratio-resizer') {
+    return <VideoResizerComponent tool={tool} />;
+  }
+  if (
+    tool.slug === 'compress-video' ||
+    tool.slug === 'compress-video-for-discord' ||
+    tool.slug === 'compress-video-for-whatsapp'
+  ) {
+    return <VideoCompressorComponent tool={tool} />;
+  }
   if (tool.slug === 'burn-subtitles-to-video') {
-    return <SubtitleBurnerComponent tool={tool} />;
+    return <BurnSubtitlesComponent tool={tool} />;
   }
   if (tool.slug === 'mute-video-replace-audio') {
-    return <VideoMuterComponent tool={tool} />;
+    return <VideoAudioMuterComponent tool={tool} />;
   }
-
-  // Generic fallback if tool slug matches standalone
   if (tool.slug === 'subtitle-converter') {
-    return <SubtitleConverterComponent />;
+    return <SubtitleConverterComponent tool={tool} />;
   }
-  if (tool.slug === 'audio-speed-pitch-changer') {
-    return <AudioModulatorCanvas initialMode="speed-pitch" initialToolSlug={tool.slug} />;
+  if (tool.slug === 'audio-trimmer') {
+    return <AudioTrimmerComponent tool={tool} />;
   }
   if (tool.slug === 'audio-joiner') {
-    return <AudioModulatorCanvas initialMode="joiner" initialToolSlug={tool.slug} />;
+    return <AudioJoinerComponent tool={tool} />;
+  }
+  if (tool.slug === 'voice-recorder') {
+    return <VoiceRecorderComponent tool={tool} />;
+  }
+  if (tool.slug === 'audio-speed-pitch-changer') {
+    return <AudioSpeedPitchComponent tool={tool} />;
+  }
+  if (tool.slug === 'volume-booster') {
+    return <VolumeBoosterComponent tool={tool} />;
+  }
+  if (
+    tool.slug === 'wav-to-mp3' ||
+    tool.slug === 'mp3-to-wav' ||
+    tool.slug === 'm4a-to-mp3' ||
+    tool.slug === 'flac-to-mp3'
+  ) {
+    return <AudioConverterComponent tool={tool} />;
   }
 
   // ==========================================

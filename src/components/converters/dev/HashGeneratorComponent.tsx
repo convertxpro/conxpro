@@ -31,12 +31,17 @@ import {
   HardDrive,
   Cpu,
 } from 'lucide-react';
+import { ToolMetadata } from '@/config/categories';
 
-export const HashGeneratorComponent: React.FC = () => {
+export interface HashGeneratorComponentProps {
+  tool?: ToolMetadata;
+}
+
+export const HashGeneratorComponent: React.FC<HashGeneratorComponentProps> = () => {
   const [activeTab, setActiveTab] = useState<'text' | 'file'>('text');
 
   // Text Hashing State
-  const [inputText, setInputText] = useState('ConvertHub — Ultra Fast Client-Side Developer Suite');
+  const [inputText, setInputText] = useState('ApexTools — Ultra Fast Client-Side Developer Suite');
   const [enableHmac, setEnableHmac] = useState(false);
   const [hmacSecret, setHmacSecret] = useState('');
   const [isUppercase, setIsUppercase] = useState(false);

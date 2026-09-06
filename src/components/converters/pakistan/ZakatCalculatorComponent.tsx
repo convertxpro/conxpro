@@ -125,7 +125,7 @@ export const ZakatCalculatorComponent: React.FC = () => {
     `💎 *Net Zakatable Wealth:* Rs. ${formatPakistaniNumber(result.netZakatableWealthPkr)} (${netWealthFormatted.inWords})\n` +
     `\n🟢 *Status:* ${result.isEligibleToPayZakat ? 'Zakat is Farz (Obligatory) 🟢' : 'Wealth is below Nisab threshold ⚪'}\n` +
     `✨ *Total Zakat Due (2.5%):* Rs. ${formatPakistaniNumber(result.totalZakatDuePkr)} (${zakatFormatted.inWords} / ${zakatFormatted.inUrdu})\n\n` +
-    `\n🔗 *Calculated via ConvertHub Pakistan Islamic Finance*`;
+    `\n🔗 *Calculated via ApexTools Pakistan Islamic Finance*`;
 
   const handlePrint = () => {
     window.print();

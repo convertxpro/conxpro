@@ -29,8 +29,13 @@ import {
   HelpCircle,
   RotateCcw,
 } from 'lucide-react';
+import { ToolMetadata } from '@/config/categories';
 
-export const CssUnitConverterComponent: React.FC = () => {
+export interface CssUnitConverterComponentProps {
+  tool?: ToolMetadata;
+}
+
+export const CssUnitConverterComponent: React.FC<CssUnitConverterComponentProps> = () => {
   // Baseline configuration
   const [config, setConfig] = useState<CssBaselineConfig>(DEFAULT_CSS_CONFIG);
   const [showConfig, setShowConfig] = useState(false);

@@ -12,7 +12,7 @@ export const ConsentBanner: React.FC = () => {
 
   useEffect(() => {
     try {
-      const consent = localStorage.getItem('converthub_cookie_consent');
+      const consent = localStorage.getItem('apextools_cookie_consent');
       if (!consent) {
         // Small delay for clean page entry
         const timer = setTimeout(() => setShowBanner(true), 1200);
@@ -26,7 +26,7 @@ export const ConsentBanner: React.FC = () => {
   const handleAcceptAll = () => {
     try {
       localStorage.setItem(
-        'converthub_cookie_consent',
+        'apextools_cookie_consent',
         JSON.stringify({ essential: true, analytics: true, ads: true, timestamp: Date.now() })
       );
     } catch (e) {}
@@ -37,7 +37,7 @@ export const ConsentBanner: React.FC = () => {
   const handleDeclineNonEssential = () => {
     try {
       localStorage.setItem(
-        'converthub_cookie_consent',
+        'apextools_cookie_consent',
         JSON.stringify({ essential: true, analytics: false, ads: false, timestamp: Date.now() })
       );
     } catch (e) {}
@@ -48,7 +48,7 @@ export const ConsentBanner: React.FC = () => {
   const handleSaveCustom = () => {
     try {
       localStorage.setItem(
-        'converthub_cookie_consent',
+        'apextools_cookie_consent',
         JSON.stringify({
           essential: true,
           analytics: analyticsConsent,

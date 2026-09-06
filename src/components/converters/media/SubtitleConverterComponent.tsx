@@ -40,7 +40,7 @@ import {
 const SAMPLE_SRT = `1
 00:00:01,000 --> 00:00:04,200
 [Upbeat Intro Music]
-SPEAKER 1: Welcome back to ConvertHub, the ultimate conversion suite.
+SPEAKER 1: Welcome back to ApexTools, the ultimate conversion suite.
 
 2
 00:00:04,500 --> 00:00:08,800

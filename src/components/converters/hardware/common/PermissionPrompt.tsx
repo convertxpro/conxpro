@@ -194,7 +194,7 @@ export const PermissionPrompt: React.FC<PermissionPromptProps> = ({
 
         <p className="mx-auto mt-2 max-w-md text-sm text-slate-300">
           {description ||
-            `Your browser blocked access to the ${config.name.toLowerCase()}. ConvertX processes all streams locally and never saves or uploads data.`}
+            `Your browser blocked access to the ${config.name.toLowerCase()}. ApexTools processes all streams locally and never saves or uploads data.`}
         </p>
 
         {errorMessage && (

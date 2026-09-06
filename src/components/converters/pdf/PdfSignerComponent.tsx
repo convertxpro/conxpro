@@ -389,7 +389,7 @@ export const PdfSignerComponent: React.FC<PdfSignerComponentProps> = ({ tool }) 
       ctx.font = '12px monospace';
       ctx.fillText(`Verified • ${now}`, 225, 126);
       ctx.font = '10px monospace';
-      ctx.fillText(`ID: ${Math.random().toString(36).substring(2, 10).toUpperCase()} • ConvertHub Seal`, 225, 146);
+      ctx.fillText(`ID: ${Math.random().toString(36).substring(2, 10).toUpperCase()} • ApexTools Seal`, 225, 146);
     }
 
     return canvas.toDataURL('image/png');

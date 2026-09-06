@@ -1,6 +1,6 @@
 /**
  * Cron Expression Translator, Validator & Schedule Builder Engine
- * ConvertHub Developer Productivity Suite
+ * ApexTools Developer Productivity Suite
  */
 
 import cronstrue from 'cronstrue';

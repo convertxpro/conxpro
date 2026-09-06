@@ -323,7 +323,7 @@ export const ArchiveConverter: React.FC<ArchiveConverterProps> = ({
                 ⚡ Deep Inspection & Extraction:
               </p>
               <p>
-                ConvertHub scans the internal directory tree, verifies CRC checksums, and decompresses all packaged assets securely.
+                ApexTools scans the internal directory tree, verifies CRC checksums, and decompresses all packaged assets securely.
               </p>
             </div>
           )}

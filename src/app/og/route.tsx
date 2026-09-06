@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
               fontWeight: 600,
             }}
           >
-            ConvertHub.com
+            apextools.app
           </div>
         </div>
 

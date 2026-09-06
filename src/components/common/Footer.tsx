@@ -14,17 +14,20 @@ export const Footer: React.FC = () => {
             <Link href="/" className="flex items-center gap-2.5">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 via-purple-600 to-emerald-500 p-[1px] shadow-sm">
                 <div className="flex h-full w-full items-center justify-center rounded-[7px] bg-slate-950 text-white font-black text-xs">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
+                  <svg className="h-4 w-4 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 19h20L12 2z" />
+                    <path d="M12 9l-4 7h8l-4-7z" fill="currentColor" fillOpacity="0.3" />
+                  </svg>
                 </div>
               </div>
               <span className="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">
-                Convert<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-400">Hub</span>
+                Apex<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400">Tools</span><span className="text-xs font-semibold text-slate-400 dark:text-slate-500 ml-0.5">.app</span>
               </span>
             </Link>
 
             <p className="mt-3 max-w-sm text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-              The high-performance, privacy-first all-in-one conversion utility.
-              Transform documents, images, media, physical units, live forex, and specialized measurement tools with zero friction.
+              The high-performance, privacy-first all-in-one utility suite.
+              Transform documents, images, audio, video, physical units, developer data, live forex, and hardware diagnostics with zero friction.
             </p>
 
             <div className="mt-4 flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
@@ -189,7 +192,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between border-t border-slate-200/80 pt-8 sm:flex-row dark:border-slate-800/80">
           <p className="text-xs text-slate-400 dark:text-slate-500">
-            © {new Date().getFullYear()} ConvertHub (Lapvy Enterprises). All rights reserved.
+            © {new Date().getFullYear()} ApexTools.app (Lapvy Enterprises). All rights reserved.
           </p>
           <div className="mt-4 flex items-center gap-4 text-xs text-slate-400 sm:mt-0 dark:text-slate-500">
             <span>Engineered for Maximum Speed & Privacy</span>

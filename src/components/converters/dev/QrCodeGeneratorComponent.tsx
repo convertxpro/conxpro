@@ -44,8 +44,8 @@ export const QrCodeGeneratorComponent: React.FC = () => {
   const [activeType, setActiveType] = useState<QrPayloadType>('url');
 
   // Payload form states
-  const [urlContent, setUrlContent] = useState('https://converthub.app');
-  const [textContent, setTextContent] = useState('Welcome to ConvertHub — Ultra-fast client-side utilities.');
+  const [urlContent, setUrlContent] = useState('https://apextools.app');
+  const [textContent, setTextContent] = useState('Welcome to ApexTools — Ultra-fast client-side utilities.');
   const [wifiConfig, setWifiConfig] = useState<WifiConfig>({
     ssid: 'Office_Guest_WiFi',
     password: 'SecurePassword123',
@@ -54,22 +54,22 @@ export const QrCodeGeneratorComponent: React.FC = () => {
   });
   const [whatsappConfig, setWhatsappConfig] = useState<WhatsappConfig>({
     phone: '923001234567',
-    message: 'Hello! I am inquiring about your service on ConvertHub.',
+    message: 'Hello! I am inquiring about your service on ApexTools.',
   });
   const [vcardConfig, setVcardConfig] = useState<VcardConfig>({
     firstName: 'Muddasir',
     lastName: 'Ahmed',
-    org: 'ConvertHub Technologies',
+    org: 'ApexTools Technologies',
     title: 'Software Architect',
     phone: '+92 300 1234567',
-    email: 'contact@converthub.app',
-    url: 'https://converthub.app',
+    email: 'contact@apextools.app',
+    url: 'https://apextools.app',
     address: 'Lahore, Pakistan',
     note: 'Client-side file and data conversion suite',
   });
   const [emailConfig, setEmailConfig] = useState<EmailConfig>({
-    email: 'support@converthub.app',
-    subject: 'Inquiry from ConvertHub',
+    email: 'support@apextools.app',
+    subject: 'Inquiry from ApexTools',
     body: 'Hello Team,\n\nI would like to inquire about...',
   });
 

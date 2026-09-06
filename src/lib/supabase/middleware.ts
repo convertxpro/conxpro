@@ -71,7 +71,7 @@ export async function updateSession(request: NextRequest) {
       return NextResponse.redirect(url);
     }
 
-    const adminEmails = (process.env.ADMIN_EMAILS || 'admin@converthub.com,muddasir@converthub.com')
+    const adminEmails = (process.env.ADMIN_EMAILS || 'admin@apextools.app,muddasir@apextools.app')
       .split(',')
       .map((e) => e.trim().toLowerCase());
     const isEmailAdmin = user.email && adminEmails.includes(user.email.toLowerCase());

@@ -17,7 +17,7 @@ import {
 export const Base64Tool: React.FC = () => {
   const [mode, setMode] = useState<'text' | 'file'>('text');
   const [action, setAction] = useState<'encode' | 'decode'>('encode');
-  const [textInput, setTextInput] = useState<string>('Hello ConvertHub! Fast & private conversion.');
+  const [textInput, setTextInput] = useState<string>('Hello ApexTools! Fast & private conversion.');
   const [copied, setCopied] = useState<boolean>(false);
 
   // File state

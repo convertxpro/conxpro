@@ -81,7 +81,7 @@ export async function getLatestExchangeRates(): Promise<ForexRatesResponse> {
       next: { revalidate: 3600 },
       headers: {
         'Accept': 'application/json',
-        'User-Agent': 'ConvertHub-Forex/1.0',
+        'User-Agent': 'ApexTools-Forex/1.0',
       },
     });
 

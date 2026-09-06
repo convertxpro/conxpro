@@ -95,7 +95,7 @@ export function generateToolMetadata({
       title,
       description,
       images: [ogImageUrl],
-      creator: '@ConvertHub',
+      creator: '@ApexToolsApp',
     },
   };
 }
@@ -173,7 +173,7 @@ export function generateGuideMetadata({
   author = siteConfig.author,
   keywords = [],
 }: GuideSeoProps): Metadata {
-  const fullTitle = `${title} | ConvertHub Educational Guides`;
+  const fullTitle = `${title} | ${siteConfig.name} Educational Guides`;
   const url = `${siteConfig.url}/guides/${slug}`;
   const ogImageUrl = `${siteConfig.url}/og?title=${encodeURIComponent(title)}&category=Topical%20Guide`;
 

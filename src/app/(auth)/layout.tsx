@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Account Authentication | ConvertHub',
-  description: 'Sign in or create your free ConvertHub account.',
+  title: 'Account Authentication | ApexTools',
+  description: 'Sign in or create your free ApexTools account.',
   robots: {
     index: false,
     follow: false,
