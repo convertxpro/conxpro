@@ -103,6 +103,11 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: siteConfig.name,
   },
+  verification: {
+    other: {
+      'msvalidate.01': '6D4004A7BF7ED05625B25405C1C4CA1A',
+    },
+  },
 };
 
 export default function RootLayout({
