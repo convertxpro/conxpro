@@ -38,6 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.3,
     },
+    {
+      url: `${siteConfig.url}/contact`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
   ];
 
   // 2. Category Pillar Hub Pages (e.g. /convert/document-converters)

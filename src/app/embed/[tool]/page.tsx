@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: EmbedPageProps): Promise<Meta
   return {
     title: `${tool.name} (Embed Widget) — ApexTools`,
     description: `Embeddable responsive widget for ${tool.name}.`,
+    alternates: {
+      canonical: `/convert/${tool.categorySlug}/${tool.slug}`,
+    },
     robots: {
       index: false,
       follow: true,

@@ -6,15 +6,28 @@ export async function middleware(request: NextRequest) {
   const userAgent = request.headers.get('user-agent');
   const pathname = request.nextUrl.pathname;
 
+  const country =
+    request.headers.get('x-vercel-ip-country') ||
+    request.headers.get('cf-ipcountry') ||
+    request.geo?.country ||
+    '';
+
   // 1. Legitimate search engine bots always bypass rate limiting and auth redirects
   if (isSearchEngineBot(userAgent)) {
     const res = NextResponse.next();
     res.headers.set('X-Robots-Tag', 'index, follow');
+    if (country) {
+      res.headers.set('X-User-Country', country);
+    }
     return res;
   }
 
   // 2. Session update & route protection (e.g. /dashboard)
-  return await updateSession(request);
+  const response = await updateSession(request);
+  if (country) {
+    response.headers.set('X-User-Country', country);
+  }
+  return response;
 }
 
 export const config = {

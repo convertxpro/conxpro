@@ -7,6 +7,9 @@
 > developer utilities, and hardware device testing. All tools are available
 > without registration, and uploaded files are automatically purged within
 > 1 hour for bank-grade privacy.
+>
+> For full machine-readable conversion equations, ontology parameters, and complete schema catalogs, see:
+> https://apextools.app/llms-full.txt
 
 ## Quick Facts
 - All conversions are free with no registration required

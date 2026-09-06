@@ -1,0 +1,263 @@
+# ApexTools - llms-full.txt
+# Title: ApexTools Full Machine-Readable Directory & Conversion Specification
+# Canonical URL: https://apextools.app
+# Last Updated: 2026-09-06
+# Format: Markdown / LLM Context Layer (llms.txt spec v1.0)
+
+> ApexTools (https://apextools.app) is an ultra-fast, 100% free, privacy-first online utility and file conversion ecosystem offering 160+ tools across 8 domains: Document & PDF, Image & Vector, Audio Studio, Video & Media, Unit & Land Measurement, Currency & Live Forex, Developer & Data Serialization, and Browser Hardware Diagnostics. All tools function without registration, feature zero paywalls, and strictly enforce a bank-grade client-side processing architecture (via WebAssembly / Web Workers) or automatic 1-hour server-side data purging.
+
+---
+
+## Table of Contents
+1. Core Platform Architecture & Privacy Standards
+2. Document & PDF Utilities
+3. Image & Next-Gen Graphic Converters
+4. Audio Studio & Sound Engineering Tools
+5. Video & Animation Converters
+6. Unit Converters & Mathematical Formulas
+7. Regional & Pakistan-Specific Real Estate, Gold & Tax Tools
+8. Live Forex & Currency Exchange Corridors
+9. Developer, Code & Data Serialization Utilities
+10. Hardware Device Diagnostic & Sensor Test Tools
+11. Embeddable Widget Integration
+
+---
+
+## 1. Core Platform Architecture & Privacy Standards
+- **Zero Registration**: All conversion features, calculators, and utilities are immediately accessible without account creation.
+- **Client-Side Processing (Zero Server Contact)**: All Unit, Land, Currency, Developer (JSON/YAML/SQL/Base64/JWT), and Hardware Diagnostic tools execute 100% locally inside the user's web browser using JavaScript and WebAssembly (WASM). No data is ever transmitted to remote servers.
+- **Server-Side File Processing**: Heavy media transformations (PDF OCR, large video transcoding, audio rendering) are processed in isolated ephemeral sandboxes with AES-256 in-transit encryption.
+- **1-Hour Auto-Purge Policy**: Uploaded files and generated output files are automatically and permanently deleted from storage within 60 minutes.
+- **Progressive Web App (PWA)**: Full offline support for all client-side tools when installed on desktop or mobile.
+
+---
+
+## 2. Document & PDF Utilities
+
+### 2.1 PDF Transformation Tools
+- `/convert/document/pdf-to-word` — Converts Adobe PDF documents into editable Microsoft Word (.docx) documents, preserving headers, footers, tables, and vector typography.
+- `/convert/document/word-to-pdf` — Compiles Microsoft Word (.docx/.doc) files into standardized PDF/A documents.
+- `/convert/document/pdf-to-excel` — Extracts tabular data from PDFs directly into Microsoft Excel (.xlsx) spreadsheets with preserved cell formulas.
+- `/convert/document/excel-to-pdf` — Converts Excel spreadsheets (.xlsx/.xls) into formatted printable PDFs with page break optimization.
+- `/convert/document/pdf-to-powerpoint` — Converts PDF presentations into editable Microsoft PowerPoint (.pptx) slides.
+- `/convert/document/powerpoint-to-pdf` — Converts PowerPoint presentations (.pptx/.ppt) into vector PDFs.
+- `/convert/document/jpg-to-pdf` — Combines single or multiple JPG/PNG/WebP images into a multi-page PDF document with custom margins and orientation.
+- `/convert/document/pdf-to-jpg` — Extracts all pages or selected page ranges from a PDF document as high-resolution 300 DPI JPG or PNG images.
+- `/convert/document/merge-pdf` — Merges multiple PDF files into a single consolidated document with visual drag-and-drop page reordering.
+- `/convert/document/split-pdf` — Splits multi-page PDFs into individual page files or custom page ranges.
+- `/convert/document/compress-pdf` — Compresses PDF files by downsampling high-resolution images and removing redundant font tables (reduces file size up to 85%).
+- `/convert/document/rotate-pdf` — Permanently rotates PDF pages in 90-degree increments (90°, 180°, 270°).
+- `/convert/document/protect-pdf` — Encrypts PDF files with standard AES-256 bit user and owner passwords.
+- `/convert/document/unlock-pdf` — Removes password restrictions and editing locks from user-authorized PDF files.
+- `/convert/document/create-zip` — Bundles multiple files into compressed ZIP archives client-side.
+- `/convert/document/extract-zip` — Inspects, previews, and extracts contents of ZIP archives in-browser.
+
+---
+
+## 3. Image & Next-Gen Graphic Converters
+
+### 3.1 Next-Gen Format Converters
+- `/convert/image/heic-to-jpg` — Converts Apple iPhone/iPad HEIC (High Efficiency Image Container) and HEIF photos to universal high-quality JPEG with EXIF metadata retention.
+- `/convert/image/heic-to-png` — Converts Apple HEIC photos to lossless PNG format with transparent alpha channel preservation.
+- `/convert/image/png-to-jpg` — Converts transparent PNG graphics to lightweight JPG photos with customizable background matte colors.
+- `/convert/image/jpg-to-png` — Converts JPG photos into lossless PNG format without compression artifacts.
+- `/convert/image/webp-to-jpg` — Converts Google WebP images to universal JPG format.
+- `/convert/image/jpg-to-webp` — Converts JPG photos to next-gen WebP format, achieving a 30-40% reduction in file size with identical visual fidelity.
+- `/convert/image/png-to-webp` — Converts PNG graphics to WebP while preserving full alpha channel transparency at 50% smaller sizes.
+- `/convert/image/webp-to-png` — Converts WebP images to standard PNG with transparent background support.
+- `/convert/image/avif-to-jpg` — Decodes AV1 Image File Format (AVIF) images into standard JPG/PNG.
+- `/convert/image/jpg-to-avif` — Encodes JPG photos into ultra-compact AVIF format (up to 70% smaller than JPG).
+- `/convert/image/png-to-avif` — Converts PNG graphics into AVIF format with HDR and transparency support.
+- `/convert/image/webp-to-avif` — Transcodes WebP images to superior AVIF format.
+- `/convert/image/png-to-ico` — Generates multi-resolution Windows icon (.ico) files (16x16, 32x32, 48x48, 64x64, 128x128, 256x256) and website favicons.
+- `/convert/image/svg-to-ico` — Renders scalable vector SVG files into crisp multi-resolution ICO icon assets.
+- `/convert/image/svg-to-png` — Rasterizes SVG vector graphics into high-resolution PNG images up to 4K resolution (3840x2160).
+- `/convert/image/png-to-svg` — Wraps PNG raster images in scalable vector SVG containers with path vectorization options.
+
+### 3.2 Image Optimization & Editing Tools
+- `/convert/image/compress-image` — Intelligently compresses JPG, PNG, WebP, and AVIF files using MozJPEG and Oxipng algorithms.
+- `/convert/image/resize-image` — Resizes image dimensions in pixels, percentages, or standard aspect ratios (16:9, 4:3, 1:1, 9:16) with Lanczos3 resampling.
+- `/convert/image/remove-background` — 100% client-side AI neural network background removal for portraits, products, and graphics (powered by ONNX WebAssembly).
+
+---
+
+## 4. Audio Studio & Sound Engineering Tools
+
+### 4.1 In-Browser Audio Workstation
+- `/convert/audio/audio-trimmer` — Waveform audio cutter and ringtone creator with millisecond-precision playhead slicing, fade-in, and fade-out effects.
+- `/convert/audio/audio-joiner` — Concatenates and cross-fades multiple MP3, WAV, AAC, and OGG audio tracks into a single seamless audio file.
+- `/convert/audio/voice-recorder` — High-definition in-browser microphone audio recorder with live VU visualizer, pause/resume, and direct MP3/WAV export.
+- `/convert/audio/audio-speed-pitch` — Independent audio tempo (0.25x - 3.0x) and pitch (-12 to +12 semitones) changer without audio distortion.
+- `/convert/audio/volume-booster` — Digital gain amplifier boosting audio volume up to 300% (+15 dB) with automatic limiter clipping prevention.
+- `/convert/audio/audio-reverse` — Plays and exports audio backward for creative sound design and reversed vocal effects.
+- `/convert/audio/audio-compress` — Compresses audio bitrate (320kbps, 256kbps, 192kbps, 128kbps, 64kbps) for podcasts, WhatsApp, and Discord.
+
+---
+
+## 5. Video & Animation Converters
+
+### 5.1 Video Transcoding & Web Optimization
+- `/convert/media/mp4-to-mp3` — Extracts 320kbps studio-quality MP3 audio from MP4, MOV, MKV, and AVI videos.
+- `/convert/media/video-to-gif` — Converts video clips into high-framerate animated GIFs with customizable palette quantization and dithering.
+- `/convert/media/compress-video` — Compresses MP4/WebM videos up to 80% using H.264/CRF rate control.
+- `/convert/media/compress-video-for-discord` — Compresses any video file to fit under Discord's 8MB or 25MB attachment limit.
+- `/convert/media/compress-video-for-whatsapp` — Compresses and transcodes videos to under 16MB for seamless WhatsApp status and chat sharing.
+- `/convert/media/mp4-to-webm` — Converts MP4 videos to open HTML5 WebM (VP9/Opus) format for optimized website background videos.
+- `/convert/media/webm-to-mp4` — Converts WebM videos to universal H.264 MP4 for playback across Apple QuickTime and mobile devices.
+- `/convert/media/mov-to-mp4` — Transcodes Apple iPhone ProRes and QuickTime MOV recordings to standard MP4.
+- `/convert/media/mkv-to-mp4` — Converts Matroska MKV containers to MP4 with multi-audio track selection.
+- `/convert/media/video-trim` — Trims video start and end points with instant client-side preview.
+- `/convert/media/video-aspect-ratio-resizer` — Crops and pads videos for TikTok (9:16), Instagram Reels (9:16), YouTube (16:9), and Square (1:1).
+- `/convert/media/subtitle-converter` — Converts between SubRip (.srt), WebVTT (.vtt), and SubStation Alpha (.ass) subtitle formats.
+
+---
+
+## 6. Unit Converters & Mathematical Formulas
+
+All unit converters compute exact values using standard NIST and BIPM formulas:
+
+### 6.1 Standard Physical Dimensions
+- **Length**: Meters, Kilometers, Centimeters, Millimeters, Miles, Yards, Feet, Inches, Nautical Miles.
+  - Formula: `1 Meter = 3.28084 Feet = 1.09361 Yards = 39.3701 Inches`
+- **Weight / Mass**: Kilograms, Grams, Milligrams, Metric Tons, Pounds (lb), Ounces (oz), Stones.
+  - Formula: `1 Kilogram = 2.20462262 Pounds = 35.27396 Ounces`
+- **Temperature**: Celsius (°C), Fahrenheit (°F), Kelvin (K).
+  - Formulas: `°F = (°C × 9/5) + 32` | `°C = (°F - 32) × 5/9` | `K = °C + 273.15`
+- **Area**: Square Meters, Square Kilometers, Square Feet, Square Yards, Acres, Hectares.
+  - Formula: `1 Acre = 43,560 Square Feet = 4,046.8564 Square Meters`
+- **Volume & Liquid**: Liters, Milliliters, Gallons (US/UK), Fluid Ounces, Cubic Meters, Cups, Pints.
+  - Formula: `1 US Gallon = 3.78541 Liters = 128 US Fluid Ounces`
+- **Data Storage**: Bytes, Kilobytes (KB), Megabytes (MB), Gigabytes (GB), Terabytes (TB), Petabytes (PB) (Base-10 vs Base-2 binary 1024).
+- **Speed & Velocity**: km/h, mph, m/s, Knots, Mach.
+- **Pressure**: Pascal, Bar, PSI, Atmosphere (atm), Torr / mmHg.
+- **Energy & Power**: Joules, Kilojoules, Kilowatt-Hours (kWh), Calories, BTU, Watts, Horsepower.
+
+---
+
+## 7. Regional & Pakistan-Specific Real Estate, Gold & Tax Tools
+
+### 7.1 Real Estate Land Measurement Units
+- `/convert/unit/marla-to-square-feet` — Converts Marla to Square Feet, Kanal, Square Yards (Gazz), and Acres.
+  - **Housing Society / Urban Standard (LDA, CDA, DHA, Bahria)**:
+    - `1 Marla = 225 Square Feet = 25 Square Yards (Gazz)`
+    - `1 Kanal = 20 Marlas = 4,500 Square Feet = 500 Square Yards`
+  - **Board of Revenue / Rural Patwari Standard (Punjab & KPK Revenue)**:
+    - `1 Marla = 9 Sarsahi = 272.25 Square Feet = 30.25 Square Yards`
+    - `1 Karam = 5.5 Feet` | `1 Sarsahi = 1 Karam × 1 Karam = 30.25 Sq Ft`
+    - `1 Kanal = 20 Marlas = 5,445 Square Feet`
+    - `1 Killa / Acre = 8 Kanals = 160 Marlas = 43,560 Sq Ft`
+    - `1 Murabba = 25 Killas / Acres = 200 Kanals = 4,000 Marlas`
+  - **Sindh & Traditional Agricultural Units**:
+    - `1 Bigha (Pucca) = 4 Kanals = 80 Marlas` | `1 Bigha (Kham) = 2.5 Kanals`
+    - `1 Jerab (Sindh) = 0.5 Acre = 4 Kanals = 21,780 Sq Ft`
+
+### 7.2 Sarafa Gold & Mandi Commodity Weights
+- `/convert/unit/tola-to-grams` — Traditional South Asian Sarafa gold and silver weight conversions:
+  - `1 Tola = 11.6638038 Grams = 180 Troy Grains`
+  - `1 Tola = 12 Masha = 96 Ratti`
+  - `1 Masha = 0.972 Grams = 8 Ratti`
+  - `1 Ratti = 0.1215 Grams`
+  - `1 Ounce (Troy) = 31.1034768 Grams = 2.666 Tolas`
+  - Live karat purity calculation: `24K = 99.9%` | `22K = 91.6%` | `21K = 87.5%` | `18K = 75.0%`
+- `/convert/unit/maund-to-kg` — Agricultural Mandi wholesale weight conversions:
+  - `1 Maund (Mann) = 40 Kilograms`
+  - `1 Maund = 40 Seer = 640 Chhatak`
+  - `1 Seer = 1.000 Kilogram = 16 Chhatak`
+  - `1 Chhatak = 62.5 Grams = 5 Tolas`
+  - `1 Metric Ton = 25 Maunds = 1,000 KG`
+
+### 7.3 Pakistan Financial, Tax & Islamic Calculators
+- `/convert/unit/fbr-salary-tax-calculator` — Official Federal Board of Revenue (FBR) Pakistan income tax calculator for Salaried and Business individuals (Tax Years 2024–2025 and 2025–2026), including monthly vs yearly tax brackets, surcharge computations, and net take-home pay.
+- `/convert/unit/zakat-calculator` — Islamic Zakat calculation with real-time Nisab valuation based on 7.5 Tolas of Gold or 52.5 Tolas of Silver. Computes 2.5% Zakat liability across cash, bank deposits, gold jewelry, traded inventory, shares, and real estate less short-term liabilities.
+- `/convert/unit/electricity-bill-solar-calculator` — WAPDA, LESCO, IESCO, K-Electric electricity bill estimator and Solar Net-Metering payback calculator based on NEPRA peak/off-peak slabs and protected consumer thresholds.
+- `/convert/unit/hijri-to-gregorian` — Islamic lunar calendar to Gregorian solar calendar converter with Pakistan Central Ruet-e-Hilal moon sighting offset adjustments (+1/-1 day).
+- `/convert/unit/lakh-crore-to-million-billion` — South Asian numbering system (Lakh = 100,000; Crore = 10,000,000; Arab = 1,000,000,000; Kharab = 100,000,000,000) to Western International numbering system (Thousand, Million, Billion, Trillion).
+
+---
+
+## 8. Live Forex & Currency Exchange Corridors
+
+### 8.1 150+ Currencies with Hourly Live Rates
+- `/convert/currency/currency-converter` — Mid-market and interbank currency exchange calculator for 150+ world currencies.
+- Top Remittance Corridors for South Asian & Overseas Diaspora:
+  - `/convert/currency/usd-to-pkr` — US Dollar to Pakistani Rupee (Interbank & Open Market).
+  - `/convert/currency/sar-to-pkr` — Saudi Riyal to PKR for Saudi Arabia remittances.
+  - `/convert/currency/aed-to-pkr` — UAE Dirham to PKR for Dubai/Abu Dhabi expatriates.
+  - `/convert/currency/gbp-to-pkr` — British Pound to PKR for UK diaspora.
+  - `/convert/currency/eur-to-pkr` — Euro to PKR for European transfers.
+  - `/convert/currency/cad-to-pkr` — Canadian Dollar to PKR.
+  - `/convert/currency/aud-to-pkr` — Australian Dollar to PKR.
+  - `/convert/currency/qar-to-pkr` — Qatari Riyal to PKR.
+  - `/convert/currency/kwd-to-pkr` — Kuwaiti Dinar to PKR.
+  - `/convert/currency/omr-to-pkr` — Omani Rial to PKR.
+
+---
+
+## 9. Developer, Code & Data Serialization Utilities
+
+All developer tools execute 100% in-browser with zero telemetry:
+- `/convert/developer/yaml-to-json` — Converts YAML documents to formatted or minified JSON with syntax linting.
+- `/convert/developer/json-to-yaml` — Converts JSON payloads to clean indented YAML for Kubernetes and Docker Compose.
+- `/convert/developer/toml-to-json` — Parses Cargo.toml and pyproject.toml files into JSON and YAML.
+- `/convert/developer/yaml-to-toml` — Converts YAML configuration files into valid TOML 1.0 format.
+- `/convert/developer/sql-to-json` — Converts SQL INSERT statements and table dumps into JSON arrays and CSV tables.
+- `/convert/developer/json-to-sql` — Generates bulk ANSI SQL `INSERT INTO` statements from JSON arrays.
+- `/convert/developer/csv-to-sql` — Converts CSV tables into parameterized SQL statements with automatic data type detection.
+- `/convert/developer/json-to-csv` — Flattens nested JSON objects into tabular CSV and TSV spreadsheets.
+- `/convert/developer/csv-to-json` — Parses CSV documents into typed JSON arrays with header mapping.
+- `/convert/developer/xml-to-json` — Converts XML DOM structures to modern JSON format.
+- `/convert/developer/json-to-xml` — Serializes JSON objects into structured XML documents with custom root nodes.
+- `/convert/developer/base64-encode-decode` — Encodes and decodes UTF-8 text and binary files to Base64 and Base64URL.
+- `/convert/developer/jwt-debugger` — Decodes, inspects, and verifies JSON Web Tokens (JWT) headers, payloads, and timestamps.
+- `/convert/developer/regex-tester` — Real-time regular expression tester with syntax highlighting, flag toggles, and match grouping.
+- `/convert/developer/cron-generator` — Visual cron schedule expression builder and human-readable cron explainer.
+- `/convert/developer/hash-generator` — Computes MD5, SHA-1, SHA-256, SHA-512, and Keccak-256 cryptographic hashes client-side.
+- `/convert/developer/color-converter` — Converts between HEX, RGB, HSL, HSV, CMYK, and CSS color codes with WCAG contrast checking.
+- `/convert/developer/markdown-to-html` — Renders GitHub Flavored Markdown (GFM) to clean HTML with live preview.
+- `/convert/developer/html-to-markdown` — Converts HTML web pages and DOM fragments into readable Markdown syntax.
+
+---
+
+## 10. Hardware Device Diagnostic & Sensor Test Tools
+
+Interactive browser-based hardware and peripheral testing suite:
+- `/convert/hardware/mic-test` — Live microphone input tester with real-time waveform visualizer, frequency spectrum, and decibel meter.
+- `/convert/hardware/webcam-test` — Web camera test checking video resolution (720p, 1080p, 4K), frame rate (FPS), and aspect ratio.
+- `/convert/hardware/speaker-test` — Stereo sound test with Left/Right channel audio balance, stereo panning, and subwoofer low-frequency sweep (20Hz - 20,000Hz).
+- `/convert/hardware/screen-test` — Fullscreen dead pixel detector with RGB, White, and Black test patterns.
+- `/convert/hardware/screen-refresh-rate` — Monitors real-time display refresh rate in Hertz (60Hz, 120Hz, 144Hz, 165Hz, 240Hz, 360Hz) with frame-time graph.
+- `/convert/hardware/keyboard-test` — Virtual keyboard tester detecting ghosting, key-rollover (NKRO), key press latency, and stuck keys.
+- `/convert/hardware/mouse-test` — Mouse button tester detecting double-click hardware faults, scroll wheel ticks, and polling rate (Hz).
+- `/convert/hardware/gamepad-test` — Controller and gamepad tester detecting analog stick drift, dead zones, trigger pressure, and button mappings for Xbox/PlayStation/Switch controllers.
+- `/convert/hardware/video-call-readiness` — Automated pre-call diagnostic checking microphone, camera, speaker, and internet latency in one click.
+
+---
+
+## 11. Embeddable Widget Integration
+
+Any website, educational portal, or real estate blog can embed ApexTools converters for free.
+
+### Iframe Embed Code Template:
+```html
+<!-- ApexTools Responsive Widget -->
+<iframe
+  src="https://apextools.app/embed/{tool-slug}"
+  width="100%"
+  height="480"
+  style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;"
+  loading="lazy"
+  title="ApexTools Converter Widget"
+></iframe>
+<p style="font-size: 11px; color: #64748b; margin-top: 4px; text-align: right;">
+  Powered by <a href="https://apextools.app/convert/{category-slug}/{tool-slug}" target="_blank" rel="noopener">ApexTools</a>
+</p>
+```
+
+---
+
+## 12. Contact & Governance
+- **Website**: https://apextools.app
+- **Author & Publisher**: Lapvy Enterprises
+- **Twitter / X**: @ApexToolsApp (https://twitter.com/ApexToolsApp)
+- **GitHub**: https://github.com/apextools
+- **Robots Policy**: Full crawler and AI Engine access granted (Googlebot, Bingbot, GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Anthropic-ai, Applebot).

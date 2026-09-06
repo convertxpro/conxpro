@@ -103,6 +103,15 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         financialProduct={financialProduct}
         speakableSelectors={['h1', '.seo-speakable-summary', '.faq-answer']}
         definedTerms={definedTerms}
+        dataset={
+          conversionTable
+            ? {
+                name: `${toolName} Reference Conversion Dataset`,
+                description: `${conversionTable.title} — Verified lookup table and conversion factors for ${toolName}.`,
+                keywords: [toolName, category, 'conversion table', 'reference matrix'],
+              }
+            : undefined
+        }
       />
 
       {/* 1. Header Banner Ad (Reserved 728x90) */}

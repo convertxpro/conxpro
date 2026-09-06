@@ -18,6 +18,7 @@ export interface AdPlacementConfig {
   enabled: boolean;
   format: 'banner' | 'rectangle' | 'native';
   description: string;
+  slotId?: string;
 }
 
 export const AD_PLACEMENTS: Record<AdPlacementKey, AdPlacementConfig> = {

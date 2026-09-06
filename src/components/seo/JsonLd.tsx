@@ -29,6 +29,13 @@ export interface ItemListData {
   items: { name: string; url: string }[];
 }
 
+export interface DatasetSchemaData {
+  name: string;
+  description: string;
+  license?: string;
+  keywords?: string[];
+}
+
 export interface JsonLdProps {
   toolName?: string;
   url: string;
@@ -51,6 +58,8 @@ export interface JsonLdProps {
   definedTerms?: DefinedTermData[];
   /** ItemList schema for category hub pages */
   itemList?: ItemListData;
+  /** Dataset schema for tabular conversion matrixes & benchmarks (GEO) */
+  dataset?: DatasetSchemaData;
 }
 
 export const JsonLd: React.FC<JsonLdProps> = ({
@@ -66,6 +75,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
   speakableSelectors,
   definedTerms = [],
   itemList,
+  dataset,
 }) => {
   const schemaList: Record<string, any>[] = [];
 
@@ -259,6 +269,24 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         name: item.name,
         url: item.url,
       })),
+    });
+  }
+
+  // 8. Dataset Schema (Tabular Conversion Reference Data — GEO)
+  if (dataset) {
+    schemaList.push({
+      '@context': 'https://schema.org',
+      '@type': 'Dataset',
+      name: dataset.name,
+      description: dataset.description,
+      url,
+      license: dataset.license || 'https://creativecommons.org/publicdomain/zero/1.0/',
+      keywords: dataset.keywords || ['unit conversion', 'reference matrix', 'open data'],
+      creator: {
+        '@type': 'Organization',
+        name: siteConfig.name,
+        url: siteConfig.url,
+      },
     });
   }
 
