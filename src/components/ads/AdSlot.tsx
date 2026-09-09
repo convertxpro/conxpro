@@ -63,10 +63,14 @@ export const AdSlot: React.FC<AdSlotProps> = ({
 
   if (!config || !config.enabled) return null;
 
+  const maxWidthClass =
+    config.format === 'rectangle' ? 'max-w-[340px]' : 'max-w-[760px]';
+
   return (
     <div
       className={cn(
-        'ad-slot-reserved my-6 flex w-full flex-col items-center justify-center overflow-hidden rounded-2xl border border-dashed border-slate-200/80 bg-slate-50/50 p-2 text-center transition-all dark:border-slate-800/80 dark:bg-slate-900/40',
+        'ad-slot-reserved my-6 mx-auto flex w-full flex-col items-center justify-center rounded-2xl border border-dashed border-slate-200/80 bg-slate-50/50 p-2.5 text-center transition-all dark:border-slate-800/80 dark:bg-slate-900/40',
+        maxWidthClass,
         config.hideOnMobile && 'hidden md:flex',
         className
       )}
@@ -81,7 +85,7 @@ export const AdSlot: React.FC<AdSlotProps> = ({
 
       {isAdsterraActive && adsterraKey ? (
         /* 1. Adsterra Sandboxed Iframe Banner */
-        <div className="flex h-full w-full items-center justify-center overflow-hidden">
+        <div className="flex w-full items-center justify-center">
           <AdsterraBanner
             adKey={adsterraKey}
             width={config.width}
