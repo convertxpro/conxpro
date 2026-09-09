@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { AdPlacementKey, AD_PLACEMENTS } from './ad-config';
+import { AdPlacementKey, AD_PLACEMENTS, getAdsterraKeyForPlacement } from './ad-config';
+import { AdsterraBanner } from './AdsterraBanner';
 
 declare global {
   interface Window {
@@ -12,37 +13,55 @@ declare global {
 
 export interface AdSlotProps {
   placement: AdPlacementKey;
-  slotId?: string;
+  slotId?: string; // AdSense slot ID override
+  adsterraKey?: string; // Adsterra unit key override
   className?: string;
 }
 
-export const AdSlot: React.FC<AdSlotProps> = ({ placement, slotId, className }) => {
+export const AdSlot: React.FC<AdSlotProps> = ({
+  placement,
+  slotId,
+  adsterraKey: propAdsterraKey,
+  className,
+}) => {
   const config = AD_PLACEMENTS[placement];
+  const networkPreference = process.env.NEXT_PUBLIC_AD_NETWORK?.toLowerCase();
+
+  // Adsterra Configuration
+  const adsterraKey = getAdsterraKeyForPlacement(placement, propAdsterraKey);
+  const isAdsterraActive = Boolean(
+    adsterraKey &&
+    (networkPreference === 'adsterra' || !networkPreference || networkPreference === 'all')
+  );
+
+  // AdSense Configuration
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-9256656578273481';
-  const isConfigured = Boolean(
+  const targetSlotId = slotId || config?.slotId;
+  const isAdSenseConfigured = Boolean(
     clientId &&
-    !clientId.includes('XXXX')
+    !clientId.includes('XXXX') &&
+    targetSlotId &&
+    (networkPreference === 'adsense' || !networkPreference)
   );
 
   const adRef = useRef<HTMLModElement>(null);
-  const [adLoaded, setAdLoaded] = useState(false);
+  const [adSenseLoaded, setAdSenseLoaded] = useState(false);
 
   useEffect(() => {
-    if (!isConfigured || !adRef.current || adLoaded) return;
+    // Only trigger adsbygoogle push if AdSense is the chosen active network for this slot
+    if (isAdsterraActive || !isAdSenseConfigured || !adRef.current || adSenseLoaded) return;
 
     try {
       if (typeof window !== 'undefined') {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
-        setAdLoaded(true);
+        setAdSenseLoaded(true);
       }
     } catch (e) {
       console.warn('AdSense ad push warning:', e);
     }
-  }, [isConfigured, adLoaded]);
+  }, [isAdsterraActive, isAdSenseConfigured, adSenseLoaded]);
 
   if (!config || !config.enabled) return null;
-
-  const targetSlotId = slotId || config.slotId;
 
   return (
     <div
@@ -55,12 +74,22 @@ export const AdSlot: React.FC<AdSlotProps> = ({ placement, slotId, className }) 
       data-ad-slot={placement}
       data-testid={`ad-slot-${placement}`}
     >
-      {/* Strict compliance label per Google AdSense policies */}
+      {/* Strict compliance label */}
       <span className="mb-1 select-none text-[10px] font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500">
         Advertisement
       </span>
 
-      {isConfigured && targetSlotId ? (
+      {isAdsterraActive && adsterraKey ? (
+        /* 1. Adsterra Sandboxed Iframe Banner */
+        <div className="flex h-full w-full items-center justify-center overflow-hidden">
+          <AdsterraBanner
+            adKey={adsterraKey}
+            width={config.width}
+            height={config.height}
+          />
+        </div>
+      ) : isAdSenseConfigured ? (
+        /* 2. Google AdSense Responsive Unit */
         <div className="flex h-full w-full items-center justify-center overflow-hidden">
           <ins
             ref={adRef}
@@ -72,12 +101,18 @@ export const AdSlot: React.FC<AdSlotProps> = ({ placement, slotId, className }) 
             }}
             data-ad-client={clientId}
             data-ad-slot={targetSlotId}
-            data-ad-format={config.format === 'banner' ? 'horizontal' : config.format === 'rectangle' ? 'rectangle' : 'auto'}
+            data-ad-format={
+              config.format === 'banner'
+                ? 'horizontal'
+                : config.format === 'rectangle'
+                ? 'rectangle'
+                : 'auto'
+            }
             data-full-width-responsive="true"
           />
         </div>
       ) : (
-        /* Development, Testing & Fallback Layout (CLS Reserved) */
+        /* 3. Development, Staging & Fallback Layout (CLS Reserved) */
         <div className="flex h-full w-full items-center justify-center">
           <div
             className="flex flex-col items-center justify-center rounded-lg border border-slate-200/90 bg-white/80 p-3 text-slate-400 shadow-sm backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/70 dark:text-slate-500"
@@ -100,3 +135,4 @@ export const AdSlot: React.FC<AdSlotProps> = ({ placement, slotId, className }) 
     </div>
   );
 };
+

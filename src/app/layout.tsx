@@ -8,6 +8,7 @@ import { QuotaLimitModal } from '@/components/common/QuotaLimitModal';
 import { Navbar } from '@/components/common/Navbar';
 import { Footer } from '@/components/common/Footer';
 import { AdSenseScript } from '@/components/ads/AdSenseScript';
+import { AdsterraGlobal } from '@/components/ads/AdsterraGlobal';
 import { ConsentBanner } from '@/components/common/ConsentBanner';
 import { PwaInstallPrompt } from '@/components/common/PwaInstallPrompt';
 import { siteConfig } from '@/config/site';
@@ -120,6 +121,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable} ${notoUrdu.variable}`}>
       <head>
         <AdSenseScript />
+        <AdsterraGlobal />
         {/* Organization Global JSON-LD Schema */}
         <script
           type="application/ld+json"
