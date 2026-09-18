@@ -1,3 +1,4 @@
+// ApexTools Enterprise Web Platform - v1.1.0 Production Release
 import type { Metadata, Viewport } from 'next';
 import { Inter, Outfit, Noto_Nastaliq_Urdu } from 'next/font/google';
 import './globals.css';
