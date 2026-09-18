@@ -1,5 +1,5 @@
 // ApexTools.app Offline-Ready Progressive Web App Service Worker
-const CACHE_NAME = 'apextools-pwa-v1';
+const CACHE_NAME = 'apextools-pwa-v2';
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
