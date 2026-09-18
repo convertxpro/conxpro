@@ -215,3 +215,139 @@ export function generateGuideMetadata({
     },
   };
 }
+
+export interface BlogPostSeoProps {
+  title: string;
+  description: string;
+  slug: string;
+  publishedTime: string;
+  modifiedTime?: string;
+  authorName?: string;
+  category?: string;
+  tags?: string[];
+  keywords?: string[];
+}
+
+export function generateBlogPostMetadata({
+  title,
+  description,
+  slug,
+  publishedTime,
+  modifiedTime,
+  authorName = siteConfig.author,
+  category = 'Technology',
+  tags = [],
+  keywords = [],
+}: BlogPostSeoProps): Metadata {
+  const fullTitle = `${title} | ${siteConfig.name} Blog`;
+  const url = `${siteConfig.url}/blog/${slug}`;
+  const ogImageUrl = `${siteConfig.url}/og?title=${encodeURIComponent(title)}&category=${encodeURIComponent(category)}`;
+
+  const mergedKeywords = Array.from(
+    new Set([
+      ...tags,
+      ...keywords,
+      category.toLowerCase(),
+      'blog',
+      'tech guide',
+      'file conversion tutorial',
+      'web performance',
+      siteConfig.name,
+    ])
+  );
+
+  return {
+    title: fullTitle,
+    description,
+    keywords: mergedKeywords,
+    alternates: {
+      canonical: url,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    openGraph: {
+      type: 'article',
+      url,
+      title: fullTitle,
+      description,
+      publishedTime,
+      modifiedTime: modifiedTime || publishedTime,
+      authors: [authorName],
+      section: category,
+      tags,
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: fullTitle,
+      description,
+      images: [ogImageUrl],
+      creator: '@ApexToolsApp',
+    },
+  };
+}
+
+export function generateBlogIndexMetadata(): Metadata {
+  const title = `Tech, Productivity & Format Optimization Blog | ${siteConfig.name}`;
+  const description =
+    'Practical, engineering-grade articles on image compression, PDF optimization, audio bitrates, and privacy-first web utilities from the ApexTools technical team.';
+  const url = `${siteConfig.url}/blog`;
+  const ogImageUrl = `${siteConfig.url}/og?title=${encodeURIComponent('ApexTools Engineering & Productivity Blog')}&category=${encodeURIComponent('Official Blog')}`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      'file converter blog',
+      'image optimization tips',
+      'pdf compression guide',
+      'audio bitrates explained',
+      'webp vs png vs jpg',
+      'client-side privacy',
+      'web tools blog',
+      siteConfig.name,
+    ],
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      type: 'website',
+      url,
+      title,
+      description,
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImageUrl],
+    },
+  };
+}
+

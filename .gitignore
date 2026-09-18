@@ -37,3 +37,7 @@ next-env.d.ts
 # scratch & test scripts
 /scratch/
 
+# GitHub workflows (requires workflow scope on PAT)
+.github/workflows/
+
+

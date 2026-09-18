@@ -41,6 +41,11 @@ export const siteConfig = {
     'volume booster 300%',
     'wav to mp3 320kbps',
     'mp3 to wav lossless',
+    'webp vs png vs jpg',
+    'compress pdf under 1mb',
+    'free ocr extract text',
+    'client-side file converter',
+    'file converter blog',
   ],
   navItems: [
     { label: 'Documents', href: '/convert/document' },
@@ -51,6 +56,7 @@ export const siteConfig = {
     { label: 'Currency', href: '/convert/currency' },
     { label: 'Developer & Data', href: '/convert/developer' },
     { label: 'Hardware Tests', href: '/convert/hardware' },
+    { label: 'Blog', href: '/blog' },
   ],
 };
 

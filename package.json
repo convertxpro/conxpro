@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "worker": "tsx src/workers/start-worker.ts"
+    "worker": "npx tsx src/workers/start-worker.ts",
+    "seo:ping": "npx tsx scripts/ping-search-engines.ts",
+    "content:generate": "npx tsx scripts/generate-automated-guide.ts",
+    "growth:social": "npx tsx scripts/generate-social-assets.ts"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

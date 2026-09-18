@@ -1,11 +1,21 @@
 import { NextResponse } from 'next/server';
 import { GUIDES } from '@/lib/guides/guides';
+import { getAllBlogPosts } from '@/lib/blog/posts';
 import { ALL_TOOLS } from '@/config/categories';
 import { siteConfig } from '@/config/site';
 
 export async function GET() {
   const feedItems = [
-    // 1. Guides & Knowledge Base Articles
+    // 1. Engineering & Format Optimization Blog Posts
+    ...getAllBlogPosts().map((post) => ({
+      title: post.title,
+      link: `${siteConfig.url}/blog/${post.slug}`,
+      description: post.shortDescription,
+      pubDate: new Date(post.publishedDate).toUTCString(),
+      guid: `${siteConfig.url}/blog/${post.slug}`,
+      category: post.category,
+    })),
+    // 2. Educational Measurement Guides
     ...GUIDES.map((guide) => ({
       title: guide.title,
       link: `${siteConfig.url}/guides/${guide.slug}`,
@@ -14,7 +24,7 @@ export async function GET() {
       guid: `${siteConfig.url}/guides/${guide.slug}`,
       category: guide.category,
     })),
-    // 2. Popular & Featured Tools
+    // 3. Popular & Featured Tools
     ...ALL_TOOLS.filter((t) => t.popular).map((tool) => ({
       title: `${tool.name} — Free Online Converter`,
       link: `${siteConfig.url}/convert/${tool.categorySlug}/${tool.slug}`,

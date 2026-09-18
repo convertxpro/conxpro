@@ -147,8 +147,16 @@ export const Footer: React.FC = () => {
             <ul className="mt-3 space-y-2 text-xs">
               <li>
                 <Link
-                  href="/guides"
+                  href="/blog"
                   className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 font-medium text-indigo-600 dark:text-indigo-400"
+                >
+                  Tech & Format Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/guides"
+                  className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
                 >
                   Educational Guides
                 </Link>
