@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { CATEGORIES } from '@/config/categories';
 import { siteConfig } from '@/config/site';
 import { Shield, Zap, Lock, Globe, Heart } from 'lucide-react';
@@ -13,11 +14,14 @@ export const Footer: React.FC = () => {
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2.5">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 via-purple-600 to-emerald-500 p-[1px] shadow-sm">
-                <div className="flex h-full w-full items-center justify-center rounded-[7px] bg-slate-950 text-white font-black text-xs">
-                  <svg className="h-4 w-4 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2L2 19h20L12 2z" />
-                    <path d="M12 9l-4 7h8l-4-7z" fill="currentColor" fillOpacity="0.3" />
-                  </svg>
+                <div className="flex h-full w-full items-center justify-center rounded-[7px] bg-white/95 dark:bg-slate-950 overflow-hidden p-0.5">
+                  <Image
+                    src="/logo-128.png"
+                    alt="ApexTools Logo"
+                    width={28}
+                    height={28}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
               </div>
               <span className="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">

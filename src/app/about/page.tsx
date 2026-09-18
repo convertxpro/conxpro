@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -36,18 +37,32 @@ export default function AboutPage() {
 
       <Breadcrumbs items={breadcrumbs} />
 
-      <header className="my-8">
-        <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50/80 px-3.5 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-900/60 dark:bg-indigo-950/40 dark:text-indigo-300">
-          <Globe className="h-3.5 w-3.5" />
-          <span>Our Mission & Architecture</span>
+      <header className="my-8 flex flex-col sm:flex-row sm:items-center gap-6">
+        <div className="relative flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-3xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-emerald-500 p-1 shadow-lg shadow-indigo-500/25">
+          <div className="flex h-full w-full items-center justify-center rounded-[20px] bg-white dark:bg-slate-950 p-2 overflow-hidden">
+            <Image
+              src="/logo-256.png"
+              alt="ApexTools Official Logo"
+              width={72}
+              height={72}
+              className="h-full w-full object-contain"
+              priority
+            />
+          </div>
         </div>
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50/80 px-3.5 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-900/60 dark:bg-indigo-950/40 dark:text-indigo-300">
+            <Globe className="h-3.5 w-3.5" />
+            <span>Our Mission & Architecture</span>
+          </div>
 
-        <h1 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white">
-          About ApexTools.app
-        </h1>
-        <p className="mt-3 text-base text-slate-600 sm:text-lg dark:text-slate-400 leading-relaxed">
-          ApexTools was engineered with a single guiding mission: to make everyday digital conversions and device diagnostics fast, accurate, and completely private without bloated paywalls, intrusive pop-ups, or compulsory account registrations.
-        </p>
+          <h1 className="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+            About ApexTools.app
+          </h1>
+          <p className="mt-2 text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            ApexTools was engineered with a single guiding mission: to make everyday digital conversions and device diagnostics fast, accurate, and completely private without bloated paywalls, intrusive pop-ups, or compulsory account registrations.
+          </p>
+        </div>
       </header>
 
       {/* Core Pillars */}

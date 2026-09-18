@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import {
   LayoutDashboard,
@@ -74,8 +75,14 @@ export default function AdminLayout({
           <div className="space-y-6">
             {/* Branding */}
             <div className="flex items-center gap-2.5 px-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 shadow-md shadow-indigo-500/30">
-                <Zap className="h-5 w-5 text-white" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white p-0.5 shadow-md shadow-indigo-500/20 overflow-hidden">
+                <Image
+                  src="/logo-white-bg-128.png"
+                  alt="ApexTools Logo"
+                  width={32}
+                  height={32}
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div>
                 <span className="text-sm font-bold tracking-tight text-white">ApexTools</span>

@@ -110,6 +110,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         '@type': 'Organization',
         name: siteConfig.name,
         url: siteConfig.url,
+        logo: `${siteConfig.url}/logo.png`,
       },
     });
   }
@@ -323,12 +324,14 @@ export function generateWebPageSchema(title: string, url: string, description: s
       '@type': 'Organization',
       name: siteConfig.name,
       url: siteConfig.url,
+      logo: `${siteConfig.url}/logo.png`,
     },
   };
 }
 
 export function generateSoftwareApplicationSchema(params: {
-  toolName: string;
+  toolName?: string;
+  name?: string;
   url: string;
   description: string;
   category?: string;
@@ -336,7 +339,7 @@ export function generateSoftwareApplicationSchema(params: {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: params.toolName,
+    name: params.toolName || params.name || '',
     url: params.url,
     description: params.description,
     applicationCategory: params.category || 'UtilitiesApplication',
@@ -351,6 +354,7 @@ export function generateSoftwareApplicationSchema(params: {
       '@type': 'Organization',
       name: siteConfig.name,
       url: siteConfig.url,
+      logo: `${siteConfig.url}/logo.png`,
     },
   };
 }

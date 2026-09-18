@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import {
   Search,
@@ -12,7 +13,6 @@ import {
   ChevronDown,
   Layers,
   FileText,
-  Image,
   DollarSign,
   Ruler,
   Code,
@@ -84,11 +84,15 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-6">
             <Link href="/" className="group flex items-center gap-2.5">
               <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-emerald-500 p-0.5 shadow-[0_0_20px_-5px_rgba(99,102,241,0.5)] transition-transform duration-300 group-hover:scale-105">
-                <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-slate-950/90 backdrop-blur-md text-white font-black">
-                  <svg className="h-5 w-5 text-indigo-400 group-hover:text-emerald-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2L2 19h20L12 2z" />
-                    <path d="M12 9l-4 7h8l-4-7z" fill="currentColor" fillOpacity="0.3" />
-                  </svg>
+                <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-white/95 dark:bg-slate-950/90 backdrop-blur-md overflow-hidden p-1">
+                  <Image
+                    src="/logo-128.png"
+                    alt="ApexTools Logo"
+                    width={36}
+                    height={36}
+                    className="h-full w-full object-contain"
+                    priority
+                  />
                 </div>
               </div>
               <div className="flex flex-col">
