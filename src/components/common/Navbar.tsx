@@ -12,6 +12,7 @@ import {
   ArrowUpRight,
   ChevronDown,
   Layers,
+  LayoutGrid,
   FileText,
   DollarSign,
   Ruler,
@@ -115,8 +116,8 @@ export const Navbar: React.FC = () => {
                   onMouseEnter={() => setIsCategoryDropdownOpen(true)}
                   className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
-                  <Layers className="h-4 w-4 text-indigo-500" />
-                  <span>All Tools</span>
+                  <LayoutGrid className="h-4 w-4 text-indigo-500" />
+                  <span>Categories</span>
                   <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", isCategoryDropdownOpen && "rotate-180")} />
                 </button>
 
