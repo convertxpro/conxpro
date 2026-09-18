@@ -1,43 +1,49 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { ALL_TOOLS, getToolBySlug } from '@/config/categories';
+import { ALL_TOOLS } from '@/config/categories';
 import { getToolSeoData } from '@/config/tool-seo-registry';
 import { generateToolMetadataFromData } from '@/lib/seo/metadata';
 import { ToolLayout } from '@/components/layout/ToolLayout';
 import { ConverterCanvas } from '@/components/converters/ConverterCanvas';
+import { siteConfig } from '@/config/site';
 
-interface ToolPageProps {
+interface DirectToolPageProps {
   params: {
-    category: string;
-    tool: string;
+    slug: string;
   };
 }
 
 export async function generateStaticParams() {
   return ALL_TOOLS.map((tool) => ({
-    category: tool.categorySlug,
-    tool: tool.slug,
+    slug: tool.slug,
   }));
 }
 
-export async function generateMetadata({ params }: ToolPageProps): Promise<Metadata> {
-  const tool = getToolBySlug(params.category, params.tool);
+export async function generateMetadata({ params }: DirectToolPageProps): Promise<Metadata> {
+  const tool = ALL_TOOLS.find((t) => t.slug === params.slug);
   if (!tool) return {};
 
   const seoData = getToolSeoData(tool);
-  return generateToolMetadataFromData(seoData);
+  const metadata = generateToolMetadataFromData(seoData);
+
+  // Set canonical URL to primary route to prevent duplicate content indexing
+  return {
+    ...metadata,
+    alternates: {
+      canonical: `${siteConfig.url}/convert/${tool.categorySlug}/${tool.slug}`,
+    },
+  };
 }
 
-export default function ToolPage({ params }: ToolPageProps) {
-  const tool = getToolBySlug(params.category, params.tool);
+export default function DirectToolPage({ params }: DirectToolPageProps) {
+  const tool = ALL_TOOLS.find((t) => t.slug === params.slug);
   if (!tool) {
     notFound();
   }
 
   const seoData = getToolSeoData(tool);
 
-  // Schema financial product if currency tool
   const isCurrency =
     tool.categorySlug === 'currency' ||
     tool.slug.includes('-to-pkr') ||

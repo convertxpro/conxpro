@@ -147,6 +147,30 @@ export const Footer: React.FC = () => {
             <ul className="mt-3 space-y-2 text-xs">
               <li>
                 <Link
+                  href="/tools"
+                  className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 font-medium"
+                >
+                  All Tools Directory
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+                >
+                  About ApexTools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-we-calculate"
+                  className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+                >
+                  How We Calculate
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog"
                   className="text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 font-medium text-indigo-600 dark:text-indigo-400"
                 >

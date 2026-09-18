@@ -35,6 +35,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteConfig.url}/tools`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
+      url: `${siteConfig.url}/about`,
+      lastModified: new Date('2026-09-18'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${siteConfig.url}/how-we-calculate`,
+      lastModified: new Date('2026-09-18'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${siteConfig.url}/privacy`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
@@ -71,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 3. Programmatic Tool Pages (e.g. /convert/document/pdf-to-word)
   const toolRoutes: MetadataRoute.Sitemap = ALL_TOOLS.map((tool) => ({
     url: `${siteConfig.url}/convert/${tool.categorySlug}/${tool.slug}`,
-    lastModified: currentDate,
+    lastModified: new Date(tool.lastUpdated || '2026-09-18'),
     changeFrequency: 'weekly',
     priority: tool.popular ? 0.95 : 0.85,
   }));

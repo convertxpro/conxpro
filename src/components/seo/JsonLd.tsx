@@ -111,13 +111,6 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         name: siteConfig.name,
         url: siteConfig.url,
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        ratingCount: '1250',
-        bestRating: '5',
-        worstRating: '1',
-      },
     });
   }
 
@@ -302,4 +295,108 @@ export const JsonLd: React.FC<JsonLdProps> = ({
     </>
   );
 };
+
+// Reusable JSON-LD Schema Generators (Section 12 of seo.md)
+export function generateWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteConfig.url}/tools?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  };
+}
+
+export function generateWebPageSchema(title: string, url: string, description: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    url,
+    description,
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  };
+}
+
+export function generateSoftwareApplicationSchema(params: {
+  toolName: string;
+  url: string;
+  description: string;
+  category?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: params.toolName,
+    url: params.url,
+    description: params.description,
+    applicationCategory: params.category || 'UtilitiesApplication',
+    operatingSystem: 'Web Browser',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+    },
+    creator: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  };
+}
+
+export function generateBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function generateFAQSchema(faqs: FaqItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+export function generateHowToSchema(toolName: string, url: string, steps: HowToStep[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to Convert with ${toolName}`,
+    description: `Step-by-step instructions on converting with ${toolName} on ${siteConfig.name}.`,
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.title,
+      text: step.description,
+      url: `${url}#step-${index + 1}`,
+    })),
+  };
+}
+
 

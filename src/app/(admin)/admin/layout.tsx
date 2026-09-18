@@ -13,6 +13,7 @@ import {
   Zap,
   Activity,
   Server,
+  SearchCheck,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -29,6 +30,12 @@ export default function AdminLayout({
       href: '/admin',
       icon: LayoutDashboard,
       active: pathname === '/admin',
+    },
+    {
+      name: 'SEO & AEO Console',
+      href: '/admin/seo',
+      icon: SearchCheck,
+      active: pathname.startsWith('/admin/seo'),
     },
     {
       name: 'Ad Placement Console',

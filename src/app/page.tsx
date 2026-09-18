@@ -5,6 +5,9 @@ import { CategoryBento } from '@/components/layout/CategoryBento';
 import { HeroIllustration } from '@/components/layout/HeroIllustration';
 import { TrustBadges } from '@/components/common/TrustBadges';
 import { AdSlot } from '@/components/ads/AdSlot';
+import { FAQAccordion } from '@/components/layout/FAQAccordion';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {
@@ -14,6 +17,13 @@ export default function HomePage() {
       <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/15 via-purple-500/10 to-emerald-500/15 blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Schema.org FAQPage for Homepage AEO Rich Results */}
+        <JsonLd
+          url={siteConfig.url}
+          description={siteConfig.description}
+          faqs={HOMEPAGE_FAQS}
+        />
+
         {/* 1. Header Banner Ad */}
         <AdSlot placement="header_leaderboard" />
 
@@ -142,9 +152,48 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 8. Bottom Footer Banner Ad */}
+        {/* 8. Homepage SEO & AEO FAQ Section */}
+        <section role="region" aria-label="Frequently Asked Questions" className="my-16">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+              Frequently Asked Questions
+            </h2>
+            <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              Everything you need to know about our free conversion engine, supported formats, and privacy architecture.
+            </p>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <FAQAccordion items={HOMEPAGE_FAQS} />
+          </div>
+        </section>
+
+        {/* 9. Bottom Footer Banner Ad */}
         <AdSlot placement="footer_banner" />
       </div>
     </div>
   );
 }
+
+const HOMEPAGE_FAQS = [
+  {
+    question: 'What is ApexTools.app and what can I convert?',
+    answer:
+      'ApexTools.app is a free, high-performance online utility suite offering 150+ conversion tools across documents (PDF, Word, Excel), images (HEIC, PNG, JPG, WebP), video & audio transcoding, physical measurement units (length, weight, temperature, land area), live forex currencies, and developer data formats (JSON, YAML, SQL, Base64).',
+  },
+  {
+    question: 'Are all converters on ApexTools completely free to use?',
+    answer:
+      'Yes. All utilities on ApexTools are 100% free with no subscription, no credit card requirement, no software installation, and no watermarks on converted files.',
+  },
+  {
+    question: 'How does ApexTools protect my privacy and files?',
+    answer:
+      'We follow a strict privacy-first architecture. Client-side tools (unit, code, and developer converters) run entirely in your local browser memory. For server-assisted file conversions, files are encrypted during transit, processed in isolated worker environments, and automatically deleted within 1 hour.',
+  },
+  {
+    question: 'Do these converters work on smartphones and tablets?',
+    answer:
+      'Yes. All tools on ApexTools are fully responsive and touch-optimized for Apple iPhone, iPad, Android devices, Chromebooks, and desktop browsers.',
+  },
+];
+

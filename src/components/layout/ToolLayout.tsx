@@ -30,6 +30,7 @@ export interface ToolLayoutProps {
     title: string;
     expression: string;
     example: string;
+    inverseExpression?: string;
   };
   conversionTable?: {
     title: string;
@@ -54,6 +55,7 @@ export interface ToolLayoutProps {
   dap?: string;
   /** DefinedTerm schemas for unit/format knowledge graph entries */
   definedTerms?: DefinedTermData[];
+  lastUpdated?: string;
 }
 
 export const ToolLayout: React.FC<ToolLayoutProps> = ({
@@ -73,6 +75,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   financialProduct,
   dap,
   definedTerms = [],
+  lastUpdated,
 }) => {
   const currentUrl = `${siteConfig.url}/convert/${categorySlug}/${slug}`;
   const breadcrumbItems = [
@@ -156,9 +159,15 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
         {/* AEO: Direct-Answer Paragraph for AI snippet extraction */}
         {dap && (
-          <p className="seo-speakable-summary mt-4 text-sm leading-relaxed text-slate-700 dark:text-slate-300 max-w-3xl border-l-4 border-indigo-400 pl-4 bg-indigo-50/40 dark:bg-indigo-950/20 py-2 rounded-r-lg">
-            {dap}
-          </p>
+          <div className="mt-5 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-4 sm:p-5 dark:border-indigo-900/40 dark:bg-indigo-950/30 max-w-3xl shadow-xs text-left">
+            <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 dark:text-indigo-400 mb-1.5 uppercase tracking-wider">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Direct Answer (Quick Result)</span>
+            </div>
+            <p className="seo-speakable-summary text-sm leading-relaxed text-slate-800 dark:text-slate-200">
+              {dap}
+            </p>
+          </div>
         )}
 
         <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
@@ -168,6 +177,15 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           <span className="inline-flex items-center gap-1.5">
             <Shield className="h-4 w-4 text-emerald-500" /> Private & Auto-Purged
           </span>
+          {lastUpdated && (
+            <span className="inline-flex items-center gap-1.5 text-slate-400 dark:text-slate-500">
+              <span>•</span>
+              <span>Updated:</span>
+              <time dateTime={lastUpdated} className="font-medium text-slate-600 dark:text-slate-300">
+                {lastUpdated}
+              </time>
+            </span>
+          )}
         </div>
       </header>
 
@@ -221,6 +239,12 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
             <span className="font-semibold text-slate-900 dark:text-white">Calculation Example:</span>{' '}
             {formula.example}
           </div>
+          {formula.inverseExpression && (
+            <div className="mt-3 rounded-xl border border-slate-200/60 bg-white/60 p-3.5 text-xs text-slate-700 dark:border-slate-800 dark:bg-slate-900/40 dark:text-slate-300">
+              <span className="font-semibold text-indigo-600 dark:text-indigo-400 mr-2">Reverse Formula:</span>
+              <code className="font-mono text-emerald-600 dark:text-emerald-400">{formula.inverseExpression}</code>
+            </div>
+          )}
         </section>
       )}
 

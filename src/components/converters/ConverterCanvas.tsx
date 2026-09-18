@@ -328,7 +328,7 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
   }
 
   // Generic fallback if tool slug matches standalone
-  if (tool.slug === 'image-to-text-ocr' || tool.slug === 'scanned-pdf-to-text') {
+  if (tool.slug === 'image-to-text-ocr' || tool.slug === 'ocr-scanner' || tool.slug === 'scanned-pdf-to-text') {
     return <ImageOcrComponent tool={tool} />;
   }
   if (tool.slug === 'remove-background') {
@@ -343,7 +343,7 @@ export const ConverterCanvas: React.FC<ConverterCanvasProps> = ({ tool }) => {
   if (tool.slug === 'svg-optimizer') {
     return <SvgOptimizerComponent tool={tool} />;
   }
-  if (tool.slug === 'color-palette-generator') {
+  if (tool.slug === 'color-palette-generator' || tool.slug === 'image-color-palette-extractor') {
     return <ImagePaletteComponent tool={tool} />;
   }
   if (tool.slug === 'image-blur-redact') {

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
+import type { ToolSeoData } from '@/config/tool-seo-registry';
 
 export interface ToolSeoProps {
   toolName?: string;
@@ -98,6 +99,18 @@ export function generateToolMetadata({
       creator: '@ApexToolsApp',
     },
   };
+}
+
+export function generateToolMetadataFromData(seoData: ToolSeoData): Metadata {
+  return generateToolMetadata({
+    toolName: seoData.name,
+    category: seoData.categoryName,
+    categorySlug: seoData.categorySlug,
+    slug: seoData.slug,
+    customTitle: seoData.seoTitle,
+    customDescription: seoData.metaDescription,
+    keywords: seoData.keywords,
+  });
 }
 
 export interface CategorySeoProps {
