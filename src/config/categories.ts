@@ -1717,7 +1717,18 @@ export function getToolBySlug(categorySlug: string, slug: string): ToolMetadata 
     );
   }
 
-  // 4. Fallback match by slug alone if category is close
+  // 4. Unit / Length / Weight aliases match
+  if (categorySlug === 'length' || categorySlug === 'distance' || slug === 'meters-to-feet' || slug === 'feet-to-meters') {
+    return ALL_TOOLS.find((t) => t.slug === 'length-converter');
+  }
+  if (categorySlug === 'weight' || categorySlug === 'mass' || slug === 'kg-to-lbs' || slug === 'lbs-to-kg') {
+    return ALL_TOOLS.find((t) => t.slug === 'weight-converter');
+  }
+  if (categorySlug === 'temperature' || slug === 'celsius-to-fahrenheit' || slug === 'fahrenheit-to-celsius') {
+    return ALL_TOOLS.find((t) => t.slug === 'temperature-converter');
+  }
+
+  // 5. Fallback match by slug alone if category is close
   return ALL_TOOLS.find((t) => t.slug === slug);
 }
 
@@ -1733,6 +1744,11 @@ export function getCategoryBySlug(slug: string): CategoryMetadata | undefined {
   // Hardware aliases fallback
   if (slug === 'device' || slug === 'tester' || slug === 'testers' || slug === 'hardware-test') {
     return CATEGORIES.find((c) => c.slug === 'hardware');
+  }
+
+  // Unit sub-category aliases fallback
+  if (slug === 'length' || slug === 'distance' || slug === 'weight' || slug === 'temperature') {
+    return CATEGORIES.find((c) => c.slug === 'unit');
   }
 
   return undefined;

@@ -85,6 +85,45 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/convert/length/:slug*',
+        destination: '/convert/unit/length-converter',
+        permanent: true,
+      },
+      {
+        source: '/convert/weight/:slug*',
+        destination: '/convert/unit/weight-converter',
+        permanent: true,
+      },
+      {
+        source: '/convert/temperature/:slug*',
+        destination: '/convert/unit/temperature-converter',
+        permanent: true,
+      },
+      {
+        source: '/convert/unit/meters-to-feet',
+        destination: '/convert/unit/length-converter',
+        permanent: true,
+      },
+      {
+        source: '/convert/unit/feet-to-meters',
+        destination: '/convert/unit/length-converter',
+        permanent: true,
+      },
+      {
+        source: '/convert/unit/kg-to-lbs',
+        destination: '/convert/unit/weight-converter',
+        permanent: true,
+      },
+      {
+        source: '/convert/unit/lbs-to-kg',
+        destination: '/convert/unit/weight-converter',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

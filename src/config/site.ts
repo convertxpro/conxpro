@@ -1,9 +1,15 @@
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const isLegacyVercelUrl = rawSiteUrl && (rawSiteUrl.includes('conxpro') || rawSiteUrl.includes('vercel.app'));
+const resolvedSiteUrl = (!rawSiteUrl || isLegacyVercelUrl)
+  ? 'https://apextools.app'
+  : rawSiteUrl.replace(/\/$/, '');
+
 export const siteConfig = {
   name: 'ApexTools',
   shortName: 'ApexTools.app',
   description: 'Fast, free, and secure online file, unit, data, currency, audio, video, and hardware utility tools with zero friction and privacy-first auto-purge.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://apextools.app',
-  ogImage: 'https://apextools.app/og',
+  url: resolvedSiteUrl,
+  ogImage: `${resolvedSiteUrl}/og`,
   links: {
     twitter: 'https://twitter.com/ApexToolsApp',
     github: 'https://github.com/apextools',
